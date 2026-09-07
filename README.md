@@ -80,4 +80,32 @@ uptime
 ```bash
 cd ../
 ```
-   
+* `mv` - to move files and folders from one directory to another in linux. We should give the name of files and folders which we want to move . It moves the files and folders to the desired directories.
+```bash
+mv file myfolder
+```
+* `cp` - to copy files and their content. The name of the file should be written by us after the command which we want to copy.
+```bash
+cp newfile myfolder
+cp newfile NEWFILE
+```
+* `cat` - to read a file.
+```bash
+cat myfile
+```
+* `less` - to read a file. It provides some other options comparing to cat command for better and proper reading and finding some important or specific words in files.
+```bash
+less new_file
+```
+* `more` - to read a file page by page and word or line by line. Press enter to read line by line and down arrow to read page by page.
+```bash
+more fileA
+```
+* `nano` - to edit a file very perfectly. It provides many options to edit a file as per our requirements. Its benefit is, you dont need to create a file first by using touch command. It will create file as well as will provide options to edit the file.
+```bash
+nano fileB
+```
+* `vi` - to edit a file. Press insert after entering into the editor, and start editing it by writing text or any other things.
+```bash
+vi myfile
+```
