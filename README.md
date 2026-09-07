@@ -63,7 +63,7 @@
 ```bash
 man ls
 ```
-* `cd` - use this command to change directory or for suffering in multiple folders and directories .You can also use / for going or moving in multiple folders by describing path. This command will let you access directories of current location. Never forget to give name of the directory and folder in which you want to go and access. Use this command alone , means without giving any name of folder or directory to get return yourselves back to home directory.
+* `cd` - use this command to change directory or for surfing in multiple folders and directories .You can also use / for going or moving in multiple folders by describing path. This command will let you access directories of current location. Never forget to give name of the directory and folder in which you want to go and access. Use this command alone , means without giving any name of folder or directory to get return yourselves back to home directory.
  ```bash
 cd myfolder
 cd myfolder/newfolder
@@ -76,8 +76,8 @@ whoami
 ```bash
 uptime
 ```
-* `cd../` - use this command to go back one directory from current location. You can use multiple slashes as per the number of folders or directories you are in to go back.
+* `cd ../` - use this command to go back one directory from current location. You can use multiple slashes as per the number of folders or directories you are in to go back.
 ```bash
-cd../
+cd ../
 ```
    
