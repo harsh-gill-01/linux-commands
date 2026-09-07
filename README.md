@@ -101,7 +101,7 @@ less new_file
 ```bash
 more fileA
 ```
-* `nano` - to edit a file very perfectly. It provides many options to edit a file as per our requirements. Its benefit is, you dont need to create a file first by using touch command. It will create file as well as will provide options to edit the file.
+* `nano` - to edit a file very perfectly. It provides many options to edit a file as per our requirements. Its benefit is, you dont need to create a file first by using `touch` command. It will create file as well as will provide options to edit the file.
 ```bash
 nano fileB
 ```
