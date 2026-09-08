@@ -141,7 +141,7 @@ sort /filename|uniq
 * `wc -l` - use this command to check how many lines of content or information a file contains. Write the name of the file of which you want to get number of lines.
  ```bash
 wc -l file.txt
-* `split` -l - use this command to split a big file in number of files as per your requirement and number of lines in that specific file. Example - Think of it you have, a file containing 20 lines or more and less, then you can split it into specific number of parts of files as per your choice and work. you can divide or split it into 2 split files or more. Give the number and after the command `split -l` like this - `split -l 3 my_file`
+* `split` -l - use this command to split a big file in number of files as per your requirement and number of lines in that specific file. Example - Think of it you have, a file containing 20 lines or more and less, then you can split it into specific number of parts of files as per your choice and work. you can divide or split it into 2 split files or more. Give the number and after the command `split -l` .
 ```bash
 split -l 3 my_file
 ```
