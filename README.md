@@ -109,3 +109,41 @@ nano fileB
 ```bash
 vi myfile
 ```
+* `grep` - to search a word in files. Its used for searching of a word in files. Write the name of the file after the command while executing.
+```bash
+grep file_new
+```
+* `egrep` - to search multiple words and information in files. Write the name of the file and use pipe or vertical bar (|) for searching mutiplw words at a time.
+```bash
+egrep A|G|H|J|C| my_file
+```
+* `history` - use this command get all the history of your used command on terminal, use `history` command for getting all the commands history that are executed on the terminal till date. You can use `history |grep` command also to search a specific or single command name that you have executed on your terminal. The word grep is used here because it is used for searching only a single word. 
+```bash
+history
+history |grep ls
+```
+* `gzip` - use this command to zip a file. It will compress your file and will give you the compressed version of your big file , thus helping us to share or store them easily. There will also be the real file along with compressed version. If you somehow remove the real file , then you can recover from compressed version by using `gunzip` or `gunzip -d` command. Write the name of the file you want to compress or decompress. While decompressing the file , write name of your compressed version file ( .gz , at the end ).
+```bash
+gzip new_file
+gunzip new_file.gz
+```
+* `sort` - use this command to sort your unsorted file contents. Example - think of this you have , a file with letters a-z but they are mix, means unordered then, you can use `sort` command to set them in order from a-z in ordered form. use `sort -r` command to reverse the contents after sorting them in correct manner.
+```bash
+sort fileA
+sort -r fileA
+```
+* `sort |uniq` - use this command to sort the contents of your file, but also to remove copy contents . Example - Think of this you have, a file in which you have a data of workers of a company, there can be multiple workers of name. Then , you can use `sort |uniq` command to sort that file along with removing copied or matched names to see some specific information.
+```bash
+sort filename|uniq
+**syntax**
+sort /filename|uniq
+```
+* `wc -l` - use this command to check how many lines of content or information a file contains. Write the name of the file of which you want to get number of lines.
+ ```bash
+wc -l file.txt
+* `split` -l - use this command to split a big file in number of files as per your requirement and number of lines in that specific file. Example - Think of it you have, a file containing 20 lines or more and less, then you can split it into specific number of parts of files as per your choice and work. you can divide or split it into 2 split files or more. Give the number and after the command `split -l` like this - `split -l 3 my_file`
+```bash
+split -l 3 my_file
+```
+
+ 
