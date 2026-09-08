@@ -152,6 +152,16 @@ split -l 3 my_file
 alias /the word or letter= command
 alias l= ls -ltr
 ```
+* `cmp` - to compare files means that, their content . Write the names of the files you want to compare. 
+```bash
+cmp fileA fileB
+```
+* `diff` - to see what is the difference between two files after comparing. Write the names of the files. Use `diff -u` command to get difference between two files more acurately with more information.
+```bash
+diff fileA fileB
+diff -u fileA fileB
+```
+
 
 
  
