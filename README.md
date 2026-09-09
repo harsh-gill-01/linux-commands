@@ -190,10 +190,14 @@ tar -czf /give a name to your compressed folder.tar.gz /real folder name
 ```bash
 tar -xzf compress.tar.gz my_folder
 ```
-* `find ./` - this command is used to find files. This is helpful because we can have a number of files in different folders or directories and we can not remember all of them. If we remember even the first letter of our file we can it with its path, means that where it is located, in which folder it is. We can use a wildcard also `*` before and after the files of name while finding them. Example - think of that you have a file named File.txt , but you do not know where it is then you use `find ./` command or even wildcard `*`.
+* `find ./` - this command is used to find files. This is helpful because we can have a number of files in different folders or directories and we can not remember all of them. Path means, that, where it is located, in which folder it is. Example - think of this, that you have a file named File.txt , but you do not know where it is then you can use `find ./` command or even wildcard `*`(`find file*`) or (`find *txt`).Just remember that `find` command will find files for you when you will enter proper file name, but by using wildcards, you can find a file easily without knowing its full name. There are many ways to find files. You can use wildcards in these situations - for file.txt, use this `find *txt`(when you remember last name of file) or this way `find file*`(when you remember front name of file)
 ```bash
 **syntax**
-find ./-name (name of file)
-find ./-name new-file
+find ./ -name (name of file)
+find ./ -name new-file
 find ./*.txt
+find file
+find ./ file
+find file*
 ``` 
+
