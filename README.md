@@ -161,7 +161,39 @@ cmp fileA fileB
 diff fileA fileB
 diff -u fileA fileB
 ```
-
-
-
- 
+* `which` - this is used to check executables. Executables means the things that can be executed , means commands in linux or any other os terminal that we execute in the terminal to perform our work. Example - think of the command `ls` , we are able to execute only in the terminal if it is installed. When we do our work in terminal we can check the command if it is installed or not. Use this to check if a command that you are going to execute is installed or not.
+```bash
+which ls
+**output**
+usr/bin/ls
+```
+* `zip` - this command is used to zip or compress multiple numbers of files at same time.
+This command helps us to zip and compress mutiple files.
+```bash
+zip myfiles.zip fileA fileB fileC fileD
+**syntax**
+zip / give here a name for zipped files.zip files names
+```
+* `unzip` - use this command to unzip multiple files. It will unzip all the files present in one zipped file. Use this command to unzip files, and this `unzip -l` command to see only some information about files stored in single big file, like, their date , time, names, numbers .
+Use `unzip` to zip them and `unzip -l` to see only the information without unzipping them.
+```bash
+unzip myfiles.zip
+unzip -l myfiles.zip
+```
+* `tar -czf` - this command is used to compress folders in linux. The word `-c` stands for compress.
+```bash
+tar -czf myfolder.tar.gz folder
+**syntax**
+tar -czf /give a name to your compressed folder.tar.gz /real folder name
+```
+* `tar -xzf` - this command is used to decompress the folder. The word `-x` means extract or decompress folder.
+```bash
+tar -xzf compress.tar.gz my_folder
+```
+* `find ./` - this command is used to find files. This is helpful because we can have a number of files in different folders or directories and we can not remember all of them. If we remember even the first letter of our file we can it with its path, means that where it is located, in which folder it is. We can use a wildcard also `*` before and after the files of name while finding them. Example - think of that you have a file named File.txt , but you do not know where it is then you use `find ./` command or even wildcard `*`.
+```bash
+**syntax**
+find ./-name (name of file)
+find ./-name new-file
+find ./*.txt
+``` 
