@@ -199,5 +199,17 @@ find ./ -name (name of file)
 ```bash
 script
 ```
+* `wget` - use this command to download files from internet. Write the URL_of_file or application you want to download. Example - if you want to download python, then you will copy its url from its website and will paste after the `wget` command. You can change the name of your file i.e python file by using `wget -o`. This is because it will be saved by its default name at first. But, you can change its name for sure.
+```bash
+wget
+**syntax**
+wget URL_of_file (for downloading file)
+wget -o opt_file.txt URL_of_file (for changing name of file)
+```
+* `locate` - use this command to find or locate a file. This command takes out the file for you from database instead of from directories or folders. You have to use another command `updatedb` also. Example- you created a new file and you forgot in which directory or folder you made or put it, then you can use locate command to find it, but you have to use `updatedb` command because, it will take out file from database and if you did not update your database locate command will not work, so update your database before using locate command, because it does not take out fresh(new) created command.  Use `sudo updatedb` for ubuntu linux OS. Fill your password and update it.
+```bash
+locate
+updatedb
+```
 
-
+```
