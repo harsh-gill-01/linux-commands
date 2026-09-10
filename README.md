@@ -227,6 +227,7 @@ sudo apt remove
 * `dpkg -l` - use this command to check packages or applications, if they are installed or not before using and after installing. This is .deb (debian) package of linux for managing its packages . It works for the offline files that you downloaded and want to manage them and see them if they are installed or not. Use `dpkg -l | less` command to check all the packages easily, as because using `dpkg -l` alone will scroll up all the information if there are a lot of packages and applications. But, you can also use this as your requirement.
  ```bash
 dpkg -l | grep <file, application or package name> 
+```
 ```bash
 dpkg -l | less 
 ```
