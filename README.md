@@ -211,5 +211,24 @@ wget -o opt_file.txt URL_of_file (for changing name of file)
 locate
 updatedb
 ```
-
+* `apt` - use this command to install applications or packages in linux ubuntu. This command is for ubuntu. If you are using fedora, centOS , redhat then use `yum` or `dnf` commands for installation works. You have to use `sudo` command while installing something along with apt together , because installation requires root accesses and therefore we use root user `sudo` command. But , first try to install without using `sudo`. Use `sudo apt install <software or package name>` for installing. `sudo apt remove <software or package name>` for removing them. And , `sudo apt update` to update them and get latest versions or updates. `sudo apt upgrade`
+```bash
+sudo apt install
+```
+```bash
+sudo apt update
+```
+```bash
+sudo apt upgarde
+```
+```bash
+sudo apt remove
+```
+* `dpkg -l` - use this command to check packages or applications, if they are installed or not before using and after installing. This is .deb (debian) package of linux for managing its packages . It works for the offline files that you downloaded and want to manage them and see them if they are installed or not. Use `dpkg -l | less` command to check all the packages easily, as because using `dpkg -l` alone will scroll up all the information if there are a lot of packages and applications. But, you can also use this as your requirement.
+ ```bash
+dpkg -l | grep <file, application or package name> 
+```
+dpkg -l | less 
+```
+dpkg -l
 ```
