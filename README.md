@@ -242,6 +242,7 @@ head -5 filenew
 ``` 
 * `tail -n` - use this command to read last lines of files. For example- you have a file containing 50 lines and you want to read only last 10 lines then, you can use this command `tail -10 <file name>`.
 **syntax**
-```bash
 tail -n (write number of lines you want to read) <file name>
+```bash
+tail -5 my_file
 ```
