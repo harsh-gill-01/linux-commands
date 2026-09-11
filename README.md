@@ -8,17 +8,25 @@
   ```bash
   ls
   ```
-**expected output:**
+**Expected Output:**
  <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/f5849810-dae8-46a6-a4e1-5ba74a74cde6" />
  ---
 * `pwd`- to check in which directory or location we are in current time.
+**Syntax & Example:**
  ```bash
-  /home/harsh
+pwdcl
 ```
-* `clear` - to clear our terminal.
+**Expected Output:**
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/c981e36b-500d-4b45-9dcb-046f8581065f" />
+---
+* `clear` - to clear our terminal. You can also use `CTRL + L` to clear your terminal more faster than `clear` command. 
+**Syntax & Example:**
  ```bash
   clear
 ```
+**Expected Output:**<img width="981" height="928" alt="image" src="https://github.com/user-attachments/assets/419ce6bb-0acb-4c38-90c5-a70ce0bd4aa3" />
+<img width="981" height="928" alt="image" src="https://github.com/user-attachments/assets/fd08d92d-8a15-49bb-97b5-adbfa8253086" />
+---
 * `date` - to check date.
  ```bash
   date
