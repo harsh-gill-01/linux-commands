@@ -19,15 +19,15 @@ pwd
 **Expected Output:**
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/c981e36b-500d-4b45-9dcb-046f8581065f" />
 ---
-* `clear` - To clear our terminal. You can also use `CTRL + L` to clear your terminal more faster than `clear` command. 
+* `clear` - To clear our terminal. You can also use `CTRL + L` to clear your terminal faster than `clear` command. 
 **Syntax & Example:**
  ```bash
   clear
 ```
-**Expected Output:**<img width="981" height="928" alt="image" src="https://github.com/user-attachments/assets/419ce6bb-0acb-4c38-90c5-a70ce0bd4aa3" />
+**Expected Output:**<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/419ce6bb-0acb-4c38-90c5-a70ce0bd4aa3" />
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/fd08d92d-8a15-49bb-97b5-adbfa8253086" />
 ---
-* `date` - to check date.
+* `date` - To check date.
 **Syntax & Example:**
  ```bash
   date
@@ -35,7 +35,7 @@ pwd
 **Expected Output:**
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/66afb1a9-b64f-4bfb-abbe-8ba0a4b35df3" />
 ---
-* `touch` - to create a file in linux.
+* `touch` - To create a file in linux.
 **Syntax & Example:**
  ```bash
   touch 
@@ -43,18 +43,30 @@ pwd
 **Expected Output:**
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/6b58a031-6b1f-492d-bd22-47e0f326cc5a" />
 ---
-* `mkdir` - to create a folder.
+* `mkdir` - To create a folder.
+**Syntax & Example:** 
  ```bash
-  mkdir server_logs
+  mkdir 
 ```
-* `rm` - to delete a file.
+**Expected Output:**
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/3ec77e49-9272-4e3b-97fd-5b397df08f85" />
+---
+* `rm` - To delete a file.
+**Syntax & Example:** 
  ```bash
-  rm mynewfile
+  rm 
 ```
-* `rm -rf` - to delete a folder.
+**Expected Output:**
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/3f903e5e-633e-433f-a409-68c6848e83b0" />
+---
+* `rm -rf` - To delete a folder.
+**Syntax & Example:** 
  ```bash
-  rm -rf mynewfolder
+  rm -rf 
 ```
+**Expected Output:**
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/4cd9349e-4590-4cb3-b3f4-9fcaf4d04931" />
+---
 * `cal` - to see calendar of current year or month, we can also see calendars of past or future years along with months by writing year number and month name.
  ```bash
   cal
