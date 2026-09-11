@@ -68,13 +68,21 @@ pwd
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/4cd9349e-4590-4cb3-b3f4-9fcaf4d04931" />
 ---
 * `cal` - to see calendar of current year or month, we can also see calendars of past or future years along with months by writing year number and month name.
+**Syntax & Example:** 
  ```bash
   cal
 ```
+**Expected Output:**
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/c256f83f-b064-4cc0-a321-d9ac5b3ea7cf" />
+---
 * `ls -lt` - to see all the information about our files and folders of current directory. It provides all the information about the files and folders , about their sizes , their  creation time & date etc.
+**Syntax & Example:** 
 ```bash
   ls -lt
   ```
+**Expected Output:**
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/3a0b6250-ec78-4487-af53-ca1f3a13c364" />
+---
 * `ls -ltr` - to see all the information about our files and folders of current directory in reverse order. Reverse order of our contents shows us the very new files and folders that we created new.
  ```bash
   ls -ltr
