@@ -4,9 +4,15 @@
 ## Basic Commands 
 
 * `ls` - to list all the contents of our current directory.
+**syntax**
+  ls
+  **expected output**
+ 
  ```bash
   ls myfiles 
 ```
+ <img width="982" height="925" alt="image" src="https://github.com/user-attachments/assets/f5849810-dae8-46a6-a4e1-5ba74a74cde6" />
+
 * `pwd`- to check in which directory or location we are in current time.
  ```bash
   /home/harsh
