@@ -238,7 +238,7 @@ dpkg -l
 **syntax**
 head -n (write number of lines you want to read) <file name>
 ```bash
-head -5 filenew
+head -5 filenew <img width="965" height="915" alt="image" src="https://github.com/user-attachments/assets/e0383adf-86dc-47ef-9056-b16914a386f9" />
 ``` 
 * `tail -n` - use this command to read last lines of files. For example- you have a file containing 50 lines and you want to read only last 10 lines then, you can use this command `tail -10 <file name>`.
 **syntax**
