@@ -234,3 +234,14 @@ dpkg -l | less
 ```bash
 dpkg -l
 ```
+* 'head -n' - use this command to read files in linux. This command will help you read specific number of upper lines in a file. For example - you have a file containing 100 lines, but you want to read only top 20 lines then you can use `head -n` command and by executing this `head -20 <file name> command you can read them. N stands for number in this command.
+**syntax**
+head -n (write number of lines you want to read) <file name>
+```bash
+head -5 filenew
+``` 
+* `tail -n` - use this command to read last lines of files. For example- you have a file containing 50 lines and you want to read only last 10 lines then, you can use this command `tail -10 <file name>`.
+**syntax**
+```bash
+tail -n (write number of lines you want to read) <file name>
+```
