@@ -3,38 +3,46 @@
 ## My Linux Commands And Bash Scripts Notes 
 ## Basic Commands 
 
-* `ls` - to list all the contents of our current directory.
+* `ls` - To list all the contents of our current directory.
 **Syntax & Example:**
   ```bash
   ls
   ```
 **Expected Output:**
- <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/f5849810-dae8-46a6-a4e1-5ba74a74cde6" />
+ <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/f5849810-dae8-46a6-a4e1-5ba74a74cde6" />
  ---
-* `pwd`- to check in which directory or location we are in current time.
+* `pwd`- To check in which directory or location we are in current time.
 **Syntax & Example:**
  ```bash
-pwdcl
+pwd
 ```
 **Expected Output:**
-<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/c981e36b-500d-4b45-9dcb-046f8581065f" />
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/c981e36b-500d-4b45-9dcb-046f8581065f" />
 ---
-* `clear` - to clear our terminal. You can also use `CTRL + L` to clear your terminal more faster than `clear` command. 
+* `clear` - To clear our terminal. You can also use `CTRL + L` to clear your terminal more faster than `clear` command. 
 **Syntax & Example:**
  ```bash
   clear
 ```
 **Expected Output:**<img width="981" height="928" alt="image" src="https://github.com/user-attachments/assets/419ce6bb-0acb-4c38-90c5-a70ce0bd4aa3" />
-<img width="981" height="928" alt="image" src="https://github.com/user-attachments/assets/fd08d92d-8a15-49bb-97b5-adbfa8253086" />
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/fd08d92d-8a15-49bb-97b5-adbfa8253086" />
 ---
 * `date` - to check date.
+**Syntax & Example:**
  ```bash
   date
 ```
+**Expected Output:**
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/66afb1a9-b64f-4bfb-abbe-8ba0a4b35df3" />
+---
 * `touch` - to create a file in linux.
+**Syntax & Example:**
  ```bash
-  touch new_file
+  touch 
 ```
+**Expected Output:**
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/6b58a031-6b1f-492d-bd22-47e0f326cc5a" />
+---
 * `mkdir` - to create a folder.
  ```bash
   mkdir server_logs
