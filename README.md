@@ -5,7 +5,7 @@
 
 * `ls` - to list all the contents of our current directory.
  ```bash
-  ls myfiles folder1 fileA fileB
+  ls myfiles 
 ```
 * `pwd`- to check in which directory or location we are in current time.
  ```bash
