@@ -4,7 +4,8 @@
 ## Basic Commands 
 
 * `ls` - To list all the contents of our current directory.
-**Syntax & Example:**
+**Syntax:**
+  ls
   ```bash
   ls
   ```
@@ -12,7 +13,8 @@
  <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/f5849810-dae8-46a6-a4e1-5ba74a74cde6" />
  ---
 * `pwd`- To check in which directory or location we are in current time.
-**Syntax & Example:**
+**Syntax:**
+  pwd
  ```bash
 pwd
 ```
@@ -20,7 +22,8 @@ pwd
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/c981e36b-500d-4b45-9dcb-046f8581065f" />
 ---
 * `clear` - To clear our terminal. You can also use `CTRL + L` to clear your terminal faster than `clear` command. 
-**Syntax & Example:**
+**Syntax:**
+  clear
  ```bash
   clear
 ```
@@ -28,7 +31,8 @@ pwd
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/fd08d92d-8a15-49bb-97b5-adbfa8253086" />
 ---
 * `date` - To check date.
-**Syntax & Example:**
+**Syntax:**
+  date
  ```bash
   date
 ```
@@ -36,7 +40,10 @@ pwd
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/66afb1a9-b64f-4bfb-abbe-8ba0a4b35df3" />
 ---
 * `touch` - To create a file in linux.
-**Syntax & Example:**
+**Syntax:**
+  touch
+  **Example:**
+  touch my_file
  ```bash
   touch 
 ```
@@ -44,7 +51,10 @@ pwd
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/6b58a031-6b1f-492d-bd22-47e0f326cc5a" />
 ---
 * `mkdir` - To create a folder.
-**Syntax & Example:** 
+**Syntax:**
+  mkdir
+  **Example:**
+  mkdir new_folder 
  ```bash
   mkdir 
 ```
@@ -52,15 +62,21 @@ pwd
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/3ec77e49-9272-4e3b-97fd-5b397df08f85" />
 ---
 * `rm` - To delete a file.
-**Syntax & Example:** 
+**Syntax:**
+  rm
+  **Example:**
+  rm new-file
  ```bash
   rm 
 ```
 **Expected Output:**
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/3f903e5e-633e-433f-a409-68c6848e83b0" />
 ---
-* `rm -rf` - To delete a folder.
-**Syntax & Example:** 
+* `rm -rf` - To delete a folder. You can also use `rmdir` command for the same purpose.
+**Syntax:**
+  rm -rf
+**Example:**
+  rm -rf my-folder 
  ```bash
   rm -rf 
 ```
@@ -68,7 +84,10 @@ pwd
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/4cd9349e-4590-4cb3-b3f4-9fcaf4d04931" />
 ---
 * `cal` - to see calendar of current year or month, we can also see calendars of past or future years along with months by writing year number and month name.
-**Syntax & Example:** 
+**Syntax:**
+  cal
+**Example:**
+  cal sep 2026
  ```bash
   cal
 ```
@@ -76,7 +95,8 @@ pwd
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/c256f83f-b064-4cc0-a321-d9ac5b3ea7cf" />
 ---
 * `ls -lt` - to see all the information about our files and folders of current directory. It provides all the information about the files and folders , about their sizes , their  creation time & date etc.
-**Syntax & Example:** 
+**Syntax & Example:**
+  ls -lt
 ```bash
   ls -lt
   ```
@@ -84,13 +104,21 @@ pwd
 <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/3a0b6250-ec78-4487-af53-ca1f3a13c364" />
 ---
 * `ls -ltr` - to see all the information about our files and folders of current directory in reverse order. Reverse order of our contents shows us the very new files and folders that we created new.
+**Syntax & Example:**
+  ls -ltr 
  ```bash
   ls -ltr
   ```
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/01db271e-6919-4c8b-b293-b76111200d02" />
+---
 * `ls -lh` - to see information about our files and folders in a manner to make them more easier to read. In this command , h means human readable.
+**Syntax:**
+  ls -lh 
  ```bash
    ls -lh
    ```
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/6430ccf9-c705-4638-a357-dbbfa4faa0ca" />
+
 * `bc` - to open a calculator like system in your terminal to do basic calculations. Generally, you will not get a proper visible calculator in your terminal. You will just get a platform in your terminal after executing command to perform basic calculations.
 ```bash
  bc  
