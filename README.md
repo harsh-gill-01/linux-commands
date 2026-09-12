@@ -3,13 +3,13 @@
 ## My Linux Commands And Bash Scripts Notes 
 ## Basic Commands 
 
-* `ls` - To list all the contents of our current directory.**Syntax**: `ls`
+* `ls` - To list all the contents of our current directory. **Syntax**: `ls`
 ```bash
 ls
 ```
 **Expected Output:**
 
-<img width="500" height="260" alt="image" src="https://github.com/user-attachments/assets/be73df06-9236-432f-9fa1-e12a1ee15256" />
+<img width="400" height="260" alt="image" src="https://github.com/user-attachments/assets/be73df06-9236-432f-9fa1-e12a1ee15256" />
 ---
 
 * `pwd`- To check in which directory or location we are in current time.
