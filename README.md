@@ -5,155 +5,207 @@
 
 * `ls` - To list all the contents of our current directory.
 **Syntax:**
-  ls
-  ```bash
-  ls
-  ```
+ls
+```bash
+ls
+```
 **Expected Output:**
-<img width="400" height="100" alt="image" src="https://github.com/user-attachments/assets/8a5342f6-e455-43ee-af98-a4bb7f72608f" />
----
+<img width="500" height="260" alt="image" src="https://github.com/user-attachments/assets/be73df06-9236-432f-9fa1-e12a1ee15256" />
 ---
 * `pwd`- To check in which directory or location we are in current time.
 **Syntax:**
-  pwd
- ```bash
+pwd
+```bash
 pwd
 ```
 **Expected Output:**
-<img width="400" height="157" alt="image" src="https://github.com/user-attachments/assets/c81e968c-8489-4748-9c68-93c0f5982f14" />
----
+<img width="400" height="164" alt="image" src="https://github.com/user-attachments/assets/ff1b54b0-3440-41a6-b55b-320d0baead12" />
 ---
 * `clear` - To clear our terminal. You can also use `CTRL + L` to clear your terminal faster than `clear` command. 
 **Syntax:**
-  clear
- ```bash
-  clear
+clear
+```bash
+clear
 ```
 **Expected Output:** 
-<img width="500" height="473" alt="image" src="https://github.com/user-attachments/assets/25880739-3085-42d0-b2e3-a6a4a44f5b72" />
-<img width="400" height="262" alt="image" src="https://github.com/user-attachments/assets/f95820d9-d346-45da-b42b-2bf08934dfdd" />
+<img width="600" height="314" alt="image" src="https://github.com/user-attachments/assets/c0f237ca-438d-4ad2-8515-e07cb842b0c6" />
+<img width="400" height="219" alt="image" src="https://github.com/user-attachments/assets/ff21990b-b45d-4f31-89c9-29f4394134ce" />
 ---
----
-* `date` - To check date.
+* `date` - To check date, along with time, timezone etc.
 **Syntax:**
-  date
- ```bash
-  date
+date
+```bash
+date
 ```
 **Expected Output:**
-<img width="887" height="200" alt="image" src="https://github.com/user-attachments/assets/89028b2d-1b75-4a6a-a0f8-0e5a26647191" />
+<img width="400" height="178" alt="image" src="https://github.com/user-attachments/assets/ba21578d-6138-46fb-853f-be55d65f16d5" />
 ---
 * `touch` - To create a file in linux.
 **Syntax:**
-  touch
-  **Example:**
-  touch my_file
- ```bash
-  touch 
+touch
+**Example:**
+touch my_file
+```bash
+touch 
 ```
 **Expected Output:**
-<img width="884" height="199" alt="image" src="https://github.com/user-attachments/assets/f8c56ce3-b87d-4c80-8dbb-f21ad74302e5" />
+<img width="500" height="197" alt="image" src="https://github.com/user-attachments/assets/4d1d143b-53d9-451d-92b8-2135d3469925" />
 ---
 * `mkdir` - To create a folder.
 **Syntax:**
-  mkdir
-  **Example:**
-  mkdir new_folder 
- ```bash
-  mkdir 
+mkdir
+**Example:**
+mkdir new_folder 
+```bash
+mkdir 
 ```
 **Expected Output:**
-<img width="892" height="231" alt="image" src="https://github.com/user-attachments/assets/9b21125a-69ad-49d9-92b8-bfc0d476a051" />
+<img width="500" height="187" alt="image" src="https://github.com/user-attachments/assets/6ef15c28-a0c7-41f3-a9c2-41a8b09342e0" />
 ---
 * `rm` - To delete a file.
 **Syntax:**
-  rm
-  **Example:**
-  rm new-file
- ```bash
-  rm 
+rm
+**Example:**
+rm new-file
+```bash
+ rm 
 ```
 **Expected Output:**
-<img width="891" height="238" alt="image" src="https://github.com/user-attachments/assets/f383de9c-833a-4b7f-ae26-1d250332783e" />
+<img width="600" height="246" alt="image" src="https://github.com/user-attachments/assets/35679bfb-04c4-4e3b-b5cd-f4e85d9fc905" />
 ---
 * `rm -rf` - To delete a folder. You can also use `rmdir` command for the same purpose.
 **Syntax:**
-  rm -rf
+rm -rf
 **Example:**
-  rm -rf my-folder 
- ```bash
-  rm -rf 
+ rm -rf my-folder
+```bash
+rm -rf 
+```
+**Syntax:**
+rmdir
+**Example:**
+rmdir newfolder
+```bash
+rmdir
 ```
 **Expected Output:**
-<img width="885" height="204" alt="image" src="https://github.com/user-attachments/assets/4dbad26f-2013-4ab9-b194-930a5e80efbb" />
+<img width="600" height="330" alt="image" src="https://github.com/user-attachments/assets/6c50249e-afd1-4158-a3f6-4d4a2385aa5e" />
 ---
-* `cal` - to see calendar of current year or month, we can also see calendars of past or future years along with months by writing year number and month name.
+* `cal` - To see calendar of current year or month, we can also see calendars of past or future years along with months by writing year number and month name.
 **Syntax:**
-  cal
+cal
 **Example:**
-  cal sep 2026
- ```bash
-  cal
+cal sep 2026
+```bash
+cal
 ```
 **Expected Output:**
-<img width="882" height="355" alt="image" src="https://github.com/user-attachments/assets/6047fbdb-8163-42ab-a35f-57090746f06e" />
+<img width="600" height="376" alt="image" src="https://github.com/user-attachments/assets/b0842ee6-a334-47b6-9005-d9fbfa6c3faa" />
 ---
-* `ls -lt` - to see all the information about our files and folders of current directory. It provides all the information about the files and folders , about their sizes , their  creation time & date etc.
+* `ls -lt` - To see all the information about our files and folders of current directory. It provides all the information about the files and folders , about their sizes , their  creation time & date etc.
 **Syntax & Example:**
-  ls -lt
+ls -lt
 ```bash
-  ls -lt
-  ```
+ls -lt
+```
 **Expected Output:**
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/3a0b6250-ec78-4487-af53-ca1f3a13c364" />
+<img width="600" height="759" alt="image" src="https://github.com/user-attachments/assets/3abdee9a-c169-4bb6-b2b1-9e522f25313a" />
 ---
-* `ls -ltr` - to see all the information about our files and folders of current directory in reverse order. Reverse order of our contents shows us the very new files and folders that we created new.
-**Syntax & Example:**
-  ls -ltr 
- ```bash
-  ls -ltr
-  ```
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/01db271e-6919-4c8b-b293-b76111200d02" />
----
-* `ls -lh` - to see information about our files and folders in a manner to make them more easier to read. In this command , h means human readable.
+* `ls -ltr` - To see all the information about our files and folders of current directory in reverse order. Reverse order of our contents shows us the very new files and folders that we created new.
 **Syntax:**
-  ls -lh 
- ```bash
-   ls -lh
-   ```
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/a10eb498-9f6a-4642-ab4d-39db4faa45a1" />
+ls -ltr  
+```bash
+ls -ltr
+```
+**Expected Output:**
+<img width="600" height="752" alt="image" src="https://github.com/user-attachments/assets/23cdab4f-e224-4a1b-86c1-f529ba25ddf9" />
 ---
-
-* `bc` - to open a calculator like system in your terminal to do basic calculations. Generally, you will not get a proper visible calculator in your terminal. You will just get a platform in your terminal after executing command to perform basic calculations.
+* `ls -lh` - To see information about our files and folders in a manner to make them more easier to read. In this command , `h` means human readable.
+**Syntax:**
+ls -lh 
 ```bash
- bc  
-```   
-* `--help` - to get help regarding a command. You will write before this command , the command about which you want to get help.
-  ```bash
-   ls --help
-  ```
-* `man` - to get manual regarding a command. This command shall help you , but will provide its manual also. Like, giving every information regarding its uses, use cases , syntax , etc.
+ls -lh
+```
+**Expected Output:**
+<img width="600" height="753" alt="image" src="https://github.com/user-attachments/assets/7b0d13cd-8d37-4bd7-b66d-d8059613889e" />
+---
+* `bc` - To open a calculator like system in your terminal to do basic calculations. Generally, you will not get a proper visible calculator in your terminal. You will just get a platform in your terminal after executing command to perform basic calculations. Press `ctrl + D` to come back from calculator to terminal.
+**Syntax:**
+bc 
 ```bash
+bc  
+```
+**Expected Output:**
+<img width="600" height="499" alt="image" src="https://github.com/user-attachments/assets/552a061d-745f-48af-8a8a-0532db518221" />
+---
+* `--help` - To get help regarding a command. You will write before this command , the command about which you want to get help.
+**Syntax:**
+--help
+**Example:**
+ls --help  
+```bash
+--help
+```
+**Expected Output:**
+<img width="600" height="870" alt="image" src="https://github.com/user-attachments/assets/24dd95f5-3a79-45d7-a280-ac82d06b64a0" />
+<img width="600" height="878" alt="image" src="https://github.com/user-attachments/assets/817f539e-d106-4cee-b260-f6fe564253a0" />
+---
+* `man` - To get manual regarding a command. This command shall help you , but will provide its manual also. Like, giving every information regarding its uses, use cases , syntax , etc. Press `Q` to come out.
+**Syntax**
+  man
+**Example:**
 man ls
+```bash
+man 
 ```
-* `cd` - use this command to change directory or for surfing in multiple folders and directories .You can also use / for going or moving in multiple folders by describing path. This command will let you access directories of current location. Never forget to give name of the directory and folder in which you want to go and access. Use this command alone , means without giving any name of folder or directory to get return yourselves back to home directory.
- ```bash
-cd myfolder
-cd myfolder/newfolder
-``` 
-* `whoami` - to know about you are in this terminal. When you will use this command , it will return your user name through which you are logged in and using. It will return some other information like your id,uid etc.
+**Expected Output:**
+<img width="600" height="868" alt="image" src="https://github.com/user-attachments/assets/121c2e92-1727-4c92-b243-7b585fa03f68" />
+---
+* `cd` - Use this command to change directory or for surfing in multiple folders and directories . You can also use `/` for going or moving in multiple folders by describing path. This command will let you access directories of current location. Never forget to give name of the directory and folder in which you want to go and access. Use this command alone , means without giving any name of folder or directory to get return yourselves back to home directory (~ home directory). Directories or folders appear different in color. 
+**Syntax:**
+cd
+**Example:**  
+cd folder
+```bash
+cd
+```
+**Expected Output:**
+<img width="600" height="353" alt="image" src="https://github.com/user-attachments/assets/fc7fa4bb-0b3c-43d2-8db0-03a85c31e485" />
+---
+* `whoami` - To know about who you are in this terminal. When you will use this command , it will return your user name through which you are logged in and using. This `id` command will return some other information like your id,uid etc.
+**Syntax:**
+ whoami 
 ```bash
 whoami
 ```
-* `uptime` - use this command to check that how many users are logged in or using this terminal, time from which terminal is open or from in use, load on terminal .
+```bash
+id
+```
+**Expected Output:**
+<img width="500" height="286" alt="image" src="https://github.com/user-attachments/assets/8c596326-7135-4241-8bac-efb0f41bf657" />
+---
+* `uptime` - Use this command to check that how many users are logged in or using this terminal, time from which terminal is open or from in use, load on terminal .
+**Syntax**
+uptime  
 ```bash
 uptime
 ```
-* `cd ../` - use this command to go back one directory from current location. You can use multiple slashes as per the number of folders or directories you are in to go back.
+**Expected Output:** 
+<img width="400" height="173" alt="image" src="https://github.com/user-attachments/assets/35204fe9-0a3d-4811-b6ab-708bcdb1d4a3" />
+---
+* `cd ../` - Use this command to go back one directory from current location. You can use multiple slashes as per the number of folders or directories you are in to go back. In the expected output, i went upto `newfolder` from home directory (~), I was in `~`, went to a folder named `folder` of `~` and then went to `newfolder` from `folder`, and then i went back two folders, and reached `~` home directory back.
+**Syntax:**
+cd ../
+**Example:**
+cd ../ & cd ../../../   
 ```bash
 cd ../
 ```
-* `mv` - to move files and folders from one directory to another in linux. We should give the name of files and folders which we want to move . It moves the files and folders to the desired directories.
+**Expected Output:**
+<img width="600" height="421" alt="image" src="https://github.com/user-attachments/assets/1d5519ea-f893-4fc2-a378-643e4c825e0e" />
+<img width="400" height="135" alt="image" src="https://github.com/user-attachments/assets/132bd8df-9d07-408a-b4cb-2c1b85090702" />
+---
+* `mv` - To move files and folders from one directory to another in linux. We should give the name of files and folders which we want to move . It moves the files and folders to the desired directories.
 ```bash
 mv file myfolder
 ```
