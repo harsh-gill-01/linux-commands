@@ -5,7 +5,6 @@
 
 * `ls` - To list all the contents of our current directory.
 **Syntax:**
-
 ```bash
 ls
 ```
