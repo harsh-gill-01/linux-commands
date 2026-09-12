@@ -10,7 +10,7 @@
   ls
   ```
 **Expected Output:**
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/8a5342f6-e455-43ee-af98-a4bb7f72608f" />
+<img width="400" height="100" alt="image" src="https://github.com/user-attachments/assets/8a5342f6-e455-43ee-af98-a4bb7f72608f" />
 ---
 ---
 * `pwd`- To check in which directory or location we are in current time.
@@ -20,7 +20,7 @@
 pwd
 ```
 **Expected Output:**
-<img width="955" height="157" alt="image" src="https://github.com/user-attachments/assets/c81e968c-8489-4748-9c68-93c0f5982f14" />
+<img width="400" height="157" alt="image" src="https://github.com/user-attachments/assets/c81e968c-8489-4748-9c68-93c0f5982f14" />
 ---
 ---
 * `clear` - To clear our terminal. You can also use `CTRL + L` to clear your terminal faster than `clear` command. 
@@ -30,8 +30,8 @@ pwd
   clear
 ```
 **Expected Output:** 
-<img width="894" height="473" alt="image" src="https://github.com/user-attachments/assets/25880739-3085-42d0-b2e3-a6a4a44f5b72" />
-<img width="950" height="262" alt="image" src="https://github.com/user-attachments/assets/f95820d9-d346-45da-b42b-2bf08934dfdd" />
+<img width="500" height="473" alt="image" src="https://github.com/user-attachments/assets/25880739-3085-42d0-b2e3-a6a4a44f5b72" />
+<img width="400" height="262" alt="image" src="https://github.com/user-attachments/assets/f95820d9-d346-45da-b42b-2bf08934dfdd" />
 ---
 ---
 * `date` - To check date.
