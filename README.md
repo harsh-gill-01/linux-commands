@@ -30,10 +30,9 @@ pwd
   clear
 ```
 **Expected Output:** 
-<img width="950" height="262" alt="image" src="https://github.com/user-attachments/assets/7889ee25-7efb-4825-99f3-609b186576c0" />
+<img width="894" height="473" alt="image" src="https://github.com/user-attachments/assets/25880739-3085-42d0-b2e3-a6a4a44f5b72" />
 <img width="950" height="262" alt="image" src="https://github.com/user-attachments/assets/f95820d9-d346-45da-b42b-2bf08934dfdd" />
-
-
+---
 ---
 * `date` - To check date.
 **Syntax:**
@@ -42,7 +41,7 @@ pwd
   date
 ```
 **Expected Output:**
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/66afb1a9-b64f-4bfb-abbe-8ba0a4b35df3" />
+<img width="887" height="200" alt="image" src="https://github.com/user-attachments/assets/89028b2d-1b75-4a6a-a0f8-0e5a26647191" />
 ---
 * `touch` - To create a file in linux.
 **Syntax:**
@@ -53,7 +52,7 @@ pwd
   touch 
 ```
 **Expected Output:**
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/6b58a031-6b1f-492d-bd22-47e0f326cc5a" />
+<img width="884" height="199" alt="image" src="https://github.com/user-attachments/assets/f8c56ce3-b87d-4c80-8dbb-f21ad74302e5" />
 ---
 * `mkdir` - To create a folder.
 **Syntax:**
@@ -64,7 +63,7 @@ pwd
   mkdir 
 ```
 **Expected Output:**
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/3ec77e49-9272-4e3b-97fd-5b397df08f85" />
+<img width="892" height="231" alt="image" src="https://github.com/user-attachments/assets/9b21125a-69ad-49d9-92b8-bfc0d476a051" />
 ---
 * `rm` - To delete a file.
 **Syntax:**
@@ -75,7 +74,7 @@ pwd
   rm 
 ```
 **Expected Output:**
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/3f903e5e-633e-433f-a409-68c6848e83b0" />
+<img width="891" height="238" alt="image" src="https://github.com/user-attachments/assets/f383de9c-833a-4b7f-ae26-1d250332783e" />
 ---
 * `rm -rf` - To delete a folder. You can also use `rmdir` command for the same purpose.
 **Syntax:**
@@ -86,7 +85,7 @@ pwd
   rm -rf 
 ```
 **Expected Output:**
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/4cd9349e-4590-4cb3-b3f4-9fcaf4d04931" />
+<img width="885" height="204" alt="image" src="https://github.com/user-attachments/assets/4dbad26f-2013-4ab9-b194-930a5e80efbb" />
 ---
 * `cal` - to see calendar of current year or month, we can also see calendars of past or future years along with months by writing year number and month name.
 **Syntax:**
@@ -97,7 +96,7 @@ pwd
   cal
 ```
 **Expected Output:**
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/c256f83f-b064-4cc0-a321-d9ac5b3ea7cf" />
+<img width="882" height="355" alt="image" src="https://github.com/user-attachments/assets/6047fbdb-8163-42ab-a35f-57090746f06e" />
 ---
 * `ls -lt` - to see all the information about our files and folders of current directory. It provides all the information about the files and folders , about their sizes , their  creation time & date etc.
 **Syntax & Example:**
