@@ -10,8 +10,9 @@
   ls
   ```
 **Expected Output:**
- <img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/f5849810-dae8-46a6-a4e1-5ba74a74cde6" />
- ---
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/8a5342f6-e455-43ee-af98-a4bb7f72608f" />
+---
+---
 * `pwd`- To check in which directory or location we are in current time.
 **Syntax:**
   pwd
@@ -19,7 +20,8 @@
 pwd
 ```
 **Expected Output:**
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/c981e36b-500d-4b45-9dcb-046f8581065f" />
+<img width="955" height="157" alt="image" src="https://github.com/user-attachments/assets/c81e968c-8489-4748-9c68-93c0f5982f14" />
+---
 ---
 * `clear` - To clear our terminal. You can also use `CTRL + L` to clear your terminal faster than `clear` command. 
 **Syntax:**
@@ -27,8 +29,11 @@ pwd
  ```bash
   clear
 ```
-**Expected Output:**<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/419ce6bb-0acb-4c38-90c5-a70ce0bd4aa3" />
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/fd08d92d-8a15-49bb-97b5-adbfa8253086" />
+**Expected Output:** 
+<img width="950" height="262" alt="image" src="https://github.com/user-attachments/assets/7889ee25-7efb-4825-99f3-609b186576c0" />
+<img width="950" height="262" alt="image" src="https://github.com/user-attachments/assets/f95820d9-d346-45da-b42b-2bf08934dfdd" />
+
+
 ---
 * `date` - To check date.
 **Syntax:**
@@ -117,7 +122,8 @@ pwd
  ```bash
    ls -lh
    ```
-<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/6430ccf9-c705-4638-a357-dbbfa4faa0ca" />
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/a10eb498-9f6a-4642-ab4d-39db4faa45a1" />
+---
 
 * `bc` - to open a calculator like system in your terminal to do basic calculations. Generally, you will not get a proper visible calculator in your terminal. You will just get a platform in your terminal after executing command to perform basic calculations.
 ```bash
