@@ -187,12 +187,10 @@ ls --help
 
 <img width="600" height="870" alt="image" src="https://github.com/user-attachments/assets/24dd95f5-3a79-45d7-a280-ac82d06b64a0" />
 
-<img width="600" height="878" alt="image" src="https://github.com/user-attachments/assets/817f539e-d106-4cee-b260-f6fe564253a0" />
-
 ---
 
 * `man` - To get manual regarding a command. This command shall help you , but will provide its manual also. Like, giving every information regarding its uses, use cases , syntax , etc. Press `Q` to come out.
-**Syntax**
+**Syntax:**
 `man`
 **Example:**
 `man ls`
@@ -207,20 +205,21 @@ man ls
 
 * `cd` - Use this command to change directory or for surfing in multiple folders and directories . You can also use `/` for going or moving in multiple folders by describing path. This command will let you access directories of current location. Never forget to give name of the directory and folder in which you want to go and access. Use this command alone , means without giving any name of folder or directory to get return yourselves back to home directory (~ home directory). Directories or folders appear different in color. 
 **Syntax:**
-cd
-**Example:**  
-cd folder
+`cd [folder or directory name] **Example:**  
+`cd folder`
+
 ```bash
-cd
+cd folder
 ```
 **Expected Output:**
 
 <img width="600" height="353" alt="image" src="https://github.com/user-attachments/assets/fc7fa4bb-0b3c-43d2-8db0-03a85c31e485" />
 
 ---
+
 * `whoami` - To know about who you are in this terminal. When you will use this command , it will return your user name through which you are logged in and using. This `id` command will return some other information like your id,uid etc.
 **Syntax:**
- whoami 
+ `whoami` 
 ```bash
 whoami
 ```
@@ -235,7 +234,7 @@ id
 
 * `uptime` - Use this command to check that how many users are logged in or using this terminal, time from which terminal is open or from in use, load on terminal .
 **Syntax**
-uptime  
+`uptime`  
 ```bash
 uptime
 ```
@@ -247,16 +246,30 @@ uptime
 
 * `cd ../` - Use this command to go back one directory from current location. You can use multiple slashes as per the number of folders or directories you are in to go back. In the expected output, i went upto `newfolder` from home directory (~), I was in `~`, went to a folder named `folder` of `~` and then went to `newfolder` from `folder`, and then i went back two folders, and reached `~` home directory back.
 **Syntax:**
-cd ../
+* `cd [folder name]` - to go inside a folder.
+* `cd ../` - to go back one directory.
+* `cd ../../` - To go back two directories.
+* `cd ////` - by describing path between slashes you can access your required folder.
+
 **Example:**
-cd ../ & cd ../../../   
+`cd folder`
+`cd newfolder`
+` cd ../`
+`cd ../../`
+`cd folder/newfolder/folderA`
+ 
 ```bash
+cd folder
+cd newfolder
 cd ../
+cd ../../
+cd folder/newfolder/folderA
 ```
+
 **Expected Output:**
 
-<img width="600" height="421" alt="image" src="https://github.com/user-attachments/assets/1d5519ea-f893-4fc2-a378-643e4c825e0e" />
-<img width="400" height="135" alt="image" src="https://github.com/user-attachments/assets/132bd8df-9d07-408a-b4cb-2c1b85090702" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/1d5519ea-f893-4fc2-a378-643e4c825e0e" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/132bd8df-9d07-408a-b4cb-2c1b85090702" />
 
 ---
 
