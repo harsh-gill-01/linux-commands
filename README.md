@@ -271,15 +271,69 @@ cd folder/newfolder/folderA
 
 ---
 
-* `mv` - To move files and folders from one directory to another in linux. We should give the name of files and folders which we want to move . It moves the files and folders to the desired directories.
+* `mv` - To move files and folders from one directory to another in linux. We should give the name of files and folders which we want to move .  It moves the files and folders to the desired directories. You can also change name of files and folders. We can also use `mv ../ [file or folder name]` command to get any folder or file in current directory or folder without going back.
+**Syntax:**
+* `mv [file name] [folder or directory].`
+* `mv [folder or directory name] [folder or directory name].`
+* `mv ../[file or folder name].` You can get any file or folder from any previous folders or directories without going back by using number of `../` as per the location of files or folders.
+* `mv [file or folder name] [file or folder name] for changing name.`
+
+**Example:**
+`mv fileB my_folder`
+`mv folder mynewfolder` 
+`mv ../filenew .`
+`mv file_A file_AA`
+`mv folder FOLDER`
+
 ```bash
-mv file myfolder
+mv fileB my_folder
+mv folder mynewfolder 
+mv ../filenew .
+mv file_A file_AA
+mv folder FOLDER
 ```
+
+**Expected Output:**
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/eba6ae55-e775-4f90-824f-ec954a4d56d3" />
+
+---
+
 * `cp` - to copy files and their content. The name of the file should be written by us after the command which we want to copy.
+**Syntax:**
+* `cp [file name] [folder or directory].`
+* `cp [file name] [another file name].` (for copying only content of one file to another file).
+* `cp ../[file name] .` You can get any file and its content from any previous folders or directories without going back by using number of `../` as per the location of files or folders.
+* `cp [file name] [file name] .` For copying the content as well as creating new copy of file from another name.
+
+**Example:**
+
+`cp FILE new_folder`
+`cp FILE file_new`
+`cp ../fileC .`
+`cp file_new new_File`
+
 ```bash
-cp newfile myfolder
-cp newfile NEWFILE
+
+cp FILE new_folder
+cp FILE file_new
+cp ../fileC .
+cp file_new new_File
+
 ```
+
+**Expected Output:**
+
+FIRST TWO COMMANDS : 
+
+<img width="600" alt="Screenshot 2026-09-13 120616" src="https://github.com/user-attachments/assets/019ded80-8a35-471e-a5be-bbcfa9d61e5f" />
+
+LAST TWO COMMANDS :
+
+<img width="600" alt="Screenshot 2026-09-13 121310" src="https://github.com/user-attachments/assets/88e72df8-29f9-4a50-b6b8-33de27e63e92" />
+
+---
+
 * `cat` - to read a file.
 ```bash
 cat myfile
