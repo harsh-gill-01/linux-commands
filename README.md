@@ -335,17 +335,56 @@ LAST TWO COMMANDS :
 ---
 
 * `cat` - to read a file.
+**Syntax:**
+`cat [file name]`
+
+**Example:**
+ `cat FILE`
+   
 ```bash
-cat myfile
+cat FILE
 ```
-* `less` - to read a file. It provides some other options comparing to cat command for better and proper reading and finding some important or specific words in files.
+**Expected Output:**
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/e0eb7c18-fea6-4a1e-84bb-379bd1d71796" />
+
+---
+
+* `less` - to read a file. It provides some other options comparing to cat command for better and proper reading and finding some important or specific words in files. Press `Q` to quit file reading. **NOTE:** For reading big files there are some helpful things you can do. Press `/` and write the specific word or name , anything you want to read in file that your file contains, this is for searching and reading from top to bottom. Press `?` and write specific name or word you want to read in the file for searching or reading information from bottom to top. 
+**Syntax:**
+`less [file name]`
+
+**Example:**
+`less FILE`
+
 ```bash
-less new_file
+less FILE
+
 ```
-* `more` - to read a file page by page and word or line by line. Press enter to read line by line and down arrow to read page by page.
+**Expected Output:**
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/5a93d1c4-e0ab-4a86-8ef9-6f610cce6579" />
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/f6f11d57-649b-4bc7-a0ef-4467becccfaa" />
+ 
+---
+
+* `more` - to read a file page by page and word or line by line. Press enter to read line by line and down arrow to read page by page. Use `ENTER KEY` for reading page by page and use `DOWN ARROW` for reading line by line. **NOTE:** The above written reading thing will work only if your file is big, it will not work upon small files. 
+**Syntax:**
+`more [file name]`
+
+**Example:**
+`more FILE`
+
 ```bash
-more fileA
+more FILE
 ```
+**Expected ouput:**
+
+<img width="890" height="389" alt="image" src="https://github.com/user-attachments/assets/e6a840ef-781b-49af-9e91-d57dbbb1e9a4" />
+
+
+
 * `nano` - to edit a file very perfectly. It provides many options to edit a file as per our requirements. Its benefit is, you dont need to create a file first by using `touch` command. It will create file as well as will provide options to edit the file.
 ```bash
 nano fileB
