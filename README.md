@@ -9,7 +9,7 @@ ls
 ```
 **Expected Output:**
 
-<img width="400" height="260" alt="image" src="https://github.com/user-attachments/assets/be73df06-9236-432f-9fa1-e12a1ee15256" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/be73df06-9236-432f-9fa1-e12a1ee15256" />
 
 ---
 
@@ -21,7 +21,7 @@ pwd
 ```
 **Expected Output:**
 
-<img width="400" height="164" alt="image" src="https://github.com/user-attachments/assets/ff1b54b0-3440-41a6-b55b-320d0baead12" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ff1b54b0-3440-41a6-b55b-320d0baead12" />
 
 ---
 
@@ -33,9 +33,9 @@ clear
 ```
 **Expected Output:** 
 
-<img width="600" height="314" alt="image" src="https://github.com/user-attachments/assets/c0f237ca-438d-4ad2-8515-e07cb842b0c6" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/c0f237ca-438d-4ad2-8515-e07cb842b0c6" />
 
-<img width="400" height="219" alt="image" src="https://github.com/user-attachments/assets/ff21990b-b45d-4f31-89c9-29f4394134ce" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ff21990b-b45d-4f31-89c9-29f4394134ce" />
 
 ---
 
@@ -47,7 +47,7 @@ date
 ```
 **Expected Output:**
 
-<img width="400" height="178" alt="image" src="https://github.com/user-attachments/assets/ba21578d-6138-46fb-853f-be55d65f16d5" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ba21578d-6138-46fb-853f-be55d65f16d5" />
 
 ---
 
@@ -60,7 +60,7 @@ touch my_file
 ```
 **Expected Output:**
 
-<img width="500" height="197" alt="image" src="https://github.com/user-attachments/assets/4d1d143b-53d9-451d-92b8-2135d3469925" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/4d1d143b-53d9-451d-92b8-2135d3469925" />
 
 ---
 
@@ -74,7 +74,7 @@ mkdir my_folder
 ```
 **Expected Output:**
 
-<img width="500" height="187" alt="image" src="https://github.com/user-attachments/assets/6ef15c28-a0c7-41f3-a9c2-41a8b09342e0" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/6ef15c28-a0c7-41f3-a9c2-41a8b09342e0" />
 
 ---
 
@@ -88,7 +88,7 @@ mkdir my_folder
 ```
 **Expected Output:**
 
-<img width="600" height="246" alt="image" src="https://github.com/user-attachments/assets/35679bfb-04c4-4e3b-b5cd-f4e85d9fc905" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/35679bfb-04c4-4e3b-b5cd-f4e85d9fc905" />
 
 ---
 
@@ -109,7 +109,7 @@ rmdir newfolder
 ```
 **Expected Output:**
 
-<img width="600" height="330" alt="image" src="https://github.com/user-attachments/assets/6c50249e-afd1-4158-a3f6-4d4a2385aa5e" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/6c50249e-afd1-4158-a3f6-4d4a2385aa5e" />
 
 ---
 
@@ -123,7 +123,7 @@ cal
 ```
 **Expected Output:**
 
-<img width="600" height="376" alt="image" src="https://github.com/user-attachments/assets/b0842ee6-a334-47b6-9005-d9fbfa6c3faa" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/b0842ee6-a334-47b6-9005-d9fbfa6c3faa" />
 
 ---
 
@@ -135,7 +135,7 @@ ls -lt
 ```
 **Expected Output:**
 
-<img width="600" height="759" alt="image" src="https://github.com/user-attachments/assets/3abdee9a-c169-4bb6-b2b1-9e522f25313a" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/3abdee9a-c169-4bb6-b2b1-9e522f25313a" />
 
 ---
 
@@ -147,7 +147,7 @@ ls -ltr
 ```
 **Expected Output:**
 
-<img width="600" height="752" alt="image" src="https://github.com/user-attachments/assets/23cdab4f-e224-4a1b-86c1-f529ba25ddf9" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/23cdab4f-e224-4a1b-86c1-f529ba25ddf9" />
 
 ---
 
@@ -159,7 +159,7 @@ ls -lh
 ```
 **Expected Output:**
 
-<img width="600" height="753" alt="image" src="https://github.com/user-attachments/assets/7b0d13cd-8d37-4bd7-b66d-d8059613889e" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/7b0d13cd-8d37-4bd7-b66d-d8059613889e" />
 
 ---
 
@@ -171,7 +171,7 @@ bc
 ```
 **Expected Output:**
 
-<img width="600" height="499" alt="image" src="https://github.com/user-attachments/assets/552a061d-745f-48af-8a8a-0532db518221" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/552a061d-745f-48af-8a8a-0532db518221" />
 
 ---
 
@@ -185,7 +185,7 @@ ls --help
 ```
 **Expected Output:**
 
-<img width="600" height="870" alt="image" src="https://github.com/user-attachments/assets/24dd95f5-3a79-45d7-a280-ac82d06b64a0" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/24dd95f5-3a79-45d7-a280-ac82d06b64a0" />
 
 ---
 
@@ -199,21 +199,20 @@ man ls
 ```
 **Expected Output:**
 
-<img width="600" height="868" alt="image" src="https://github.com/user-attachments/assets/121c2e92-1727-4c92-b243-7b585fa03f68" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/121c2e92-1727-4c92-b243-7b585fa03f68" />
 
 ---
 
 * `cd` - Use this command to change directory or for surfing in multiple folders and directories . You can also use `/` for going or moving in multiple folders by describing path. This command will let you access directories of current location. Never forget to give name of the directory and folder in which you want to go and access. Use this command alone , means without giving any name of folder or directory to get return yourselves back to home directory (~ home directory). Directories or folders appear different in color. 
 **Syntax:**
-`cd [folder or directory name] **Example:**  
-`cd folder`
+`cd [folder or directory name]` **Example:**  `cd folder`
 
 ```bash
 cd folder
 ```
 **Expected Output:**
 
-<img width="600" height="353" alt="image" src="https://github.com/user-attachments/assets/fc7fa4bb-0b3c-43d2-8db0-03a85c31e485" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/fc7fa4bb-0b3c-43d2-8db0-03a85c31e485" />
 
 ---
 
@@ -228,7 +227,7 @@ id
 ```
 **Expected Output:**
 
-<img width="500" height="286" alt="image" src="https://github.com/user-attachments/assets/8c596326-7135-4241-8bac-efb0f41bf657" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/8c596326-7135-4241-8bac-efb0f41bf657" />
 
 ---
 
@@ -240,11 +239,11 @@ uptime
 ```
 **Expected Output:** 
 
-<img width="400" height="173" alt="image" src="https://github.com/user-attachments/assets/35204fe9-0a3d-4811-b6ab-708bcdb1d4a3" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/35204fe9-0a3d-4811-b6ab-708bcdb1d4a3" />
 
 ---
 
-* `cd ../` - Use this command to go back one directory from current location. You can use multiple slashes as per the number of folders or directories you are in to go back. In the expected output, i went upto `newfolder` from home directory (~), I was in `~`, went to a folder named `folder` of `~` and then went to `newfolder` from `folder`, and then i went back two folders, and reached `~` home directory back.
+* `cd ../` - Use this command to go back one directory from current location. You can use multiple slashes as per the number of folders or directories you are in to go back. In the **Expected Output**, i went to `folder` , then `newfolder` , then i went back one folder by using `cd ../` , then i went two folders back by `cd ../../` command , then i went upto `folderA` by describing its path from `home` folder .
 **Syntax:**
 * `cd [folder name]` - to go inside a folder.
 * `cd ../` - to go back one directory.
@@ -268,8 +267,7 @@ cd folder/newfolder/folderA
 
 **Expected Output:**
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/1d5519ea-f893-4fc2-a378-643e4c825e0e" />
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/132bd8df-9d07-408a-b4cb-2c1b85090702" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/43305944-3f0c-495f-9a74-8b5f279e0c39" />
 
 ---
 
