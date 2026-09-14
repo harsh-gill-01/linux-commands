@@ -350,42 +350,67 @@ cat FILE
 
 ---
 
-* `less` - to read a file. It provides some other options comparing to cat command for better and proper reading and finding some important or specific words in files. Press `Q` to quit file reading. **NOTE:** For reading big files there are some helpful things you can do. Press `/` and write the specific word or name , anything you want to read in file that your file contains, this is for searching and reading from top to bottom. Press `?` and write specific name or word you want to read in the file for searching or reading information from bottom to top. 
+* `less` - to read a file. It provides some other options comparing to cat command for better and proper reading and finding some important or specific words in files. In this, the big files will be opened in another editor or reader of files not in your terminal.
+
+**NOTE:**
+  
+In this, the files will be opened in another editor or reader of files not in your terminal. For reading BIG files there are some helpful things you can do. Press `/` and write the specific word or name , anything you want to read in file that your file contains, this is for searching and reading from top to bottom. Press `?` and write specific name or word you want to read in the file for searching or reading information from bottom to top. After using `/` and `?` for searching specific information from top to bottom and bottom to top, press `N` for seeing more or same like that information you searched. If there will be same or more information about your search it will show you, and when it will be finished, it will return `Pattern not found (Press Return)`. Press `Q` to quit file reading and come back to the terminal. Press `SHIFT + G` to go down at the last line of the file and press `P` to go up to the first line.
+  
 **Syntax:**
 `less [file name]`
 
 **Example:**
-`less FILE`
+`less file`
+`less fileB`
 
 ```bash
-less FILE
+less file
+less fileB
 
 ```
 **Expected Output:**
 
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/5a93d1c4-e0ab-4a86-8ef9-6f610cce6579" />
+Output of Smaller File (file)
+<img width="895" height="871" alt="Screenshot 2026-09-14 124048" src="https://github.com/user-attachments/assets/5e83c81d-388a-4977-ad3e-3f022e631394" />
+Execution of Bigger File (fileB)
+<img width="400" alt="Screenshot 2026-09-14 124404" src="https://github.com/user-attachments/assets/3fdd1856-cb9f-414e-90c9-6592bdff44a0" />
 
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/f6f11d57-649b-4bc7-a0ef-4467becccfaa" />
- 
+Output of Bigger File (fileB)
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/84e2ac39-7acf-4c39-9d32-4c14a3933996" />
+
+This Is How You Will Search specific information with `/` `?`
+<img width="896" height="871" alt="Screenshot 2026-09-14 124546" src="https://github.com/user-attachments/assets/8779c41a-b356-422e-937b-e14a9ac08fb7" />
+<img width="892" height="875" alt="Screenshot 2026-09-14 124631" src="https://github.com/user-attachments/assets/5cb522c6-265a-4b9a-8bd9-96fbbbe88dbc" />
+
 ---
 
-* `more` - to read a file page by page and word or line by line. Press enter to read line by line and down arrow to read page by page. Use `ENTER KEY` for reading page by page and use `DOWN ARROW` for reading line by line. **NOTE:** The above written reading thing will work only if your file is big, it will not work upon small files. 
+* `more` - To read a file page by page and word or line by line. Press `ENTER` to read line by line and `Down Arrow` to read page by page (it will scroll down more than 4-5 lines of file). In this , your file is opened in your terminal , not in another file reader. But for big files, you will have to press `Q` to quit file reading as same as with `less` command. The above written reading thing will work only if your file is big, it will not work upon small files as usual. It also shows the percentage of file you've read, like this way `--More-- (70%)`, as you will use `down arrow` and scroll the file you will automatically come out when you will have finished it to the end, this is due to opening of your file reader in terminal, not an editor or separate reader like `less` command.
+
 **Syntax:**
 `more [file name]`
 
 **Example:**
-`more FILE`
+`more fileC`
+`more fileB`
 
 ```bash
-more FILE
+more filec
+more fileB
 ```
-**Expected ouput:**
+**Expected output:**
 
-<img width="890" height="389" alt="image" src="https://github.com/user-attachments/assets/e6a840ef-781b-49af-9e91-d57dbbb1e9a4" />
+Output of Smaller File (fileC)
+<img width="887" height="452" alt="image" src="https://github.com/user-attachments/assets/ffd5900e-f2eb-44e4-bf0e-175fea7ed90a" />
 
+Execution of Bigger File (fileB)
+<img width="893" height="240" alt="image" src="https://github.com/user-attachments/assets/2b02a7c4-96e6-49c9-b98e-9ef89c6166c1" />
 
+Output of Bigger File (fileB)
+<img width="891" height="873" alt="image" src="https://github.com/user-attachments/assets/cd960e68-86d9-4375-a826-c1048128c7b6" />
 
-* `nano` - to edit a file very perfectly. It provides many options to edit a file as per our requirements. Its benefit is, you dont need to create a file first by using `touch` command. It will create file as well as will provide options to edit the file.
+---
+
+* `nano` - To edit a file very perfectly. It provides many options to edit a file as per our requirements. Its benefit is, you dont need to create a file first by using `touch` command. It will create file as well as will provide options to edit the file.
 ```bash
 nano fileB
 ```
@@ -393,11 +418,27 @@ nano fileB
 ```bash
 vi myfile
 ```
-* `grep` - to search a word in files. Its used for searching of a word in files. Write the name of the file after the command while executing.
+* `grep` - To search a word in files. It's used for searching a word in files. It will return on your terminal all the words containing that file.
+
+**Syntax:**
+`grep 'word' [file name]`
+
+**Example:**
+`grep 'A' fileB`
+
 ```bash
-grep file_new
+grep 'A' fileB
 ```
-* `egrep` - to search multiple words and information in files. Write the name of the file and use pipe or vertical bar (|) for searching mutiplw words at a time.
+**Expected Output:**
+
+<img width="896" height="192" alt="image" src="https://github.com/user-attachments/assets/d4977845-fcfb-4e35-b8e0-c805ea63e914" />
+
+---
+
+* `egrep` - To search multiple words and information in files. Write the name of the file and use pipe or vertical bar (|) for searching multiple words at a time.
+
+**Syntax:**
+`egrep `words or information` [file name]`
 ```bash
 egrep A|G|H|J|C| my_file
 ```
