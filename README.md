@@ -418,10 +418,14 @@ nano fileB
 ```bash
 vi myfile
 ```
-* `grep` - To search a word in files. It's used for searching a word in files. It will return on your terminal all the words containing that file.
+* `grep` - It's full form is **Global Regular Expression Print**. Used To search words in files. It will return on your terminal all the words containing that file. 
 
 **Syntax:**
 `grep 'word' [file name]`
+
+**Use cases:**
+
+
 
 **Example:**
 `grep 'A' fileB`
@@ -442,12 +446,43 @@ grep 'A' fileB
 ```bash
 egrep A|G|H|J|C| my_file
 ```
-* `history` - use this command get all the history of your used command on terminal, use `history` command for getting all the commands history that are executed on the terminal till date. You can use `history |grep` command also to search a specific or single command name that you have executed on your terminal. The word grep is used here because it is used for searching only a single word. 
+* `history` - Use this command get all the history of your used commands on terminal, use `history` command for getting all the commands history that are executed on the terminal till date. You can use `history |grep` command also to search a specific or single command name that you have executed on your terminal. The word `grep` is used here because it is used for searching words.
+**Syntax:**
+`history`
+`history `|` [word or command]`
+
+**Example:**
+`history`
+`history |grep ls`
+ 
 ```bash
 history
 history |grep ls
 ```
-* `gzip` - use this command to zip a file. It will compress your file and will give you the compressed version of your big file , thus helping us to share or store them easily. There will also be the real file along with compressed version. If you somehow remove the real file , then you can recover from compressed version by using `gunzip` or `gunzip -d` command. Write the name of the file you want to compress or decompress. While decompressing the file , write name of your compressed version file ( .gz , at the end ).
+**Expected Output:**
+Output of `History` Command
+<img width="893" height="815" alt="image" src="https://github.com/user-attachments/assets/5b2fa1e2-ffae-4081-8d70-388710e26b92" />
+Execution of `History |grep ' ' ` Command
+<img width="890" height="78" alt="image" src="https://github.com/user-attachments/assets/3d17d75c-ce23-4306-a6e4-cc1b93f2cd0e" />
+Output of `History |grep ' ' ` Command
+<img width="888" height="814" alt="image" src="https://github.com/user-attachments/assets/ae1a2dd2-aeec-4ddf-956f-7aebf194811b" />
+
+---
+
+* `gzip -k` - Use this command to zip a file. It will compress your file and will give you the compressed version of your big file , thus helping us to share or store them easily.
+ 
+**NOTE:**
+
+You can also use `gzip` but, it will not give you real file along with compressed version, but `gzip -k` will, as it's `-k` describes that, keep input files, do not delete them. If you want to keep it's real file then use `gzip -k` and if not, then `gzip`. Use `gunzip -d` or `gzip -d` where `d` stands for decompress, for decompressing real file, when you use `gzip` and want to get back real file. Write the name of the file you want to compress or decompress. While decompressing the file , write name of your compressed version file ( .gz , at the end ). The compressed version file appears RED in color usually.
+
+**Syntax:**
+`gzip [file name]`
+`gzip -k [file name]` (for keeping real file also)
+`gzip -d` [compressed file name] (when you use `gzip`)
+`gunzip -d [file name]` (one more command for decompressing,when you use `gzip` )
+
+
+
 ```bash
 gzip new_file
 gunzip new_file.gz
