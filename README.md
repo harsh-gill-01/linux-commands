@@ -610,3 +610,19 @@ tail -n (write number of lines you want to read) <file name>
 ```bash
 tail -5 my_file <img width="958" height="947" alt="image" src="https://github.com/user-attachments/assets/f97c5b9f-8380-42cb-ad9f-4adfc6e70aa4" />
 ```
+
+* `apt` - Use this command to manage packages in linux. The benefit of using this command is that , when we install packages or applications from internet , instead of from computer then, it manages all work itself and install them. But when we use `dpkg -l` command, then it will not install packages from internet, it can not do this work. So, use `apt` for installing and `dpkg -l` for checking packages it they are installed or not. You can also use `apt` for checking packages if they are installed or not, but it will give you a warning due to unstable cli of apt.
+**Syntax:**
+`sudo apt install [package or application name]`  Use this for installing , instead of `dpkg`
+`apt list --installed` (for checking all the installed packages)
+`dpkg -l` (for checking all the installed packages with more readability and easyily)
+`dpkg -l `|` grep [package or application name]`
+
+dpkg shows only installed packages, from dbkg database, in better format
+
+apt shows installed packages , from apt cache , a little bit complex machine language, but we can use grep to see single packages for checking.
+
+apt list shows installed + uninstalled packages, from ubuntu repository, to see all the avalable packages that are uninstalled and installed packages.
+apt cache pkgnames , to see only names of packages, from apt cache, scripting, grep to names search from them.
+
+**systemctl** - use this command to check status of a service, use `sudo` before systemctl when. you want to stop aur satrt a new service, because new service will derive new chnges in ypur sytem that why there is need to authenticate and sudo permisiion is needed, for redhat, fedora for example use systemctl firewalld.service and for ubuntu check systemctl status ufw, because servicces are different for different systems.
