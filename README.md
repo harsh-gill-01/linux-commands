@@ -625,4 +625,14 @@ apt shows installed packages , from apt cache , a little bit complex machine lan
 apt list shows installed + uninstalled packages, from ubuntu repository, to see all the avalable packages that are uninstalled and installed packages.
 apt cache pkgnames , to see only names of packages, from apt cache, scripting, grep to names search from them.
 
-**systemctl** - use this command to check status of a service, use `sudo` before systemctl when. you want to stop aur satrt a new service, because new service will derive new chnges in ypur sytem that why there is need to authenticate and sudo permisiion is needed, for redhat, fedora for example use systemctl firewalld.service and for ubuntu check systemctl status ufw, because servicces are different for different systems.
+* `systemctl` - To check status, and do enable or disable a service.
+**Usage Regarding Different Distros (other versions) of Linux:**
+ #### For Ubuntu users :
+**Syntax:**
+`systemctl status [service name]` (ufw is a service of firewall by ubuntu for it's users)
+To Start or Stop a service :
+`systemctl stop [service name]` + sudo authentication. It requires `sudo` authentication, because ,if you want to stop or start a service ,it will bring some changes in your system so that's why it's authenticated when we want to stop or start a service.
+#### For Redhat, Fedora , CentOs :
+
+
+se this command to check status of a service, use `sudo` before systemctl when. you want to stop aur satrt a new service, because new service will derive new chnges in ypur sytem that why there is need to authenticate and sudo permisiion is needed, for redhat, fedora for example use systemctl firewalld.service and for ubuntu check systemctl status ufw, because servicces are different for different systems.
