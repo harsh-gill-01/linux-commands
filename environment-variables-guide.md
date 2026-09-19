@@ -1,5 +1,36 @@
-how to describe and write path for setting an env for a software or application :
+**WHAT ARE ENVIRONMENT VARIABLES (ENV'S) ?**
 
+Environment variables are those variables which carry information about our system executables packed in variables, basically it's like a diary in which all the information about our ssytem executables is written, whenever we execute a command or perform an operation, our system checks if the executed command is saved or not, if it will be there written in the variables, it will find it out and give you the output, otherwise a command error or simply no execution of the command.
+
+**USE THE FOLLOWING COMMANDS TO CHECK EXECUTABLES PATH AND THRIR LOCATION**
+
+* `which` - For printing the path of any command.
+
+**SYNTAX:** 
+
+`which <command name or software or application name>`
+
+**EXAMPLE:**
+
+`which ls`
+
+**EXPECTED OUPUT:** (If executable will be there)
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/092d94f4-326d-41e9-9110-b5de3151289e" />
+
+* If the executable will not there (Expected Error) :
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/d9252147-0343-4dc5-835c-d943d62084b8" />
+
+* The above error occurs, because the java is not installed there in the system.
+
+**NOTE:**
+
+Sometimes there can also be other errors due to, wrong executable, wrongly executed, wrong syntax, and sometimes due to replacement of old versions with new ones of many applications, and softwares.
+
+* `whereis` - This command is more helpful than `which`, because this command shows you some other information along with it's path like, it's manual guide path, it's service path etc.
+
+ 
 use which command to see, at present the software you want to env, add inw hich path its running and whereis command to check the path, its suitables files and folders, its manula guide , all the paths.
 use export path=path///// command for temporary env variable of your software
 use nano ~/.bashrc, use nano~/.zsh in case of this sshell, write export path=path///// at the end of the file by scrolling down, press ctrl+o for save and enter press, ctrlx for come out,rapid implement for source~/.bashrc
