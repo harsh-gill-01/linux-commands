@@ -29,8 +29,29 @@ Environment variables are those variables which carry information about our syst
 Sometimes there can also be other errors due to, wrong executable, wrongly executed, wrong syntax, and sometimes due to replacement of old versions with new ones of many applications, and softwares.
 
 * `whereis` - This command is more helpful than `which`, because this command shows you some other information along with it's path like, it's manual guide path, it's service path etc.
-
  
+**SYNTAX:**
+
+`whereis <command name or software or application name>`
+
+**EXAMPLE:**
+
+`whereis python3`
+
+**EXPECTED OUPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/9967f0bb-c36c-497d-86fb-452624ec4e7d" />
+
+
+**FOR INSTALLING UNISTALLED APPLICATIONS/SOFTWARES OR COOMANDS:**
+
+`sudo apt` - Use this command to install applications, commands or softwares in your system from terminal. `sudo` is used before apt, because for installing something and to change something in system *ROOT* access is required. You have to fill you password, to which you are login within your system.
+
+**SYNTAX:**
+
+`sudo apt <Application, Software or command name>`
+
+#Now You Will Have To Create An 'ENV VARIABLE' to keep 
 use which command to see, at present the software you want to env, add inw hich path its running and whereis command to check the path, its suitables files and folders, its manula guide , all the paths.
 use export path=path///// command for temporary env variable of your software
 use nano ~/.bashrc, use nano~/.zsh in case of this sshell, write export path=path///// at the end of the file by scrolling down, press ctrl+o for save and enter press, ctrlx for come out,rapid implement for source~/.bashrc
