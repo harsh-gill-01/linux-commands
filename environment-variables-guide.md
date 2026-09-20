@@ -2,13 +2,13 @@
 
 ## Introduction to Environment Variables (ENVs)
 
-Environment variables are those variables which carry information about our system executables packed in variables, basically it's like a diary in which all the information about our system executables is written, whenever we execute a command or perform an operation, our system checks if the executed command is saved or not, if it will be there written in the variables, it will find it out and give you the output, otherwise a command error or simply no execution of the command will be thrown.
+Environment variables are those variables which carry information about our system executables packed in variables, basically it's like a **Diary** in which all the information about our system executables is written, whenever we execute a command or perform an operation, our system checks if the executed command is saved or not, **if it is written** in the variables, **the system** finds it out and give you the output, **otherwise it will throw a command error or simply fail to execute the command**.
 
 ---
 
-**USE THE FOLLOWING COMMANDS TO CHECK EXECUTABLES PATH AND THEIR LOCATION:**
+**USE THE FOLLOWING COMMANDS TO CHECK EXECUTABLE PATHS AND THEIR LOCATIONS:**
 
-* `which` - For printing the path of any command.
+* `which` -For printing the path of any command.
 
 **SYNTAX:** 
 
@@ -22,23 +22,23 @@ Environment variables are those variables which carry information about our syst
 which ls
 ```
 
-**EXPECTED OUPUT:** (If executable will be there)
+**EXPECTED OUTPUT:** (If the executable exists)
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/092d94f4-326d-41e9-9110-b5de3151289e" />
 
-* If the executable will not there (Expected Error) :
+* If the executable does not exist (Expected Error) :
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/d9252147-0343-4dc5-835c-d943d62084b8" />
 
-* The above error occured, because the `java` is not installed there in the system.
+* The above error occurred, because the `java` is not installed on the system.
 
 **NOTE:**
 
-Sometimes there can also be other errors due to, wrong executable, wrongly executed, wrong syntax, and sometimes due to replacement of old versions with new ones of many applications, and softwares.
+Sometimes, other errors can occur due to a wrong executable name, incorrect execution, wrong syntax, or when older versions of applications and software are replaced with new ones.
 
 ---
 
-* `whereis` - This command is more helpful than `which`, because this command shows you some other information along with it's path like, it's manual guide path, it's service path etc.
+* `whereis` -This command is more helpful than `which`, because it shows you some additional information along with **its** path like, **its** manual guide path, **its** service path etc.
  
 **SYNTAX:**
 
@@ -52,19 +52,19 @@ Sometimes there can also be other errors due to, wrong executable, wrongly execu
 whereis python3
 ```
 
-**EXPECTED OUPUT:**
+**EXPECTED OUTPUT:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/9967f0bb-c36c-497d-86fb-452624ec4e7d" />
 
-**RECOMENDED:** 
+**RECOMMENDED:** 
 
-`whereis` For geting every information about executables.
+`whereis` -For **getting** all information about executables.
 
 ---
 
-**FOR INSTALLING UNINSTALLED APPLICATIONS/SOFTWARES OR COMMANDS:**
+**FOR INSTALLING UNINSTALLED APPLICATIONS/SOFTWARE OR COMMANDS:**
 
-`sudo apt` - Use this command to install applications, commands or softwares in your system from terminal. `sudo` is used before apt, because for installing something and to change something in system, *ROOT* access is required. You have to fill you password, to which you are login within your system.
+`sudo apt` -Use this command to install applications, commands or **software on your system from the terminal**. `sudo` is used before apt, because installing or changing something in the system, **ROOT** access is required. You have to **enter your password** for the account you are logged into.
 
 **SYNTAX:**
 
@@ -79,13 +79,11 @@ sudo apt install python3
 ```
 **NOTE:** 
 
-When you install an appliaction, software or any command using `apt` command, then we do not need to add their paths manually in our system, they are automatically created and we install them. You can check by usuing `which` or `whereis` command, if it's created or not.
+When **you** install an **application**, software or any command using `apt` command, then **you** do not need to add their paths manually in our system, they are automatically created, **when** we install them. You can check by **using** `which` or `whereis` command, **to verify if the path was successfully created**. 
 
 ---
 
-**FOR CREATING TEMPORARY VARIABLE:**
-
-**USING EXPORT COMMAND:**
+**FOR CREATING A TEMPORARY VARIABLE USING THE EXPORT COMMAND:**
 
 **SYNTAX:**
 
@@ -93,15 +91,19 @@ When you install an appliaction, software or any command using `apt` command, th
 
 **EXAMPLE:**
 
-`export MY_VAR="HARSH"
+`export MY_VAR="HARSH"`
 
-#HOW TO CHECK OR PRINT IF THE VARIABLE HAS CREATED OR NOT:
+**HOW TO CHECK OR PRINT IF THE VARIABLE HAS BEEN CREATED OR NOT:**
 
-`echo command is used for printing something on the screen.`
+`echo` command is used for printing something on the screen.
 
 **SYNTAX:**
 
 `echo $<variable name>`
+
+**EXAMPLE:**
+
+`echo $MY_VAR="HARSH"`
 
 ```bash
 echo $MY_VAR
@@ -109,7 +111,7 @@ echo $MY_VAR
 
 **NOTE:**
 
-*This command is used to make a variable for temporaray work, it's not saved in the system, when you will shutdown your computer, it will be removed automatically.
+This command is used to make a variable for **temporary** work. It is not permanently saved in the system, **when you shutdown** your computer, it will be removed automatically.
 
 **EXPECTED OUTPUT:**
 
