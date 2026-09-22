@@ -677,3 +677,24 @@ ek hota hai -644 - ismein 6 yaani 4+2 (read , write) for user, 4 yaani read for 
 NOTE: aap permissions requirement ke hisaab se de sakte hain, upar batayi gayi example s 755 (for scripts, softwares etc.) and 644 (for documents, files etc.)industry mein mostly use hoti hain, isliye unke prority de gayi lekin aap permissions zarroorat ke hissab se set karte ho, ye 700 ho sakti hai 7 yaani  (4+2+1 , r + w + x) baaki groups aur others 0 hain yaani unko koi permission nhi hai, toh at the end ye sab aapke upar hai..
 
 * `chown` - iscommand ka use ownership change karne ke liye hota hai , in case aapko kisi file ki ownership change karni ho, toh chown yaani chnage owner command use karenge: pehle sudo su apply karein for ubuntu, password daalein aur ls -ltr ya ls -l aur file name likhkar pehle permission aur file name ache se check kar lein, uske baad chown name aur file ka name daalein aur enter karein.
+* note : chmod chalane ke liye hamesha root user (sudo) ki zaroorat nahi hoti. Agar aap apni khud ki banayi hui file ki permission badal rahe hain, toh aap normal user se bhi chmod chala sakte hain.Lekin agar aap kisi system file ya dusre user ki file ki permission badal rahe hain, ya fir file ka owner badal rahe hain (chown / chgrp), toh Root Access (sudo) compulsory hai.
+
+* `chgrp` -is command ka use group owner change karne ke liye hota hai, pehle sudo su karke root user se login karein, password daalkar, kyunki aise chnages karne ke liye root access chahiye hota hai, chgrp karke naam likh dein jaise ksis dusre ka ya fir apna logges in naam, file name likhein enter karein..
+akeli ek file ki permissions aur syatus dekhne ke liye ls -l file namr likhein..
+
+* `free` -is command ka use server ki memeory check karne kiye hota hai, kyunki memory limit hoti hai, free command chalyenge toh vahan par memeory aur swap information aa jayegi, kitni used hai, kitni bachi hai, aur baaki informatuion.. tips- free dabane par information dikh jayegi saari lekin kuch readable nhi hogi, readable banane ke liye free -h likhein aur total paane ke liye, free -th dabayein.. swap memory hoti hai, jab humari main ram khatm hone waali hoti hai bhar jaati hai haeavy tasks se, yoh linux ssd, hardisk se nakli ram banata hai taaki kaam kharaba na ho aur system crash na ho, isse kaam toh chal jaata hai , par slow chalta hai kyunki ssd se aane mein ram ko time lagta hai.
+
+* `top` -is command ka use %memeory usages, cpu information aur bhi bahut saari information dekhne ke liye use hota hai,%cpu mein kitni cpu use ho rahi hai aata hai, aur aage ..id (ex- 97.5) ayega jo total bachi hui cpu% hai , aao 100 mein se usse minus karke used cpu nikal sakte hain, mib mem ye batata hai ki server ke paas kitni memory khali bacji hai aur kitni used hai, total kitni hai, mib swap se swap memory ka pata chla jayega, agar zero hai aapka toh matlab abhi kuch use nhi hua swap bankar ssd mein se..
+Pehli Row (PID ...):Yeh process aapke total CPU ka ....(%CPU) consume kar raha hai.Aur aapki total RAM ka ...(%MEM) gher kar baitha hai.Doosri Row (PID ...):Yeh process CPU ka ...aur RAM ka ... use kar raha hai, q dabayein bahar aane ke  liye..
+
+* `du` -is command ka use disk utilization yaani disk usage chack karne ke liye kiya hai, ki konnsi file, folder kitni disk usage kar rahi hai, kitna usage hai, du -h use karke disk usage numbers ko human readable bana sakte hain, h ka matlab hota ha human, aap h ko baaki sab isi hi commands ke saath use kar sakte hain..
+--max-depth=1: Is flag ko lagane se terminal har folder ke andar ghus kar lambi list nahi banata, balki sirf main (top-level) folders ki total size ka clean summary dikhata hai.--exclude={snap,desktop,config}: Agar aap disk check karte waqt kuch system ya configuration folders (jaise snap, desktop, config) ko output se hatana chahte hain, toh is filter ka use karein.Syntax Example: du -h --max-depth=1 --exclude={snap,desktop,config}
+
+* `df` -is command ka use disk space ke saath saath kuch alag information jaise , kitni used hai, avail kitni hai, use% etc.. df -h use kar sakte hain for better reading in (gb,mb,k)
+Filesystem: Yeh batata hai ki disk ka kaun sa hissa hai. cloud server par aapko /dev/sda1 ya /dev/nvme0n1p1 jaisa naam sabse upar dikhega (yahi aapki main hard disk hoti hai).
+size hota hai
+used kitni hai
+avail kitni hai
+use % kitna hai
+mounted on hota hai, linux mein folders ko kahin na kahin jidne ko mounting kehte hain, ismein root / directory hoti hai, jismein sab kuch bhara hota hai jo bhi sofware, command s etc..
+ek tmpfs filesystem hota hai jismein saara kachra jaata hai, usmein asli / root hard disk ka kuch nhi hota usmein temporary cheezein hi jaati hain..
