@@ -121,12 +121,15 @@ This command is used to make a variable for **temporary** work. It is not perman
 
 **FOR CREATING PERMANENT ENV VARIABLE:**
 
-#Use Following Command This Way For Permanent creation 
+**Use Following Command This Way For Permanent creation:** 
 
 `export VARIABLE_NAME="value"`
 
 **STEPS:**
 
+**1**. First check the prescence of bashrc file by entering ls -la for showing hidden files.
+**2**. Then, open any file editor like vim or nano by writing bashrc file name. 
+**3.**. After opening bashrc, in the nano editor come down after scrolling, type there directly the variable along with export command and 
 *Open any file editor `vim` or `nano`. We are using nano
 
 
