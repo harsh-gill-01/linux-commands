@@ -705,3 +705,5 @@ software and os details, os distribution and releases, kernel hostname, ruuning 
 * `lscpu` -is command ka use cpu/core/thread info check karne ke liye use hoti hai.
 * `arch` -is command ka use system ka archotecture check karne ke liye kiya jaata hai.
 * `lsblk` - yaani list block is command ka use storage devices, disk partition, ki list dekhne ke liye kiya jaata hai.
+* `uname -a` -is command ks use os ke mame ko jaan ne ke liye hota hai linux mein , ki hum kis naam ke os ka use kar rahe hain, hostname se pata chal jaata hai ki konsa os hai, par hostname hum chnage bhi kar sakte hain, toh thoda detail mein jaane ke liye hum uname -a ka use kar sakte hain, iske ilava hum cat /etc/os-release karke bhi info le sakte hain, farq itna hai ki ye humare os ditribution ki details deta hai, aur uname -a humare kernel ki
+Linux mein /etc folder wo jagah hai jahan system ki saari configuration files aur metadata hota hai. /etc/os-release file mein OS ki identity key-value pairs mein save hoti hai.
