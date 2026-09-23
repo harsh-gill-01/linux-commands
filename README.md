@@ -698,3 +698,10 @@ avail kitni hai
 use % kitna hai
 mounted on hota hai, linux mein folders ko kahin na kahin jidne ko mounting kehte hain, ismein root / directory hoti hai, jismein sab kuch bhara hota hai jo bhi sofware, command s etc..
 ek tmpfs filesystem hota hai jismein saara kachra jaata hai, usmein asli / root hard disk ka kuch nhi hota usmein temporary cheezein hi jaati hain..
+
+system info -linux mein system info aapke system ka identity card ya info card hota hai, heakth card, jo batata hai ki os kaisa, appka system kis hardware par chal raha hai etc. ye hardware details, cpu, ram , ssd, architecture jaise Batata hai ki system 64-bit (x86_64) hai ya ARM (aarch64).
+software and os details, os distribution and releases, kernel hostname, ruuning and performance state, uptime , load average/cpu average , running time
+* `hostname` -to check hostname of your linux server, menas the name of your vm (virtual machine), and it also sees only our terminal.
+* `lscpu` -is command ka use cpu/core/thread info check karne ke liye use hoti hai.
+* `arch` -is command ka use system ka archotecture check karne ke liye kiya jaata hai.
+* `lsblk` - yaani list block is command ka use storage devices, disk partition, ki list dekhne ke liye kiya jaata hai.
