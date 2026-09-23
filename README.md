@@ -707,3 +707,20 @@ software and os details, os distribution and releases, kernel hostname, ruuning 
 * `lsblk` - yaani list block is command ka use storage devices, disk partition, ki list dekhne ke liye kiya jaata hai.
 * `uname -a` -is command ks use os ke mame ko jaan ne ke liye hota hai linux mein , ki hum kis naam ke os ka use kar rahe hain, hostname se pata chal jaata hai ki konsa os hai, par hostname hum chnage bhi kar sakte hain, toh thoda detail mein jaane ke liye hum uname -a ka use kar sakte hain, iske ilava hum cat /etc/os-release karke bhi info le sakte hain, farq itna hai ki ye humare os ditribution ki details deta hai, aur uname -a humare kernel ki
 Linux mein /etc folder wo jagah hai jahan system ki saari configuration files aur metadata hota hai. /etc/os-release file mein OS ki identity key-value pairs mein save hoti hai.
+
+
+PROCESS -linux meinprocess ka matlab hai koi chalta hua program, jab aap koi program ya command chlate ho toh process us code ko harddisk se uthakar ram mein load karta hai aur cpu ko deta hai isse hi process kehte hain, program- hard disk par rakhi hhui koi file ya code, ye tabb takk cpu par nhi jaata jab takk usse execute na kiya jaaye 
+Process (Active): Jab aap us program ko open ya run karte ho, toh woh RAM mein load hokar Process ban jata hai. Ek hi program ke multiple processes bhi ho sakte hain (jaise Firefox ke 5 alag-alag tabs kholne par 5 processes ban sakte hain). ismein pid, ppid, s, owner, resouce allocatio, states check hoti hain, jaise running r , slleping s/d , zombie z , stopped , pid yaani processs id har process ko linux process id eta hai 2233, parent process id, yaani har processs ko ksis dusre process ne stsrt kiya hota hota hai , usse ppid kehate hain, owner ye batana hai ki process kis user scoount ki perm se chal raha hai
+Resource Allocation: Process ko chalne ke liye RAM memory aur CPU cycles allocate hote hain.
+
+tra Flags (Symbols):
++: Process foreground mein chal raha hai (aapke active terminal session par).
+
+<: High priority process.
+
+N: Low priority process.
+
+* `ps -ef` -  1. ps -ef — Quick PID Lookup Aur Scripts Ke LiyeKaam: System ke saare processes ki ek static (ruki hui) snapshot list deta hai.Kab Use Karein: Jab aapko kisi specific app ka PID (Process ID) ya PPID (Parent Process ID) dhoondhna ho.Best Combination: Pipe grep ke sath test karna.Example: ps -ef | grep nginx (dekhne ke liye ki Nginx server chal raha hai ya nahi).
+* 2. ps aux — Memory, CPU % Aur Process States Dekhne Ke LiyeKaam: Yeh bhi static list deta hai, lekin isme CPU%, MEM%, aur STAT (Process State: R, S, Z, T) jaisi detailed information hoti hai.Kab Use Karein: Jab check karna ho ki kaunsa process kitni RAM/CPU kha raha hai ya process Zombie (Z) state mein toh nahi hai.Example: ps aux | grep python3.
+3.  top — Basic Live Monitoring (Har Server Par Available)Kaam: System resources (CPU, RAM, Load Average) aur processes ki real-time / live summary dikhata hai.Kab Use Karein: Jab aap kisi remote server par ho jahan koi extra tool install karne ki permission nahi hai.Khas Baat: Har Linux distribution mein pehle se inbuilt aata hai
+4. htop — Best Interactive Task Manager (Daily Use)Kaam: Visual, colorful, aur interactive live monitoring tool.Kab Use Karein: Daily system monitoring, individual CPU cores ki health dekhne, aur frozen apps ko bina PID type kiye directly terminate karne ke liye.Khas Baat: Isme shortcuts hain — F3 (Search), F5 (Tree View), F9 (Kill).
