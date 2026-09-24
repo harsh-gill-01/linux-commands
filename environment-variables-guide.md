@@ -12,11 +12,11 @@ Environment variables are those variables which carry information about our syst
 
 **SYNTAX:** 
 
-`which <command name or software or application name>`
+* `which <command name or software or application name>`
 
 **EXAMPLE:**
 
-`which ls`
+* `which ls`
 
 ```bash
 which ls
@@ -34,7 +34,7 @@ which ls
 
 **NOTE:**
 
-Sometimes, other errors can occur due to a wrong executable name, incorrect execution, wrong syntax, or when older versions of applications and software are replaced with new ones.
+* Sometimes, other errors can occur due to a wrong executable name, incorrect execution, wrong syntax, or when older versions of applications and software are replaced with new ones.
 
 ---
 
@@ -42,11 +42,11 @@ Sometimes, other errors can occur due to a wrong executable name, incorrect exec
  
 **SYNTAX:**
 
-`whereis <command name or software or application name>`
+* `whereis <command name or software or application name>`
 
 **EXAMPLE:**
 
-`whereis python3`
+* `whereis python3`
 
 ```bash
 whereis python3
@@ -58,28 +58,29 @@ whereis python3
 
 **RECOMMENDED:** 
 
-`whereis` -For **getting** all information about executables.
+* `whereis` -For **getting** all information about executables.
 
 ---
 
 **FOR INSTALLING UNINSTALLED APPLICATIONS/SOFTWARE OR COMMANDS:**
 
-`sudo apt` -Use this command to install applications, commands or **software on your system from the terminal**. `sudo` is used before apt, because installing or changing something in the system, **ROOT** access is required. You have to **enter your password** for the account you are logged into.
+* `sudo apt` -Use this command to install applications, commands or **software on your system from the terminal**. `sudo` is used before apt, because installing or changing something in the system, **ROOT** access is required. You have to **enter your password** for the account you are logged into.
 
 **SYNTAX:**
 
-`sudo apt install <Application, Software or command name>`
+* `sudo apt install <Application, Software or command name>`
 
 **EXAMPLE:**
 
-`sudo apt install python3`
+* `sudo apt install python3`
 
 ```bash
 sudo apt install python3
 ```
+
 **NOTE:** 
 
-When **you** install an **application**, software or any command using `apt` command, then **you** do not need to add their paths manually in our system, they are automatically created, **when** we install them. You can check by **using** `which` or `whereis` command, **to verify if the path was successfully created**. 
+* When **you** install an **application**, software or any command using `apt` command, then **you** do not need to add their paths manually in our system, they are automatically created, **when** we install them. You can check by **using** `which` or `whereis` command, **to verify if the path was successfully created**. 
 
 ---
 
@@ -87,23 +88,23 @@ When **you** install an **application**, software or any command using `apt` com
 
 **SYNTAX:**
 
-`export VARIABLE_NAME="value"`
+* `export VARIABLE_NAME="value"`
 
 **EXAMPLE:**
 
-`export MY_VAR="HARSH"`
+* `export MY_VAR="HARSH"`
 
 **HOW TO CHECK OR PRINT IF THE VARIABLE HAS BEEN CREATED OR NOT:**
 
-`echo` command is used for printing something on the screen.
+* `echo` command is used for printing something on the screen.
 
 **SYNTAX:**
 
-`echo $<variable name>`
+* `echo $<variable name>`
 
 **EXAMPLE:**
 
-`echo $MY_VAR="HARSH"`
+* `echo $MY_VAR="HARSH"`
 
 ```bash
 echo $MY_VAR
@@ -111,7 +112,7 @@ echo $MY_VAR
 
 **NOTE:**
 
-This command is used to make a variable for **temporary** work. It is not permanently saved in the system, **when you shutdown** your computer, it will be removed automatically.
+* This command is used to make a variable for **temporary** work. It is not permanently saved in the system, **when you shutdown** your computer, it will be removed automatically.
 
 **EXPECTED OUTPUT:**
 
@@ -119,17 +120,104 @@ This command is used to make a variable for **temporary** work. It is not perman
 
 ---
 
-**FOR CREATING PERMANENT ENV VARIABLE:**
+**FOR CREATING PERMANENT ENV VARIABLE (USING NANO FILE EDITOR):**
 
-**Use Following Command This Way For Permanent creation:** 
+**Use Following Command This Way For** **Permanent creation:** 
 
-`export VARIABLE_NAME="value"`
+* `export VARIABLE_NAME="value"`
 
 **STEPS:**
 
-**1**. First check the prescence of bashrc file by entering ls -la for showing hidden files.
-**2**. Then, open any file editor like vim or nano by writing bashrc file name. 
-**3.**. After opening bashrc, in the nano editor come down after scrolling, type there directly the variable along with export command and 
+**1**. First check the **presence of `bashrc` file** by entering `s -la`, that is used to **view hidden files**. You can also use ls -la file name, directly to see it.
+
+**SYNTAX:**
+* `ls -la` (To see **all hidden files and folders**.)
+
+* `ls -la` <file_name> (To see **only a specific file**.)
+
+**EXAMPLE:**
+* `ls -la` (To see **all hidden files**.)
+
+* `ls -la .bashrc` (To check only **`.bashrc` file**.)
+
+```bash
+ls -la
+ls -la .bashrc
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/5b69d88b-9f71-417b-9ccb-f69a6dc31570" />
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/13d63297-dbff-42b9-b2c0-64b7723ef5ab" />
+
+---
+ 
+**2**. Then, **open the `.bashrc` file** using the nano file editor. 
+
+**SYNTAX:**
+* `nano` <file_name>
+* `nano ~/.bashrc` (To **open `.bashrc` file**.)
+
+**EXAMPLE:**
+* `nano ~/.bashrc` (To **open `.bashrc` file**.)
+
+```bash
+nano ~/.bashrc
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/d541a9df-7442-4229-a194-5e08dd0ee927" />
+
+---
+
+**3**. After opening `bashrc` in the nano editor, **scroll down to the very end** of the file. Type your variable directly there using the `export` command.
+
+**SYNTAX:**
+* `export VARIABLE_NAME="value"`
+
+**EXAMPLE:**
+* `export MY_VAR="HARSH"`
+
+```bash
+export MY_VAR="HARSH"
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/a0d5d8a1-17ca-459e-bed6-6b8d01b4e42a" />
+
+---
+
+
+**4**. After writing your variable and its value, press **CTRL + O to save** (Write Out) the file, press enter and then press **CTRL + X to exit** it.
+
+**5**. When you return to the terminal and try to view the variable, you won't see it yet. This is because you need to run **source ~/.bashrc** to **implement the changes** on your system. Use `echo` command to print the variable on your terminal screen.
+
+```bash
+echo $MY_VAR
+source ~/.bashrc
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/e3864acc-7608-428f-a861-4348ce2815aa" />
+
+---
+
+**CONGRATS!! YOU HAVE SUCCESSFULLY CREATED YOUR FIRST ENV VARIABLE!**
+
+**NOTE:** 
+* Never modify the **.bashrc file** without a valid reason. Accidental changes—**even a single character or dot**—can lead to a **system crash or terminal malfunction**.
+* Always use the **dollar sign ($)** when printing or calling your variable with the **echo command** (e.g., echo $VARIABLE_NAME).
+* Always use a **leading dot** (.) before the filename for **hidden files**, just as we do for the **.bashrc file**.
+
+---
+
+**Do The Above Process Like This:**
+
+
 *Open any file editor `vim` or `nano`. We are using nano
 
 
