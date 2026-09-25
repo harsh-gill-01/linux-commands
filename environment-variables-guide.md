@@ -128,7 +128,7 @@ echo $MY_VAR
 
 **STEPS:**
 
-**1**. First check the **presence of `bashrc` file** by entering `s -la`, that is used to **view hidden files**. You can also use ls -la file name, directly to see it.
+**1**. First check the **presence of `.bashrc` file** by entering `s -la`, that is used to **view hidden files**. You can also use `ls -la <file_name>`, directly to see it.
 
 **SYNTAX:**
 * `ls -la` (To see **all hidden files and folders**.)
@@ -215,17 +215,116 @@ source ~/.bashrc
 
 ---
 
-**Do The Above Process Like This:**
+**FOR CREATING PERMANENT ENV VARIABLE (USING VI or VIM FILE EDITOR):**
 
+**Use Following Command This Way For** **Permanent creation:** 
 
-*Open any file editor `vim` or `nano`. We are using nano
+* `export VARIABLE_NAME="value"`
 
+**STEPS:**
 
+**1**. First check the **presence of the `.bashrc` file** by entering `ls -la`, that is used to **view hidden files**. You can also use `ls -la <file_name>`, directly to see it.
 
+**SYNTAX:**
+* `ls -la` (To see **all hidden files and folders**.)
 
+* `ls -la` <file_name> (To see **only a specific file**.)
 
+**EXAMPLE:**
+* `ls -la` (To see **all hidden files**.)
 
+* `ls -la .bashrc` (To check only **`.bashrc` file**.)
 
+```bash
+ls -la
+ls -la .bashrc
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/5b69d88b-9f71-417b-9ccb-f69a6dc31570" />
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/13d63297-dbff-42b9-b2c0-64b7723ef5ab" />
+
+**STEPS:**
+
+**2**. Open the **`.bashrc` file** in **the vi/vim editor** by entering the command and scroll down to the end of the file.
+* NOTE - Both vi and vim editors are **the same**, vim is just an updated version. You can use both for editing files.
+
+**SYNTAX:**
+* `vi <file_name>` or `vim <file_name>`
+* `vi ~/.<file_name>` or `vim ~/.<file_name>` (To **open hidden files**.)
+
+**EXAMPLE:**
+* `vi ~/.bashrc` or `vim ~/.bashrc` (To **open `.bashrc` file**.) 
+
+```bash
+vi ~/.bashrc
+vim ~/.bashrc
+```
+
+**EXPECTED OUTPUT:**
+
+**vi editor:**
+
+<img width="400" src="https://github.com/user-attachments/assets/34289394-9650-4d47-bc73-4bdfc2d68692" />
+
+**vim editor:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/1b6fabaf-6199-4b6a-ab9e-56fd7aaa1db8" />
+
+---
+
+**3**. Unlike the nano editor, we cannot type directly upon opening a file in **vi or vim**. First, we must switch to **Insert Mode** by pressing the **`i` key** **(Make sure Caps Lock is OFF)**. Once pressed, you will see **`-- INSERT --`** appear at the bottom of the screen. 
+
+**SHORTCUT KEY:**
+ **`i`** (To switch to **Insert Mode** and enable typing)
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/d424a619-35bc-4048-9703-dedaa5e8daa0" />
+
+---
+
+**4**. Now, we can start writing env variable, edit or write any file. Once you have finished writing press esc and then shift + : and then write wq, which means save and exit.
+
+**SYNTAX:**
+* `export VARIABLE_NAME="value"`
+
+**EXAMPLE:**
+* `export MY_VAR="HARSH"`
+
+```bash
+export MY_VAR="HARSH"
+```
+
+**SHORTCUT KEYS:**
+`ESC` (Escape)
+`SHIFT + ;` and then `wq` to save and exit.
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/f2af329d-6681-43e9-9516-92b22f8e4eae" />
+
+---
+**5**. When you return to the terminal and try to view the variable, you won't see it again this time also. This is because you need to run **source ~/.bashrc** to **implement the changes** on your system. Use `echo` command to print the variable on your terminal screen.
+
+```bash
+echo $MY_VAR
+source ~/.bashrc
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/04d9d096-dced-4cac-9107-6de380f1364c" />
+
+---
+
+**NOTE:** 
+* Never modify the **.bashrc file** without a valid reason. Accidental changes—**even a single character or dot**—can lead to a **system crash or terminal malfunction**.
+* Always use the **dollar sign ($)** when printing or calling your variable with the **echo command** (e.g., echo $VARIABLE_NAME).
+* Always use a **leading dot** (.) before the filename for **hidden files**, just as we do for the **.bashrc file**.
+* Use **DELETE** button to delete something that you wrote wrong, because **BKSP (BACKSPACE) will not be used in case of vi or vim editor for deleting.
 
 use which command to see, at present the software you want to env, add inw hich path its running and whereis command to check the path, its suitables files and folders, its manula guide , all the paths.
 use export path=path///// command for temporary env variable of your software
