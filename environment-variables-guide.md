@@ -286,7 +286,7 @@ vim ~/.bashrc
 
 ---
 
-**4**. Now, we can start writing env variable, edit or write any file. Once you have finished writing press esc and then shift + : and then write wq, which means save and exit.
+**4**. Now, you can start writing **environment variable**, edit or write any file. Once you have finished writing, press **`ESC`** (ESCAPE), then type **`shift + :wq`** and press **`ENTER`** to **save and exit**.
 
 **SYNTAX:**
 * `export VARIABLE_NAME="value"`
@@ -300,7 +300,7 @@ export MY_VAR="HARSH"
 
 **SHORTCUT KEYS:**
 `ESC` (Escape)
-`SHIFT + ;` and then `wq` to save and exit.
+`SHIFT + :` and then `wq` to save and exit.
 
 **EXPECTED OUTPUT:**
 
@@ -321,18 +321,60 @@ source ~/.bashrc
 ---
 
 **NOTE:** 
-* Never modify the **.bashrc file** without a valid reason. Accidental changes—**even a single character or dot**—can lead to a **system crash or terminal malfunction**.
-* Always use the **dollar sign ($)** when printing or calling your variable with the **echo command** (e.g., echo $VARIABLE_NAME).
-* Always use a **leading dot** (.) before the filename for **hidden files**, just as we do for the **.bashrc file**.
-* Use **DELETE** button to delete something that you wrote wrong, because **BKSP (BACKSPACE) will not be used in case of vi or vim editor for deleting.
+* Never modify the **`.bashrc` file** without a valid reason. Accidental changes—**even a single character or dot**—can lead to a **system crash or terminal malfunction**.
+* Always use the **dollar sign ($)** when printing or calling your variable with the **`echo` command** (e.g., `echo $VARIABLE_NAME`).
+* Always use a **leading dot** (.) before the filename for **hidden files**, just as we do for the **`.bashrc` file**.
+* Use **`DELETE`** button to delete something that you wrote wrong, because **`BACKSPACE KEY` (BKSP)** may not work as expected in case of **vi or vim editor** for deleting.
 
-use which command to see, at present the software you want to env, add inw hich path its running and whereis command to check the path, its suitables files and folders, its manula guide , all the paths.
-use export path=path///// command for temporary env variable of your software
-use nano ~/.bashrc, use nano~/.zsh in case of this sshell, write export path=path///// at the end of the file by scrolling down, press ctrl+o for save and enter press, ctrlx for come out,rapid implement for source~/.bashrc
-its a keyvalue pair , menas its a in it all the onformation and settings are stored.there are also other things like user , home to see your user name information and home path, you can customize also, make your own variables to store information and path , due to this we can describe our own path, its the file or folder is very deep, we can make a env by export command , but it will be removed or chnaged after the system is shut down, use nano to edit permanenetly path , use unset command for unsetting the varibale custom
-will be removed..
+---
+
+**COMMAND FOR UNSETTING YOUR ENV VARIABLE AND ITS PATH:**
+Use the **`unset`** command to remove or delete an environment variable from your current session. 
+
+**SYNTAX:**
+`unset <Variable_name>`
+
+**EXAMPLE:**
+`unset MY_VAR`
+
+```bash
+unset MY_VAR
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/2903afbd-b96d-49c0-bec1-a40c47030b30" />
+
+
+**NOTE:**
+* The variable **MY_VAR** used in the screenshot above is the same environment variable created in the previous steps. Please **do not be confused by it**.
+* The **`unset` command** only deletes the variable **temporarily** from the current session. If you want to remove it **permanently**, you must manually delete its export line from the **.bashrc or .zshrc file**.
+
+---
+
+**CREATING VARIABLE FOR VERSION CHANGING:**
+
+* Different softwares can have **multiple versions** installed on the same system. If you want to switch or change the software version based on your **project** requirements, or when **adapting to a new version**, you can create a dedicated variable inside the **`.bashrc`** file to handle this smoothly.
+
+**Use the following steps to configure it:**
+
+**STEPS:**
+
+**1**. First, **check the current version** of the software installed on your system using the software name like these:
+
+* Python 3: python3 --version
+* Java: java -version
+* Node.js: node -v
+* Git: git --version
+* MySQL: mysql -V
+
+**NOTE:** I showed -v, -V, --version for finding version of different softwares. This is because there are their own rules as per finding their version.
+
+**2**. 
 when you want to execute a software in your terminal, there can be two or more versions of it, check its version by writing -version before its name, and check which version is running, if waanna chnage version, make env, variaable as per using export or nano command, for requirements, execute it, describe path there save it , sourse for rapid implementaion for rapid work,ctrl, click x for come out  , if software or application has cli, no face or desktop , then type it in terminal, do your wwork, exit for coming out, if its gui which has its oen desktop website, then it type its name as well, but it will open in another window not in terminal, terminal will be locked in this case, exit the gui application or software, then terminal will be opened , use & , after name of software so that terminal , agar chat he ki termi khuli rahe aur soft chlta rahe, toh & bhi barte saath mein , hum apni tarf se kuch bhi path bana toh sakte hain par linux mein jab vo chalega toh error aa jayega kyunki apne jo khud se folder name diye hain vo exixst nhi karte, agar PATH mein bhi  karoge toh bhi, export mein bnhi, solution pehle mkdir -p se random path banadein fir varibale bana dein export ya nano karke kaam ke hi saab se, iske baad jab bhi aap karoge toh aaram se vo khul jayegam ye sab custom env se sambhav ha
 version check karne ke liye , -v aur --v ka chakkar zyada nhi hai, java kjaise purane soft ke kaaran -v use hota hai, agar vers chec karn ha, pa pata na kaa likhe,toh man ya help command use kar sakat he ya -v air--v dono type kare
+
+
 emv variables vo hote jinmein variable mein kuch information store ki hoti hai, ye humare system ki diary hoti hai, hum jo bhi kaam karte hain, system diary mein dekhta hai, agar usse vo mil jaata hai toh output mil jaata hai, agar vahan vo information nhi hai toh error aa jaata hai ya kuch nhi hota, inmein har ek information store nhi hoti jaise user name, permissions, home name, names , system ki information vagiara, jo computer ko chalane mein help karti hain vo hi sab cheezein hoti hain , agar koi file ya information humari kisi drive mein hai toh hum uska path variable banakar save zarooor kar sakte aur usse terminal mein open karke dekh bhi sakte hain, bas itna hai kihumein usse define karna padta hai export se for tempo and nanobashrc for permanent, kyunki computer mein pehle se sab kuch nhi hota, isiliye hum apni require ke hisab se batadete ya define karte hain ki is information ko bhi apni diary mein note karlo. simple .....///, ab aaap path banayegenge , system mein nayi cheezein add karenge toh delete bhi karni hongi taaki ram full na ho, toh hum unset command use karte hain, hum bas variable ka naam likh dete hain aur unset command daalte hi , vo innfo delete ya remove ho jaati hai syst se, kabhi home mein reh kar seddha unset path mat karna kyunki isse system apne saare path ko hi delete kar deta hai aur baad mein jab aaap kuch comm, chalaoge toh nhi chelga , agar aisa kabhi hota hai toh ye ....PATH.... command use karein isse aapke basic commands sab activate ho jayenge, par agar aapne alag se variables banaakr kuch add kiya hua tha toh vo ismein nhi ayega, aur haan agar aapne bashrc mein path delte kar diya tha toh vahan par hi theek karna hoga , taaki permanent save ho PATH, agar terminal se command chlayo thi, toh upar wali command chalyein theek ho jyayega , agar aap apne dusri soft, info, ya file, fold, ko bhi vaapis laana chat hain toh ya toh linux ka bacshrc backup file check karein, ya fir export PATH: likh kar aage apna path jodkar us ko vahan par rakh sakte hain dubara se, agar folder apni marzi se name dekar banane hain toh mkdir se pehle folder bana dein isse appka system fir se unhe save kar lega aur app chala paoge flutter, java etc, ko bash rc mein likhna hoga par agar aapki bashrc kharab ya corrupt ho jaaye tph aap isse aise karke jo real default bashrc hai usmein jaakar saara code copy karke dubara se basgrc mein daal sakte hain jisse bilkul fresh file dubara ready ho jyegi, aap real skel bashrc mein changes nhi laa sakte, par apni copy basgrc mein laa sakte hain, aur jo bhi path soft,info purane mein thi, is nayi mein dubara daal kar save kar lijiye, bashrc kabhi bhi export path ka bcakup nhi rakhta kyunki vo banaya hi tempo hota hai, toh backup aur permanent ke liye real bachrc mein likh dein saara path......./etc/skel/.bashrc ~/.bashrc  ,read karein, cat /etc/skel/.bashrc
 bhai, version chnage karte waqt pehle ek variable baan lein jaise ..., aur usko path ke saath, jismein vo real change waala version hai saath jodein isse vo varoable mein save ho hua, iske baad ... karke usse daal dein, ab aapko pura path nhi likhna pada aapne bas varibale name likha aur uske baad ...path likhein aisa isliye kyunki version chnage ke waqt pehle path desribe hota hai. softeware ke naam ke saane hum var nhi kar sakte, vahan humein path se hi save karna padta hai, env variable soft ya version ke waqt kaise aur kahan banana hai :
 agar software installed hai pehle se , apt command se installed kiya hua hai toh, seedha software ka naaam daal kar enter dabayein soft terminal mein khul jayega , humein paths unke banane padte hain jo amnully download kiye gaye hain jaise java,flutter, sdk,etc. aur jo package manager ke custom tools ya fir kuch secret information jaise database, api keys, etc. inke liye sabse pehle naya path banayein , which ya whereis command se check karkefir purana path jod dein, database aur api keys ke liye sirf normally variable banakar store karein, iske ilava softwares ke versions chnage karne ke liye pehle naya version path jodein aur baad mein purana taaki aapp naye version ko use kar sakein. jab hum software ko terminal mein khilte hain toh vahan par save karne ka koi tarika  nhi hota humare kaam ko isliye professinals pehle vs code ya nano chalakar usmein code likhte hain aur file banate hain aur baad mein usse run kar dete hain python mein aur output dekh lete hain file banakr rakhne se code ssd mein save ho jaata hai file mein ,software bas test ke liye aur output paane ke liye hota hai. 
