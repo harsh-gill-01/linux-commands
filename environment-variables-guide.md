@@ -4,14 +4,38 @@
 
 Environment variables are those variables which carry information about our system executables packed in variables, basically it's like a **Diary** in which all the information about our system executables is written, whenever we execute a command or perform an operation, our system checks if the executed command is saved or not, **if it is written** in the variables, **the system** finds it out and give you the output, **otherwise it will throw a command error or simply fail to execute the command**.
 
-* `printenv` -This command is used to print all the environment variables present in our system. It includes all the information of your system stored in variables.
+* `printenv` -This command is used to **print all the environment variables** present in your system. It displays all the system information that is currently stored in variables.
 
 **SYNTAX:**
-`printenv`
 
-**EXPECTED OUTPUT:**
+* `printenv`
+
+```bash
+printenv
+```
+**FOR SEARCHING ONLY A SPECIFIC VARIABLE INFORMATION:**
+
+**SYNTAX:**
+
+* `printenv <VARIABLE_NAME>`
+
+**EXAMPLE:**
+
+* `printenv USERNAME`
+
+```bash
+printenv USERNAME
+```
+
+**EXPECTED OUTPUTS:**
+
+* **OUTPUT of the `printenv` command**:
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/24cd1530-72a6-4696-9546-ab4b4a7fffbd" />
+
+* **OUTPUT of the `printenv USERNAME` command**:
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/7de30470-d202-4861-93c5-8ffad1fc84d8" />
 
 ---
 
@@ -105,11 +129,11 @@ sudo apt install python3
 
 **HOW TO CHECK OR PRINT IF THE VARIABLE HAS BEEN CREATED OR NOT:**
 
-* `echo` command is used for printing something on the screen.
+* `echo` command is used for **printing** something on the screen.
 
 **SYNTAX:**
 
-* `echo $<variable name>`
+* `echo $<VARIABLE_NAME>`
 
 **EXAMPLE:**
 
@@ -338,6 +362,7 @@ source ~/.bashrc
 ---
 
 **COMMAND FOR UNSETTING YOUR ENV VARIABLE AND ITS PATH:**
+
 Use the **`unset`** command to remove or delete an environment variable from your current session. 
 
 **SYNTAX:**
@@ -371,7 +396,7 @@ unset MY_VAR
 
 **1**. First, **check the current version** of the software installed on your system using the following command: 
 
-* We` use java -version` command for checking the current version of java (jdk).
+* We use the  **`java -version` command** to check the current active version of Java (JDK).
 
 ```bash
 java -version
@@ -382,18 +407,30 @@ java -version
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/47ab2d43-05f1-411e-bf48-ef21d6fb8a5a" />
 
 
-**EXAMPLES FOR SOME OTHER SOFTWARES:**
+**EXAMPLES FOR SOME OTHER SOFTWARE:**
 
 * `Python 3: python3 --version`
-* `Java: java -version`
+```bash
+python3 --version
+```
 * `Node.js: node -v`
+```bash
+node -v
+```
 * `Git: git --version`
-* `MySQL: mysql -V` 
+```bash
+git --version
+```
+* `MySQL: mysql -V`
+```bash
+mysql -V
+```
 
+---
 
-**FOR CHECKING **ALL** THE INSTALLED VERSIONS (JAVA (jdk) ):**
+**FOR CHECKING ALL THE INSTALLED VERSIONS (JAVA/JDK):**
 
-We can use `apt list --installed | grep jdk` for seeing all the installed versions of java.
+* We can use **`apt list --installed | grep jdk`** command to see all the installed versions of java on our system.
 
 **EXPECTED OUTPUT:**
 
@@ -401,11 +438,12 @@ We can use `apt list --installed | grep jdk` for seeing all the installed versio
 
 **NOTE:**
 
-* We use -v, -V, --version,-version, according to searching rules of some softwares, so you can get help using `man` or `-help` commands. There you will get proper kind of v flag for finding versions.
-* We can use apt list command for other softwares also, just change name at the end. Apt command shows a warning of unstable command line interface (cli), and it says true, it has no stable cli, which is not a good option for running scripts
-* Apt command shows a warning of unstable command line interface (cli), and it says true, it has no stable cli, which is not a good option for running scripts there. Thats why, it shows us a warning. You can use it without any problem its safe, but prevent running scripts there.
+* Different software applications use different flags like **`-v`, `-V`, or `--version`**. If you are unsure, you can always check the official documentation using the **`man <command_name>` or `<command_name>--help`** flags to find the correct version command.
+* You can use the `apt list --installed | grep <software name>` command for other software as well by simply changing the name at the end. Note that the `apt` command by default shows a warning stating it does not have a stable CLI interface, making it less ideal for automation scripts. However, it is **100%** safe to run manually in the terminal.
 
-**COMMAND FOR PREVENTING WARNING:**
+**COMMAND TO HIDE THE WARNING:** 
+
+If you want to hide that annoying CLI warning and get a clean output, you can redirect the error to `/dev/null` like this:
 
 `apt list --installed 2>/dev/null | grep jdk` 
 
@@ -420,13 +458,15 @@ apt list --installed 2>/dev/null | grep jdk
 ---
 
 
-**2**. Now, use export command and write java_home variable (java_home is used mostly as per indutry standarsds) and then put the path of the version alon with version name there in the variable. Use the following steps to configure it:
+**2**. Now, use the **`export` command** to configure the **`JAVA_HOME` variable** (this name is widely used as per industry standards) and assign the path of the specific Java version to it.
 
-**FOR GETTING VERSIONS OF SOFTWARE (java):**
+Use the following steps to configure it:
 
-* `/usr/lib/jvm` is the path where, all the versions of java software versions, are saved.
-* `/usr/lib/jvm` is the folder path, means we can access it by using cd command. (e.g., cd /usr/lib/jvm).
-* After accessing it, use ls command to list versions.
+**FOR FINDING THE JAVA VERSION PATHS:**
+
+* **`/usr/lib/jvm`** is the default directory where all installed versions of Java (JDK) are saved.
+* You can access this directory by using the **`cd` command** (e.g., cd /usr/lib/jvm).
+* Once inside the directory, use the **`ls` command** to list all the available Java version folders.
 
 ```bash
 cd /usr/lib/jvm
@@ -439,21 +479,72 @@ ls
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/8bd0a120-1883-4aca-b7a0-8f921b512b61" />
 
-**WRITING AND EXECUTING VARIABLE:**
+**DEFINING THE JAVA_HOME VARIABLE:**
 
-`export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"`
+* Now, select the folder name of the Java version you want to use (for example, **`java-11-openjdk-amd64`**) and define your **`JAVA_HOME` variable** like this:
+
+`export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"`
 
 ```bash
-`export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"`
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 ```
 
-**3**. now after writing and executing it, can check by using printenv command, and then, it will not be there , because we have not changed its version path.
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ffeb438d-d962-4654-91bb-bedd4053be78" />
+
+VERIFYING THE VARIABLE:
+
+* You can check if the variable is successfully set in your current session by using the **`printenv` command**.
+
+**SYNTAX:**
+
+`printenv <VARIABLE_NAME>`
+
+**EXAMPLE:**
+
+`printenv JAVA_HOME`
+
+```bash
+printenv JAVA_HOME
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/9b29161c-6b1f-4f11-b28a-a1f4ab57b2cf" />
+
+---
+
+**3**. Now, even though the **`JAVA_HOME` variable** is set, the system still doesn't know where to find the Java executable binaries. To fix this, we must append the Java binary directory to the system's main **`PATH` variable**.
+
+* We will implement this by using the following command (make sure there are no spaces):
+
 `export PATH=$JAVA_HOME/bin:$PATH`
 
 ```bash
 export PATH=$JAVA_HOME/bin:$PATH
 ```
 
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/db08798b-fe9d-4e57-827f-90c2ce47ede7" />
+
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/020757a9-adb1-46a5-9576-e281bdebde0e" />
+
+
+* As you can see, before updating the path, the **`java -version` command** showed **Java 17** active on the system.
+* Once the **`export PATH` command** was executed, checking the version again successfully confirmed the switch to **Java 11**.
+
+---
+
+**CONGRATS!! YOU HAVE SUCCESSFULLY CREATED A VERSION-SWITCHING ENVIRONMENT VARIABLE AND IMPLEMENTED IT!**
+
+**NOTE:**
+
+* All of this might seem difficult for you at first, but if you follow the steps and commands carefully and read all the notes, it becomes very simple.THANK YOU
+
+**THANK YOU**
 
 when you want to execute a software in your terminal, there can be two or more versions of it, check its version by writing -version before its name, and check which version is running, if waanna chnage version, make env, variaable as per using export or nano command, for requirements, execute it, describe path there save it , sourse for rapid implementaion for rapid work,ctrl, click x for come out  , if software or application has cli, no face or desktop , then type it in terminal, do your wwork, exit for coming out, if its gui which has its oen desktop website, then it type its name as well, but it will open in another window not in terminal, terminal will be locked in this case, exit the gui application or software, then terminal will be opened , use & , after name of software so that terminal , agar chat he ki termi khuli rahe aur soft chlta rahe, toh & bhi barte saath mein , hum apni tarf se kuch bhi path bana toh sakte hain par linux mein jab vo chalega toh error aa jayega kyunki apne jo khud se folder name diye hain vo exixst nhi karte, agar PATH mein bhi  karoge toh bhi, export mein bnhi, solution pehle mkdir -p se random path banadein fir varibale bana dein export ya nano karke kaam ke hi saab se, iske baad jab bhi aap karoge toh aaram se vo khul jayegam ye sab custom env se sambhav ha
 version check karne ke liye , -v aur --v ka chakkar zyada nhi hai, java kjaise purane soft ke kaaran -v use hota hai, agar vers chec karn ha, pa pata na kaa likhe,toh man ya help command use kar sakat he ya -v air--v dono type kare
