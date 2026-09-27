@@ -4,6 +4,15 @@
 
 Environment variables are those variables which carry information about our system executables packed in variables, basically it's like a **Diary** in which all the information about our system executables is written, whenever we execute a command or perform an operation, our system checks if the executed command is saved or not, **if it is written** in the variables, **the system** finds it out and give you the output, **otherwise it will throw a command error or simply fail to execute the command**.
 
+* `printenv` -This command is used to print all the environment variables present in our system. It includes all the information of your system stored in variables.
+
+**SYNTAX:**
+`printenv`
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/24cd1530-72a6-4696-9546-ab4b4a7fffbd" />
+
 ---
 
 **USE THE FOLLOWING COMMANDS TO CHECK EXECUTABLE PATHS AND THEIR LOCATIONS:**
@@ -360,17 +369,92 @@ unset MY_VAR
 
 **STEPS:**
 
-**1**. First, **check the current version** of the software installed on your system using the software name like these:
+**1**. First, **check the current version** of the software installed on your system using the following command: 
 
-* Python 3: python3 --version
-* Java: java -version
-* Node.js: node -v
-* Git: git --version
-* MySQL: mysql -V
+* We` use java -version` command for checking the current version of java (jdk).
 
-**NOTE:** I showed -v, -V, --version for finding version of different softwares. This is because there are their own rules as per finding their version.
+```bash
+java -version
+```
 
-**2**. 
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/47ab2d43-05f1-411e-bf48-ef21d6fb8a5a" />
+
+
+**EXAMPLES FOR SOME OTHER SOFTWARES:**
+
+* `Python 3: python3 --version`
+* `Java: java -version`
+* `Node.js: node -v`
+* `Git: git --version`
+* `MySQL: mysql -V` 
+
+
+**FOR CHECKING **ALL** THE INSTALLED VERSIONS (JAVA (jdk) ):**
+
+We can use `apt list --installed | grep jdk` for seeing all the installed versions of java.
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/fbfc67c9-1e7a-46c3-8fb0-9a9692d03e47" />
+
+**NOTE:**
+
+* We use -v, -V, --version,-version, according to searching rules of some softwares, so you can get help using `man` or `-help` commands. There you will get proper kind of v flag for finding versions.
+* We can use apt list command for other softwares also, just change name at the end. Apt command shows a warning of unstable command line interface (cli), and it says true, it has no stable cli, which is not a good option for running scripts
+* Apt command shows a warning of unstable command line interface (cli), and it says true, it has no stable cli, which is not a good option for running scripts there. Thats why, it shows us a warning. You can use it without any problem its safe, but prevent running scripts there.
+
+**COMMAND FOR PREVENTING WARNING:**
+
+`apt list --installed 2>/dev/null | grep jdk` 
+
+```bash
+apt list --installed 2>/dev/null | grep jdk
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/61d44b8b-e13f-42b1-8d1a-d3b2ceeeca1e" />
+
+---
+
+
+**2**. Now, use export command and write java_home variable (java_home is used mostly as per indutry standarsds) and then put the path of the version alon with version name there in the variable. Use the following steps to configure it:
+
+**FOR GETTING VERSIONS OF SOFTWARE (java):**
+
+* `/usr/lib/jvm` is the path where, all the versions of java software versions, are saved.
+* `/usr/lib/jvm` is the folder path, means we can access it by using cd command. (e.g., cd /usr/lib/jvm).
+* After accessing it, use ls command to list versions.
+
+```bash
+cd /usr/lib/jvm
+```
+```bash
+ls
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/8bd0a120-1883-4aca-b7a0-8f921b512b61" />
+
+**WRITING AND EXECUTING VARIABLE:**
+
+`export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"`
+
+```bash
+`export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"`
+```
+
+**3**. now after writing and executing it, can check by using printenv command, and then, it will not be there , because we have not changed its version path.
+`export PATH=$JAVA_HOME/bin:$PATH`
+
+```bash
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+
 when you want to execute a software in your terminal, there can be two or more versions of it, check its version by writing -version before its name, and check which version is running, if waanna chnage version, make env, variaable as per using export or nano command, for requirements, execute it, describe path there save it , sourse for rapid implementaion for rapid work,ctrl, click x for come out  , if software or application has cli, no face or desktop , then type it in terminal, do your wwork, exit for coming out, if its gui which has its oen desktop website, then it type its name as well, but it will open in another window not in terminal, terminal will be locked in this case, exit the gui application or software, then terminal will be opened , use & , after name of software so that terminal , agar chat he ki termi khuli rahe aur soft chlta rahe, toh & bhi barte saath mein , hum apni tarf se kuch bhi path bana toh sakte hain par linux mein jab vo chalega toh error aa jayega kyunki apne jo khud se folder name diye hain vo exixst nhi karte, agar PATH mein bhi  karoge toh bhi, export mein bnhi, solution pehle mkdir -p se random path banadein fir varibale bana dein export ya nano karke kaam ke hi saab se, iske baad jab bhi aap karoge toh aaram se vo khul jayegam ye sab custom env se sambhav ha
 version check karne ke liye , -v aur --v ka chakkar zyada nhi hai, java kjaise purane soft ke kaaran -v use hota hai, agar vers chec karn ha, pa pata na kaa likhe,toh man ya help command use kar sakat he ya -v air--v dono type kare
 
