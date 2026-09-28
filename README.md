@@ -730,3 +730,32 @@ N: Low priority process.
   
 * `kill`  2. pgrep कमांड (जासूस कमांड)यह कमांड रैम (RAM) के अंदर झाँक कर देखती है कि कौन सा प्रोग्राम इस समय एक्टिव यानी रनिंग कंडीशन में है।नियम: इस कमांड को एक बार में सिर्फ एक ही शब्द (पैटर्न) खोजने के लिए दिया जा सकता है। अगर आप स्पेस देकर दो शब्द लिखेंगे (जैसे: pgrep google chrome), तो एरर आ जाएगा।शर्त: यह बंद पड़े ऐप्स या नॉर्मल फाइलों (जैसे इमेज, वीडियो या पीडीएफ) की आईडी नहीं दिखा सकता।उपयोगी फ्लैग (-l): कमांड के साथ स्मॉल एल (-l) लगाने से केवल नंबर नहीं, बल्कि प्रोसेस का नाम भी लिस्ट के रूप में साफ़-साफ़ दिखाई देता है।3. प्रोग्राम को बंद करना: kill बनाम systemctlअक्सर लोग इन दोनों में कन्फ्यूज हो जाते हैं, लेकिन दोनों का काम बिल्कुल अलग है:सिस्टमctl (systemctl stop)यह केवल उन बैकग्राउंड सर्विसेस (जैसे Nginx सर्वर, SSH या फ़ायरवॉल) को रोकने के लिए है जो सिस्टम के साथ रजिस्टर होती हैं। यह नॉर्मल ऐप्स (जैसे Chrome या आपकी Python स्क्रिप्ट) को बंद नहीं कर सकता।किल कमांड (kill)यह सिस्टम में चल रहे किसी भी छोटे-बड़े प्रोसेस को उसकी PID नंबर के जरिए अस्थायी रूप से (Temporarily) बंद कर देता है। यह प्रोग्राम को कंप्यूटर से डिलीट नहीं करता, सिर्फ रैम से हटा देता है।इसके दो मुख्य तरीके हैं:केवल kill [PID]: यह सबसे सुरक्षित और समझदार तरीका है। यह प्रोग्राम को तमीज से अपनी फाइलें सेव करके बंद होने का सिग्नल देता है। हमेशा पहले इसी का इस्तेमाल करना चाहिए।kill -9 [PID]: यह ज़बरदस्ती बंद करने का तरीका है। जब कोई प्रोग्राम या स्क्रिप्ट बुरी तरह हैंग (Freeze) हो जाए और बात न सुने, तब इसका इस्तेमाल आखिरी रास्ते के रूप में किया जाता है।नाम से बंद करना (pkill)अगर आपको किसी प्रोसेस का PID नंबर नहीं पता और आप सीधे नाम से उसे बंद करना चाहते हैं, तो kill की जगह pkill कमांड का इस्तेमाल किया जाता है (जैसे: pkill chrome)।भाई, यह ड्राफ्ट एकदम तैयार है! क्या इसमें Nginx, Java या Chrome का कोई और उदाहरण जोड़ना है, या तुम इसे अब इंग्लिश में ट्रांसलेट करने की तैयारी करना चाहते हो? मुझे बताओ भाई!
 pkill -9 bhi kar sakte hain, jab name se toh band karna hi ho, par jab forcefully ban karna ho atbb jaise kill ke saath kiya tha, sirf pause karna ho toh kill -stop pid, aur cont ya resume karna ho toh, kill -cont pid. pkill ya kill command se tempo cheez sirf pc ke on rehne takk hi off hoti hai, dubara on karne par automatic backend mein chalu ho jayegi. ye cheez sirf services par laagu hoti hai, jaise nginx, java etc.
+
+**JOBS:**
+terminal mein hum jo bhi command ya program chalate hain, usi ko hum jobs kehte hain, jab aap ek taraf gaana vagaira download kar rahe hote hain aur dusri taraf coding karni hoti hai tab jobs play mein aati hain
+* fg foreground- jab aap koi command chalate hain aur terminal ki screen block ho jaati hai, aap agli command tabb takk nhi chala sakte, jab takk vo kaam pura nhi ho jaata.
+* bg backgroung- isme aap apne ek kaam ya job ko background mein bhej dete ho, taaki vo background mein complete ho jaye, aur aapka terminal bhi free rahe jis par aap apna dusra kaam kar sakte ho, vo bacground wala kaam kahtam ho jayega.
+
+**commands** 
+-jobs - is command ka use background mein chal rahi saari jobs aur paused jobs ko dikhati hai, jo bg mein active hoti hain `jobs`
+-ctrl + z - iska use kisi shuru kiye kaam ko pause karne ke liye hota hai, bg mein kaam pause ho jaata.
+-bg -is command ka use bg mein kisi kaam ko chlau karne ke liye kiya jaata hai, taaki terminal free rahe, aur bg mein vo kaam pura bhi ho jaaye, 
+syntax bg <%job_id> same aise hi fg yaani foreground ka hi hai.
+1- =current job ko darsaati hai, 1- ka matlab hai pichli job, 2 ka matlab hai current job, 2- ka matlab hai pichli job.
+ * `nohup ./script >dev/null &` -is command ka use kisi script ya program ko bg mein run karne ke liye liya jaata.
+
+
+* `ip a` -is command ka use ip address check karne ke liye kiya jaata hai, ye aapke linux server ka ip batata hai, jo public hota hai.
+
+* HOW TO CHECK IF A WEBSITE IS ACCESSIBLE OR NOT
+* 
+* curl -I https://google.com command ka use hota hai, http status check karne ke liye, ki website sahi work kar rahi hai ya nhi, agar kar rahi hai toh http/2 301/302 ayega.. agar 500/404 aata hai toh connection timeout ho jata hai , matlab gadbad hai koi toh.
+* ping -c 4 google.com -is command ka use ye dekhne ke liye hota hai ki server jinda hai ya nhi, ye packets bhejta hai chote chote, -c 4 humnein isiliye use kiya ki bas 4 packets hi bhejo, aisa isliye kiya kyunki zyada likhne ya normal chlane se commnd, kaafi packets bhejkar check karti hai, agar 0 packets lost aaye aur ms mein answer aaye toh badhiya hai
+* wget --spider https://google.com, ka use bina kuch download kiye sirf check karne ke liye kiya jaata hai, agar neeche remote file exists aa gaya toh matlab sab set hai, iska use basically automation running scripts ka quick check karne ke liye hota hai.
+
+* HOW TO CHECK IF A IP: PORT IS ACCESSIBLE OR NOT
+
+* 1. nc (Netcat) कमांड (सबसे बेस्ट और आधुनिक तरीका)इसे लिनक्स का स्विस-आर्मी नाइफ कहा जाता है। यह बहुत तेज़ी से बताता है कि पोर्ट खुला है या बंद।सिंटैक्स: nc -zv <IP> <PORT>-z: इसका मतलब है सिर्फ स्कैन करो, कोई डेटा मत भेजो (Zero-I/O mode).-v: इसका मतलब है वर्बोस (Verbose), यानी साफ़-साफ़ लिख कर बताओ कि क्या हुआ।उदाहरण:bashnc -zv 8.8.8.8 53
+Use code with caution.आउटपुट कैसे समझें:अगर Connection to 8.8.8.8 53 port [tcp/domain] succeeded! लिखा आता है, तो पोर्ट पूरी तरह चालू (Open) है।अगर Connection refused या Timed out आता है, तो पोर्ट बंद है या फ़ायरवॉल उसे रोक रहा है।2. telnet कमांड (सदाबहार और पुराना तरीका)यह हर डेवलपर का सबसे भरोसेमंद और पुराना टूल है।सिंटैक्स: telnet <IP> <PORT>उदाहरण:bashtelnet 8.8.8.8 53
+Use code with caution.आउटपुट कैसे समझें:अगर स्क्रीन पर Connected to 8.8.8.8 लिखा आ जाता है, तो पोर्ट चालू है। (इससे बाहर निकलने के लिए कीबोर्ड पर Ctrl + ] दबाकर quit टाइप करना पड़ता है)।अगर Unable to connect आता है, तो पोर्ट बंद है।3. curl कमांड (केवल वेब पोर्ट्स जैसे 80 या 443 के लिए)अगर आप किसी IP का सिर्फ वेब पोर्ट (HTTP/HTTPS) चेक करना चाहते हैं, तो आप curl का भी इस्तेमाल कर सकते हैं।सिंटैक्स: curl -I http://<IP>:<PORT>उदाहरण:bashcurl -I http://142.250.183.46:80
+Use code with caution.आउटपुट कैसे समझें: अगर आपको HTTP रिस्पॉन्स कोड (जैसे 200 OK) दिखता है, तो पोर्ट चालू है।
