@@ -379,10 +379,11 @@ unset MY_VAR
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/2903afbd-b96d-49c0-bec1-a40c47030b30" />
 
-
 **NOTE:**
 * The variable **MY_VAR** used in the screenshot above is the same environment variable created in the previous steps. Please **do not be confused by it**.
 * The **`unset` command** only deletes the variable **temporarily** from the current session. If you want to remove it **permanently**, you must manually delete its export line from the **.bashrc or .zshrc file**.
+* Never use unset PATH command directly in your home directory (~), if you do this, then your system will forget all the commands and executables of your system as PATH is the main variable in which all the executables are stored.
+* If you somehow do this then, open another window of terminal, it will refresh your terminal and all your executables will come back.
 
 ---
 
@@ -546,39 +547,125 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 **THANK YOU**
 
-DO WE NEED TO CREATE AN ENV VARIABLE OR DEFINE ITS PATH FOR INSTALLED SOFTWARE?
-• It highly depends on how the software is installed. If we install it using the apt command with root privileges (sudo), apt automatically handles all dependencies and background processes. It places the executable binaries directly into standard system folders (like /usr/bin) that are already part of the default PATH.
-• You can verify if the location or path is automatically managed by using the whereis or which commands.
-• On the other hand, if we install software manually using the dpkg command, we often need to manually define an environment variable and append its binary path to our system.
-• Therefore, the apt command is highly recommended because it simplifies multiple tasks like installing, updating, upgrading, and removing software effortlessly.
+---
 
-HOW TO OPEN A SOFTWARE IN THE TERMINAL?
-• We can launch software directly from the terminal. To understand how this works, let's look at the two main types of software:
+**DO WE NEED TO CREATE AN ENV VARIABLE OR DEFINE ITS PATH FOR INSTALLED SOFTWARE ?**
+
+* It highly depends on how the software is installed. If we install it using the apt command with root privileges (sudo), apt automatically handles all dependencies and background processes. It places the executable binaries directly into standard system folders (like /usr/bin) that are already part of the default PATH.
+* You can verify if the location or path is automatically managed by using the whereis or which commands.
+* On the other hand, if we install software manually using the dpkg command, we often need to manually define an environment variable and append its binary path to our system.
+* Therefore, the apt command is highly recommended because it simplifies multiple tasks like installing, updating, upgrading, and removing software effortlessly.
+
+**CONCLUSION & NOTE:**
+
+* If we installed our software using apt command, then we do not need to define any variable, but in case, we installed it using dpkg command, then we have to manually join it to our system.
+* Superuser privileges (sudo su) are used in both cases.
+
+---
+
+**HOW TO OPEN A SOFTWARE IN THE TERMINAL ?**
+
+* We can launch software directly from the terminal. To understand how this works, let's look at the two main types of software:
 	1. GUI (Graphical User Interface): Software that has a visual desktop interface that we can see and interact with (e.g., Google Chrome, VLC Media Player).
 	2. CLI (Command Line Interface): Software that operates entirely inside the terminal screen (e.g., Python3). In CLI applications, we only interact by typing commands and writing code, without any fancy desktop windows.
 LAUNCHING CLI vs GUI SOFTWARE:
-• For CLI Software: Simply type its full name (like python3) as a command in the terminal to start coding. You can use the exit() function or command to safely close it.
-• For GUI Software: You can also type their binary names (like google-chrome) in the terminal. However, the software will open in a separate desktop window, and your terminal will remain frozen (blocked), meaning you cannot execute any new commands in that terminal window.
-• The Pro Tip: To prevent your terminal from freezing, always append an ampersand sign (&) right after the GUI software name (e.g., google-chrome &). This forces the GUI application to run as a background job, leaving your terminal completely free for other tasks.
+* For CLI Software: Simply type its full name (like python3) as a command in the terminal to start coding. You can use the exit() function or command to safely close it.
+* For GUI Software: You can also type their binary names (like google-chrome) in the terminal. However, the software will open in a separate desktop window, and your terminal will remain frozen (blocked), meaning you cannot execute any new commands in that terminal window.
 
- • PRO-TIP NOTE: If your terminal gets blocked or frozen after launching a GUI application (like Firefox or Chrome), you can return to the terminal window and press CTRL + C. This sends an interrupt signal to detach the process, safely unfreezing your terminal and making it active again without breaking your system.
-TECHNICAL ANALYSIS OF THE EXPERIMENT:
-• Command Not Found: Typing chrome fails because the correct binary name in Linux is google-chrome.
-• Terminal Freezing: Running firefox directly without the ampersand sign (&) blocks the terminal thread, displaying GTK logs.
-• The Ctrl + C Magic (^C): Returning to the blocked terminal and pressing CTRL + C sends a termination signal (SIGINT). As shown by the Exiting due to channel error logs, the Firefox process was immediately killed, instantly unfreezing the terminal and making it ready for the next command (like ls).
+**USING CLI SOFTWARE (python3) IN TERMINAL:**
 
-  
-tempo creation :
-if you want a custom tempo variable, the use the following command without giving extra space : 
-syntax 
-export variable-name="path/to/you/secret/folder"
-including variable
-export mysecret folder="path/to/you/secret/folder"
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/e54b4b71-8ab2-4ecd-af73-8edffc8dec51" />
 
-you can also make direct deep or single folder, by using mkdir -p (for multiple folders), and mkdir for single respectively, but you will not remember the path if its deep and long, so in this variable making comes into play..
-* its temporary so it will be removed when you will restart you com.
+* The Tip: To prevent your terminal from freezing, always use an ampersand sign (&) right after the GUI software name (e.g., google-chrome &). This forces the GUI application to run as a background job, leaving your terminal completely free for other tasks.
 
-* for permanent creation use vi/nano editor,open .bashrc/.zshrc (in case of mac Os) file
+**USING GUI SOFTWARE (Firefox) in TERMINAL WITH &:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/db17ad8d-84a0-4ae2-95c7-9c88dd4fece9" />
+
+**TECHNICAL ANALYSIS OF THE BACKGROUND JOB:**
+
+* The Ampersand Magic (&): Running firefox & instantly creates a background job. The system outputs [1] 35155, where 1 is the Job ID and 39954 is the Process ID (PID). This prevents the terminal from freezing.
+* The Ctrl + C Behavior: Pressing CTRL + C (^C) on the active terminal has no breaking effect on the application because the terminal thread is already free and the process is safely isolated in the background.
+* Graceful Exit: Clicking the 'X' close button on the Firefox window safely terminates the process. Linux immediately outputs [1]+ Done firefox, confirming that the background job has successfully finished and cleared from the memory.
+
+**NOTE:**
+
+* You can open and close GUI software or application even without using & , ctrl + c (in some cases), and its simple nothing to worry about. But, when you work on a remote server like aws, azure etc. then, there will be nothing any physical component to interact anything, so there the above written things and commands comes into play.
+
+**DESCRIBING AND CREATING OUR OWN ENV VARIABLES:**
+
+* You can create, make your custom paths and variables for storing some specific information as per your choice.
+* Use mkdir -p <Folders>, for making multiple folders at one time.
+
+**TEMPORARY CREATION:**
+
+* If you want a custom temporary variable then, use the following command without giving extra space:
+
+`export VARIABLE_NAME="<YOUR CUSTOM PATH>"`
+
+**SYNTAX:**
+
+`export VARIABLE_NAME="path/to/you/secret/folder"`
+
+**EXAMPLE:**
+
+`export MY_SECRET_FOLDER="path/to/you/secret/folder"`
+
+```bash
+export MY_SECRET_FOLDER="path/to/your/secret/folder"
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/32b1096a-c36f-4cb1-b7bf-5f516e923eab" />
+
+**NOTE:**
+
+* I made a VARIABLE for my custom path, because, remembering deep paths is not easy. So, that is why, we should always make a VARIABLE in case of long and deeper paths.
+* Always use $ dollar sign for printing the content of variables
+* Its temporary so, it will be removed when you will restart you computer.
+
+**FOR PERMANENT CREATION:**
+
+* As we did before, we need to describe our variable in .bashrc file.
+* We need to use, nano or vi/vim editor for editing our .bashrc file.
+* I am going to do with nano editor as it is simple and beginner friendly, but i have also covered vi/vim editor above before. 
+
+**STEPS:**
+
+**1**. First, create folder using mkdir, if you want to create deeper path, then use mkdir -p foldername/foldername/foldername command. For single folder, use mkdir <folder_name> command.
+
+**Syntax:**
+`mkdir -p foldername/foldername/foldername`
+
+**EXAMPLE:**
+`mkdir -p path/to/your/secret/folder`
+
+```bash
+mkdir -p path/to/your/secret/folder
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/14dd51c5-5970-4e5f-b22f-82ee657b6d4f" />
+
+**NOTE:**
+
+* I showed you by using cd command, that they are created successfully.
+
+**EXPECTED OUTPUT:**
+
+**WRITING VARIABLE IN .bashrc file:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/66809fb6-4d75-49f9-aa3c-f178fc2558b6" />
+
+**FOR IMPLEMENTING QUICKLY TO OUR SYSTEM:**
+
+We use `source ~/.bashrc` command for implementing changes to our system.
+
+**NOTE:**
+
+* We have done all this before, its all same, its process and creation is same. So, do not get confused.
 
 never use unset command directly in home directory ~, like this unset PATH, in PATH variable all the info is stored including commands, software, applications etc, when you unset its main path (PATH), then no command and nothing will execute in your terminal.
 if you somehow executed unset PATH command, then there are two options, one is describe your path to your system again but how , use the following command, its similar for all..:
