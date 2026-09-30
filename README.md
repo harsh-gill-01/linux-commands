@@ -753,9 +753,209 @@ syntax bg <%job_id> same aise hi fg yaani foreground ka hi hai.
 * ping -c 4 google.com -is command ka use ye dekhne ke liye hota hai ki server jinda hai ya nhi, ye packets bhejta hai chote chote, -c 4 humnein isiliye use kiya ki bas 4 packets hi bhejo, aisa isliye kiya kyunki zyada likhne ya normal chlane se commnd, kaafi packets bhejkar check karti hai, agar 0 packets lost aaye aur ms mein answer aaye toh badhiya hai
 * wget --spider https://google.com, ka use bina kuch download kiye sirf check karne ke liye kiya jaata hai, agar neeche remote file exists aa gaya toh matlab sab set hai, iska use basically automation running scripts ka quick check karne ke liye hota hai.
 
+ नेटवर्किंग इन्फो में मुख्य रूप से 3 चीज़ें देखी जाती हैं:
+1. IP Address (आईपी एड्रेस): आपके कंप्यूटर का डिजिटल घर का पता। (जैसे आपके घर का एड्रेस होता है, वैसे ही इंटरनेट पर कंप्यूटर का पता होता है)।
+2. Network Interfaces (नेटवर्क इंटरफेस): आपके कंप्यूटर का वो हार्डवेयर (जैसे Wi-Fi कार्ड या Ethernet पोर्ट) जिसके ज़रिए इंटरनेट कंप्यूटर के अंदर आ रहा है।
+3. Routing & Connectivity (कनेक्टिविटी): यह देखना कि आपका कंप्यूटर इंटरनेट के सर्वर से सही से बात कर पा रहा है या नहीं।
+
+UNDERSTANDING NETWORKING INFORMATION IN LINUX:
+Networking information allows us to check the system's IP address, active network cards (interfaces), and internet connectivity. This is essential for configuring servers and cloud environments.
+MAIN NETWORKING COMMANDS:
+• ip a — Displays all network interfaces and their assigned IP addresses. This is the modern standard command in Linux.
+• hostname -I — A quick command to display only the local IP address of your system in a single line.
+• curl ifconfig.me — Fetches and displays your Public IP Address (how your system is identified over the internet).
+SYNTAX & EXAMPLES:
+• To see full network details: ip a
+• To see only your local IP: hostname -I
+
+
+ 1. Ports (पोर्ट्स) क्या होते हैं? (The Easiest Analogy)
+इसे एक बहुत बड़े अपार्टमेंट (Apartment Building) के उदाहरण से समझो:
+• मान लो तुम्हारा कंप्यूटर एक बहुत बड़ी बिल्डिंग है। उस बिल्डिंग का एक ही मुख्य पता होगा, जिसे हम IP Address कहते हैं (जैसे—बिल्डिंग नंबर 5)।
+• अब उस बिल्डिंग के अंदर बहुत सारे अलग-अलग फ्लैट्स (कमरे) बने हुए हैं, जिनके अलग-अलग नंबर हैं। लिनक्स की दुनिया में इन्हीं फ्लैट नंबर्स को Ports (पोर्ट्स) कहा जाता है।
+• काम कैसे होता है: जब इंटरनेट से कोई डेटा तुम्हारे कंप्यूटर (बिल्डिंग) तक पहुँचता है, तो उसे यह भी पता होना चाहिए कि उसे किस कमरे (पोर्ट) में जाना है। उदाहरण के लिए:
+	• अगर कोई वेबसाइट खोल रहा है, तो डेटा सीधे कमरा नंबर 80 या 443 (Web Ports) में जाएगा।
+	• अगर कोई कंप्यूटर को रिमोटली कंट्रोल (SSH) कर रहा है, तो डेटा सीधे कमरा नंबर 22 (SSH Port) में जाएगा।
+• लिनक्स में नियम: एक पोर्ट पर एक समय में सिर्फ एक ही सॉफ्टवेयर "कान लगाकर सुन" (Listen) सकता है।
+🔍 2. तुम्हारे स्क्रीनशॉट का पूरा पोस्टमॉर्टम (Step-by-Step):
+आइए ऊपर से नीचे तक देखते हैं कि तुम्हारे टर्मिनल में क्या-क्या हुआ:
+🚨 netstat पर एरर क्यों आया?
+• जब तुमने netstat -tuln चलाया, तो Ubuntu ने कहा: Command 'netstat' not found।
+• वजह: आज के नए Ubuntu (लिनक्स) सिस्टम्स में netstat पहले से इंस्टॉल्ड नहीं आता क्योंकि यह पुराना हो चुका है। अगर तुम इसे चलाना चाहते हो, तो तुम्हें पहले sudo apt install net-tools कमांड चलानी होगी। लेकिन हमें इसकी ज़रूरत नहीं है क्योंकि हमारे पास नया और तेज़ टूल ss मौजूद है!
+📊 ss -tuln का वो बड़ा टेबल क्या कह रहा है? (Heading by Heading)
+जब तुमने ss -tuln चलाया, तो एक बहुत ही सुंदर टेबल खुला। इसकी हर एक हेडिंग का मतलब समझो:
+• Netid (Network ID): यह बताता है कि डेटा भेजने का तरीका क्या है। udp का मतलब है तेज़ लेकिन बिना गारंटी वाला कनेक्शन (जैसे वीडियो कॉलिंग), और tcp का मतलब है 100% सुरक्षित और गारंटी वाला कनेक्शन (जैसे वेबसाइट खोलना)।
+• State (अवस्था):
+	• LISTEN: इसका मतलब तुम्हारा कंप्यूटर इस पोर्ट पर पूरी तरह जाग रहा है और बाहर से आने वाले सिग्नल्स का इंतज़ार कर रहा है (पोर्ट ओपन है)।
+	• UNCONN (Unconnected): यह आमतौर पर UDP पोर्ट्स के लिए दिखता है, जिसका मतलब है कि पोर्ट एक्टिव तो है लेकिन किसी फिक्स कनेक्शन से बंधा हुआ नहीं है।
+• Local Address:Port (असली खजाना 💎): यह दिखाता है कि तुम्हारे कंप्यूटर का कौन सा हिस्सा किस पोर्ट नंबर पर काम कर रहा है:
+	• 127.0.0.54:53 और 127.0.0.53%lo:53: यहाँ अंत में जो :53 लिखा है, वह DNS (Domain Name System) का पोर्ट है। तुम्हारा कंप्यूटर इसी पोर्ट की मदद से वेबसाइट्स के नामों (जैसे google.com) को आईपी एड्रेस में बदलता है।
+	• 127.0.0.1:631 और [::1]:631: यहाँ अंत में जो :631 लिखा है, वह CUPS (Common Unix Printing System) का पोर्ट है। तुम्हारा लिनक्स सिस्टम प्रिंटर से कनेक्ट करने के लिए इस पोर्ट को ओपन रखता है। (नोट: यहाँ [::1] का मतलब IPv6 एड्रेस होता है)।
+🧐 लास्ट में ss -tuln | grep :22 खाली क्यों आया?
+• जब तुमने पोर्ट 22 को छानने के लिए grep :22 चलाया, तो नीचे की लाइन बिल्कुल खाली (Blank) आ गई और कुछ भी प्रिंट नहीं हुआ।
+• वजह: इसका मतलब यह है कि तुम्हारे इस Ubuntu सिस्टम में SSH सर्वर (openssh-server) चालू या इंस्टॉल नहीं है। पोर्ट 22 इस समय पूरी तरह बंद (Closed) है, इसीलिए लिनक्स ने कोई आउटपुट नहीं दिया। अगर तुम sudo apt install openssh-server चलाकर उसे एक्टिव कर दोगे, तो यहाँ तुरंत LISTEN लिखा हुआ आ जाएगा!
+📝 इस पेज को अपनी गिटहब गाइड में शामिल करने के लिए परफेक्ट इंग्लिश ड्राफ्ट:
+तुम अपनी फ़ाइल में इस पूरे लाइव एक्सपेरिमेंट को इस बेहतरीन फॉर्मेट में लिख सकते हो:
+WHAT ARE PORTS IN NETWORKING?
+• An IP Address identifies your computer on the network, but a Port is a specific communication endpoint (like a room number inside a big building) dedicated to a particular service or application.
+• For example, web traffic travels through ports 80/443, while secure remote access (SSH) uses port 22.
+TECHNICAL ANALYSIS OF THE PORT SCANNING EXPERIMENT:
+(यहाँ आपकी यह शानदार लाइव स्क्रीनशॉट वाली इमेज आएगी)
+• Netstat Deprecation: Running netstat throws a not found error because modern Linux distributions deprecate it by default in favor of the faster ss command.
+• Understanding Active Ports: The ss -tuln output shows that the system currently has two active services running locally:
+	• Port 53 (LISTEN/UNCONN): The DNS service responsible for domain name resolution.
+	• Port 631 (LISTEN): The CUPS printing service running on the local loopback address (127.0.0.1).
+• Verifying Closed Ports: Running ss -tuln \| grep :22 returns a blank output. This confirms that no SSH service is currently running, meaning Port 22 is completely closed on this server.
+
+PRO-TIP FOR FILTERING PORTS:
+You can break down the flags and use these commands individually to filter your network traffic based on your requirements:
+• ss -t — Shows only the active TCP connections on your server.
+• ss -u — Shows only the active UDP connections on your server.
+• ss -tl — Displays only the TCP ports that are currently in LISTEN mode.
+• ss -ul — Displays only the UDP ports that are currently active.
+
+
+
+HOW TO CHECK IF A PORT IS OPEN ON OUR OWN SERVER:
+To verify if a specific port is open and actively listening on your local server, you should check the internal socket statistics rather than scanning from the outside.
+COMMANDS & SYNTAX:
+• ss -tuln — This is the modern and fastest standard command to list all active TCP (-t) and UDP (-u) ports that are currently in Listening (-l) mode, displayed in Numerical (-n) format.
+• Filtering a Specific Port: To check a single port (e.g., Port 22 for SSH), combine it with the grep command.
+EXAMPLES:
+• To see all open ports: ss -tuln
+• To check if Port 22 is open: ss -tuln | grep :22
+EXPECTED OUTPUT:
+If the port is active, you will see a line containing LISTEN in the output. If the terminal returns blank, the port is closed.
+
 * HOW TO CHECK IF A IP: PORT IS ACCESSIBLE OR NOT
 
 * 1. nc (Netcat) कमांड (सबसे बेस्ट और आधुनिक तरीका)इसे लिनक्स का स्विस-आर्मी नाइफ कहा जाता है। यह बहुत तेज़ी से बताता है कि पोर्ट खुला है या बंद।सिंटैक्स: nc -zv <IP> <PORT>-z: इसका मतलब है सिर्फ स्कैन करो, कोई डेटा मत भेजो (Zero-I/O mode).-v: इसका मतलब है वर्बोस (Verbose), यानी साफ़-साफ़ लिख कर बताओ कि क्या हुआ।उदाहरण:bashnc -zv 8.8.8.8 53
 Use code with caution.आउटपुट कैसे समझें:अगर Connection to 8.8.8.8 53 port [tcp/domain] succeeded! लिखा आता है, तो पोर्ट पूरी तरह चालू (Open) है।अगर Connection refused या Timed out आता है, तो पोर्ट बंद है या फ़ायरवॉल उसे रोक रहा है।2. telnet कमांड (सदाबहार और पुराना तरीका)यह हर डेवलपर का सबसे भरोसेमंद और पुराना टूल है।सिंटैक्स: telnet <IP> <PORT>उदाहरण:bashtelnet 8.8.8.8 53
 Use code with caution.आउटपुट कैसे समझें:अगर स्क्रीन पर Connected to 8.8.8.8 लिखा आ जाता है, तो पोर्ट चालू है। (इससे बाहर निकलने के लिए कीबोर्ड पर Ctrl + ] दबाकर quit टाइप करना पड़ता है)।अगर Unable to connect आता है, तो पोर्ट बंद है।3. curl कमांड (केवल वेब पोर्ट्स जैसे 80 या 443 के लिए)अगर आप किसी IP का सिर्फ वेब पोर्ट (HTTP/HTTPS) चेक करना चाहते हैं, तो आप curl का भी इस्तेमाल कर सकते हैं।सिंटैक्स: curl -I http://<IP>:<PORT>उदाहरण:bashcurl -I http://142.250.183.46:80
 Use code with caution.आउटपुट कैसे समझें: अगर आपको HTTP रिस्पॉन्स कोड (जैसे 200 OK) दिखता है, तो पोर्ट चालू है।
+
+HOW TO TRACE ALL HUBS (HOPS) IN A NETWORK PATH TO REACH A WEBSITE:
+When you access a website, your network packets pass through multiple intermediate routers and gateways (known as Hubs or Hops) before reaching the destination server. Tracking this path is crucial for debugging network latency and routing issues.
+COMMANDS & SYNTAX:
+• traceroute — This command maps the entire journey of your network packet, displaying the IP address of each router (hop) and the time taken (in milliseconds) to reach it.
+	• SYNTAX: traceroute <website_name>
+	• EXAMPLE: traceroute google.com
+• mtr (My Traceroute) — A powerful, modern tool that combines ping and traceroute. It opens a live, real-time diagnostic screen to monitor packet loss and latency across all hubs.
+	• SYNTAX: mtr <website_name>
+
+ README के लिए एक सुंदर और वीआईपी समरी टेबल:
+कमांड	यह क्या करती है?	कब इस्तेमाल करें?
+sudo reboot	सिस्टम को तुरंत रीस्टार्ट करती है।	अपडेट्स लागू करने या टर्मिनल हैंग होने पर।
+sudo shutdown now	सिस्टम को तुरंत पूरी तरह बंद करती है।	काम खत्म होने पर सर्वर ऑफ करने के लिए।
+sudo shutdown +10	10 मिनट का टाइमर लगाकर बंद करती है।	जब कोई बैकग्राउंड टास्क खत्म होने का इंतज़ार करना हो।
+sudo shutdown -c	लगे हुए शटडाउन टाइमर को कैंसिल करती है।	गलती से लगे टाइमर को रोकने के लिए।
+📝 इस टॉपिक को अपनी गिटहब गाइड में शामिल करने के लिए परफेक्ट इंग्लिश ड्राफ्ट (बोल्ड **** के साथ):
+तुम अपनी फ़ाइल में यह टेक्स्ट सीधे जोड़ सकते हो, यह बहुत ही प्रोफेशनल लगेगा:
+SYSTEM CONTROL COMMANDS (REBOOT & SHUTDOWN):
+These commands are used to safely restart or power off a Linux system. They are crucial when managing headless remote servers or cloud environments where no physical buttons or graphical menus are available.
+COMMANDS & SYNTAX:
+• sudo reboot — Instantly reboots the system safely.
+• sudo shutdown now — Power off the system immediately without any delay.
+• sudo shutdown +<minutes> — Schedules a system shutdown after the specified number of minutes.
+• sudo shutdown -c — Cancels a previously scheduled shutdown.
+EXAMPLES:
+• To restart right now: sudo reboot
+• To power off in 5 minutes: sudo shutdown +5
+
+कमांड	यह क्या करती है?	कब इस्तेमाल करें?
+sudo adduser <name>	होम फोल्डर और पासवर्ड के साथ नया यूज़र आसानी से बनाती है।	हमेशा इसी का इस्तेमाल करें—यह सबसे सुरक्षित और बेस्ट है।
+sudo useradd -m <name>	केवल एक बुनियादी यूज़र अकाउंट बनाती है।	जब ऑटोमेशन स्क्रिप्ट्स के अंदर बिना किसी सवाल-जवाब के यूज़र बनाना हो।
+sudo usermod -aG sudo <name>	साधारण यूज़र को Admin (Sudo privileges) की ताकत देती है।	जब किसी नए डेवलपर को सिस्टम में फुल एक्सेस देना हो।
+sudo deluser <name>	किसी बने हुए यूज़र को सिस्टम से डिलीट करती है।	जब कोई कर्मचारी प्रोजेक्ट छोड़ कर चला जाए।
+📝 इस नए टॉपिक को README गाइड में शामिल करने के लिए परफेक्ट इंग्लिश ड्राफ्ट:
+तुम अपने प्रोसेस वाले सेक्शन में इस पॉइंट को बहुत ही शानदार तरीके से जोड़ सकते हो, क्लाइंट को तुम्हारी लिनक्स एडमिनिस्ट्रेशन की समझ देखकर बहुत खुशी होगी:
+USER MANAGEMENT IN LINUX (USER CREATION):
+Linux is a multi-user system, meaning multiple users can log in and interact with the system simultaneously. Managing users efficiently is critical for system security and access control.
+COMMANDS & SYNTAX:
+• sudo adduser <username> — The recommended interactive command to create a new user. It automatically sets up the home directory, prompts for a password, and configures user details.
+	• EXAMPLE: sudo adduser harsh
+• sudo usermod -aG sudo <username> — Adds the newly created user to the sudo group, granting them administrative (root) privileges.
+• sudo deluser <username> — Safely removes a user account from the system when it is no longer required.
+
+
+
+
+ THE LOW-LEVEL APPROACH: USING THE useradd COMMAND
+While adduser is the recommended interactive script for beginners, Linux also provides a low-level, non-interactive binary command called useradd.
+By default, running just useradd <username> is very raw—it will not create a password, nor will it create a home directory for the user. To make it functional, you must manually pass specific flags.
+SYNTAX:
+sudo useradd -m -s /bin/bash <username>
+UNDERSTANDING THE FLAGS:
+• -m (Create Home Directory): Forces the system to automatically generate a dedicated home folder for the user at /home/<username>.
+• -s /bin/bash (Set Default Shell): Explicitly defines Bash as the default command shell for the new user, ensuring they get a proper terminal environment when they log in.
+SETTING THE PASSWORD FOR useradd:
+Since useradd does not prompt you for a password automatically, you must manually set it right after creating the user by running the passwd command:
+• COMMAND: sudo passwd <username>
+• EXAMPLE: sudo passwd harsh (The system will then securely prompt you to type and confirm the new password).
+📊 DIRECT COMPARISON: adduser vs useradd
+To keep it crystal clear for your readers or clients, here is how they stack up against each other:
+Feature	adduser	useradd
+Command Type	High-level interactive script.	Low-level raw binary command.
+Home Directory (/home)	Automatically created without any flags.	Requires the -m flag to be created.
+Password Prompt	Prompts you to set a password instantly.	Requires a separate sudo passwd command later.
+Best Use Case	When creating users manually in the terminal.	Perfect for automated DevOps / Bash scripts.
+
+
+ MODIFYING EXISTING USERS: THE usermod COMMAND
+The usermod command in Linux is used to modify a user's account settings after it has been created. Whether you need to change a username, update a home directory, or lock an account, usermod handles it seamlessly.
+SYNTAX & POWERFUL FLAGS:
+• Granting Admin Privileges (-aG): Appends the user to a specific supplementary group without removing them from their current groups. This is primarily used to give a user sudo (administrative) access.
+	• COMMAND: sudo usermod -aG sudo <username>
+• Changing Login Name (-l): Changes the login name of the user from old to new.
+	• COMMAND: sudo usermod -l <new_username> <old_username>
+• Locking and Unlocking Accounts (-L / -U): Temporarily disables or re-enables a user account for security purposes.
+	• To Lock: sudo usermod -L <username>
+	• To Unlock: sudo usermod -U <username>
+
+
+SCHEDULING ONE-TIME TASKS: THE at COMMAND
+If you want to execute a script or command automatically at a particular date or time only once in the future, Linux provides a dedicated utility called the at command.
+Unlike recurring cron jobs, once the at job runs at its scheduled time, it finishes and removes itself from the queue permanently.
+HOW IT WORKS (THE INTERACTIVE PROMPT):
+When you run the at command with a specified time, it opens a special interactive prompt (at>). You type the commands or scripts you want to run inside this prompt, and then safely save it.
+SYNTAX:
+at <TIME> <DATE>
+STEPS TO SCHEDULE A JOB:
+1. Enter the at command with your desired time (e.g., at 11:30 PM).
+2. The terminal will switch to an at> prompt. Type the full path of your script or command:
+	• sh /home/harsh/secretkey/python/folder/script.sh
+3. Press ENTER, and then press CTRL + D on your keyboard to save and exit. The system will confirm by printing a message like job 1 at Thu Oct 15 23:30:00 2026.
+🎨 FLEXIBLE TIME FORMATS EXAMPLES:
+The at command is highly intelligent and understands natural English time formats. Here are the most practical examples you can use:
+• By Specific Time Today: at 23:30 or at 11:30 PM (Runs at exactly 11:30 PM today).
+• By Specific Date: at 2:00 PM 10/15/2026 or at 14:00 15.10.2026 (Runs on October 15th).
+• Using Relative Time: at now + 10 minutes or at now + 2 hours (Perfect for quick testing or delaying a script).
+• Using Special Keywords: at midnight or at noon tomorrow (Extremely simple and clean).
+📊 MANAGING THE SCHEDULED JOBS QUEUE:
+Once a job is scheduled, you can check its status or delete it using these supplementary commands:
+• atq (At Queue): Lists all the currently pending scheduled jobs along with their unique Job IDs.
+• atrm <Job_ID> (At Remove): Deletes a scheduled job from the queue if you change your mind.
+	• EXAMPLE: sudo atrm 1 (Deletes Job ID 1).
+
+ IMPORTANT NOTE FOR RUNNING at JOBS:
+For your scheduled at jobs to execute successfully, the background automation service (known as the atd daemon) must be active on your system. If your jobs are scheduled but not running, use these commands:
+• To check the service status: sudo systemctl status atd
+• To start the service (if stopped): sudo systemctl start atd
+• To enable it permanently on boot: sudo systemctl enable atd
+
+TROUBLESHOOTING: AVOIDING THE "GARBLED TIME" ERROR
+• The Issue: If you type seconds while defining the time (e.g., at 07:08:00), Linux will throw a syntax error. Last token seen: : Garbled time error.
+• The Reason: The at command only accepts time in HH:MM (Hours and Minutes) format. It does not recognize seconds.
+• The Fix: Always omit the seconds. Use at 07:08 or at 07:08 AM instead of adding :00 at the end.
+
+UNDERSTANDING OUTPUT REDIRECTION (> AND >>):
+In Linux, you can redirect the output of any command into a physical file instead of printing it on the terminal screen.
+1. THE OVERWRITE OPERATOR (>)
+The single greater-than sign > redirects the output to a file. If the file already contains text, it will completely overwrite (delete) the old content and replace it with the new output.
+• EXAMPLE: hostname > filess
+2. THE APPEND OPERATOR (>>)
+The double greater-than sign >> appends the new output to the end of the file without deleting its existing content.
+• EXAMPLE: pwd >> filess
+⚠️ CRITICAL NOTE FOR ENVIRONMENT VARIABLES:
+You cannot redirect an environment variable directly by typing its name (e.g., USER > filess will fail with a command not found error). Variables are not standalone commands. To save a variable's data into a file, you must use the echo command along with the dollar sign ($):
+• CORRECT WAY: echo $USER >> filess
