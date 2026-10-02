@@ -708,18 +708,73 @@ source ~/.bashrc
 * This process is identical to how we reloaded the profile after configuring the **Java environment variables** earlier. The creation and implementation logic remain exactly the same, so do not get confused.
 
 
-never use unset command directly in home directory ~, like this unset PATH, in PATH variable all the info is stored including commands, software, applications etc, when you unset its main path (PATH), then no command and nothing will execute in your terminal.
-if you somehow executed unset PATH command, then there are two options, one is describe your path to your system again but how , use the following command, its similar for all..:
+**HOW TO KEEP YOUR .bashrc file safe?**
 
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+* When you write any information in a variable in .bashrc file, then you can copy that file as a backup. So, that if anything bad happens, then you will still have its proper copy.
 
-2. open another terminal window, everything will get sorted.
+* You can use the following command:
+
+`cp ~/.bashrc ~/.bashrc.bak` command will make a copy of your .bashrc file.
+
+**Breakdown of the Command:**
+
+* cp stands for copy, ~/.bashrc is .bashrc file of ~ (home) directory, and ~/.bashrc.bak is the backup file. So, we say it, to copy the ~/.bashrc file and name it as ~/.bashrc.bak.
+
+**SYNTAX:**
+
+`cp <real file name> <copied file name>`
+
+**EXAMPLE:**
+
+`cp ~/.bashrc ~/.bashrc.bak`
+
+```bash
+cp ~/.bashrc ~/.bashrc.bak
+```
+
+**IF YOUR .bashrc file CORRUPTS, DO THIS:**
+
+* We can do two following methods:
+
+**1**. If you created its back file, then you can restore it as following:
+
+`cp ~/.bashrc.bak ~/.bashrc` command can be used to restore your .bashrc file.
+
+**Break Down of the Command:**
+
+In this case, we will reverse our files, here, we are asking it to copy ~/.bashrc.bak (backup file), to another file and name as ~/.bashrc (its real name).
+
+```bash
+cp ~/.bashrc.bak ~/.bashrc
+```
+
+**2**. After copying it, you will have to give update to your system. In this case, we use the following command:
+
+`source ~/.bashrc` 
+
+```bash
+source ~/.bashrc
+```
+
+**IF THERE IS NO BACKUP FILE (.bak), DO THIS:**
+
+**1**. There is always a default file kept in your system. It is saved in a folder as /etc/skel/.bashrc. We can copy this file and make our .bashrc file factory reset.
+
+`cp /etc/skel/.bashrc ~/.bashrc` 
+
+```bash
+cp /etc/skel/.bashrc ~/.bashrc
+```
+
+**2**. Now, after copying it, enter the following command to implement it to your system:
+
+`source ~/.bashrc`
+
+```bash
+source ~/.bashrc
+```
 
 
-
-, vo innfo delete ya remove ho jaati hai syst se, kabhi home mein reh kar seddha unset path mat karna kyunki isse system apne saare path ko hi delete kar deta hai aur baad mein jab aaap kuch comm, chalaoge toh nhi chelga , agar aisa kabhi hota hai toh ye ....PATH.... command use karein isse aapke basic commands sab activate ho jayenge, par agar aapne alag se variables banaakr kuch add kiya hua tha toh vo ismein nhi ayega, aur haan agar aapne bashrc mein path delte kar diya tha toh vahan par hi theek karna hoga , taaki permanent save ho PATH, agar terminal se command chlayo thi, toh upar wali command chalyein theek ho jyayega , agar aap apne dusri soft, info, ya file, fold, ko bhi vaapis laana chat hain toh ya toh linux ka bacshrc backup file check karein, ya fir export PATH: likh kar aage apna path jodkar us ko vahan par rakh sakte hain dubara se, agar folder apni marzi se name dekar banane hain toh mkdir se pehle folder bana dein isse appka system fir se unhe save kar lega aur app chala paoge flutter, java etc, ko bash rc mein likhna hoga par agar aapki bashrc kharab ya corrupt ho jaaye tph aap isse aise karke jo real default bashrc hai usmein jaakar saara code copy karke dubara se basgrc mein daal sakte hain jisse bilkul fresh file dubara ready ho jyegi, aap real skel bashrc mein changes nhi laa sakte, par apni copy basgrc mein laa sakte hain, aur jo bhi path soft,info purane mein thi, is nayi mein dubara daal kar save kar lijiye, bashrc kabhi bhi export path ka bcakup nhi rakhta kyunki vo banaya hi tempo hota hai, toh backup aur permanent ke liye real bachrc mein likh dein saara path......./etc/skel/.bashrc ~/.bashrc  ,read karein, cat /etc/skel/.bashrc
-bhai, version chnage karte waqt pehle ek variable baan lein jaise ..., aur usko path ke saath, jismein vo real change waala version hai saath jodein isse vo varoable mein save ho hua, iske baad ... karke usse daal dein, ab aapko pura path nhi likhna pada aapne bas varibale name likha aur uske baad ...path likhein aisa isliye kyunki version chnage ke waqt pehle path desribe hota hai. softeware ke naam ke saane hum var nhi kar sakte, vahan humein path se hi save karna padta hai, env variable soft ya version ke waqt kaise aur kahan banana hai :
-agar software installed hai pehle se , apt command se installed kiya hua hai toh, seedha software ka naaam daal kar enter dabayein soft terminal mein khul jayega , humein paths unke banane padte hain jo amnully download kiye gaye hain jaise java,flutter, sdk,etc. aur jo package manager ke custom tools ya fir kuch secret information jaise database, api keys, etc. inke liye sabse pehle naya path banayein , which ya whereis command se check karkefir purana path jod dein, database aur api keys ke liye sirf normally variable banakar store karein, iske ilava softwares ke versions chnage karne ke liye pehle naya version path jodein aur baad mein purana taaki aapp naye version ko use kar sakein. jab hum software ko terminal mein khilte hain toh vahan par save karne ka koi tarika  nhi hota humare kaam ko isliye professinals pehle vs code ya nano chalakar usmein code likhte hain aur file banate hain aur baad mein usse run kar dete hain python mein aur output dekh lete hain file banakr rakhne se code ssd mein save ho jaata hai file mein ,software bas test ke liye aur output paane ke liye hota hai. 
 
 
 
