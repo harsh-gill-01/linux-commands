@@ -5,13 +5,17 @@
 **DEFINITION:**
 
 * **Linux** is a highly secure, flexible, and **open-source operating system (OS)** originally based on the principles of Unix.
+
 * **Open-Source**: This means the source code is completely open to the public. Anyone can freely view, modify, customize, use, and contribute to its ongoing development.
+
 * **Operating System (OS)**: An OS acts as a core interface between the user and the computer hardware. It manages system resources, handles communication, and allows users to download, install, and run various software applications.
 
+---
 
- **EXAMPLES OF OPERATING SYSTEMS:**
+**EXAMPLES OF OPERATING SYSTEMS:**
  
 * Apart from Linux, other widely used operating systems include **Microsoft Windows** and **Apple macOS**.
+
 * *Fun Fact*: **Android** used in mobile phones is also internally powered by the **Linux kernel!**
 
 ---
@@ -19,19 +23,29 @@
 **BACKGROUND & HISTORY OF LINUX:**
 
 * **Linux** was created by a **Finnish** software engineer named **Linus Torvalds** in **1991**.
+
 * The name "Linux" is a clever combination of the creator's name **Linus** and **Unix**.
+
 * Linux is designed as a **Unix-like** operating system, built from scratch to mimic the behavior of Unix without using its proprietary code.
+
+---
 
 **WHAT IS UNIX?**
 
 * **Unix** is a powerful, multi-user, and multitasking operating system originally developed in the **1970s** at **AT&T's Bell Labs**.
+
 * It serves as the historical foundation and design inspiration for many modern operating systems.
+
 * While Linux is not directly derived from Unix code, it follows the **Unix philosophy and architecture** closely. This is why Linux is universally described as being **"based on Unix"**.
+
+---
 
 **LINUX vs UNIX:**
 
 * **Unix** is a proprietary (licensed) system, whereas **Linux** is completely free and open-source.
+
 * Linux is inspired by Unix and designed to be **Unix-like**. It works on the same principles and standards, making it **work smoothly with** Unix software and commands.
+
 * This is why Linux commands look very familiar and work exactly like Unix principles.
 
 ---
@@ -39,18 +53,28 @@
 **LINUX IS NOT AN OS:** 
 
 * We cannot use Linux directly because it is not a complete operating system on its own.
+
 * Linux is actually just an open-source **KERNEL**.
+
+---
 
 **WHAT IS A KERNEL?**
 
 * A **Kernel** is the heart or core part of an operating system.
+
 * It acts as a bridge to manage system resources and handles all communication between the computer **hardware and software**.
- 
+
+---
+
 **BRIEF EXAMPLE TO UNDERSTAND:**
 
 * Think of the **Kernel** as a **car engine**. Every car needs an engine to run, and similarly, every operating system needs a kernel to function properly.
+
 * So, the **Kernel is the engine** fitted inside various complete operating systems.
+
 * In the tech industry, there are many different operating systems (called Linux Distributions or Distros) that are built using the exact same **Linux Kernel**.
+
+---
 
 **EXAMPLES OF LINUX DISTRIBUTIONS:**
 
@@ -58,28 +82,37 @@
 
 * These operating systems are completely powered by the core **Linux Kernel** (the main engine). So, we do not use the raw Linux kernel directly; instead, we use these complete Distros built around it.
 
+---
+
 **WHAT ARE LINUX DISTRIBUTIONS (DISTROS)?**
 
 * A **Linux Distribution (Distro)** is a complete operating system created from a collection of software.
 
 * It includes the core **Linux Kernel**, a graphical interface, various system utilities, and a **package management system** (like **`apt`**) to easily install, update, and manage software applications.
 
+---
+
 **KEY FEATURES OF LINUX:**
 
-* Open Source: The source code is completely free and available to the public, allowing anyone to modify and customize it.
+* **Open Source:** The source code is completely free and available to the public, allowing anyone to modify and customize it.
 
-* Multiuser: Multiple users can access system resources and run applications simultaneously without affecting each other.
+* **Multiuser:** Multiple users can access system resources and run applications simultaneously without affecting each other.
 
-* Multitasking: The system can handle and execute multiple tasks or processes at the exact same time smoothly.
+* **Multitasking:** The system can handle and execute multiple tasks or processes at the exact same time smoothly.
 
-* Security: Provides strong, built-in security features, user permissions, and regular community updates to stay protected.
+* **Security:** Provides strong, built-in security features, user permissions, and regular community updates to stay protected.
 
-* Portability: Highly flexible and can run efficiently on various hardware platforms, from old laptops to massive cloud servers.
+* **Portability:** Highly flexible and can run efficiently on various hardware platforms, from old laptops to massive cloud servers.
+
+---
 
 **MARKET DEMAND:**
 
 * **Job Roles**: Linux skills are in massive demand for high-paying roles such as **System Administrators**, **DevOps Engineers**, **Cloud Architects**, **Software Developers**, **Network Engineers**, and **Cybersecurity Professionals**.
+
 * **Industry Adoption**: Top tech giants like **Google**, **Meta (Facebook)**, and **Amazon**, as well as major financial institutions and healthcare providers, heavily rely on **Linux** to run their entire IT infrastructure.
+
+---
 
 **RECOMMENDATION FOR BEGINNERS:**
 
@@ -89,6 +122,7 @@
 
 * **CentOS**: It is the popular community version of **Red Hat Enterprise Linux (RHEL)** and is commonly used in enterprise server environments.
 
+---
 
 # Linux Commands 
 
