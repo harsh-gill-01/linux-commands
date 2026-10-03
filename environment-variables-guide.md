@@ -594,7 +594,8 @@ env
 
 **EXPECTED OUTPUT:**
 
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/04ae9977-19f0-4987-8d63-a7ce8598f15f" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/7bde2ab1-c9db-4851-9a32-64ef3c3c7575" />
+
 
 **TECHNICAL ANALYSIS OF THE SECURITY SETUP (SCREENSHOT):**
 
@@ -604,6 +605,11 @@ env
 
 * **The Ignored Target:** The output of **`cat .gitignore`** confirms that **`.env`** is successfully registered inside the **`.gitignore` file**. Git will now completely skip this file during any push repository actions, keeping your cloud deployment 100% secure.
 
+**PRO-TIP FOR BEGINNERS: NO **`sudo`** REQUIRED**
+
+* **Never** use the **`sudo`** command or log in as the **root** user when creating or modifying **`.env`** and **`.gitignore`** files.
+ 
+* These are local project files belonging to your user directory. If you create them using **`sudo`**, Linux will assign ownership to the root user. This will cause your application code to throw a **`Permission Denied`** error when trying to read the environment variables. Always create them as a regular user!
 
 **HOW IT WORKS UNDER THE HOOD:**
 
