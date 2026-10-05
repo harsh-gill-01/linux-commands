@@ -249,6 +249,223 @@
 * **3**. **Cyber Security Defense:** When a company installs a new security patch to block hackers, they take a snapshot first. Also, if a test computer accidentally gets infected with a virus, engineers do not waste time cleaning it. They just reset the computer to a healthy snapshot in 5 seconds.
 
 
+**MASTERING THE VIM EDITOR**
+
+**WHAT IS VIM?**
+
+* **Core Definition:** Vim (Vi Improved) is a highly powerful, text-based file editor used in **Linux** environments. It helps a lot whenever you need to create, view, or modify files.
+
+* **The Upgraded Tool:** There are other editors in Linux like **Vi** and **Nano**. Nano is very beginner-friendly, while Vi is the classic editor. Vim is the upgraded version of Vi, packed with new features and advanced functions. It requires a little bit of knowledge to operate, but it turns you into a pro user.
+
+---
+
+**HOW TO CHECK AND INSTALL VIM?**
+
+If you want to check whether Vim is already installed on your system or you want to install it from scratch, use the following simple terminal commands:
+
+---
+
+**1**. **Check if Vim is Installed:**
+
+To verify if Vim is present on your machine, run this command:
+
+```bash
+`which vim`
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/0de12243-68f0-4593-88bd-ac75c0eb6901" />
+
+---
+
+**2**. **Install Vim (If not present):**
+ 
+If the previous command shows no path, you can easily install the Vim editor on your Ubuntu/Debian system by running:
+
+```bash
+sudo apt install vim
+```
+
+---
+
+**HOW TO RUN VIM FROM THE TERMINAL?**
+
+* To open the Vim editor directly without creating or opening a specific file, simply type the following command in your terminal and press **`Enter`**:
+
+```bash
+vim
+```
+---
+
+**EXPECTED OUTPUT: THE VIM WELCOME SCREEN**
+
+* When you execute the raw **`vim`** command, you will be greeted by the official Vim welcome and information dashboard inside your terminal screen:
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/194b5f11-1c61-43be-a404-6c1694f49e7a" />
+
+**KEY DETAILS DISPLAYED ON THE SCREEN:**
+
+* **Version Info:** Shows the current version of the editor (e.g., **Vim version 9.1**).
+
+* **Core Shortcut Tip:** The screen itself helps beginners by displaying the most important command to close the editor: type **`:q`** and press **`Enter`** to exit.
+
+---
+
+**CREATING AND EDITING A NEW FILE**
+
+* To create a completely new file or open an existing file for editing, enter the **`vim`** command followed by your desired filename.
+
+**SYNTAX:**
+
+`vim <file_name>`
+
+**EXAMPLE:**
+
+`vim new_file`
+
+```bash
+vim new_file
+```
+
+---
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/da9588c2-54ff-4cce-9d13-d72c0bd12496" />
+
+---
+
+**INSIDE THE VIM EDITOR WINDOW**
+
+* Once you press **`Enter`**, Vim will switch to the editor screen where you can perform all your text editing operations.
+
+* **File Status Indicator:** If you created a brand new file, you will immediately see your filename followed by a **`[New]`** tag at the very bottom-left corner of the screen (e.g., **`"new_file" [New]`**). This confirms that the file is fresh and empty.
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/8f9534b4-c19e-41bd-8cd7-fcdce7d9183f" />
+
+---
+
+**HOW TO START WRITING IN VIM (INSERT MODE)**
+
+* **The Default State:** When you open Vim, you cannot start writing or typing text directly. You are inside the **Normal Mode** by default.
+
+* **Switching to Insert Mode:** To start editing or writing code, you must first press the small **`i`** key on your keyboard.
+
+* **The Indicator:** Once pressed, the status line at the very bottom-left corner will display **`-- INSERT --`**, confirming you are now in the typing mode.
+
+---
+
+**EXPECTED OUTPUT: INSERT MODE**
+
+* Once you press the shortcut key, the terminal will dynamically display the mode transition at the very bottom:
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/e9c8f46c-f723-436a-9a6b-6329116ed53c" />
+
+**SHORTCUT ACTION:**
+
+* **`i`** — Press this key to switch from Normal Mode to Insert Mode to start editing or writing your text.
+
+```bash
+i
+```
+
+---
+
+**HOW TO SAVE AND EXIT VIM**
+
+* Once you have finished writing or editing your file, you must return to the terminal by safely saving your changes. Follow these precise steps:
+
+**1**. **Exit Insert Mode:**
+
+• First, press the **`ESC`** key on your keyboard. This will instantly remove the **`-- INSERT --`** tag and take you back to **Normal Mode**.
+
+**2**. Save and Close Command:
+
+• Type a colon **(`:`)** and then type **`wq`** (which stands for **W**rite and **Q**uit), then press **`Enter`**.
+
+**KEYBOARD SHORTCUTS:**
+
+* **`ESC`** — Leave **`-- INSERT --`** mode and go back to Normal Mode.
+
+* **`:wq`** — Save your changes and exit the editor.
+
+---
+
+**EXPECTED OUTPUT: RETURN TO NORMAL MODE**
+
+* When you press the **`ESC`** key, the **`-- INSERT --`** indicator will instantly disappear from the bottom-left corner of your screen, as shown below. This confirms that you have successfully left the typing mode and returned to **Normal Mode**.
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ef930f7e-8a5a-44d0-a461-11bb67417111" />
+
+---
+
+**EXPECTED OUTPUT: EXECUTING THE SAVE COMMAND**
+
+* After returning to Normal Mode, type a colon **(`:`)** followed by **`wq`**. You will see the command appear at the very bottom-left corner of the screen, exactly as shown below. Now, press **`Enter`** to save your work and safely exit back to your main terminal window.
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/0c79842f-4ca2-42a8-a9d0-4f5a4f1f9c5d" />
+
+---
+
+**EXPECTED OUTPUT: VERIFYING THE SAVED FILE**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/53b1bd4f-29ef-4077-bb19-05bab428112f" />
+
+* After executing the save command, you will immediately return to your main terminal screen. You can now verify that your file was successfully saved and created by using the following commands:
+
+**1**. **Check if the file exists:**
+
+```bash
+ls
+```
+
+As shown in the output, **`new_file`** is now visibly present inside your directory.
+
+**2**. **View the saved content inside the file:**
+
+```bash
+cat new_file
+```
+
+**EMERGENCY FIX: HOW TO QUIT WITHOUT SAVING?**
+
+* **The Problem:** If you open a configuration file by mistake and accidentally type something incorrect or unnecessary, you do not want to save those broken changes.
+
+* **The Solution:** You can force-close the editor immediately without saving anything by running the force-quit command.
+
+**STEPS TO FORCE QUIT:**
+
+**1**. Press the **`ESC`** key to leave Insert Mode and return to Normal Mode.
+
+**2**. Type a colon **(`:`)** followed by **`q!`** (which stands for **Q**uit immediately with an exclamation mark to force the action), then press **`Enter`**.
+
+**KEYBOARD SHORTCUT:**
+
+`:q!`
+
+**EXPECTED OUTPUT: FORCE QUITTING IN ACTION**
+
+**1**. **Simulating an Accidental Edit:**
+
+* Suppose you accidentally type a string of incorrect characters (like **`abchsodhslfn`**) inside your file. To discard this change, press **`ESC`**, type **`:q!`**, and hit **`Enter`**.
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/a69bc8df-63ac-4e33-ade7-2f156b70e0b1" />
+
+
+**2**. **Verifying the Rollback:**
+
+* Once you are back in the main terminal, execute the **`cat`** command to view the file contents. As shown in the output, the corrupted text was successfully discarded, and only your original healthy text remains:
+
+```bash
+cat new_file
+```
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/1b97c4f2-a499-4cdb-8fe1-19fe9a59c273" />
+
+
+
+
 # Linux Commands 
 
 ## My Linux Commands And Bash Scripts Notes 
