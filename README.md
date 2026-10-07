@@ -471,120 +471,156 @@ cat new_file
 ## My Linux Commands And Bash Scripts Notes 
 ## Basic Commands 
 
-* `ls` - To list all the contents of our current directory. **Syntax**: `ls`
+* **`ls`** - To **list all the contents** (files and folders) of our **current directory**.
+
 ```bash
 ls
 ```
+
 **Expected Output:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/be73df06-9236-432f-9fa1-e12a1ee15256" />
 
 ---
 
-* `pwd`- To check in which directory or location we are in current time.
-**Syntax:**
-`pwd`
+* **`pwd`** - To **check which directory or location** we are **currently working in**.
+
 ```bash
 pwd
 ```
+
 **Expected Output:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/ff1b54b0-3440-41a6-b55b-320d0baead12" />
 
 ---
 
-* `clear` - To clear our terminal. You can also use `CTRL + L` to clear your terminal faster than `clear` command. 
-**Syntax:**
-clear
+* **`clear`** - To clear **our terminal screen**. You can also use **`CTRL + L`** to **clear your terminal faster** than typing **`clear`** command.
+
+**DIFFERENCE:**
+
+* **`clear` command**: It **clears the terminal screen** by pushing your previous terminal work upward. If you **scroll up**, you can still see your previous commands and output logs.
+
+* **`CTRL + L` shortcut**: This is an **instant keyboard shortcut**. It does the same job rapidly without requiring you to type anything, helping you **work much faster**.
+
 ```bash
 clear
 ```
-**Expected Output:** 
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/c0f237ca-438d-4ad2-8515-e07cb842b0c6" />
+**Expected Output (`clear` command):** 
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/c0f237ca-438d-4ad2-8515-e07cb842b0c6" />
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/ff21990b-b45d-4f31-89c9-29f4394134ce" />
 
 ---
 
-* `date` - To check date, along with time, timezone etc.
-**Syntax:**
-date
+* **`date`** - To **check the current date**, along with the **exact time and timezone**.
+  
 ```bash
 date
 ```
+
 **Expected Output:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/ba21578d-6138-46fb-853f-be55d65f16d5" />
 
 ---
 
-* `touch` - To create a file in linux.
+* **`touch`** - To **create an empty file** in Linux.
+
 **Syntax:**
-`touch [file name]` **Example:**
-touch my_file
+
+* `touch [file_name]` 
+
+**Example:**
+
+* `touch my_file`
+
 ```bash
 touch my_file
 ```
+
 **Expected Output:**
 
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/4d1d143b-53d9-451d-92b8-2135d3469925" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/4d1d143b-53d9-451d-92b8-2135d3469925" />
 
 ---
 
-* `mkdir` - To create a folder.
+* **`mkdir`** - To **create a new folder** (directory) in Linux.
+
 **Syntax:**
-`mkdir [folder name]` **Example:**
-`mkdir my_folder`
+
+* `mkdir [folder_name]` 
+
+**Example:**
+
+* `mkdir my_folder`
  
 ```bash
 mkdir my_folder
 ```
+
 **Expected Output:**
 
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/6ef15c28-a0c7-41f3-a9c2-41a8b09342e0" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/6ef15c28-a0c7-41f3-a9c2-41a8b09342e0" />
 
 ---
 
-* `rm` - To delete a file.
+* **`rm`** - To **delete a file** in Linux.
+  
 **Syntax:**
-`rm [file name]` **Example:**
-`rm my_file`
+  
+* `rm [file_name]` 
+
+**Example:**
+
+* `rm my_file`
 
 ```bash
  rm my_file
 ```
+
 **Expected Output:**
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/35679bfb-04c4-4e3b-b5cd-f4e85d9fc905" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/35679bfb-04c4-4e3b-b5cd-f4e85d9fc905" />
 
 ---
 
-* `rm -rf` - To delete a folder. You can also use `rmdir` command for the same purpose.
+* **`rm -rf`** - To **delete a folder** (directory) in Linux. You can also use the **`rmdir`** command for the same purpose, but `rmdir` only works on empty folders, while `rm -rf` can **force-delete any folder along with its hidden contents**.
+
+
 **Syntax:**
-`rm -rf [folder name]` **Example:**
-`rm -rf my_folder`
+
+* `rm -rf [folder_name]`
+
+**Example:**
+
+* `rm -rf my_folder`
 
 ```bash
 rm -rf my_folder
 ```
+
 **Syntax:**
-`rmdir [folder name]` **Example:**
+
+`rmdir [folder_name]` 
+
+**Example:**
+
 `rmdir newfolder`
 
 ```bash
 rmdir newfolder
 ```
+
 **Expected Output:**
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/6c50249e-afd1-4158-a3f6-4d4a2385aa5e" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/6c50249e-afd1-4158-a3f6-4d4a2385aa5e" />
 
 ---
 
-* `cal` - To see calendar of current year or month, we can also see calendars of past or future years along with months by writing year number and month name.
-**Syntax:**
-`cal` **Example:**
-`cal`
+* **`cal`** - To see calendar of current year or month, we can also see calendars of past or future years along with months by writing year number and month name.
 
 ```bash
 cal
