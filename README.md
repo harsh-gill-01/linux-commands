@@ -1,4 +1,4 @@
-## COMPREHENSIVE GUIDE TO LINUX ##
+# COMPREHENSIVE GUIDE TO LINUX #
 
 ## WHAT IS LINUX? ##
 
@@ -466,10 +466,9 @@ cat new_file
 
 
 
-# Linux Commands 
+# Linux Commands #
 
-## My Linux Commands And Bash Scripts Notes 
-## Basic Commands 
+## My Linux Commands And Bash Scripts Notes ##
 
 * **`ls`** - To **list all the contents** (files and folders) of our **current directory**.
 
@@ -477,7 +476,7 @@ cat new_file
 ls
 ```
 
-**Expected Output:**
+**EXPECTED OUTPUT:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/be73df06-9236-432f-9fa1-e12a1ee15256" />
 
@@ -489,7 +488,7 @@ ls
 pwd
 ```
 
-**Expected Output:**
+**EXPECTED OUTPUT:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/ff1b54b0-3440-41a6-b55b-320d0baead12" />
 
@@ -507,7 +506,7 @@ pwd
 clear
 ```
 
-**Expected Output (`clear` command):** 
+**EXPECTED OUTPUT (`clear` command):** 
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/c0f237ca-438d-4ad2-8515-e07cb842b0c6" />
 
@@ -521,7 +520,7 @@ clear
 date
 ```
 
-**Expected Output:**
+**EXPECTED OUTPUT:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/ba21578d-6138-46fb-853f-be55d65f16d5" />
 
@@ -529,11 +528,11 @@ date
 
 * **`touch`** - To **create an empty file** in Linux.
 
-**Syntax:**
+**SYNTAX:**
 
 * `touch [file_name]` 
 
-**Example:**
+**EXAMPLE:**
 
 * `touch my_file`
 
@@ -541,7 +540,7 @@ date
 touch my_file
 ```
 
-**Expected Output:**
+**EXPECTED OUTPUT:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/4d1d143b-53d9-451d-92b8-2135d3469925" />
 
@@ -549,11 +548,11 @@ touch my_file
 
 * **`mkdir`** - To **create a new folder** (directory) in Linux.
 
-**Syntax:**
+**SYNTAX:**
 
 * `mkdir [folder_name]` 
 
-**Example:**
+**EXAMPLE:**
 
 * `mkdir my_folder`
  
@@ -561,7 +560,7 @@ touch my_file
 mkdir my_folder
 ```
 
-**Expected Output:**
+**EXPECTED OUTPUT:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/6ef15c28-a0c7-41f3-a9c2-41a8b09342e0" />
 
@@ -569,11 +568,11 @@ mkdir my_folder
 
 * **`rm`** - To **delete a file** in Linux.
   
-**Syntax:**
+**SYNTAX:**
   
 * `rm [file_name]` 
 
-**Example:**
+**EXAMPLE:**
 
 * `rm my_file`
 
@@ -581,7 +580,7 @@ mkdir my_folder
  rm my_file
 ```
 
-**Expected Output:**
+**EXPECTED OUTPUT:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/35679bfb-04c4-4e3b-b5cd-f4e85d9fc905" />
 
@@ -590,11 +589,11 @@ mkdir my_folder
 * **`rm -rf`** - To **delete a folder** (directory) in Linux. You can also use the **`rmdir`** command for the same purpose, but `rmdir` only works on empty folders, while `rm -rf` can **force-delete any folder along with its hidden contents**.
 
 
-**Syntax:**
+**SYNTAX:**
 
 * `rm -rf [folder_name]`
 
-**Example:**
+**EXAMPLE:**
 
 * `rm -rf my_folder`
 
@@ -602,11 +601,11 @@ mkdir my_folder
 rm -rf my_folder
 ```
 
-**Syntax:**
+**SYNTAX:**
 
 `rmdir [folder_name]` 
 
-**Example:**
+**EXAMPLE:**
 
 `rmdir newfolder`
 
@@ -614,82 +613,139 @@ rm -rf my_folder
 rmdir newfolder
 ```
 
-**Expected Output:**
+**EXPECTED OUTPUT:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/6c50249e-afd1-4158-a3f6-4d4a2385aa5e" />
 
 ---
 
-* **`cal`** - To see calendar of current year or month, we can also see calendars of past or future years along with months by writing year number and month name.
+* **`cal`** - To **see the calendar** of the current year or month. We can also **see calendars of past or future years** along with specific months by writing the year number and month number.
 
 ```bash
 cal
 ```
-**Expected Output:**
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/b0842ee6-a334-47b6-9005-d9fbfa6c3faa" />
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/75decda2-4326-43f7-a0a6-0c27c9ce8374" />
 
 ---
 
-* `ls -lt` - To see all the information about our files and folders of current directory. It provides all the information about the files and folders , about their sizes , their  creation time & date etc.
-**Syntax:**
-`ls -lt`
+* **`ls -l`** - To **list all the contents** of a directory in the **long listing format**. It shows deep details like **file permissions, owner name, file size, and the exact date and time** the file was created or edited.
+
 ```bash
-ls -lt
+ls -l
 ```
-**Expected Output:**
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/3abdee9a-c169-4bb6-b2b1-9e522f25313a" />
+**EXPECTED OUTPUT:**
 
----
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/20d7ca50-491a-4922-9b05-7425ff7a80c3" />
 
-* `ls -ltr` - To see all the information about our files and folders of current directory in reverse order. Reverse order of our contents shows us the very new files and folders that we created new.
-**Syntax:**
-`ls -ltr`  
+* You can also use **`ls -l <file_name>`** for **finding and getting information** about **only one file** (including hidden details).
+
+**SYNTAX:**
+
+* `ls -l <file_name>`
+
+**EXAMPLE:**
+
+* `ls -l file_A`
+
 ```bash
-ls -ltr
+ls -l file_A
 ```
-**Expected Output:**
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/23cdab4f-e224-4a1b-86c1-f529ba25ddf9" />
+**EXPECTED OUTPUT:**
 
----
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/52d94319-8628-4a45-b06c-f204d2545846" />
 
-* `ls -lh` - To see information about our files and folders in a manner to make them more easier to read. In this command , `h` means human readable.
-**Syntax:**
-`ls -lh`
-```bash
-ls -lh
-```
-**Expected Output:**
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/7b0d13cd-8d37-4bd7-b66d-d8059613889e" />
-
----
-
-* `bc` - To open a calculator like system in your terminal to do basic calculations. Generally, you will not get a proper visible calculator in your terminal. You will just get a platform in your terminal after executing command to perform basic calculations. Press `ctrl + D` to come back from calculator to terminal.
-**Syntax:**
-`bc` 
-```bash
-bc  
-```
-**Expected Output:**
-
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/552a061d-745f-48af-8a8a-0532db518221" />
-
----
-
-* `--help` - To get help regarding a command. You will write before this command , the command about which you want to get help.
-**Syntax:**
-`[command name] --help` **Example:**
-`ls --help` 
+* You can **check other helpful flags and options** of `ls` by using the **`ls --help`** command.
 
 ```bash
 ls --help
 ```
-**Expected Output:**
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/24dd95f5-3a79-45d7-a280-ac82d06b64a0" />
+---
+
+* **`ls -lt`** - To **list all contents** sorted by **time and date** (newest files appear first at the top).
+
+```bash
+ls -lt
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/7050b9ef-214a-4b10-9d66-7c55d80cff30" />
+
+**NOTE:**
+
+* In the screenshot, you can clearly see the **sorted date and time**, along with the names of the files that are **newly created or modified**.
+
+---
+
+* **`ls -ltr`** - To **list all contents** sorted by **time and date in reverse order** (newest files appear at the very bottom, making them easy to see without scrolling up).
+
+```bash
+ls -ltr
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/24a9ca76-d0be-493d-90a4-4a47e32cc3fc" />
+
+**NOTE:**
+
+* In the screenshot, You can clearly see the **newest files are appearing at the very bottom**.
+
+---
+
+* **`ls -lh`** - To **see information about our files and folders** in a manner that makes them **much easier to read**. In this command, **`h`** means **human readable**.
+
+
+```bash
+ls -lh
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/f680aa0c-26fc-4c5f-832f-6dfd9cbe2c55" />
+
+**NOTE:**
+
+* You can clearly see that the **file sizes have changed into a human readable format**.
+
+---
+
+* **`bc`** - To **open a calculator-like system** in your terminal to do **basic calculations**. Generally, you will not get a visual calculator window. Instead, you will get a **clean platform inside your terminal** to perform mathematical equations. Press **`CTRL + D`** to exit the calculator and come back to your main terminal screen.
+ 
+```bash
+bc  
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/552a061d-745f-48af-8a8a-0532db518221" />
+
+---
+
+* **`--help`** - To **get help regarding any specific command**. You will write the main command first, followed by this help flag, to see all available options.
+
+**SYNTAX:**
+  
+* `<command_name> --help` 
+
+**EXAMPLE:**
+
+* `ls --help` 
+
+```bash
+ls --help
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/24dd95f5-3a79-45d7-a280-ac82d06b64a0" />
 
 ---
 
@@ -1440,6 +1496,7 @@ TROUBLESHOOTING: AVOIDING THE "GARBLED TIME" ERROR
 • The Issue: If you type seconds while defining the time (e.g., at 07:08:00), Linux will throw a syntax error. Last token seen: : Garbled time error.
 • The Reason: The at command only accepts time in HH:MM (Hours and Minutes) format. It does not recognize seconds.
 • The Fix: Always omit the seconds. Use at 07:08 or at 07:08 AM instead of adding :00 at the end.
+
 
 UNDERSTANDING OUTPUT REDIRECTION (> AND >>):
 In Linux, you can redirect the output of any command into a physical file instead of printing it on the terminal screen.
