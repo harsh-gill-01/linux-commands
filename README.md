@@ -463,8 +463,7 @@ cat new_file
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/1b97c4f2-a499-4cdb-8fe1-19fe9a59c273" />
 
-
-
+---
 
 # Linux Commands #
 
@@ -659,13 +658,6 @@ ls -l file_A
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/52d94319-8628-4a45-b06c-f204d2545846" />
 
-
-* You can **check other helpful flags and options** of `ls` by using the **`ls --help`** command.
-
-```bash
-ls --help
-```
-
 ---
 
 * **`ls -lt`** - To **list all contents** sorted by **time and date** (newest files appear first at the top).
@@ -715,6 +707,12 @@ ls -lh
 
 * You can clearly see that the **file sizes have changed into a human readable format**.
 
+* You can **check other helpful flags and options** of `ls` by using the **`ls --help`** command.
+
+```bash
+ls --help
+```
+
 ---
 
 * **`bc`** - To **open a calculator-like system** in your terminal to do **basic calculations**. Generally, you will not get a visual calculator window. Instead, you will get a **clean platform inside your terminal** to perform mathematical equations. Press **`CTRL + D`** to exit the calculator and come back to your main terminal screen.
@@ -749,198 +747,281 @@ ls --help
 
 ---
 
-* `man` - To get manual regarding a command. This command shall help you , but will provide its manual also. Like, giving every information regarding its uses, use cases , syntax , etc. Press `Q` to come out.
-**Syntax:**
-`man`
-**Example:**
-`man ls`
+* **`man`** - To **get the official manual** regarding any specific command. This command helps you by **providing full detailed information** about its uses, options, syntax, and real-world use cases. Press **`q`** to exit the manual screen and come back to your terminal window.
+
+**EXAMPLE:**
+
+* `man ls`
+
 ```bash
 man ls
 ```
-**Expected Output:**
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/121c2e92-1727-4c92-b243-7b585fa03f68" />
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/121c2e92-1727-4c92-b243-7b585fa03f68" />
 
 ---
 
-* `cd` - Use this command to change directory or for surfing in multiple folders and directories . You can also use `/` for going or moving in multiple folders by describing path. This command will let you access directories of current location. Never forget to give name of the directory and folder in which you want to go and access. Use this command alone , means without giving any name of folder or directory to get return yourselves back to home directory (~ home directory). Directories or folders appear different in color. 
-**Syntax:**
-`cd [folder or directory name]` **Example:**  `cd folder`
+* **`cd`** - Use this command to **change directory** or for surfing in multiple folders and directories . You can also use **`/`** for going or moving in multiple folders by describing path. This command will let you **access directories of current location**.Always remember to give the exact name of the folder you want to open. If you use this command alone (without typing any folder name), **it will instantly bring you back to your home directory (`~`)**. Note that directories and folders appear in a different color on the terminal.
+
+
+**SYNTAX:**
+
+* `cd [folder_or_directory name]`
+
+**EXAMPLE:**  
+
+* `cd folder`
 
 ```bash
 cd folder
 ```
-**Expected Output:**
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/fc7fa4bb-0b3c-43d2-8db0-03a85c31e485" />
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/fc7fa4bb-0b3c-43d2-8db0-03a85c31e485" />
 
 ---
 
-* `whoami` - To know about who you are in this terminal. When you will use this command , it will return your user name through which you are logged in and using. This `id` command will return some other information like your id,uid etc.
-**Syntax:**
- `whoami` 
+* **`whoami`** - To **know who you are** in this terminal. When you use this command, it will **return your username** through which you are logged in and working. The **`id`** command will **return other user identity details** like your user ID (**uid**), group ID (**gid**), and user groups.
+
+
 ```bash
 whoami
 ```
+
 ```bash
 id
 ```
-**Expected Output:**
 
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/8c596326-7135-4241-8bac-efb0f41bf657" />
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/8c596326-7135-4241-8bac-efb0f41bf657" />
 
 ---
 
-* `uptime` - Use this command to check that how many users are logged in or using this terminal, time from which terminal is open or from in use, load on terminal .
-**Syntax**
-`uptime`  
+* **`uptime`** - Use this command to **check how many users** are currently logged in, the **exact time duration** for which the terminal/system has been running, and the **current system load average**.
+ 
 ```bash
 uptime
 ```
-**Expected Output:** 
+
+**EXPECTED OUTPUT:** 
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/35204fe9-0a3d-4811-b6ab-708bcdb1d4a3" />
 
 ---
 
-* `cd ../` - Use this command to go back one directory from current location. You can use multiple slashes as per the number of folders or directories you are in to go back. In the **Expected Output**, i went to `folder` , then `newfolder` , then i went back one folder by using `cd ../` , then i went two folders back by `cd ../../` command , then i went upto `folderA` by describing its path from `home` folder .
-**Syntax:**
-* `cd [folder name]` - to go inside a folder.
-* `cd ../` - to go back one directory.
-* `cd ../../` - To go back two directories.
-* `cd ////` - by describing path between slashes you can access your required folder.
+* **`cd ../`** - Use this command to **go back one directory** from current location. You can use multiple slashes as per the number of folders or directories you are in to go back. In the **Expected Output**, i went to `folder` , then `newfolder` , then i went back one folder by using `cd ../` , then i went two folders back by `cd ../../` command , then i went upto `folderA` by describing its path from **home folder** .
 
-**Example:**
-`cd folder`
-`cd newfolder`
-` cd ../`
-`cd ../../`
-`cd folder/newfolder/folderA`
+**SYNTAX & OPTIONS:**
+
+* `cd [folder_name]` - To **go inside a folder**.
+
+* `cd ../` - To **go back one directory**.
+
+* `cd ../../` - To **go back two directories**.
+
+* `cd /foldername/foldername/foldername/` - By **describing path between slashes**, you can access your required folder.
+
+**EXAMPLE:**
+
+* `cd folder`
+
+* `cd newfolder`
+
+* ` cd ../`
+
+* `cd ../../`
+
+* `cd folder/newfolder/folderA`
  
 ```bash
 cd folder
+```
+```bash
 cd newfolder
+```
+```bash
 cd ../
+```
+```bash
 cd ../../
+```
+```bash
 cd folder/newfolder/folderA
 ```
 
-**Expected Output:**
+**EXPECTED OUTPUT:**
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/43305944-3f0c-495f-9a74-8b5f279e0c39" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/43305944-3f0c-495f-9a74-8b5f279e0c39" />
 
 ---
 
-* `mv` - To move files and folders from one directory to another in linux. We should give the name of files and folders which we want to move .  It moves the files and folders to the desired directories. You can also change name of files and folders. We can also use `mv ../ [file or folder name]` command to get any folder or file in current directory or folder without going back.
-**Syntax:**
-* `mv [file name] [folder or directory].`
-* `mv [folder or directory name] [folder or directory name].`
-* `mv ../[file or folder name].` You can get any file or folder from any previous folders or directories without going back by using number of `../` as per the location of files or folders.
-* `mv [file or folder name] [file or folder name] for changing name.`
+* **`mv`** - To move **files and folders** from one directory to another in Linux. We should give the exact name of the files and folders which we want to move. It moves them to the desired destination directory. You can also use this command to **change the name of files and folders** (rename them). We can also use the **`mv ../[file_or_folder_name]`** command to pull any folder or file into our current directory without manually going back.
 
-**Example:**
-`mv fileB my_folder`
-`mv folder mynewfolder` 
-`mv ../filenew .`
-`mv file_A file_AA`
-`mv folder FOLDER`
+
+**SYNTAX & OPTIONS:**
+
+* `mv [file_name] [folder_or_directory]`.
+
+* `mv [folder_or_directory_name] [folder_or_directory_name]`.
+  
+* `mv ../[file_or_folder_name] .` - You can **get any file or folder from any previous folders or directories** without going back by using the required number of `../` based on the location of files and folder.
+  
+* `mv [old_file or folder name] [new_file or folder_name]` -for **changing the name** of a file or folder.
+
+**EXAMPLE:**
+
+* `mv fileB my_folder`
+
+* `mv folder mynewfolder` 
+
+* `mv ../filenew .`
+
+* `mv file_A file_AA`
+
+* `mv folder FOLDER`
 
 ```bash
 mv fileB my_folder
-mv folder mynewfolder 
-mv ../filenew 
+```
+```bash
+mv folder mynewfolder
+```
+```bash 
+mv ../filenew .
+```
+```bash
 mv file_A file_AA
+```
+```bash
 mv folder FOLDER
 ```
 
-**Expected Output:**
+**EXPECTED OUTPUT:**
 
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/eba6ae55-e775-4f90-824f-ec954a4d56d3" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/eba6ae55-e775-4f90-824f-ec954a4d56d3" />
 
 ---
 
-* `cp` - to copy files and their content. The name of the file should be written by us after the command which we want to copy.
-**Syntax:**
-* `cp [file name] [folder or directory].`
-* `cp [file name] [another file name].` (for copying only content of one file to another file).
-* `cp ../[file name] .` You can get any file and its content from any previous folders or directories without going back by using number of `../` as per the location of files or folders.
-* `cp [file name] [file name] .` For copying the content as well as creating new copy of file from another name.
+* **`cp`** - To **copy files and their contents** in Linux. The name of the source file should be written right after the command, followed by the destination folder or target file.
 
-**Example:**
+**SYNTAX & OPTIONS:**
 
-`cp FILE new_folder`
-`cp FILE file_new`
-`cp ../fileC .`
-`cp file_new new_File`
+* `cp [file_name] [folder or directory]`.
+
+* `cp [file_name] [another file_name]` - For **copying only content** of one file to another file.
+
+* `cp ../[file_name] .` - You can **get any file and its content from any previous folders** or directories without going back by using number of `../` as per the location of files or folders.
+
+* `cp [file_name] [file_name]` - For copying the content as well as **creating new copy of file** with a different name.
+
+**EXAMPLE:**
+
+* `cp FILE new_folder`
+
+* `cp FILE file_new`
+
+* `cp ../fileC .`
+
+* `cp file_new new_File`
 
 ```bash
-
 cp FILE new_folder
+```
+```bash
 cp FILE file_new
+```
+```bash
 cp ../fileC .
+```
+```bash
 cp file_new new_File
-
 ```
 
-**Expected Output:**
+**EXPECTED OUTPUT:**
 
-FIRST TWO COMMANDS : 
+**FIRST TWO COMMANDS:** 
 
-<img width="600" alt="Screenshot 2026-09-13 120616" src="https://github.com/user-attachments/assets/019ded80-8a35-471e-a5be-bbcfa9d61e5f" />
+<img width="400" alt="Screenshot 2026-09-13 120616" src="https://github.com/user-attachments/assets/019ded80-8a35-471e-a5be-bbcfa9d61e5f" />
 
-LAST TWO COMMANDS :
+**LAST TWO COMMANDS**:
 
-<img width="600" alt="Screenshot 2026-09-13 121310" src="https://github.com/user-attachments/assets/88e72df8-29f9-4a50-b6b8-33de27e63e92" />
+<img width="400" alt="Screenshot 2026-09-13 121310" src="https://github.com/user-attachments/assets/88e72df8-29f9-4a50-b6b8-33de27e63e92" />
 
 ---
 
-* `cat` - to read a file.
-**Syntax:**
-`cat [file name]`
+* **`cat`** - To **read and view the content** of a file directly inside the terminal.
 
-**Example:**
- `cat FILE`
+**SYNTAX:**
+
+* `cat [file_name]`
+
+**EXAMPLE:**
+
+* `cat FILE`
    
 ```bash
 cat FILE
 ```
-**Expected Output:**
 
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/e0eb7c18-fea6-4a1e-84bb-379bd1d71796" />
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/e0eb7c18-fea6-4a1e-84bb-379bd1d71796" />
 
 ---
 
-* `less` - to read a file. It provides some other options comparing to cat command for better and proper reading and finding some important or specific words in files. In this, the big files will be opened in another editor or reader of files not in your terminal.
+* **`less`** - To **read large files** comfortably. It provides better features than the `cat` command, allowing you to scroll through text and **search for specific words** easily. Instead of filling all your terminal screen, it opens the file in a **temporary full-screen reader view inside the terminal**. Press **`q`** to quit this view and return to your clean terminal.
 
-**NOTE:**
-  
-In this, the files will be opened in another editor or reader of files not in your terminal. For reading BIG files there are some helpful things you can do. Press `/` and write the specific word or name , anything you want to read in file that your file contains, this is for searching and reading from top to bottom. Press `?` and write specific name or word you want to read in the file for searching or reading information from bottom to top. After using `/` and `?` for searching specific information from top to bottom and bottom to top, press `N` for seeing more or same like that information you searched. If there will be same or more information about your search it will show you, and when it will be finished, it will return `Pattern not found (Press Return)`. Press `Q` to quit file reading and come back to the terminal. Press `SHIFT + G` to go down at the last line of the file and press `P` to go up to the first line.
-  
-**Syntax:**
-`less [file name]`
 
-**Example:**
-`less file`
-`less fileB`
+**SYNTAX:**
+
+* `less [file_name]`
+
+**EXAMPLE:**
+
+* `less file`
+
+* `less fileB`
 
 ```bash
 less file
-less fileB
-
 ```
-**Expected Output:**
+```bash
+less fileB
+```
 
-Output of Smaller File (file)
-<img width="895" height="871" alt="Screenshot 2026-09-14 124048" src="https://github.com/user-attachments/assets/5e83c81d-388a-4977-ad3e-3f022e631394" />
-Execution of Bigger File (fileB)
+**EXPECTED OUTPUT:**
+
+**Output of Smaller File (file):**
+
+<img width="400" alt="Screenshot 2026-09-14 124048" src="https://github.com/user-attachments/assets/5e83c81d-388a-4977-ad3e-3f022e631394" />
+
+**Execution of Bigger File (fileB):**
+
 <img width="400" alt="Screenshot 2026-09-14 124404" src="https://github.com/user-attachments/assets/3fdd1856-cb9f-414e-90c9-6592bdff44a0" />
 
-Output of Bigger File (fileB)
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/84e2ac39-7acf-4c39-9d32-4c14a3933996" />
+**Output of Bigger File (fileB):**
 
-This Is How You Will Search specific information with `/` `?`
-<img width="896" height="871" alt="Screenshot 2026-09-14 124546" src="https://github.com/user-attachments/assets/8779c41a-b356-422e-937b-e14a9ac08fb7" />
-<img width="892" height="875" alt="Screenshot 2026-09-14 124631" src="https://github.com/user-attachments/assets/5cb522c6-265a-4b9a-8bd9-96fbbbe88dbc" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/84e2ac39-7acf-4c39-9d32-4c14a3933996" />
+
+**NOTE:**
+
+* **`/`** & **`?`** **for Searching:** Press `/` to search text from **top to bottom**, press `?` to search from **bottom to top**, and press `n` to find the next match until it shows **`Pattern not found`** (it will come written at the very bottom when there will be no another match).
+
+* **Navigation Keys:** Press **`SHIFT + G`** to instantly go down to the **last line of the file**, and press `P` to jump back up to the **first line**.
+
+* **Easy Exit:** Press `q` anytime to instantly **quit file reading** and come back to your clean terminal screen.
+
+* **Interface:** This command opens your big files in a **temporary full-screen reader view** inside the terminal instead of filling all your normal command history.
+
+**This Is How You Will Search specific information with `/` `?`:**
+
+<img width="400" alt="Screenshot 2026-09-14 124546" src="https://github.com/user-attachments/assets/8779c41a-b356-422e-937b-e14a9ac08fb7" />
+
+<img width="400" alt="Screenshot 2026-09-14 124631" src="https://github.com/user-attachments/assets/5cb522c6-265a-4b9a-8bd9-96fbbbe88dbc" /> 
 
 ---
 
