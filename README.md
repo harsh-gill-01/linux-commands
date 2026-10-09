@@ -1025,68 +1025,134 @@ less fileB
 
 ---
 
-* `more` - To read a file page by page and word or line by line. Press `ENTER` to read line by line and `Down Arrow` to read page by page (it will scroll down more than 4-5 lines of file). In this , your file is opened in your terminal , not in another file reader. But for big files, you will have to press `Q` to quit file reading as same as with `less` command. The above written reading thing will work only if your file is big, it will not work upon small files as usual. It also shows the percentage of file you've read, like this way `--More-- (70%)`, as you will use `down arrow` and scroll the file you will automatically come out when you will have finished it to the end, this is due to opening of your file reader in terminal, not an editor or separate reader like `less` command.
+* **`more`** - To **read a file page by page** or line by line. Press **`ENTER`** to scroll line by line, and press the **`Down Arrow`** from the keyboard to scroll page by page. It also shows the **exact percentage of the file you have read** at the bottom of the terminal screen. Press `q` to quit **file reading**.
 
-**Syntax:**
-`more [file name]`
 
-**Example:**
-`more fileC`
-`more fileB`
+**SYNTAX:**
+
+* `more [file_name]`
+
+**EXAMPLE:**
+
+* `more fileC`
+
+* `more fileB`
 
 ```bash
 more filec
+```
+```bash
 more fileB
 ```
-**Expected output:**
 
-Output of Smaller File (fileC)
-<img width="887" height="452" alt="image" src="https://github.com/user-attachments/assets/ffd5900e-f2eb-44e4-bf0e-175fea7ed90a" />
+**EXPECTED OUTPUT:**
 
-Execution of Bigger File (fileB)
-<img width="893" height="240" alt="image" src="https://github.com/user-attachments/assets/2b02a7c4-96e6-49c9-b98e-9ef89c6166c1" />
+**Output of Smaller File (fileC):**
 
-Output of Bigger File (fileB)
-<img width="891" height="873" alt="image" src="https://github.com/user-attachments/assets/cd960e68-86d9-4375-a826-c1048128c7b6" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ffd5900e-f2eb-44e4-bf0e-175fea7ed90a" />
+
+**Execution of Bigger File (fileB):**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/2b02a7c4-96e6-49c9-b98e-9ef89c6166c1" />
+
+**Output of Bigger File (fileB):**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/cd960e68-86d9-4375-a826-c1048128c7b6" />
+
+**NOTE:**
+
+* **File Opening Rule:** This command opens the file **inside your terminal**, not in a separate reader window like the `less` command.
+  
+* **File Size Requirement:** This page-by-page reading method will **only work on big files** and will not execute on small text files as usual, as you can see in one of the screenshots.
 
 ---
 
-* `nano` - To edit a file very perfectly. It provides many options to edit a file as per our requirements. Its benefit is, you dont need to create a file first by using `touch` command. It will create file as well as will provide options to edit the file.
+* **`nano`** - To **create and edit text files** very easily inside the terminal. It provides a built-in text editor platform where you can directly start typing your notes or code. If the file name you enter does not exist, `nano` will **automatically create a brand new file** for you.
+
+
+**SYNTAX:**
+
+* `nano <file_name>`
+
+**EXAMPLE:**
+
+* `nano fileB`
+
 ```bash
 nano fileB
 ```
-* `vi` - to edit a file. Press insert after entering into the editor, and start editing it by writing text or any other things.
-```bash
-vi myfile
-```
-* `grep` - It's full form is **Global Regular Expression Print**. Used To search words in files. It will return on your terminal all the words containing that file. 
 
-**Syntax:**
-`grep 'word' [file name]`
+**EXPECTED OUTPUT:**
 
-**Use cases:**
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/b4bb1cf4-0d0b-49ba-9c35-c42a38751af8" />
 
+**NOTE:**
 
+* Check my **dedicated nano editor guide** for more information, useful tricks, and to edit files like a pro.
 
-**Example:**
-`grep 'A' fileB`
+---
+
+* **`vim`** - To **edit files inside the terminal**. It is the **upgraded version of the traditional `vi` editor** and provides much better functions, though the basic core working is identical for both. It opens a highly powerful terminal-based file editor platform.
+
+**SYNTAX:**
+
+* `vim <file_name>`
+
+**EXAMPLE:**
+
+* `vim myfile`
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/16fee3e4-2baa-42bd-bbc5-0cf578909b9d" />
+
+**NOTE:**
+
+* Check my **dedicated vim editor guide** for more information and useful tricks to edit like a pro. You **cannot directly type text in the `vim`/`vi` editor** upon opening and you might face configuration errors if you do not know the modes. If you want a deep dive into `nano` or `vim` editors, please check our separate comprehensive manuals; the info provided here is a quick reference layout.
+
+---
+
+* **`grep`** - Its full form is **Global Regular Expression Print**. It is used to **search for specific words or patterns inside files**. It will search the text and instantly return all the lines containing that specific word on your terminal screen.
+
+**SYNTAX:**
+
+* `grep 'word' [file_name]`
+
+**EXAMPLE:**
+
+* `grep 'A' fileB`
 
 ```bash
 grep 'A' fileB
 ```
-**Expected Output:**
 
-<img width="896" height="192" alt="image" src="https://github.com/user-attachments/assets/d4977845-fcfb-4e35-b8e0-c805ea63e914" />
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/d4977845-fcfb-4e35-b8e0-c805ea63e914" />
 
 ---
 
-* `egrep` - To search multiple words and information in files. Write the name of the file and use pipe or vertical bar (|) for searching multiple words at a time.
+* **`egrep`** - To **search for multiple words and patterns** inside files at the same time. Write the name of the file and use the **pipe or vertical bar (`|`)** symbol to separate and search multiple target words at once. It will **highlight** all the searched words.
 
-**Syntax:**
-`egrep `words or information` [file name]`
+
+**SYNTAX:**
+
+* `egrep 'word1|word2|word3' [file_name]`
+
+**EXAMPLE:**
+
+* `egrep 'A|G|H|J|C' my_file`
+
 ```bash
-egrep A|G|H|J|C| my_file
+egrep 'A|G|H|J|C' my_file
 ```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/7786c024-df89-4096-ae2c-1558449cd580" />
+
+---
+
 * `history` - Use this command get all the history of your used commands on terminal, use `history` command for getting all the commands history that are executed on the terminal till date. You can use `history |grep` command also to search a specific or single command name that you have executed on your terminal. The word `grep` is used here because it is used for searching words.
 **Syntax:**
 `history`
