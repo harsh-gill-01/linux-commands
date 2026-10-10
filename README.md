@@ -1192,15 +1192,7 @@ history | grep ls
 
 * **`gzip -k`** - Use this command to **zip and compress a file**. It reduces the size of your big file, which helps us **share or store them easily** without wasting storage space.
 
-**NOTE:**
-
-* **`gzip` vs `gzip -k`**: If you use only gzip, it will delete your original file after creating the compressed version. But **gzip -k will keep your original file** safe along with the compressed version (`-k` means **Keep input files**).
-
-* **Decompressing Files:** Use **`gunzip`** or **`gzip -d`** to decompress and **get back your original file**.
-
-* **Visual Color:** The compressed version file has a **`.gz` extension** at the end, and it usually **appears RED in color** inside the terminal.
-
-**SYNTAX:**
+**SYNTAX & OPTIONS:**
 
 * `gzip [file_name]`
 
@@ -1210,36 +1202,140 @@ history | grep ls
 
 * `gunzip [compressed_file_name]` - Another command to **decompress** the file.
 
-**NOTE:**
+**EXAMPLE:**
 
-You can also use `gzip` but, it will not give you real file along with compressed version, but `gzip -k` will, as it's `-k` describes that, keep input files, do not delete them. If you want to keep it's real file then use `gzip -k` and if not, then `gzip`. Use `gunzip -d` or `gzip -d` where `d` stands for decompress, for decompressing real file, when you use `gzip` and want to get back real file. Write the name of the file you want to compress or decompress. While decompressing the file , write name of your compressed version file ( .gz , at the end ). The compressed version file appears RED in color usually.
+* `gzip new_file`
 
-
-
+* `gunzip new_file.gz`
 
 ```bash
 gzip new_file
+```
+```bash
 gunzip new_file.gz
 ```
-* `sort` - use this command to sort your unsorted file contents. Example - think of this you have , a file with letters a-z but they are mix, means unordered then, you can use `sort` command to set them in order from a-z in ordered form. use `sort -r` command to reverse the contents after sorting them in correct manner.
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/a0aeee8d-c24a-4ec4-886d-812674f5592d" />
+
+**NOTE:**
+
+* **`gzip` vs `gzip -k`**: If you use only gzip, it will delete your original file after creating the compressed version. But **gzip -k will keep your original file** safe along with the compressed version (`-k` means **Keep input files**).
+
+* **Decompressing Files:** Use **`gunzip`** or **`gzip -d`** to decompress and **get back your original file**.
+
+* **Visual Color:** The compressed version file has a **`.gz` extension** at the end, and it usually **appears RED in color** inside the terminal.
+
+---
+
+* **`sort`** - Use this command to **sort your unsorted file contents**. If you have a file in which you have A-Z letters but they are unordered, then you can use the `sort` command to **arrange them in their correct order**. You can also use the `sort -r` command to **reverse the content** of your file (Z-A order).
+
+
+**SYNTAX:**
+
+* `sort <file_name>`
+
+* `sort -r <file_name>`
+
+**EXAMPLE:**
+
+* `sort file_A`
+
+* `sort -r file_A`
+
 ```bash
-sort fileA
-sort -r fileA
+sort file_A
 ```
-* `sort |uniq` - use this command to sort the contents of your file, but also to remove copy contents . Example - Think of this you have, a file in which you have a data of workers of a company, there can be multiple workers of name. Then , you can use `sort |uniq` command to sort that file along with removing copied or matched names to see some specific information.
 ```bash
-sort filename|uniq
-**syntax**
-sort /filename|uniq
+sort -r file_A
 ```
-* `wc -l` - use this command to check how many lines of content or information a file contains. Write the name of the file of which you want to get number of lines.
+
+**EXPECTED OUTPUTS:**
+
+**Output Of `sort file_A` Command:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/dd7da3de-c520-4639-9b93-f51f5189df45" />
+
+**Output Of `sort -r file_A` Command:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/c749cf05-6018-4ea3-bc3c-7f988bb14600" />
+
+---
+
+* **`sort | uniq`** - Use this command to **sort the contents of your file** and instantly **remove all duplicate (copy) contents** at the same time. If you have a file containing multiple identical entries or matched names, you can use the `sort | uniq` command to arrange them in order and **keep only unique entries** to view specific information.
+
+**SYNTAX:**
+
+* `sort <file_name> | uniq`
+
+**EXAMPLE:**
+
+* `sort file | uniq`
+
+```bash
+sort file | uniq
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/8074f1ec-48ee-49ca-8e54-265b7931bd2f" />
+
+**NOTE:**
+
+* In the screenshot, the `file` originally contained the letters `A S D F G S D F X C V B`. In this layout, there were **duplicate (matching) characters** for `S`, `D`, and `F`. When I executed the `sort file | uniq` command, all those **duplicate copies were automatically removed**, leaving only single, unique characters arranged in alphabetical order.
+
+---
+
+* **`wc -l`** - Use this command to **check how many lines of content** a file contains. Write the exact name of the file after the flag to **get the total number of lines** instantly.
+
+**SYNTAX:**
+
+* `wc -l <file_name>`
+
+**EXAMPLE:**
+
+* `wc -l file`
+
  ```bash
-wc -l file.txt
+wc -l file
 ```
-* `split` -l - use this command to split a big file in number of files as per your requirement and number of lines in that specific file. Example - Think of it you have, a file containing 20 lines or more and less, then you can split it into specific number of parts of files as per your choice and work. you can divide or split it into 2 split files or more. Give the number and after the command `split -l` .
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/15f3a0d8-c8ca-4185-b2df-d399b3198014" />
+
+**NOTE:**
+
+* The number `12` is the number of **lines** that contain the `file`.
+
+---
+
+* **`split -l`** - Use this command to **split a big file into smaller files** based on a specific number of lines per file. If you have a file containing `10` lines or more, you can split it into multiple smaller parts as per your requirement. The newly generated files will be **automatically named by the system** as `xaa`, `xab`, `xac`, etc.
+
+
+**SYNTAX:**
+
+* `split -l <number_of_lines> <my_file>`
+
+**EXAMPLE:**
+
+* `split -l 4 my_file`
+
 ```bash
-split -l 3 my_file
+split -l 4 my_file
 ```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/65599a16-7cf7-4d35-9a2e-06f96c0ac34c" />
+
+**NOTE:**
+
+* In the screenshot, I **split the file into 3 smaller files** by separating its total content of **12 lines** into **4 lines per file** (`12 / 4 = 3` files).
+
+---
+
 * `alias` - use this command to get relief from writing long command in you terminal. This command is like a small hack for long command , you can use this command for normal use also like for short commands. Example - if you do not want to write even `ls` command again and again on your terminal, then you alias it like this `alias l= ls` or may be replace with other word `alias c= ls`. You can use this command as per your choice and comfort . Now when you will press or type l or c instead of full command , it will show you output of your edited command. Its temporary thing.
 ```bash
 **syntax**
