@@ -1153,40 +1153,67 @@ egrep 'A|G|H|J|C' my_file
 
 ---
 
-* `history` - Use this command get all the history of your used commands on terminal, use `history` command for getting all the commands history that are executed on the terminal till date. You can use `history |grep` command also to search a specific or single command name that you have executed on your terminal. The word `grep` is used here because it is used for searching words.
-**Syntax:**
-`history`
-`history `|` [word or command]`
+* **`history`** - To **get the full history of all commands** you have executed on the terminal till date. You can also use the **`history | grep`** command to **search for a specific command** name that you ran in the past. The word `grep` is used here because it helps in filtering and searching for that exact command from your history list.
 
-**Example:**
-`history`
-`history |grep ls`
- 
-```bash
+**SYNTAX: (history | grep command)**
+
+* history | grep [command]
+
+**EXAMPLE:**
+
+* `history | grep ls`
+
+ ```bash
 history
-history |grep ls
 ```
-**Expected Output:**
-Output of `History` Command
-<img width="893" height="815" alt="image" src="https://github.com/user-attachments/assets/5b2fa1e2-ffae-4081-8d70-388710e26b92" />
-Execution of `History |grep ' ' ` Command
-<img width="890" height="78" alt="image" src="https://github.com/user-attachments/assets/3d17d75c-ce23-4306-a6e4-cc1b93f2cd0e" />
-Output of `History |grep ' ' ` Command
-<img width="888" height="814" alt="image" src="https://github.com/user-attachments/assets/ae1a2dd2-aeec-4ddf-956f-7aebf194811b" />
+```bash
+history | grep ls
+```
+
+**EXPECTED OUTPUTS:**
+
+**Output of `History` Command**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/9ad0c766-9528-4803-90d6-c73f2dc2efbf" />
+
+**NOTE:**
+
+* You can scroll up, to see previous or very old used commands.
+
+**Execution of `History | grep ls` Command**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/753aff03-cc8b-451c-90fd-11eb23331dd9" />
+
+**Output of `History | grep ls` Command**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/f5ce97b7-bde8-40b5-954b-6215fc200902" />
 
 ---
 
-* `gzip -k` - Use this command to zip a file. It will compress your file and will give you the compressed version of your big file , thus helping us to share or store them easily.
- 
+* **`gzip -k`** - Use this command to **zip and compress a file**. It reduces the size of your big file, which helps us **share or store them easily** without wasting storage space.
+
+**NOTE:**
+
+* **`gzip` vs `gzip -k`**: If you use only gzip, it will delete your original file after creating the compressed version. But **gzip -k will keep your original file** safe along with the compressed version (`-k` means **Keep input files**).
+
+* **Decompressing Files:** Use **`gunzip`** or **`gzip -d`** to decompress and **get back your original file**.
+
+* **Visual Color:** The compressed version file has a **`.gz` extension** at the end, and it usually **appears RED in color** inside the terminal.
+
+**SYNTAX:**
+
+* `gzip [file_name]`
+
+* `gzip -k [file_name]` - To create a compressed version and **keep the original file also**.
+
+* `gzip -d [compressed_file_name]` - To **decompress** the file.
+
+* `gunzip [compressed_file_name]` - Another command to **decompress** the file.
+
 **NOTE:**
 
 You can also use `gzip` but, it will not give you real file along with compressed version, but `gzip -k` will, as it's `-k` describes that, keep input files, do not delete them. If you want to keep it's real file then use `gzip -k` and if not, then `gzip`. Use `gunzip -d` or `gzip -d` where `d` stands for decompress, for decompressing real file, when you use `gzip` and want to get back real file. Write the name of the file you want to compress or decompress. While decompressing the file , write name of your compressed version file ( .gz , at the end ). The compressed version file appears RED in color usually.
 
-**Syntax:**
-`gzip [file name]`
-`gzip -k [file name]` (for keeping real file also)
-`gzip -d` [compressed file name] (when you use `gzip`)
-`gunzip -d [file name]` (one more command for decompressing,when you use `gzip` )
 
 
 
