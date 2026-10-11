@@ -1336,53 +1336,210 @@ split -l 4 my_file
 
 ---
 
-* `alias` - use this command to get relief from writing long command in you terminal. This command is like a small hack for long command , you can use this command for normal use also like for short commands. Example - if you do not want to write even `ls` command again and again on your terminal, then you alias it like this `alias l= ls` or may be replace with other word `alias c= ls`. You can use this command as per your choice and comfort . Now when you will press or type l or c instead of full command , it will show you output of your edited command. Its temporary thing.
+* **`alias`** - Use this command to **get relief from writing long commands** in your terminal. This command acts like a **small shortcut hack for long commands**, but you can also use it for normal short commands.
+
+* **A Practical Example**: If you do not want to write even the `ls` command again and again, you can create an alias like **`alias l='ls'`** or replace it with another word like **`alias c='ls'`**.
+  
+You can use this command as per your own choice and comfort. Now, when you type `l` or `c` instead of the full command, it will instantly **show you the output of your customized command**. Always remember that this alias is a **temporary shortcut** for the current session.
+
+**SYNTAX:**
+
+* `alias [shortcut_name]='[original_command]'`
+
+**COMMAND EXAMPLE:**
+
+* `alias sys='systemctl list-units --type=service --all`
+
 ```bash
-**syntax**
-alias /the word or letter= command
-alias l= ls -ltr
+alias sys='systemctl list-units --type=service --all'
 ```
-* `cmp` - to compare files means that, their content . Write the names of the files you want to compare. 
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/0f17412a-1359-45a7-b101-a4c2b3ef6eb6" />
+
+**NOTE:**
+
+* I had a long command regarding system services, i made an alias as a short word sys and putted or saved all that long command in sys, when i entered sys, then the same output came on the screen.
+
+* Avoid extra spaces between the characters while creating an alias.
+
+---
+
+* `cmp` - to compare files means that, their content . Write the names of the files you want to compare.
+
+**SYNTAX:**
+
+* `cmp <file_name> <file_name>`
+
+**EXAMPLE:**
+
+* `cmp file my_file`
+
 ```bash
-cmp fileA fileB
+cmp file my_file
 ```
-* `diff` - to see what is the difference between two files after comparing. Write the names of the files. Use `diff -u` command to get difference between two files more acurately with more information.
+
+**EXPECTED OUTPUT:**
+
+
+**NOTE:**
+
+
+---
+
+* **`diff`** - to see what is the difference between two files after comparing. Write the names of the files. Use `diff -u` command to get difference between two files more acurately with more information.
+
+**SYNTAX & OPTIONS:**
+
+* `diff <file_name> <file_name>`
+
+* `diff -u <file_name> <file_name>`
+
+**EXAMPLE:**
+
+* `diff file my_file`
+
+* `diff -u file my_file`
+
 ```bash
-diff fileA fileB
-diff -u fileA fileB
+diff file my_file
 ```
-* `which` - this is used to check executables. Executables means the things that can be executed , means commands in linux or any other os terminal that we execute in the terminal to perform our work. Example - think of the command `ls` , we are able to execute only in the terminal if it is installed. When we do our work in terminal we can check the command if it is installed or not. Use this to check if a command that you are going to execute is installed or not.
+```bash
+diff -u file my_file
+```
+
+**EXPECTED OUTPUT:**
+
+
+
+**NOTE:**
+
+
+
+---
+
+* **`which`** - this is used to check executables. Executables means the things that can be executed , means commands in linux or any other os terminal that we execute in the terminal to perform our work. Think of the command `ls` , we are able to execute only in the terminal if it is installed. When we do our work in terminal we can check the command if it is installed or not. Use this to check if a command that you are going to execute is installed or not.
+
+**SYNTAX:**
+
+* `which <command>`
+
+**EXAMPLE:**
+
+* `which ls`
+
+* `where is`
+    
 ```bash
 which ls
-**output**
-usr/bin/ls
 ```
-* `zip` - this command is used to zip or compress multiple numbers of files at same time.
-This command helps us to zip and compress mutiple files.
+
+**EXPECTED OUTPUT:**
+
+
+
+
+* **`zip`** - this command is used to zip or compress multiple numbers of files at same time. This command helps us to zip and compress mutiple files.
+
+**SYNTAX:**
+
+* `zip <custom_file_name.zip> <file_names>`
+
+**EXAMPLE:**
+
+* `zip myfiles.zip file my_file`
+  
 ```bash
-zip myfiles.zip fileA fileB fileC fileD
-**syntax**
-zip / give here a name for zipped files.zip files names
+zip myfiles.zip file my_file
 ```
-* `unzip` - use this command to unzip multiple files. It will unzip all the files present in one zipped file. Use this command to unzip files, and this `unzip -l` command to see only some information about files stored in single big file, like, their date , time, names, numbers .
-Use `unzip` to zip them and `unzip -l` to see only the information without unzipping them.
+
+**EXPECTED OUTPUT:**
+
+
+
+* **`unzip`** - use this command to unzip multiple files. It will unzip all the files present in one zipped file. Use this command to unzip files, and this `unzip -l` command to see only some information about files stored in single big file, like, their date , time, names, numbers . Use `unzip` to unzip them and `unzip -l` to see only the information without unzipping them.
+
+**SYNTAX:**
+
+* `unzip <custom_file_name.zip>`
+
+* `unzip -l myfiles.zip`
+
+**EXAMPLE:**
+
+* `unzip myfiles.zip`
+
+* `unzip -l myfiles.zip`
+  
 ```bash
 unzip myfiles.zip
+```
+```bash
 unzip -l myfiles.zip
 ```
-* `tar -czf` - this command is used to compress folders in linux. The word `-c` stands for compress.
+
+**EXPECTED OUTPUT:**
+
+
+**NOTE:**
+
+
+* **`tar -czf`** - this command is used to compress folders in linux. The word `-c` stands for compress.
+
+**SYNTAX:**
+
+* `tar -czf <custom_file_name.tar.gz> <folder_names>`
+
+**EXAMPLE:**
+
+* `tar -czf myfolder.tar.gz my_folder new_folder`
+
 ```bash
-tar -czf myfolder.tar.gz folder
-**syntax**
-tar -czf /give a name to your compressed folder.tar.gz /real folder name
+tar -czf myfolder.tar.gz my_folder new_folder
 ```
-* `tar -xzf` - this command is used to decompress the folder. The word `-x` means extract or decompress folder.
+
+**EXPECTED OUTPUT:**
+
+
+**NOTE:**
+
+
+* **`tar -xzf`** - this command is used to decompress the folder. The word `-x` means extract or decompress folder.
+
+**SYNTAX:**
+
+* `tar -xzf myfolder.tar.gz`
+
+**EXAMPLE:**
+
+* `tar -xzf myfolder.tar.gz`
+
 ```bash
-tar -xzf compress.tar.gz my_folder
+tar -xzf myfolder.tar.gz
 ```
-* `find ./` - this command is used to find files. This is helpful because we can have a number of files in different folders or directories and we can not remember all of them. Path means, that, where it is located, in which folder it is. Example - think of this, that you have a file named File.txt , but you do not know where it is then you can use `find ./` command or even wildcard `*`(`find file*`) or (`find *txt`).Just remember that `find` command will find files for you when you will enter proper file name, but by using wildcards, you can find a file easily without knowing its full name. There are many ways to find files. You can use wildcards and `find ./` command like these in different ways - find./name newfile, find./*.txt, find file, find./ file, find file* .
+
+**EXPECTED OUTPUT:**
+
+
+* **`find ./`** - this command is used to find files. This is helpful because we can have a number of files in different folders or directories and we can not remember all of them. Path means, that, where it is located, in which folder it is. Think of this, that you have a file named File.txt (extended by .txt or .csv) , but you do not know where it is then you can use `find ./` command or even wildcard `*`(`find file*`) or (`find *txt`).Just remember that `find` command will find files for you when you will enter proper file name, but by using wildcards, you can find a file easily without knowing its full name. There are many ways to find files. You can use wildcards and `find ./` command like these in different ways - find./name newfile, find./*.txt, find file, find./ file, find file*.
+
+**SYNTAX & OPTIONS:**
+
+* `find ./ -name <file_name>` or `find ./ hello.txt`
+
+* `find <*txt_file>` or `find <file*>`
+
+* find ./ -name <file*>`
+
+* `find <file_name>`
+
+**NOTE:**
+
+* The benefit of using find ./ -name <file_name> is that it will not show you any unnecessary other things like other flags find ./ <file_name>, find ./
+ 
+* 
 ```bash
-**syntax**
 find ./ -name (name of file)
 ```
 * `script` - use this command to turn on script mode in your terminal. Use this command while you have to write something that you are going to see or execute commands again. You can use this command to save your work , if you are a beginner. All the work or commands that you will run after executing script command will get save in a file named TYPESCRIPT.
@@ -1420,25 +1577,25 @@ sudo apt remove
  ```bash
 dpkg -l | grep <file, application or package name> 
 ```
-<img width="956" height="930" alt="image" src="https://github.com/user-attachments/assets/55da7397-235d-48cb-9b59-e5ceb612bbe2" />
+
 
 ```bash
-dpkg -l | less <img width="971" height="937" alt="image" src="https://github.com/user-attachments/assets/153ff40a-d0cd-4904-a8bf-f340ed10c055" />
+dpkg -l | less 
 ```
 ```bash
-dpkg -l <img width="982" height="1008" alt="image" src="https://github.com/user-attachments/assets/bbbc97c0-d7eb-4f19-9ef5-f5e9e62b8080" />
+dpkg -l 
 ```
 * 'head -n' - use this command to read files in linux. This command will help you read specific number of upper lines in a file. For example - you have a file containing 100 lines, but you want to read only top 20 lines then you can use `head -n` command and by executing this `head -20 <file name> command you can read them. N stands for number in this command.
 **syntax**
 head -n (write number of lines you want to read) <file name>
 ```bash
-head -5 filenew <img width="965" height="915" alt="image" src="https://github.com/user-attachments/assets/e0383adf-86dc-47ef-9056-b16914a386f9" />
+head -5 filenew 
 ``` 
 * `tail -n` - use this command to read last lines of files. For example- you have a file containing 50 lines and you want to read only last 10 lines then, you can use this command `tail -10 <file name>`.
 **syntax**
 tail -n (write number of lines you want to read) <file name>
 ```bash
-tail -5 my_file <img width="958" height="947" alt="image" src="https://github.com/user-attachments/assets/f97c5b9f-8380-42cb-ad9f-4adfc6e70aa4" />
+tail -5 my_file 
 ```
 
 * `apt` - Use this command to manage packages in linux. The benefit of using this command is that , when we install packages or applications from internet , instead of from computer then, it manages all work itself and install them. But when we use `dpkg -l` command, then it will not install packages from internet, it can not do this work. So, use `apt` for installing and `dpkg -l` for checking packages it they are installed or not. You can also use `apt` for checking packages if they are installed or not, but it will give you a warning due to unstable cli of apt.
