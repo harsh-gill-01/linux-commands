@@ -1360,17 +1360,17 @@ alias sys='systemctl list-units --type=service --all'
 
 **NOTE:**
 
-* I had a long command regarding system services, i made an alias as a short word sys and putted or saved all that long command in sys, when i entered sys, then the same output came on the screen.
+* **Alias Execution Proof:** In the screenshot, I created a shortcut named `sys` for a very long command regarding system services. When I executed `sys` in the terminal, it instantly returned the exact same detailed output on the screen.
 
-* Avoid extra spaces between the characters while creating an alias.
+* **Syntax Precision:** Always avoid adding extra spaces between the characters or around the equal-to (`=`) sign while creating an alias, otherwise the shell will throw a configuration error.
 
 ---
 
-* `cmp` - to compare files means that, their content . Write the names of the files you want to compare.
+* **`cmp`** - To **compare two files byte by byte** to check if their contents are identical or different. Write the names of both files that you want to check.
 
 **SYNTAX:**
 
-* `cmp <file_name> <file_name>`
+* `cmp <file_name1> <file_name2>`
 
 **EXAMPLE:**
 
@@ -1382,19 +1382,23 @@ cmp file my_file
 
 **EXPECTED OUTPUT:**
 
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ee85cb89-5b7e-42e6-90d4-f339919ece4a" />
 
 **NOTE:**
 
+* **How to read the output:** In the screenshot, the terminal returns `file my_file differ: byte 11, line 6`. This means that both files are identical up to the first 10 bytes, but the **very first difference (mismatch) between them is found at byte number 11, which is located on line number 6**.
+
+* **Silent Rule:** If both compared files are **100% identical and have the exact same content**, the `cmp` command will return absolutely nothing and bring you straight back to the normal blank terminal prompt.
 
 ---
 
-* **`diff`** - to see what is the difference between two files after comparing. Write the names of the files. Use `diff -u` command to get difference between two files more acurately with more information.
+* **`diff`** To **find and display the exact line-by-line differences** between two text files. It analyzes both files and clearly shows which lines need to be added, modified, or removed to make them identical. You can also use the **`diff -u`** command to get a much more accurate, unified layout that provides extra context with **`+`** and **`-`** symbols.
 
 **SYNTAX & OPTIONS:**
 
-* `diff <file_name> <file_name>`
+* `diff <file_name1> <file_name2>`
 
-* `diff -u <file_name> <file_name>`
+* `diff -u <file_name1> <file_name2>`
 
 **EXAMPLE:**
 
@@ -1409,13 +1413,23 @@ diff file my_file
 diff -u file my_file
 ```
 
-**EXPECTED OUTPUT:**
+**EXPECTED OUTPUTS:**
 
+**`diff file my_file`:**
 
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/4c966ebc-35ad-4f79-9369-88affdb881b9" />
 
-**NOTE:**
+**`diff -u file my_file`:**
 
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ae7c9c7b-e091-4203-a81b-f3d0bcf111bd" />
 
+**NOTE FOR `diff` COMMAND:**
+
+**Understanding Normal diff Output:** When you run the normal `diff` command, it uses symbols like `a` (add), `c` (change), and `d` (delete) along with line numbers (e.g., `5c5` means line 5 of the first file needs to change to match line 5 of the second file). The `<` symbol points to the content of the first file, and the`>` symbol points to the second file.
+
+**NOTE FOR `diff -u` COMMAND:**
+
+**Understanding Unified (-u) Output:** The `diff -u` command produces a much cleaner format. Lines that are identical in both files remain normal, lines that are present only in the first file are marked with a minus `-` sign, and lines that are newly added or present only in the second file are highlighted with a plus `+` sign.
 
 ---
 
@@ -1428,8 +1442,6 @@ diff -u file my_file
 **EXAMPLE:**
 
 * `which ls`
-
-* `where is`
     
 ```bash
 which ls
@@ -1439,7 +1451,7 @@ which ls
 
 
 
-
+* whereis - 
 * **`zip`** - this command is used to zip or compress multiple numbers of files at same time. This command helps us to zip and compress mutiple files.
 
 **SYNTAX:**
