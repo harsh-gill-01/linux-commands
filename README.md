@@ -1433,11 +1433,11 @@ diff -u file my_file
 
 ---
 
-* **`which`** - this is used to check executables. Executables means the things that can be executed , means commands in linux or any other os terminal that we execute in the terminal to perform our work. Think of the command `ls` , we are able to execute only in the terminal if it is installed. When we do our work in terminal we can check the command if it is installed or not. Use this to check if a command that you are going to execute is installed or not.
+* **`which`** - This command is used to **check and locate the exact path of executables**. Executables mean the files, commands, or installed software applications that we execute in the Linux terminal to perform our tasks. It is highly useful to check whether a specific application or command is **installed in your system or not**.
 
 **SYNTAX:**
 
-* `which <command>`
+* `which <command_name>` 
 
 **EXAMPLE:**
 
@@ -1449,10 +1449,35 @@ which ls
 
 **EXPECTED OUTPUT:**
 
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/2df07e05-fb18-4f14-9251-cb820ffbb7d6" />
 
+---
 
-* whereis - 
-* **`zip`** - this command is used to zip or compress multiple numbers of files at same time. This command helps us to zip and compress mutiple files.
+* **`whereis`** -This command is more helpful than `which`, because it shows you some additional information along with **its** path like, **its** manual guide path, **its** service path etc.
+ 
+**SYNTAX:**
+
+* `whereis <command_name>
+
+**EXAMPLE:**
+
+* `whereis python3`
+
+```bash
+whereis python3
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/9967f0bb-c36c-497d-86fb-452624ec4e7d" />
+
+**RECOMMENDED:** 
+
+* `whereis` -For **getting** all information about executables.
+
+---
+
+* **`zip`** - This command is used to **zip or compress multiple numbers of files** at the same time. This command helps us to easily pack, manage, and compress multiple target files into a single archival folder. Usually, the zipped version of files appears **red** in color with extension `.zip`.
 
 **SYNTAX:**
 
@@ -1468,9 +1493,17 @@ zip myfiles.zip file my_file
 
 **EXPECTED OUTPUT:**
 
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/5a11f343-87f2-4ac4-82ef-983ddac7ab8e" />
 
+**NOTE:**
 
-* **`unzip`** - use this command to unzip multiple files. It will unzip all the files present in one zipped file. Use this command to unzip files, and this `unzip -l` command to see only some information about files stored in single big file, like, their date , time, names, numbers . Use `unzip` to unzip them and `unzip -l` to see only the information without unzipping them.
+* **Backup and Recovery:** If you somehow delete your original files by mistake, you can simply **unzip their zipped version** (`.zip`) and your original files will come back instantly.
+
+* **Original Files Status:** Creating a `.zip` archive **does not delete or modify your original files**; it safely creates a compressed copy while leaving the original data untouched.
+
+---
+
+* **`unzip`** - Use this command to **unzip and extract multiple files** from a compressed zip archive. It will extract all the hidden files present inside that one single zipped file. You can also use the **`unzip -l`** command to **see the stored information** about files (like their date, time, names, numbers) **without unzipping them** in your system.
 
 **SYNTAX:**
 
@@ -1493,9 +1526,15 @@ unzip -l myfiles.zip
 
 **EXPECTED OUTPUT:**
 
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/d10061bc-4db2-4f75-9fba-f33cecf0ef42" />
 
 **NOTE:**
 
+* **System Message:** In the screenshot, the terminal asks **replace file? [y]es, [n]o, [A]ll, [N]one, [r]ename**. This happens because the files inside the archive already exist in the current folder.
+
+* **The 'y' Option:** Pressing `y` confirms that you want to overwrite and replace the old file with the freshly extracted version from the zip archive.
+
+---
 
 * **`tar -czf`** - this command is used to compress folders in linux. The word `-c` stands for compress.
 
