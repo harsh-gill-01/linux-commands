@@ -1536,7 +1536,7 @@ unzip -l myfiles.zip
 
 ---
 
-* **`tar -czf`** - this command is used to compress folders in linux. The word `-c` stands for compress.
+* **`tar -czf`** - This command is used to **compress and pack entire folders** together in Linux. In this layout, the flag `-c` **stands for create** a new packed file, `-z` **compresses the file** to reduce its size, and `-f` **specifies the name** of your customized output file.
 
 **SYNTAX:**
 
@@ -1552,15 +1552,23 @@ tar -czf myfolder.tar.gz my_folder new_folder
 
 **EXPECTED OUTPUT:**
 
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/5eecb1be-60e7-4301-bacb-9ebb2497e323" />
+
+---
 
 **NOTE:**
 
+* **Backup and Recovery:** If you somehow delete your original folders by mistake, you can simply **decompress compressed version** (`.tar.gz`) using `tar -xzf` command and your original folders will come back instantly.
 
-* **`tar -xzf`** - this command is used to decompress the folder. The word `-x` means extract or decompress folder.
+* **Original Files Status:** Creating a `.tar.gz` packed folder **does not delete or modify your original folders**; it safely creates a compressed copy while leaving the original data untouched.
+
+---
+
+* **`tar -xzf`** - This command is used to **decompress and unpack folders** in Linux. In this layout, the flag `-x` **stands for extract** or open the packed folder, `-z` **filters it through gzip** to safely uncompress it, and `-f` **specifies the file name** that you want to open.
 
 **SYNTAX:**
 
-* `tar -xzf myfolder.tar.gz`
+* `tar -xzf <custom_file_name.tar.gz>`
 
 **EXAMPLE:**
 
@@ -1572,6 +1580,9 @@ tar -xzf myfolder.tar.gz
 
 **EXPECTED OUTPUT:**
 
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/80aecf1d-f1c7-4544-8037-5a4dd0ff561a" />
+
+---
 
 * **`find ./`** - this command is used to find files. This is helpful because we can have a number of files in different folders or directories and we can not remember all of them. Path means, that, where it is located, in which folder it is. Think of this, that you have a file named File.txt (extended by .txt or .csv) , but you do not know where it is then you can use `find ./` command or even wildcard `*`(`find file*`) or (`find *txt`).Just remember that `find` command will find files for you when you will enter proper file name, but by using wildcards, you can find a file easily without knowing its full name. There are many ways to find files. You can use wildcards and `find ./` command like these in different ways - find./name newfile, find./*.txt, find file, find./ file, find file*.
 
@@ -1593,10 +1604,20 @@ tar -xzf myfolder.tar.gz
 ```bash
 find ./ -name (name of file)
 ```
-* `script` - use this command to turn on script mode in your terminal. Use this command while you have to write something that you are going to see or execute commands again. You can use this command to save your work , if you are a beginner. All the work or commands that you will run after executing script command will get save in a file named TYPESCRIPT.
+* **`script`** - Use this command to **record and log your terminal session**. It acts like a screen recorder but inside a text format. When you execute this command, it will **automatically save all the commands you run** and their outputs into a text file named **`typescript`**. It is highly useful for beginners to **save and track their practice work**. You can simply type **`exit`** to stop the logging mode anytime.
+
 ```bash
 script
 ```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/c1b4e082-0ee9-436f-952d-9125ea01c424" />
+
+* In the screenshot, I first executed the **script** command to start recording. After running random commands like `pwd` and `whoami`, I typed `exit` to complete the logging session. When I opened the automatically generated file using the **`cat typescript`** command, it perfectly **displayed my entire previous work** along with proper timestamps.
+
+---
+
 * `wget` - use this command to download files from internet. Write the URL_of_file or application you want to download. Example - if you want to download python, then you will copy its url from its website and will paste after the `wget` command. You can change the name of your file i.e python file by using `wget -o`. This is because it will be saved by its default name at first. But, you can change its name for sure.
 ```bash
 wget
