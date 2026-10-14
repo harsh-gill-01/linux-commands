@@ -1618,20 +1618,40 @@ script
 
 ---
 
-* `wget` - use this command to download files from internet. Write the URL_of_file or application you want to download. Example - if you want to download python, then you will copy its url from its website and will paste after the `wget` command. You can change the name of your file i.e python file by using `wget -o`. This is because it will be saved by its default name at first. But, you can change its name for sure.
-```bash
-wget
-**syntax**
-wget URL_of_file (for downloading file)
-wget -o opt_file.txt URL_of_file (for changing name of file)
-```
-* `locate` - use this command to find or locate a file. This command takes out the file for you from database instead of from directories or folders. You have to use another command `updatedb` also. Example- you created a new file and you forgot in which directory or folder you made or put it, then you can use locate command to find it, but you have to use `updatedb` command because, it will take out file from database and if you did not update your database locate command will not work, so update your database before using locate command, because it does not take out fresh(new) created command.  Use `sudo updatedb` for ubuntu linux OS. Fill your password and update it.
+* **`wget`** - This command is used to **download files directly from the internet** from the terminal. You just need to paste the exact URL of the file or software application after the command. By default, it saves the file with its original internet name, but you can easily use the **`wget -O`** flag to **change and customize the output file name** during download.
+
+**SYNTAX:**
+
+* `wget <URL_of_file>`
+
+* `wget -O <custom_file_name> <URL_of_file>`
+
+**EXAMPLE:**
+
+* ``
+
+* ``
+
+**PRACTICAL EXAMPLE OUTPUT:**
+
+---
+
+* **`locate`** - use this command to find or locate a file. This command takes out the file for you from database instead of from directories or folders. You have to use another command `updatedb` also. you created a new file and you forgot in which directory or folder you made or put it, then you can use locate command to find it, but you have to use `updatedb` command because, it will take out file from database and if you did not update your database locate command will not work, so update your database before using locate command, because it does not take out fresh(new) created command.  Use `sudo updatedb` for ubuntu linux OS. Fill your password and update it.
+
+**EXAMPLE:**
+
+* `locate file`
+
 ```bash
 locate 
 ```
 ```bash
 updatedb 
 ```
+
+**EXPECTED OUTPUT:**
+
+
 * `apt` - use this command to install applications or packages in linux ubuntu. This command is for ubuntu. If you are using fedora, centOS , redhat then use `yum` or `dnf` commands for installation works. You have to use `sudo` command while installing something along with apt together , because installation requires root accesses and therefore we use root user `sudo` command. But , first try to install without using `sudo`. Use `sudo apt install <software or package name>` for installing. `sudo apt remove <software or package name>` for removing them. And , `sudo apt update` to update them and get latest versions or updates. `sudo apt upgrade`
 ```bash
 sudo apt install
