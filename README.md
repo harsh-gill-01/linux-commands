@@ -1653,6 +1653,7 @@ updatedb
 
 
 * `apt` - use this command to install applications or packages in linux ubuntu. This command is for ubuntu. If you are using fedora, centOS , redhat then use `yum` or `dnf` commands for installation works. You have to use `sudo` command while installing something along with apt together , because installation requires root accesses and therefore we use root user `sudo` command. But , first try to install without using `sudo`. Use `sudo apt install <software or package name>` for installing. `sudo apt remove <software or package name>` for removing them. And , `sudo apt update` to update them and get latest versions or updates. `sudo apt upgrade`
+* 
 ```bash
 sudo apt install
 ```
@@ -2017,14 +2018,24 @@ TROUBLESHOOTING: AVOIDING THE "GARBLED TIME" ERROR
 • The Fix: Always omit the seconds. Use at 07:08 or at 07:08 AM instead of adding :00 at the end.
 
 
-UNDERSTANDING OUTPUT REDIRECTION (> AND >>):
-In Linux, you can redirect the output of any command into a physical file instead of printing it on the terminal screen.
-1. THE OVERWRITE OPERATOR (>)
+**UNDERSTANDING OUTPUT REDIRECTION (> AND >>):**
+
+In Linux, you can redirect the output of any command into a physical file instead of printing it on the terminal screen. It means, we can write some information by redirecting the content of any env variable in a file. 
+
+**1**. **THE OVERWRITE OPERATOR (>)**
+
 The single greater-than sign > redirects the output to a file. If the file already contains text, it will completely overwrite (delete) the old content and replace it with the new output.
+
 • EXAMPLE: hostname > filess
+
 2. THE APPEND OPERATOR (>>)
+
 The double greater-than sign >> appends the new output to the end of the file without deleting its existing content.
+
 • EXAMPLE: pwd >> filess
-⚠️ CRITICAL NOTE FOR ENVIRONMENT VARIABLES:
+
+CRITICAL NOTE FOR ENVIRONMENT VARIABLES:
+
 You cannot redirect an environment variable directly by typing its name (e.g., USER > filess will fail with a command not found error). Variables are not standalone commands. To save a variable's data into a file, you must use the echo command along with the dollar sign ($):
+
 • CORRECT WAY: echo $USER >> filess
