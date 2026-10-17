@@ -1989,11 +1989,14 @@ HOW IT WORKS (THE INTERACTIVE PROMPT):
 When you run the at command with a specified time, it opens a special interactive prompt (at>). You type the commands or scripts you want to run inside this prompt, and then safely save it.
 SYNTAX:
 at <TIME> <DATE>
+
 STEPS TO SCHEDULE A JOB:
+
 1. Enter the at command with your desired time (e.g., at 11:30 PM).
 2. The terminal will switch to an at> prompt. Type the full path of your script or command:
+
 	• sh /home/harsh/secretkey/python/folder/script.sh
-3. Press ENTER, and then press CTRL + D on your keyboard to save and exit. The system will confirm by printing a message like job 1 at Thu Oct 15 23:30:00 2026.
+4. Press ENTER, and then press CTRL + D on your keyboard to save and exit. The system will confirm by printing a message like job 1 at Thu Oct 15 23:30:00 2026.
 🎨 FLEXIBLE TIME FORMATS EXAMPLES:
 The at command is highly intelligent and understands natural English time formats. Here are the most practical examples you can use:
 • By Specific Time Today: at 23:30 or at 11:30 PM (Runs at exactly 11:30 PM today).
