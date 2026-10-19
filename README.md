@@ -1834,7 +1834,9 @@ MAIN NETWORKING COMMANDS:
 • hostname -I — A quick command to display only the local IP address of your system in a single line.
 • curl ifconfig.me — Fetches and displays your Public IP Address (how your system is identified over the internet).
 SYNTAX & EXAMPLES:
+
 • To see full network details: ip a
+
 • To see only your local IP: hostname -I
 
 
