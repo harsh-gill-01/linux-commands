@@ -1457,7 +1457,7 @@ which ls
  
 **SYNTAX:**
 
-* `whereis <command_name>
+* `whereis <command_name>`
 
 **EXAMPLE:**
 
@@ -1584,26 +1584,99 @@ tar -xzf myfolder.tar.gz
 
 ---
 
-* **`find ./`** - this command is used to find files. This is helpful because we can have a number of files in different folders or directories and we can not remember all of them. Path means, that, where it is located, in which folder it is. Think of this, that you have a file named File.txt (extended by .txt or .csv) , but you do not know where it is then you can use `find ./` command or even wildcard `*`(`find file*`) or (`find *txt`).Just remember that `find` command will find files for you when you will enter proper file name, but by using wildcards, you can find a file easily without knowing its full name. There are many ways to find files. You can use wildcards and `find ./` command like these in different ways - find./name newfile, find./*.txt, find file, find./ file, find file*.
+* **`find`** - Used to search for files in Linux. Whenever you need to locate a specific file on your system, you can use the **`find`** command. You can also use a **wildcard (`*`)** to search for files that end with a specific extension, such as **`.csv`** or **`.txt`**.
 
 **SYNTAX & OPTIONS:**
 
-* `find ./ -name <file_name>` or `find ./ hello.txt`
+ * `find /path/ -name <file_name>`
 
-* `find <*txt_file>` or `find <file*>`
+ * `find /path/ -name *."<file_extension>"` (*Note:* For searching multiple files using wildcards without errors.)
 
-* find ./ -name <file*>`
+ **EXAMPLE:**
 
-* `find <file_name>`
+ * `find ./ -name fileB`
 
-**NOTE:**
+ * `find ./ -name *.csv`
 
-* The benefit of using find ./ -name <file_name> is that it will not show you any unnecessary other things like other flags find ./ <file_name>, find ./
- 
-* 
 ```bash
-find ./ -name (name of file)
+find ./ -name fileB
 ```
+```bash
+find ./ -name *.csv
+```
+
+**EXPECTED OUTPUTS:**
+
+* **`find ./ -name fileB`**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/c62f215f-8a79-47f6-b1a3-c027d44f0704" />
+
+**Breakdown Of The Output:**
+
+* In the screenshot, the `find ./ -name fileB` command successfully located the file named `fileB`.
+Here, `./` represents the **current directory (location)**. This tells the system to start searching from the current folder, because `fileB` was saved inside another sub-folder (`./my_folder/fileB`).
+
+* **`find ./ -name *.csv`**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/c3d0d040-ecef-4d23-95f1-84e9bff6ed13" />
+
+**COMMON ERORRS:** 
+
+ <img width="400" alt="image" src="https://github.com/user-attachments/assets/077496c1-6219-46c1-9c00-8e0f00cdfdd6" />
+
+* **The "paths must precede expression" Error:**
+In the screenshot above, searching for files using an unquoted wildcard (`*.txt`) caused a `find: paths must precede expression error`. However, running the same command with `*.csv` worked perfectly without any error.
+
+* **Why did this happen?**
+
+This happens because of how the **Linux shell** handles wildcards without quotes:
+
+* **For `.txt` files:** There were multiple files with the same extension (`file.txt` and `hello.txt`) in the directory. The system got confused because the shell expanded `*.txt` into multiple file names before running the command, which broke the syntax of the find command.
+
+* **For `.csv` files:** There was only one `.csv` file (`hello.csv`) in the folder. Since there was only one file, the command layout remained valid and executed successfully.
+
+**TO PREVENT ERROR:**
+
+You can use the following command to prevent clutter in your output and avoid unwanted files from sub-folders (like the `snap` directory). Using this flag ensures the command only returns files from your current folder.
+
+* **Understanding `-maxdepth`:** This option defines the search depth or the number of folder levels the command will look into. You can specify exactly how deep you want the search to go.
+
+**SYNTAX:**
+
+* `find <path> -maxdepth <levels> -name "<pattern>"`
+
+**EXAMPLE:**
+
+Search only within the current folder (`multiple files of .txt`):
+
+* `find ./ -maxdepth 1 -name "*.txt"`
+
+```bash
+find ./ -maxdepth 1 -name "*.txt"
+```
+
+**EXPECTED OUTPUT:**
+
+* **With `find ./ -name "*.txt" command`:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/c92a2edc-933a-4637-9a35-8a4009c9112d" />
+
+**Output Breakdown:** As shown in the first screenshot, running the command without **limiting depth** (levels) brings up every single `.txt` file on the system, including deeply nested files inside hidden `snap` and application folders.
+
+* **With `find ./ -maxdepth 1 -name "*.txt" command` (only current folder):**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ff11b227-573f-40d6-a7b4-edd747886732" />
+
+**Output Breakdown:** In the second screenshot, setting the **depth level to 1** ensures the system searches only inside the current folder. It successfully lists `hello.txt` and `file.txt`, completely ignoring any sub-folders.
+
+* **Using 2 maxdepth levels (current folder + one more level down):**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/cb93e9a1-5c15-4671-bd3a-095ce9657053" />
+
+**Output Breakdown:** In the third screenshot, increasing the **depth level to 2** allows the command to search the current folder and go one level deeper into immediate sub-folders. This cleanly discovers the `file my.txt`` located inside `./my_folder/`.
+
+---
+
 * **`script`** - Use this command to **record and log your terminal session**. It acts like a screen recorder but inside a text format. When you execute this command, it will **automatically save all the commands you run** and their outputs into a text file named **`typescript`**. It is highly useful for beginners to **save and track their practice work**. You can simply type **`exit`** to stop the logging mode anytime.
 
 ```bash
