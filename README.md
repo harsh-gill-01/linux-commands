@@ -1667,6 +1667,7 @@ sudo apt upgarde
 sudo apt remove 
 ```
 * `dpkg -l` - use this command to check packages or applications, if they are installed or not before using and after installing. This is .deb (debian) package of linux for managing its packages . It works for the offline files that you downloaded and want to manage them and see them if they are installed or not. Use `dpkg -l | less` command to check all the packages easily, as because using `dpkg -l` alone will scroll up all the information if there are a lot of packages and applications. But, you can also use this as your requirement.
+
  ```bash
 dpkg -l | grep <file, application or package name> 
 ```
@@ -1679,7 +1680,9 @@ dpkg -l | less
 dpkg -l 
 ```
 * 'head -n' - use this command to read files in linux. This command will help you read specific number of upper lines in a file. For example - you have a file containing 100 lines, but you want to read only top 20 lines then you can use `head -n` command and by executing this `head -20 <file name> command you can read them. N stands for number in this command.
+* 
 **syntax**
+  
 head -n (write number of lines you want to read) <file name>
 ```bash
 head -5 filenew 
