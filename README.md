@@ -1691,7 +1691,9 @@ script
 
 ---
 
-* **`wget`** - This command is used to **download files directly from the internet** from the terminal. You just need to paste the exact URL of the file or software application after the command. By default, it saves the file with its original internet name, but you can easily use the **`wget -O`** flag to **change and customize the output file name** during download.
+* **`wget`** - This command is used to **download files directly from the internet** from the terminal. You just need to paste the exact URL (link) of the file or software application after the command. By default, it saves the file with its original internet name, but you can easily use the **`wget -O`** flag to **change and customize the output file name** during download.
+
+**NOTE:-** You can get the official **URL link** of your required software or program directly from their website.
 
 **SYNTAX:**
 
@@ -1699,13 +1701,29 @@ script
 
 * `wget -O <custom_file_name> <URL_of_file>`
 
-**EXAMPLE:**
+**EXAMPLE (Best Practice):**
 
-* ``
+* `wget -O my_java.txt https://javadl.oracle.com/webapps/download/AutoDL?BundleId=253978_d564311dd56c4871a465018788e32a1f`
 
-* ``
+```bash
+wget -O my_java.txt https://javadl.oracle.com/webapps/download/AutoDL?BundleId=253978_d564311dd56c4871a465018788e32a1f
+```
+
+**WHY USE THIS? (Best Practice):**
+
+* **Direct Renaming:** You can use `wget -O` directly to download the file and change its name at the same time.
+
+* **Single File Only:** It saves only **one file** with your custom name. **No extra or messy URL-named file** will be downloaded or saved to your directory.
 
 **PRACTICAL EXAMPLE OUTPUT:**
+
+* **Executing the command:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/44731a81-f438-4b1d-8903-ed3d6e1e8df2" />
+
+* **Proof Of Name Change:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/9bf2ae40-32cc-4a80-a31c-739fe9e39d1c" />
 
 ---
 
