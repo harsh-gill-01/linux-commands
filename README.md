@@ -1743,33 +1743,112 @@ updatedb
 **EXPECTED OUTPUT:**
 
 
-* `apt` - use this command to install applications or packages in linux ubuntu. This command is for ubuntu. If you are using fedora, centOS , redhat then use `yum` or `dnf` commands for installation works. You have to use `sudo` command while installing something along with apt together , because installation requires root accesses and therefore we use root user `sudo` command. But , first try to install without using `sudo`. Use `sudo apt install <software or package name>` for installing. `sudo apt remove <software or package name>` for removing them. And , `sudo apt update` to update them and get latest versions or updates. `sudo apt upgrade`
-* 
+* **`apt`** - Used to install applications or packages in **Linux Ubuntu**. This package manager is specific to Ubuntu and Debian-based systems. If you are using **Fedora, CentOS, or RedHat**, you should use `yum` or `dnf` instead. Always combine `apt` with the `sudo` command because installing software requires root (administrative) access.
+
+**SYNTAX:**
+
+* `sudo apt <command> <package_name>`
+
+**COMMON COMMANDS:**
+
+* **Install a package:**
+
 ```bash
 sudo apt install
 ```
+
+* **Update the package list (fetches latest versions available):**
+
 ```bash
 sudo apt update
 ```
-```bash
-sudo apt upgarde
-```
-```bash
-sudo apt remove 
-```
-* `dpkg -l` - use this command to check packages or applications, if they are installed or not before using and after installing. This is .deb (debian) package of linux for managing its packages . It works for the offline files that you downloaded and want to manage them and see them if they are installed or not. Use `dpkg -l | less` command to check all the packages easily, as because using `dpkg -l` alone will scroll up all the information if there are a lot of packages and applications. But, you can also use this as your requirement.
 
- ```bash
-dpkg -l | grep <file, application or package name> 
-```
-
+* **Upgrade all installed packages to their latest versions:**
 
 ```bash
-dpkg -l | less 
+sudo apt upgrade
+```
+
+* **Remove/Uninstall an installed package:**
+
+```bash
+sudo apt remove
+```
+ 
+**IMPORTANT NOTE ON RUNNING `APT` COMMANDS:**
+
+* **Password Authentication:** When you run any `sudo apt` command, the terminal will prompt you to enter your system password to authorize root access. Your typing will not be visible on the screen for security reasons; just type your password and hit **Enter** to start the process.
+
+* **Verifying the Installation:** Once the command completes successfully, you can verify if the package was properly installed by using either the `which` or `whereis` command.
+
+---
+
+* **`dpkg -l`** - Used to check whether specific packages or applications are installed on your system, both before and after installation. This is the low-level package manager for **Debian-based Linux systems (like Ubuntu)** to manage `.deb` files. It is especially useful for managing offline installation files. If you run `dpkg -l` alone, it will scroll through a massive list of all installed packages, so you can combine it with tools like `grep` or `less` depending on your needs. Press `q` to quit package reading.
+
+---
+
+**SYNTAX:**
+
+* `dpkg -l <package_name>` *(For viewing a single specific package)*
+ 
+* `dpkg -l | grep <package_name>` *(For searching all related packages matching a keyword)*
+
+* `dpkg -l | less` *(For scrolling through the entire package list page by page)*
+
+---
+
+**EXAMPLES & BREAKDOWN:**
+
+* `dpkg -l accountsservice`
+
+**Use:** Shows info only for the **exact** package named `accountsservice`.
+
+**Result:** Displays its exact version and status headers.
+
+* `dpkg -l | grep accountsservice`
+
+**Use:** Searches the whole system for the word `accountsservice`.
+
+**Result:** Lists the main package **plus all its related files and libraries**.
+
+* dpkg -l | less
+
+**Use:** Opens the entire list of installed packages cleanly.
+
+**Result:** Stops the terminal from scrolling down too fast. You can use arrow keys to read and press `q` to exit.
+
+* See the output of these three commands down below.
+
+---
+
+```bash
+dpkg -l accountsservice
 ```
 ```bash
-dpkg -l 
+dpkg -l | grep accountsservice
 ```
+```bash
+dpkg -l | less
+```
+---
+
+
+**EXPECTED EXAMPLE OUTPUTS:**
+
+* `dpkg -l accountsservice`
+
+ <img width="400" alt="image" src="https://github.com/user-attachments/assets/8ae5736f-4cbe-4400-9549-c5fbfd50123e" />
+
+* `dpkg -l | grep accountsservice`
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/5e0f0dab-44e0-4557-b5c3-f04852cd903e" />
+
+* `dpkg -l | less`
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/07769ed4-f220-4119-8e76-9f020564525a" />
+
+---
+
 * 'head -n' - use this command to read files in linux. This command will help you read specific number of upper lines in a file. For example - you have a file containing 100 lines, but you want to read only top 20 lines then you can use `head -n` command and by executing this `head -20 <file name> command you can read them. N stands for number in this command.
 * 
 **syntax**
