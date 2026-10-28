@@ -1774,6 +1774,12 @@ sudo apt upgrade
 ```bash
 sudo apt remove
 ```
+
+* **Checking All The Installed Packages:**
+
+```bash
+apt list --installed
+```
  
 **IMPORTANT NOTE ON RUNNING `APT` COMMANDS:**
 
@@ -1849,20 +1855,43 @@ dpkg -l | less
 
 ---
 
-* 'head -n' - use this command to read files in linux. This command will help you read specific number of upper lines in a file. For example - you have a file containing 100 lines, but you want to read only top 20 lines then you can use `head -n` command and by executing this `head -20 <file name> command you can read them. N stands for number in this command.
-* 
-**syntax**
+* **`head -n`** - The head command is used to read the beginning of a file in Linux. It helps you display a specific number of lines from the top of a file. If a file contains **50 lines** and you only want to read the top 10 lines, you can use the `head -n` command. Here, `n` stands for the number of lines you want to view.   
+
+**SYNTAX:**
   
-head -n (write number of lines you want to read) <file name>
+* `head -n <file_name>`
+
+**EXAMPLE:**
+
+* `head -5 hello.txt`
+
 ```bash
-head -5 filenew 
-``` 
-* `tail -n` - use this command to read last lines of files. For example- you have a file containing 50 lines and you want to read only last 10 lines then, you can use this command `tail -10 <file name>`.
-**syntax**
-tail -n (write number of lines you want to read) <file name>
-```bash
-tail -5 my_file 
+head -5 hello.txt
 ```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/68810d4f-6249-46a3-b40a-7e5bdd318a8d" />
+
+---
+
+* **`tail -n`** - Use this command to read the **last lines** of a file. If you have a file containing 50 lines and you want to read only the last 10 lines, you can use the `tail -n` command.
+
+**SYNTAX:**
+
+* `tail -n <file_name>`
+
+**EXAMPLE:**
+
+* `tail -5 hello.txt`
+
+```bash
+tail -5 hello.txt 
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/e2e21014-f4eb-47ff-8dd3-8d7e02482c20" />
 
 * `apt` - Use this command to manage packages in linux. The benefit of using this command is that , when we install packages or applications from internet , instead of from computer then, it manages all work itself and install them. But when we use `dpkg -l` command, then it will not install packages from internet, it can not do this work. So, use `apt` for installing and `dpkg -l` for checking packages it they are installed or not. You can also use `apt` for checking packages if they are installed or not, but it will give you a warning due to unstable cli of apt.
 **Syntax:**
@@ -1878,22 +1907,93 @@ apt shows installed packages , from apt cache , a little bit complex machine lan
 apt list shows installed + uninstalled packages, from ubuntu repository, to see all the avalable packages that are uninstalled and installed packages.
 apt cache pkgnames , to see only names of packages, from apt cache, scripting, grep to names search from them.
 
-* `systemctl` - To check status, and do enable or disable a service.
-**Usage Regarding Different Distros (other versions) of Linux:**
- #### For Ubuntu users :
-**Syntax:**
-`systemctl status [service name]` (ufw is a service of firewall by ubuntu for it's users)
-To Start or Stop a service :
-`systemctl stop [service name]` + sudo authentication. It requires `sudo` authentication, because ,if you want to stop or start a service ,it will bring some changes in your system so that's why it's authenticated when we want to stop or start a service.
-#### For Redhat, Fedora , CentOs :
+* **`systemctl`** - Some applications run as a service, such as **Nginx**, **Apache Web Server**, or **SQL**. To check the status, stop, or start a service, we use the `systemctl` command. We must use **`sudo` (root)** privileges to start or stop a service because it changes the system state. However, checking the status only shows whether the service is running or not, so it does not require `sudo`.
+
+**SYNTAX & OPTIONS:**
+
+* `systemctl status <application_name>`
+
+* `systemctl stop <application_name>`
+
+* `systemctl start <application_name>`
+
+* `systemctl list-units --type=service --all` - *To list all the services*
+
+**EXAMPLE:**
+
+* `systemctl status ufw`
+
+```bash
+systemctl status ufw
+```
+```bash
+systemctl list-units --type=service --all
+```
+
+**NOTE:**
+
+* I did not provide examples for the **start** and **stop** functions because they can cause sudden changes to the system. The **`ufw`** service stands for **Uncomplicated Firewall**. Services and applications may differ across different systems and distributions (distros). These examples are based on **Ubuntu**.
+
+**EXPECTED OUTPUTS:**
+
+* **`systemctl status ufw` command:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ec6d14bc-ce55-4e3f-8c73-38305f35b1ee" />
+
+* **`systemctl list-units --type=service --all` command:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/8639e69b-ab5d-4584-8ca9-a8375086e339" />
+
+* You can use grep and less with systemctl list-units --type=service -all command like this:
+
+* To see all the services one by one.
+
+```bash
+systemctl list-units --type=service --all | less
+```
+
+* To list only a specific file.
+
+```bash
+systemctl list-units --type=service --all | grep <service_name>
+```
+
+---
 
 
-se this command to check status of a service, use `sudo` before systemctl when. you want to stop aur satrt a new service, because new service will derive new chnges in ypur sytem that why there is need to authenticate and sudo permisiion is needed, for redhat, fedora for example use systemctl firewalld.service and for ubuntu check systemctl status ufw, because servicces are different for different systems.
+* **`awk -f`** - This command is used to print some specific column from a file.
 
+**SYNTAX:**
 
+* `awk -F , '{print $3}' file.csv`
 
-* `awk -f` - is command ka use file mein se kisi khaas column ko prinr krne ke liye hota hai , awk software ka naam hai jo mukhya files ko process karta hai aur -f ka matlab hai field separator yeh batata hai ki file comas se separte ki gai hai, mi=ukhya roop se csv (comma separetd values) files ko column dekhne ke liye use kiya jaata , print ka matlab hai screen par dikhao, aur dollar sign ka maening hai ki is clumn ko dikhao
-usle baad csv file ka naam
+**COMMAND BREAKDOWN:**
+
+* awk is the software, -f is the field separator flag, , (comma) is used here as the content of .csv file is comma separated, print means to print something, then dollar sign ($) and number of the column which we also call fields and then name of .csv file.
+
+**EXAMPLE:**
+
+* `awk -F , '{print $3}' hello.csv`
+
+```bash
+awk -F , '{print $3}' hello.csv
+```
+
+**EXAMPLE OUTPUTS:**
+
+* .csv file looks like this:
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/af003720-6c1c-4e16-8348-8996fab7837b" />
+
+* There is everything separated by commas (,) like id, firstname, lastname, email, profession.
+
+* awk -F , '{print $3}' hello.csv command:
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/86c8c642-8239-4d07-8ba5-80fef60cb4ca" />
+
+* lastname was the third column separated by commas in hello.csv file, which laters the command printed.
+
+---
 
 * `cut -c` - ye command shabdon ko kaatne ke liye use hota hai, cut ek toll hai jo kaatat ha, -c yaani character aur uske baad no likhein yani numbers mein dekh kar batao, file ka naam likhein. yeh vertically kaat ta hai
 * `sed` - is command ko ksis specific line ko katne ke liye use karein , sed -n '5p' file ka naam, ek aur cheez hai ismein, hum is sed 's/f/t/g' file name , command se chnage bhi kar sakte hain, aur bhi bahut kuch hai.
