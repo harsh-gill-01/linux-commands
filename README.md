@@ -1817,7 +1817,7 @@ apt list --installed
 
 **Result:** Lists the main package **plus all its related files and libraries**.
 
-* dpkg -l | less
+* `dpkg -l | less`
 
 **Use:** Opens the entire list of installed packages cleanly.
 
@@ -1917,7 +1917,7 @@ apt cache pkgnames , to see only names of packages, from apt cache, scripting, g
 
 * `systemctl start <application_name>`
 
-* `systemctl list-units --type=service --all` - *To list all the services*
+* `systemctl list-units --type=service --all` - *To list all the services.*
 
 **EXAMPLE:**
 
@@ -1925,6 +1925,12 @@ apt cache pkgnames , to see only names of packages, from apt cache, scripting, g
 
 ```bash
 systemctl status ufw
+```
+```bash
+systemctl stop
+```
+```bash
+systemctl start
 ```
 ```bash
 systemctl list-units --type=service --all
@@ -1944,15 +1950,15 @@ systemctl list-units --type=service --all
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/8639e69b-ab5d-4584-8ca9-a8375086e339" />
 
-* You can use grep and less with systemctl list-units --type=service -all command like this:
+* You can use `grep` and `less` with the `systemctl list-units --type=service --all` command like this:
 
-* To see all the services one by one.
+* **To see all the services one by one:**
 
 ```bash
 systemctl list-units --type=service --all | less
 ```
 
-* To list only a specific file.
+* **To list only a specific file:**
 
 ```bash
 systemctl list-units --type=service --all | grep <service_name>
@@ -1960,16 +1966,20 @@ systemctl list-units --type=service --all | grep <service_name>
 
 ---
 
-
 * **`awk -f`** - This command is used to print some specific column from a file.
 
 **SYNTAX:**
 
 * `awk -F , '{print $3}' file.csv`
 
-**COMMAND BREAKDOWN:**
+**COMMAND BREAKDOWN:** 
 
-* awk is the software, -f is the field separator flag, , (comma) is used here as the content of .csv file is comma separated, print means to print something, then dollar sign ($) and number of the column which we also call fields and then name of .csv file.
+* **`awk`**: The text-processing utility.
+* **`-F`**: The field separator flag.
+* **`,` (comma)**: Used here because `.csv` files are comma-separated.
+* **`print`**: The command to output data.
+* **`$ followed by a number`**: Represents the column/field number (e.g., `$3` means the 3rd column).
+* **`hello.csv`**: The name of the target file.
 
 **EXAMPLE:**
 
@@ -1981,23 +1991,104 @@ awk -F , '{print $3}' hello.csv
 
 **EXAMPLE OUTPUTS:**
 
-* .csv file looks like this:
+* **The `.csv` file looks like this:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/af003720-6c1c-4e16-8348-8996fab7837b" />
 
-* There is everything separated by commas (,) like id, firstname, lastname, email, profession.
+* Everything is separated by commas (`,`), such as `id`, `firstname`, `lastname`, `gmail`, `email`, and `profession`.
 
-* awk -F , '{print $3}' hello.csv command:
+
+* **The `awk -F , '{print $3}' hello.csv` command:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/86c8c642-8239-4d07-8ba5-80fef60cb4ca" />
 
-* lastname was the third column separated by commas in hello.csv file, which laters the command printed.
+* The `lastname` field was the third column in the `hello.csv` file, which the command successfully extracted and printed.
 
 ---
 
-* `cut -c` - ye command shabdon ko kaatne ke liye use hota hai, cut ek toll hai jo kaatat ha, -c yaani character aur uske baad no likhein yani numbers mein dekh kar batao, file ka naam likhein. yeh vertically kaat ta hai
-* `sed` - is command ko ksis specific line ko katne ke liye use karein , sed -n '5p' file ka naam, ek aur cheez hai ismein, hum is sed 's/f/t/g' file name , command se chnage bhi kar sakte hain, aur bhi bahut kuch hai.
-* `tr` - bhai is command se hum file ke content ko find , replace ya delete kar sakte hain, tr -d lowwr upp, matlba file ke saare text jo low hai upp kardo, iske baad tr punct, matlab jitne bhi punct hai unke remove kardo, aur tr -d digit , mataln digits no. remove kardo, tr '' '' <file, words replace karne ke liye,
+* **`cut -c`** - Used to cut starting words or characters from every line. It extracts the content vertically.
+
+
+**SYNTAX:**
+
+* `cut -c<n>-<n> <file_name>` - *Where `n` stands for the character position or range.*
+
+**EXAMPLE:**
+
+* `cut -c1-2 hello.csv`
+
+```bash
+cut -c1-2 hello.csv
+```
+
+**EXPECTED OUTPUT:**
+
+* **Following content is in `hello.csv` file:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/898af25c-e08d-475b-abf0-2f2db40a5673" />
+
+* **The `cut -c1-2 hello.csv` command:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/e1eccdd3-9455-42d9-ba52-927e827819ed" />
+
+* You can clearly see in the screenshot that it printed the exact **first and second characters** from every line.
+ 
+---
+
+* **`sed -n`** - Used to display a specific line from a file.
+
+**SYNTAX:**
+
+* `sed -n '<n>p' <file_name>` - *NOTE: Fill the number of line you want to print before the letter `p`.*
+
+**EXAMPLE:**
+
+* `sed -n '4p' hello.csv`
+
+```bash
+sed -n '4p' hello.csv
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/d0745fc1-3a27-4f85-a75c-79fe8f112086" />
+
+* We can use `sed 's/from/to/g' <file_name> command to replace a specific word within a file.
+
+**COMMAND BREAKDOWN:**
+
+* `s`: Stands for substitute (change).
+* `from`: The original word you want to replace.
+* `to`: The new word you want to insert.
+* `g`: Stands for global (replaces every occurrence in the line, not just the first one).
+
+**EXAMPLE:**
+
+* `sed 's/barbie/brice/g' hello.csv`
+
+```bash
+sed 's/barbie/brice/g' hello.csv
+```
+
+* In the example above, i asked it to change (substitute) `barbie` (`from` word), to `brice` (`to` word) in `hello.csv` file.
+
+**EXPECTED OUTPUT:** 
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/dd0ca76d-cf5a-4c95-9c1a-76882918e01f" />
+
+**Can We Change Single Word Also?**
+
+**Ans** - yes. 
+
+* Just remove the `g` from the command like this:
+
+```bash
+sed 's/barbie/brice/' hello.csv
+```
+
+---
+
+* `tr` - 
 
 * `truncate -s` - hum ye command ka use files ke size ko chota bada karne ke liye karte hain , truncate ka matlab hai aakar badalna ya resize karna , -s batata hai size uske baad size likhein aur file ka naam likhein , iska use developers ya sofware engineers testing ke liye karte hain ki unka app files ko download kar sakta hai ya nhi, choti badi files ke keraan yeh hota hai. aap khaali file ka size badha sakte hain , ghata sakte hain, par agar aapki file mein koi required data ya important informaton hai aur aap usse chota karne ki koshish karte hain uske bade size ke muqaable toh vo unte bite ki file banakar baaki ka data remove kar deta hai, isiliye is command ka sahi use mukhya roop se testing la hai, is command ko log files jinemin servrrs ki information rakhte hain, agar vo badi ho jaaye toh hum del karenge toh error aa sakta hai, toh hum vahan par i sec mein uska size zero kar dete hain, server logs file mein iska use isiliye hota hai, kyunki jaisa jiase server par users aate ahin toh unki saari information usmein store ho jaati hai jiske kaaran hum usse delete karne ke bajaye size chota kar dete hain
 
