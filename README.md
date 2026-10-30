@@ -1781,7 +1781,7 @@ sudo apt remove
 apt list --installed
 ```
  
-**IMPORTANT NOTE ON RUNNING `APT` COMMANDS:**
+**IMPORTANT NOTE ON RUNNING `apt` COMMANDS:**
 
 * **Password Authentication:** When you run any `sudo apt` command, the terminal will prompt you to enter your system password to authorize root access. Your typing will not be visible on the screen for security reasons; just type your password and hit **Enter** to start the process.
 
@@ -2165,7 +2165,8 @@ tr '1234' '4321' < file.txt
 ---
 
 * **`tr -d '1234' < file.txt`:**
-<img width="400" alt="Screenshot 2026-10-30 190547" src="https://github.com/user-attachments/assets/26d5c0a4-9a36-4af7-bcbb-1a2c868aa2bb" />
+<img width="400" alt="Screenshot 2026-10-30 190510" src="https://github.com/user-attachments/assets/be4caf3d-898f-40e0-8954-426c213cefe4" />
+
 
 **NOTE:**
 * I deleted 1234 number from the Digit variable, and you can see it has deleted perfectly.
