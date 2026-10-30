@@ -2088,7 +2088,104 @@ sed 's/barbie/brice/' hello.csv
 
 ---
 
-* `tr` - 
+* **`tr`** - • Used to **translate** or **delete characters** from a file. It is highly useful when you want to convert text to **uppercase** or **lowercase**, change **punctuations**, swap **digits**, or **delete specific characters** within a file.
+
+---
+
+**SYNTAX:**
+
+* `tr '[:lower:]' '[:upper:]' < <file_name>` - *(To change letters to uppercase or lowercase)*
+
+* `tr '[:punct:]' '<new_character>' < <file_name>` - *(To change punctuation)*
+
+* `tr '[:digit:]' '<new_digit>' < <file_name>` - *(To change digits)*
+
+* `tr -d '<characters_to_delete>' < <file_name>` - *(To delete something)*
+
+* `tr 'old_character' 'new_character' < <file_name>` - *(To replace or swap something)*
+
+---
+
+**EXAMPLE:**
+
+* `tr '[:lower:]' '[:upper:]' < file.txt`
+
+* `tr '[:punct:]' ',' < file.txt`
+
+* `tr '[:digit:]' '1' < file.txt`
+
+* `tr -d '1234' < file.txt`
+
+* `tr '1234' '4321' < file.txt`
+
+---
+
+```bash
+tr '[:lower:]' '[:upper:]' < file.txt
+```
+```bash
+tr '[:punct:]' ',' < file.txt
+```
+```bash
+tr '[:digit:]' '1' < file.txt
+```
+```bash
+tr -d '1234' < file.txt
+```
+```bash
+tr '1234' '4321' < file.txt
+```
+
+---
+
+**EXPECTED OUTPUT:**
+
+* **`tr '[:lower:]' '[:upper:]' < file.txt`:**
+<img width="400" alt="Screenshot 2026-10-30 190324" src="https://github.com/user-attachments/assets/5dcd95ae-67d9-41ca-8218-a185fdf9ea08" />
+
+**NOTE:**
+* In the screenshot, you can see that i changed lowercase letters to uppercase (capital) letters. You can similarly change uppercase letters to lowercase by placing upper column first.
+
+---
+
+* **`tr '[:punct:]' ',' < file.txt`:**
+<img width="400" alt="Screenshot 2026-10-30 190356" src="https://github.com/user-attachments/assets/f81d2643-c489-48c4-894e-8017c7cf583a" />
+
+**NOTE:**
+* In the screenshot, you can see that i changed the punct point content (@#$) to comma (,) and all the punctuation signs there are changed to comma. Use this thing carefully, as you can see it has also changed my - sign to ,.
+
+---
+
+* **`tr '[:digit:]' '1' < file_name`:**
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/33aca197-51a4-4b94-a086-a5281058637b" />
+
+**NOTE:**
+* You can see that i changed all the digits (1234) to 1111 only. I wrote only single 1, but it changed all the four digits, why?. Because, it changes all the content according to its real (previous) condition as there were 4 digits before changing.
+
+---
+
+* **`tr -d '1234' < file.txt`:**
+<img width="400" alt="Screenshot 2026-10-30 190547" src="https://github.com/user-attachments/assets/26d5c0a4-9a36-4af7-bcbb-1a2c868aa2bb" />
+
+**NOTE:**
+* I deleted 1234 number from the Digit variable, and you can see it has deleted perfectly.
+
+---
+
+* **`tr '1234' '4321' < file.txt`:**
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/93ca6adb-36c2-4910-90ce-f6218ed288af" />
+
+**NOTE:**
+* This one is a little bit complex, because it does not replace or add words, it replaces or adds alphabets or single digits or punctuations etc. I replaced digits and it did well and nothing complex is there. Because, those digits were only in Digit variable.
+**See the following output for clearance:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/be0ba823-9a0c-4ff1-a0e5-ffdf34b27549" />
+
+* I wanted to replace apple with orange, but as i told you before, it replaces single things not proper words, it ruined all my content of the file.
+
+* I think, i have cleared everything pretty well to all of you easily and everything is clear to you.  
+
+---
 
 * `truncate -s` - hum ye command ka use files ke size ko chota bada karne ke liye karte hain , truncate ka matlab hai aakar badalna ya resize karna , -s batata hai size uske baad size likhein aur file ka naam likhein , iska use developers ya sofware engineers testing ke liye karte hain ki unka app files ko download kar sakta hai ya nhi, choti badi files ke keraan yeh hota hai. aap khaali file ka size badha sakte hain , ghata sakte hain, par agar aapki file mein koi required data ya important informaton hai aur aap usse chota karne ki koshish karte hain uske bade size ke muqaable toh vo unte bite ki file banakar baaki ka data remove kar deta hai, isiliye is command ka sahi use mukhya roop se testing la hai, is command ko log files jinemin servrrs ki information rakhte hain, agar vo badi ho jaaye toh hum del karenge toh error aa sakta hai, toh hum vahan par i sec mein uska size zero kar dete hain, server logs file mein iska use isiliye hota hai, kyunki jaisa jiase server par users aate ahin toh unki saari information usmein store ho jaati hai jiske kaaran hum usse delete karne ke bajaye size chota kar dete hain
 
