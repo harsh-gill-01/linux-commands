@@ -2088,7 +2088,7 @@ sed 's/barbie/brice/' hello.csv
 
 ---
 
-* **`tr`** - • Used to **translate** or **delete characters** from a file. It is highly useful when you want to convert text to **uppercase** or **lowercase**, change **punctuations**, swap **digits**, or **delete specific characters** within a file.
+* **`tr`** - Used to **translate** or **delete characters** from a file. It is highly useful when you want to convert text to **uppercase** or **lowercase**, change **punctuations**, swap **digits**, or **delete specific characters** within a file.
 
 ---
 
@@ -2205,9 +2205,9 @@ truncate -s 100m my_file
 
 **EXPECTED OUTPUT:**
 
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/b056c37e-d6b8-4aca-8791-ed3e01f9dd6b" />
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/7f3ecfba-a8c7-433a-965f-b686e971a4a9" />
 
-* As shown in the screenshot, the original size of `my_file` was **18 bytes** (created on Oct 9). After running the `truncate -s 100M my_file` command, the size was successfully increased to **100 MB**. Similarly, you can easily change the size to Kilobytes, Gigabytes, or Terabytes by using the `K`, `G`, or `T` characters.
+* As shown in the screenshot, the original size of `my_file` was **18 bytes** (created on Oct 31). After running the `truncate -s 100M my_file` command, the size was successfully increased to **100 MB**. Similarly, you can easily change the size to Kilobytes, Gigabytes, or Terabytes by using the `K`, `G`, or `T` characters.
 
 ---
 
