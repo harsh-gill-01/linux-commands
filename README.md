@@ -2144,15 +2144,14 @@ tr '1234' '4321' < file.txt
 <img width="400" alt="Screenshot 2026-10-30 190324" src="https://github.com/user-attachments/assets/5dcd95ae-67d9-41ca-8218-a185fdf9ea08" />
 
 **NOTE:**
-* In the screenshot, you can see that i changed lowercase letters to uppercase (capital) letters. You can similarly change uppercase letters to lowercase by placing upper column first.
-
+* In the screenshot, you can see that I changed **lowercase letters to uppercase (capital) letters**. You can similarly change uppercase letters to lowercase by placing the **upper** column first.
 ---
 
 * **`tr '[:punct:]' ',' < file.txt`:**
 <img width="400" alt="Screenshot 2026-10-30 190356" src="https://github.com/user-attachments/assets/f81d2643-c489-48c4-894e-8017c7cf583a" />
 
 **NOTE:**
-* In the screenshot, you can see that i changed the punct point content (@#$) to comma (,) and all the punctuation signs there are changed to comma. Use this thing carefully, as you can see it has also changed my - sign to ,.
+* In the screenshot, you can see that I changed the punctuation content (`@#$`) to a comma (`,`), and all the punctuation signs there are changed to commas. Use this tool carefully, as you can see it has also changed my **`-` (dash) sign to a comma (`,`)**.
 
 ---
 
@@ -2160,16 +2159,15 @@ tr '1234' '4321' < file.txt
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/33aca197-51a4-4b94-a086-a5281058637b" />
 
 **NOTE:**
-* You can see that i changed all the digits (1234) to 1111 only. I wrote only single 1, but it changed all the four digits, why?. Because, it changes all the content according to its real (previous) condition as there were 4 digits before changing.
+* You can see that I changed all the digits (`1234`) to `1111`. Even,I wrote only a single `1`, it changed all four digits. **Why?** Because the `tr` command pads the last character of the second set, repeating it to match the length of the first set (which had **4 digits**).
 
 ---
 
 * **`tr -d '1234' < file.txt`:**
 <img width="400" alt="Screenshot 2026-10-30 190510" src="https://github.com/user-attachments/assets/be4caf3d-898f-40e0-8954-426c213cefe4" />
 
-
 **NOTE:**
-* I deleted 1234 number from the Digit variable, and you can see it has deleted perfectly.
+* In the screenshot, you can see that I successfully deleted the numbers `1234` from the file. As a result, the numbers next to the `Digit` row have been removed perfectly.
 
 ---
 
@@ -2177,18 +2175,51 @@ tr '1234' '4321' < file.txt
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/93ca6adb-36c2-4910-90ce-f6218ed288af" />
 
 **NOTE:**
-* This one is a little bit complex, because it does not replace or add words, it replaces or adds alphabets or single digits or punctuations etc. I replaced digits and it did well and nothing complex is there. Because, those digits were only in Digit variable.
+* This one is slightly different because `tr` does not replace words; it replaces individual alphabets, digits, or punctuations by mapping them one by one. Here, I successfully mapped `1->4`, `2->3`, `3->2`, and `4->1` (`1234` to `4321`).
+
 **See the following output for clearance:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/be0ba823-9a0c-4ff1-a0e5-ffdf34b27549" />
 
-* I wanted to replace apple with orange, but as i told you before, it replaces single things not proper words, it ruined all my content of the file.
+* I wanted to replace `apple` with `orange`. But as mentioned before, `tr` replaces character-by-character, not proper words. It mapped `a->o`, `p->r`, `l->a`, and `e->n` (leaving `g` out), which completely ruined the content of that line (turning `lowe`r into `nowgr` and `apple` into `oaang`).
 
-* I think, i have cleared everything pretty well to all of you easily and everything is clear to you.  
+* **I think I have cleared everything up pretty well for all of you, and the concept is now easy to understand.**
 
 ---
 
-* `truncate -s` - hum ye command ka use files ke size ko chota bada karne ke liye karte hain , truncate ka matlab hai aakar badalna ya resize karna , -s batata hai size uske baad size likhein aur file ka naam likhein , iska use developers ya sofware engineers testing ke liye karte hain ki unka app files ko download kar sakta hai ya nhi, choti badi files ke keraan yeh hota hai. aap khaali file ka size badha sakte hain , ghata sakte hain, par agar aapki file mein koi required data ya important informaton hai aur aap usse chota karne ki koshish karte hain uske bade size ke muqaable toh vo unte bite ki file banakar baaki ka data remove kar deta hai, isiliye is command ka sahi use mukhya roop se testing la hai, is command ko log files jinemin servrrs ki information rakhte hain, agar vo badi ho jaaye toh hum del karenge toh error aa sakta hai, toh hum vahan par i sec mein uska size zero kar dete hain, server logs file mein iska use isiliye hota hai, kyunki jaisa jiase server par users aate ahin toh unki saari information usmein store ho jaati hai jiske kaaran hum usse delete karne ke bajaye size chota kar dete hain
+* **`truncate -s`** - Used to **extend** (increase) or **shrink** (decrease) the size of a file.
+
+**SYNTAX:**
+
+* `truncate -s <size> <file_name>`
+
+**EXAMPLE:**
+
+* `truncate -s 100m my_file`
+
+```bash
+truncate -s 100m my_file
+```
+
+---
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/b056c37e-d6b8-4aca-8791-ed3e01f9dd6b" />
+
+* As shown in the screenshot, the original size of `my_file` was **18 bytes** (created on Oct 9). After running the `truncate -s 100M my_file` command, the size was successfully increased to **100 MB**. Similarly, you can easily change the size to Kilobytes, Gigabytes, or Terabytes by using the `K`, `G`, or `T` characters.
+
+---
+
+**FOLLOWING ARE SOME REAL WORLD USE CASES:** 
+* **Testing Purposes:** Developers or software engineers use this command for testing. Specifically, it helps verify whether a new **app** can successfully download files, handle large network traffic, or parse large datasets. You can easily adjust the size of these empty dummy files to test for smooth execution.
+
+* **Managing Server Logs:** This command is widely used to manage **server log files**. If these log files grow too large, simply deleting them could trigger application errors or crash processes. Instead of deleting the files entirely, we can safely reduce their size to **zero bytes** in a single second using this command.
+
+**WARNING:**
+* If you have an important data file of **`100m`** (`100 MB`) and you reduce its size to `50m` or lower, the command will **permanently delete the file data*** to shrink the file. Always use this command carefully on live or important data file. But, if you increase **`100M` to `200M`**, **your original data will remain 100% safe and untouched**. The system simply extends the file by adding empty **null bytes (`\0`)** to the end, this is known as a **Sparse File**.
+
+---
 
 * `echo` - is command ko hum kisi cheez ko vertical line mein likhne ke liye use karte hain , echo abcde | fold -w2 , pehle echo likhein taaki print ho, fir line likhein, fir | use karein, fold -w2 , width bata dein.
 
