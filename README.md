@@ -2221,15 +2221,43 @@ truncate -s 100m my_file
 
 ---
 
-* `echo` - is command ko hum kisi cheez ko vertical line mein likhne ke liye use karte hain , echo abcde | fold -w2 , pehle echo likhein taaki print ho, fir line likhein, fir | use karein, fold -w2 , width bata dein.
+* **`echo`** - To display a line vertically.
 
-* `sudo su` - ye command root user ko access banne ke liye use hota hai, sudo su likh kar password daalein apna jisse login hain aur kaam khatam karke exit ya ctrl + d dabayein, aapp root user access karenge toh kaam dhyaan se karna hoga galat deletion ya download dikkat kar sakta hai.
+**SYNTAX:**
 
-* `ssh user@hostname` -is command ka use kisi dusre remote server ko acces karne ke liye hota hai , ssh ka matlab hai secure shell, uske baad apna username daalo jisse app logged in ho, fir @ aur uske baad server ka ip ya domain name, jissse aap access karna chahte ho uska.. app direct windows, macos, terminal se, command chalakar ip add karke bina koi software download kiye, vm banyae , remote server access kar sakte ho, bas humein '-i' jiska matlab hota hai identity file iski key bannani padti hai, kyunki jab hum oracle , aws ya kisi bhi remote server ko access karte hain, toh humein key provide hoti hai, path isliye dena padta hai, taaki hum keh sakein ki ye key hai isse remote server ka taala khol do, server ke anadr hum apna saara kaam kar sakte hain, 24/7 access milta hai, jab hum laptop band kar dete hain, toh hum backend pe sabke liye live hi hote hain..
+* `echo <line> | fold -w1`
+
+**EXAMPLE:**
+
+* `echo HARSH | fold -w1`
+
+```bash
+echo HARSH | fold -w1
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="Screenshot 2026-11-02 133602" src="https://github.com/user-attachments/assets/8e946d2d-e132-46b1-9df0-c88398a90caa" />
+
+---
+
+* `sudo su` - This command is used to gain root user access in **Ubuntu**. Type `sudo su` and enter the password for your current logged-in user, once you are finished with your tasks, type `exit` or press `Ctrl + D`. Since you will have root user access, you must work with caution, because accidental **deletions or downloads** could cause problems as you get access to everything.
+
+```bash
+sudo su
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="Screenshot 2026-11-02 135315" src="https://github.com/user-attachments/assets/1848a87e-07e8-4819-adda-d7a76833020e" />
+
+---
+
+* `ssh user@hostname` - is command ka use kisi dusre remote server ko acces karne ke liye hota hai , ssh ka matlab hai secure shell, uske baad apna username daalo jisse app logged in ho, fir @ aur uske baad server ka ip ya domain name, jissse aap access karna chahte ho uska.. app direct windows, macos, terminal se, command chalakar ip add karke bina koi software download kiye, vm banyae , remote server access kar sakte ho, bas humein '-i' jiska matlab hota hai identity file iski key bannani padti hai, kyunki jab hum oracle , aws ya kisi bhi remote server ko access karte hain, toh humein key provide hoti hai, path isliye dena padta hai, taaki hum keh sakein ki ye key hai isse remote server ka taala khol do, server ke anadr hum apna saara kaam kar sakte hain, 24/7 access milta hai, jab hum laptop band kar dete hain, toh hum backend pe sabke liye live hi hote hain..
 
 * `scp ` - is command ka use remote linux server par files ko copy karne ke  liye hota hai. scp file user@hostname:/tmp/ , scp ka matlab hai secure copy jo ssh ke zariye encrypted way se transfer hoti hai, tmp ka matlab hai file server ke tempo folder mein jaakar save hogi, agar server key based hai toh usmein key (-i my.pem) lagana padta hai, agar folder pura bhejna ho, toh -r recursive ka use karein scp ke baad.., key tab use hoti hai jab aap kisi server provider ke website par apna a/c banate ho aur fir server use karte ho, locally aap ne oracle vitua; box instal karke server use kar rahe ho, toh sirf password hi kaafi hota hai, kyunki vo aapke saamne hai, uske components touchab;le hai, jabki remote server us, uk mein data centre mein hai..
 
-* `chmod` - is command ka use linux mein permisiions dene ke liye use kiya jaata hai, ls -ltr enter karke dekho, toh vahan par side mein `drw, rx, r ` jasa kuch aata hai, aur vo batatein hain ki kya permisiions hain, vahan par kuch names bhi likhein hote hain alag column mein, aur vahan se bhi pata chalta hai ki owner kon hai files aur folsers ka, u- user ,a-all, o-other, g-group ko access dene ke liye use kiya jaata hai.., u yyani user, group yaani team ke members, ek group ko di toh sab groups ko mil gayi, other yaani all over the world ko access de dena, r for read, w for write , for exetibales agar koi script ya software file hai toh usse command ki tarh chala dena
+* **`chmod`** - is command ka use linux mein permisiions dene ke liye use kiya jaata hai, ls -ltr enter karke dekho, toh vahan par side mein `drw, rx, r ` jasa kuch aata hai, aur vo batatein hain ki kya permisiions hain, vahan par kuch names bhi likhein hote hain alag column mein, aur vahan se bhi pata chalta hai ki owner kon hai files aur folders ka, u- user ,a-all, o-other, g-group ko access dene ke liye use kiya jaata hai.., u yyani user, group yaani team ke members, ek group ko di toh sab groups ko mil gayi, other yaani all over the world ko access de dena, r for read, w for write , for exetibales agar koi script ya software file hai toh usse command ki tarh chala dena
 
 upar wala method symbolic tha, ab hum numerical method karenge, 
 numeric method mein stanadrad 4 , 2 , 1 , 0 use hota hai..
