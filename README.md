@@ -2253,7 +2253,17 @@ sudo su
 
 ---
 
-* `ssh user@hostname` - is command ka use kisi dusre remote server ko acces karne ke liye hota hai , ssh ka matlab hai secure shell, uske baad apna username daalo jisse app logged in ho, fir @ aur uske baad server ka ip ya domain name, jissse aap access karna chahte ho uska.. app direct windows, macos, terminal se, command chalakar ip add karke bina koi software download kiye, vm banyae , remote server access kar sakte ho, bas humein '-i' jiska matlab hota hai identity file iski key bannani padti hai, kyunki jab hum oracle , aws ya kisi bhi remote server ko access karte hain, toh humein key provide hoti hai, path isliye dena padta hai, taaki hum keh sakein ki ye key hai isse remote server ka taala khol do, server ke anadr hum apna saara kaam kar sakte hain, 24/7 access milta hai, jab hum laptop band kar dete hain, toh hum backend pe sabke liye live hi hote hain..
+* `ssh user@hostname` - is command ka use kisi dusre remote server ko acces karne ke liye hota hai.
+
+**REAL WORLD USE:**
+
+* In real corporate world, you can access a remote server via ssh commands by renting cloud on platforms like aws, azure (microsoft), gcp (google cloud) directly through your default Os terminal without any software like virtualbox.
+
+* If you want to access any server from your windows Os too, but without aws, and other platforms then you must install virtualbox software to access other servers via ssh command. Because, you cannot access different servers directly from windows or other default Os without any cloud platform like aws.
+
+**So this is a point of difference between Software access and platform access like aws**
+
+   app direct windows, macos, terminal se, command chalakar ip add karke bina koi software download kiye, vm banaye , remote server access kar sakte ho, bas humein '-i' jiska matlab hota hai identity file iski key bannani padti hai, kyunki jab hum oracle , aws ya kisi bhi remote server ko access karte hain, toh humein key provide hoti hai, path isliye dena padta hai, taaki hum keh sakein ki ye key hai isse remote server ka taala khol do, server ke anadr hum apna saara kaam kar sakte hain, 24/7 access milta hai, jab hum laptop band kar dete hain, toh hum backend pe sabke liye live hi hote hain..
 
 * `scp ` - is command ka use remote linux server par files ko copy karne ke  liye hota hai. scp file user@hostname:/tmp/ , scp ka matlab hai secure copy jo ssh ke zariye encrypted way se transfer hoti hai, tmp ka matlab hai file server ke tempo folder mein jaakar save hogi, agar server key based hai toh usmein key (-i my.pem) lagana padta hai, agar folder pura bhejna ho, toh -r recursive ka use karein scp ke baad.., key tab use hoti hai jab aap kisi server provider ke website par apna a/c banate ho aur fir server use karte ho, locally aap ne oracle vitua; box instal karke server use kar rahe ho, toh sirf password hi kaafi hota hai, kyunki vo aapke saamne hai, uske components touchab;le hai, jabki remote server us, uk mein data centre mein hai..
 
