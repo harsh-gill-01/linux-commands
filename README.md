@@ -2299,7 +2299,27 @@ ssh harsh@127.0.0.1 -p 2222
 
 * `scp ` - is command ka use remote linux server par files ko copy karne ke  liye hota hai. scp file user@hostname:/tmp/ , scp ka matlab hai secure copy jo ssh ke zariye encrypted way se transfer hoti hai, tmp ka matlab hai file server ke tempo folder mein jaakar save hogi, agar server key based hai toh usmein key (-i my.pem) lagana padta hai, agar folder pura bhejna ho, toh -r recursive ka use karein scp ke baad.., key tab use hoti hai jab aap kisi server provider ke website par apna a/c banate ho aur fir server use karte ho, locally aap ne oracle vitua; box instal karke server use kar rahe ho, toh sirf password hi kaafi hota hai, kyunki vo aapke saamne hai, uske components touchab;le hai, jabki remote server us, uk mein data centre mein hai..
 
-* **`chmod`** - is command ka use linux mein permisiions dene ke liye use kiya jaata hai, ls -ltr enter karke dekho, toh vahan par side mein `drw, rx, r ` jasa kuch aata hai, aur vo batatein hain ki kya permisiions hain, vahan par kuch names bhi likhein hote hain alag column mein, aur vahan se bhi pata chalta hai ki owner kon hai files aur folders ka, u- user ,a-all, o-other, g-group ko access dene ke liye use kiya jaata hai.., u yyani user, group yaani team ke members, ek group ko di toh sab groups ko mil gayi, other yaani all over the world ko access de dena, r for read, w for write , for exetibales agar koi script ya software file hai toh usse command ki tarh chala dena
+
+---
+
+* **`chmod`** - This command is used in Linux to assign permissions. You can see after executing ls -ltr command, that there are some other information along with file info section.
+
+**FOLLOWING ARE THE PERMISSIONS:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/2a54c792-b390-4aaa-81b7-a48a6d8e6698" />
+
+* The column that i highlighted is the permissions and owner section.
+
+**PERMISSIONS BREAKDOWN:**
+
+* `rwx` (User) - To read, write and x means to execute means using a file's code or information and executing it for work. (*This is of real User (Owner).*)
+* `rw-` (Group) - To read and write only. (*This is of different groups of people under the owner.*)
+* `r--` (Others) - To read only. (*This is for the other users that are online over the internet.*)
+
+**IMPRTANT NOTE:**
+
+* I did not provide any syntax, example and output information here for this section because, this part is very important in linux. So, describing all these things was not possible. **CHECK THE SEPARATE VIDEO DOWN BELOW FOR PERMISSION SECTION:**
+ 
 
 upar wala method symbolic tha, ab hum numerical method karenge, 
 numeric method mein stanadrad 4 , 2 , 1 , 0 use hota hai..
