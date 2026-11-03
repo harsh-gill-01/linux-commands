@@ -2253,15 +2253,47 @@ sudo su
 
 ---
 
-* `ssh user@hostname` - is command ka use kisi dusre remote server ko acces karne ke liye hota hai.
+* **`ssh`** - This command is used to access **remote servers**.
 
-**REAL WORLD USE:**
+**SYNTAX:**
+
+* `ssh <user-name>@<hostname_or_ip> [-p <port>]`
+  
+**EXAMPLE:**
+
+* `ssh harsh@127.0.0.1 -p 2222` (*I used `ip address` here.*)
+
+```bash
+ssh harsh@127.0.0.1 -p 2222
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/c752ed32-698b-4deb-bbd5-b6f6daa9b7db" />
+
+* You can see in the screenshot that I am running **Linux** within the **Windows OS**, and everything has been set up successfully.
+
+**IMPORTANT NOTE:**
+
+**Methods:** There are 2–3 ways to connect to a **remote server**. The standard method is `ssh username@IP_ADDRESS` which connects via default Port `22`.
+
+**Why `-p 2222`?** In my setup, I used VirtualBox NAT Port Forwarding on custom Port `2222` to do local host connectivity. That is why, I used the command `ssh harsh@127.0.0.1 -p 2222`.
+
+**Don't Worry!** If you are using standard network setups (like Bridged Mode or Cloud VPS), the default syntax will work directly. Check out my separate detailed guide on VirtualBox Networking Modes for a complete breakdown!
+
+---
+
+**REAL WORLD DIFFERENCE:**
 
 * In real corporate world, you can access a remote server via ssh commands by renting cloud on platforms like aws, azure (microsoft), gcp (google cloud) directly through your default Os terminal without any software like virtualbox.
 
 * If you want to access any server from your windows Os too, but without aws, and other platforms then you must install virtualbox software to access other servers via ssh command. Because, you cannot access different servers directly from windows or other default Os without any cloud platform like aws.
 
-**So this is a point of difference between Software access and platform access like aws**
+* So, we should download a software according to our target Os to access it.
+
+ **So this is a point of difference between Software access and platform access like aws and others.**
+
+ **SY**
 
    app direct windows, macos, terminal se, command chalakar ip add karke bina koi software download kiye, vm banaye , remote server access kar sakte ho, bas humein '-i' jiska matlab hota hai identity file iski key bannani padti hai, kyunki jab hum oracle , aws ya kisi bhi remote server ko access karte hain, toh humein key provide hoti hai, path isliye dena padta hai, taaki hum keh sakein ki ye key hai isse remote server ka taala khol do, server ke anadr hum apna saara kaam kar sakte hain, 24/7 access milta hai, jab hum laptop band kar dete hain, toh hum backend pe sabke liye live hi hote hain..
 
