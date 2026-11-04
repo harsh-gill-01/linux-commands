@@ -2328,20 +2328,180 @@ ek hota hai -644 - ismein 6 yaani 4+2 (read , write) for user, 4 yaani read for 
 
 NOTE: aap permissions requirement ke hisaab se de sakte hain, upar batayi gayi example s 755 (for scripts, softwares etc.) and 644 (for documents, files etc.)industry mein mostly use hoti hain, isliye unke prority de gayi lekin aap permissions zarroorat ke hissab se set karte ho, ye 700 ho sakti hai 7 yaani  (4+2+1 , r + w + x) baaki groups aur others 0 hain yaani unko koi permission nhi hai, toh at the end ye sab aapke upar hai..
 
-* `chown` - iscommand ka use ownership change karne ke liye hota hai , in case aapko kisi file ki ownership change karni ho, toh chown yaani chnage owner command use karenge: pehle sudo su apply karein for ubuntu, password daalein aur ls -ltr ya ls -l aur file name likhkar pehle permission aur file name ache se check kar lein, uske baad chown name aur file ka name daalein aur enter karein.
+---
+
+* **`chown`** - This command is used to change **ownership**. If you need to change the ownership of a file or folder, you use the **`chown`** (change owner) command. `root` access is required to make such changes.
+
+**SYNTAX:**  
+
+* `chown <owner> <file_name>`
+
+**EXAMPLE:**
+
+* `chown root my_file`
+
+```bash
+chown root my_file
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/3dd3968f-d823-4d8f-a063-6a45887a0bf9" />
+
+---
+
 * note : chmod chalane ke liye hamesha root user (sudo) ki zaroorat nahi hoti. Agar aap apni khud ki banayi hui file ki permission badal rahe hain, toh aap normal user se bhi chmod chala sakte hain.Lekin agar aap kisi system file ya dusre user ki file ki permission badal rahe hain, ya fir file ka owner badal rahe hain (chown / chgrp), toh Root Access (sudo) compulsory hai.
 
-* `chgrp` -is command ka use group owner change karne ke liye hota hai, pehle sudo su karke root user se login karein, password daalkar, kyunki aise chnages karne ke liye root access chahiye hota hai, chgrp karke naam likh dein jaise ksis dusre ka ya fir apna logges in naam, file name likhein enter karein..
-akeli ek file ki permissions aur syatus dekhne ke liye ls -l file namr likhein..
+---
 
-* `free` -is command ka use server ki memeory check karne kiye hota hai, kyunki memory limit hoti hai, free command chalyenge toh vahan par memeory aur swap information aa jayegi, kitni used hai, kitni bachi hai, aur baaki informatuion.. tips- free dabane par information dikh jayegi saari lekin kuch readable nhi hogi, readable banane ke liye free -h likhein aur total paane ke liye, free -th dabayein.. swap memory hoti hai, jab humari main ram khatm hone waali hoti hai bhar jaati hai haeavy tasks se, yoh linux ssd, hardisk se nakli ram banata hai taaki kaam kharaba na ho aur system crash na ho, isse kaam toh chal jaata hai , par slow chalta hai kyunki ssd se aane mein ram ko time lagta hai.
+* **`chgrp`** - This command is used to change the group **owner**. First, log in as the root user by running **`sudo su`** and entering your password, as `root` access is required to make such changes. 
 
-* `top` -is command ka use %memeory usages, cpu information aur bhi bahut saari information dekhne ke liye use hota hai,%cpu mein kitni cpu use ho rahi hai aata hai, aur aage ..id (ex- 97.5) ayega jo total bachi hui cpu% hai , aao 100 mein se usse minus karke used cpu nikal sakte hain, mib mem ye batata hai ki server ke paas kitni memory khali bacji hai aur kitni used hai, total kitni hai, mib swap se swap memory ka pata chla jayega, agar zero hai aapka toh matlab abhi kuch use nhi hua swap bankar ssd mein se..
-Pehli Row (PID ...):Yeh process aapke total CPU ka ....(%CPU) consume kar raha hai.Aur aapki total RAM ka ...(%MEM) gher kar baitha hai.Doosri Row (PID ...):Yeh process CPU ka ...aur RAM ka ... use kar raha hai, q dabayein bahar aane ke  liye..
+**SYNTAX:**
 
-* `du` -is command ka use disk utilization yaani disk usage chack karne ke liye kiya hai, ki konnsi file, folder kitni disk usage kar rahi hai, kitna usage hai, du -h use karke disk usage numbers ko human readable bana sakte hain, h ka matlab hota ha human, aap h ko baaki sab isi hi commands ke saath use kar sakte hain..
---max-depth=1: Is flag ko lagane se terminal har folder ke andar ghus kar lambi list nahi banata, balki sirf main (top-level) folders ki total size ka clean summary dikhata hai.--exclude={snap,desktop,config}: Agar aap disk check karte waqt kuch system ya configuration folders (jaise snap, desktop, config) ko output se hatana chahte hain, toh is filter ka use karein.Syntax Example: du -h --max-depth=1 --exclude={snap,desktop,config}
+* `chgrp root my_file`
 
+**EXAMPLE:**
+
+* `chgrp root my_file`
+
+```bash
+chgrp root my_file
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/12174253-2135-4f2c-9847-196ab3cf357f" />
+
+---
+
+* **`free`** - This command is used to check server information. Since there are memory limits, running the `free` command will display details about memory and swap space—such as how much is currently in use, how much is available, and other related information.
+
+**WHAT IS `swap` MEMORY?**
+
+* Swap memory comes into play when our main RAM is nearly exhausted or becomes full due to heavy tasks. Linux creates a form of "virtual" RAM using space on an SSD or hard drive to ensure that tasks aren't interrupted and the system doesn't crash. While this keeps things running, performance slows down because it takes time for data to be retrieved from the SSD or hard drive into the system's memory.
+
+**OTHER OPTIONS:**
+
+* While running `free` command alone, will show all the data. It may not be easily readable. To make it more readable, use `free -h`, and to see the total values, use `free -th`.
+
+```bash
+free
+```
+```bash
+free -h
+```
+```bash
+free -th
+```
+
+**EXPECTED OUTPUT:**
+
+* **`free` command:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/cc50f8fb-dcb1-4293-a577-dc39d29d80b8" />
+
+* You can see the server info like cache available, used memory, total memory, swap memory etc, but in no readable number format.
+
+---
+
+* **`free -h` command:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/cf21d89a-96ba-4da0-8069-27d5cccd0535" />
+
+* You can see that, the number format has changed to readable format as Gi, Mi as human readable.
+
+---
+
+* **`free -th` command:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/c2eb63c9-a312-4f46-8b1b-7a616bdae572" />
+
+* You can clearly see in the screenshot that, there is total amount in human readable format of the information.
+
+---
+
+* **`top`** - This command is used to view information such as **memory usage**, **CPU statistics**, and various other details. Press 'q' to exit.
+
+**IMPORTANT INFO:**
+
+* Under the '%CPU' column, you can see the current CPU utilization, the value following 'id' (e.g., 97.5) represents the percentage of CPU that is currently not in use.
+* You can subtract this from 100 to determine the actual CPU usage.
+* The 'MiB Mem' section indicates the server's memory status, showing how much is free, how much is in use, and the total capacity.
+* 'MiB Swap' provides information about swap memory, if the value is zero, it means no swap space (allocated on the SSD) is currently being used.
+* First row (PID ...): This process is consuming a certain percentage of your total CPU (%CPU) and occupying a portion of your total RAM (%MEM).
+* Second row (PID ...): This process is utilizing a specific amount of CPU and RAM.
+
+```bash
+top
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/3c617838-ae44-4466-9de0-b3b557e3c1f4" />
+
+---
+
+* **`du`** - This command is used to check disk utilization—that is, to see how much disk space is being consumed by various files and folders. On the left side of the folders and files, you will see some numbers, that is the amount of disk usage by each of them.
+
+**OTHER OPTIONS:**
+
+* `du -h` - To see disk usage numbers in human readable format.
+* `du --max-depth=1` - To see the clean format summary of your files and folders located in disk. The number of depth describes how deep it will go to give you output of files and folders.
+* `du --max-depth=1 --exclude={snap,desktop,.config}` - To remove unnecessary folders and files like snap, desktop, config etc.
+
+**NOTE:**
+
+* You can change the depth of files and folders as you own requirement. I used 1 for only an example. Also, you can change those names of folders and files (snap, desktop, config) as your own, because sometimes we need these folders and files.
+
+```bash
+du 
+```
+```bash
+du -h
+```
+```bash
+du --max-depth=1
+```
+```bash
+du --max-depth=1 --exclude={snap,desktop,.config}
+```
+
+**NOTE:**
+
+* We can also use du --max-depth=1 command for removing extra folders and files like snap, desktop, config, and it will work well, but still, it may show you some of those files and folders. So, to remove all of them properly, you can use --exclude flag.
+
+**EXPECTED OUTPUTS:**
+
+* **`du` command:**
+<img width="400" alt="Screenshot 2026-11-04 121130" src="https://github.com/user-attachments/assets/ead0d306-6963-419e-b5b8-22e37a300cf2" />
+
+* I shared the output of du to all of you only to show the difference of using alone, and with flags like max-depth and --exclude. You can clearly see the rush of so many unnecessary folders and files there in the screenshots.
+
+
+* **`du -h` command:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/d44c4d43-9e4a-4000-bdd9-2336575cb77f" />
+
+* The white highlighted column is the disk usage amount.
+
+---
+
+* **`du --max-depth=1` command:**
+  
+<img width="400" alt="Screenshot 2026-11-04 122632" src="https://github.com/user-attachments/assets/00ffdea6-fd71-47f6-ab80-620487e8f008" />
+
+* You can see, that all the rush has gone. But, the number of files and folders are very less. Because, i used the depth 1, so it did not went too deep to give me output. If you use depth 2 here, then the number of folders and files will increase.
+
+---
+
+* **`du --max-depth=1 --exclude={snap,desktop,.config}` command:**
+
+<img width="400" alt="Screenshot 2026-11-04 123047" src="https://github.com/user-attachments/assets/77e45dbf-d043-472a-8523-fb66a60651c4" />
+
+* As you can see that, the folders of snap, .config have been removed successfully.
+
+---
+  
 * `df` -is command ka use disk space ke saath saath kuch alag information jaise , kitni used hai, avail kitni hai, use% etc.. df -h use kar sakte hain for better reading in (gb,mb,k)
 Filesystem: Yeh batata hai ki disk ka kaun sa hissa hai. cloud server par aapko /dev/sda1 ya /dev/nvme0n1p1 jaisa naam sabse upar dikhega (yahi aapki main hard disk hoti hai).
 size hota hai
