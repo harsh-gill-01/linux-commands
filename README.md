@@ -2302,24 +2302,40 @@ ssh harsh@127.0.0.1 -p 2222
 
 ---
 
-* **`chmod`** - This command is used in Linux to assign permissions. You can see after executing ls -ltr command, that there are some other information along with file info section.
+* **`chmod`** - The `chmod` (Change Mode) command is used in Linux to **assign and modify file or directory (folder) permissions**.
+When you execute the `ls -ltr` command, Linux displays a detailed list of files along with their data, ownership, and permissions.
 
-**FOLLOWING ARE THE PERMISSIONS:**
+**TERMINAL EXAMPLE:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/2a54c792-b390-4aaa-81b7-a48a6d8e6698" />
 
-* The column that i highlighted is the permissions and owner section.
+* The very first part (like **drwxr-xr-x or -rw-r--r--**) shows the **Permissions** of that file.
 
 **PERMISSIONS BREAKDOWN:**
 
-* `rwx` (User) - To read, write and x means to execute means using a file's code or information and executing it for work. (*This is of real User (Owner).*)
-* `rw-` (Group) - To read and write only. (*This is of different groups of people under the owner.*)
-* `r--` (Others) - To read only. (*This is for the other users that are online over the internet.*)
+* The first character shows the type: **`-`** means a **normal file** and `d` means a folder/directory.
+* **User / Owner (`rwx`):**
+**Who:** The person who **created** the file.
+**Letters:** **r** (Read), **w** (Write), **x** (Execute).
+**Meaning:** The owner can open the file, change it, and **run the file's code**.
 
-**IMPRTANT NOTE:**
+* **Group (`rw-`):**
+**Who:** A **team or group of users** on the same system.
+**Letters:** **r** (Read), **w** (Write).
+**Meaning:** Group members can see and edit the file, but cannot run it.
 
-* I did not provide any syntax, example and output information here for this section because, this part is very important in linux. So, describing all these things was not possible. **CHECK THE SEPARATE VIDEO DOWN BELOW FOR PERMISSION SECTION:**
+* **Others (`r--`):**
+**Who:** Any other **user logged** into this local Linux machine.
+**Letters:** **r** (Read) only.
+**Meaning:** They can only see or read the file. They cannot **change it** and **cannot run** it's code.
+   
+**Important Note:**
+**Deep Dive Video Below!**
+File permissions are very important for **Linux security**. It has many more things like numbers (example: **chmod 755** or **chmod 400**). To keep things simple, I have made a separate video for this.
  
+* **Watch the detailed video below to see how to use these commands practically!**
+
+---
 
 upar wala method symbolic tha, ab hum numerical method karenge, 
 numeric method mein stanadrad 4 , 2 , 1 , 0 use hota hai..
@@ -2330,11 +2346,12 @@ NOTE: aap permissions requirement ke hisaab se de sakte hain, upar batayi gayi e
 
 ---
 
-* **`chown`** - This command is used to change **ownership**. If you need to change the ownership of a file or folder, you use the **`chown`** (change owner) command. `root` access is required to make such changes.
+* **`chown`** - The `chown` (Change Owner) command is used in Linux to **change the owner of a file or folder**.
+To use this command, you must have `root` access or **admin power**.
 
 **SYNTAX:**  
 
-* `chown <owner> <file_name>`
+* `chown <new_owner> <file_name>`
 
 **EXAMPLE:**
 
@@ -2354,11 +2371,11 @@ chown root my_file
 
 ---
 
-* **`chgrp`** - This command is used to change the group **owner**. First, log in as the root user by running **`sudo su`** and entering your password, as `root` access is required to make such changes. 
+* **`chgrp`** - The `chgrp` (Change Group) command is used in Linux to **change the group owner of a file or folder**. Just like changing the file owner, you need **root access** (`sudo su`) to make these changes. 
 
 **SYNTAX:**
 
-* `chgrp root my_file`
+* `chgrp <new_group> <file_name>`
 
 **EXAMPLE:**
 
@@ -2374,15 +2391,22 @@ chgrp root my_file
 
 ---
 
-* **`free`** - This command is used to check server information. Since there are memory limits, running the `free` command will display details about memory and swap space—such as how much is currently in use, how much is available, and other related information.
+* **`free`** - The `free` command is used in Linux to **check system memory information**.
+It tells you how much **RAM** and **Swap memory** is currently used, how much is free, and how much is available.
 
 **WHAT IS `swap` MEMORY?**
 
-* Swap memory comes into play when our main RAM is nearly exhausted or becomes full due to heavy tasks. Linux creates a form of "virtual" RAM using space on an SSD or hard drive to ensure that tasks aren't interrupted and the system doesn't crash. While this keeps things running, performance slows down because it takes time for data to be retrieved from the SSD or hard drive into the system's memory.
+* **The Problem:** When you run too many heavy tasks, your main RAM can become full or exhausted.
+* **The Solution:** To stop your system from crashing, Linux takes some space from your SSD or hard drive and uses it as **Virtual RAM** (unreal memory). This space is called **Swap Memory**.
+* **The Catch:** Swap memory keeps your system running, but it makes the computer **slow** because hard drives and SSDs are slower than actual RAM.
 
 **OTHER OPTIONS:**
 
-* While running `free` command alone, will show all the data. It may not be easily readable. To make it more readable, use `free -h`, and to see the total values, use `free -th`.
+When you run the `free` command alone, it shows all the numbers in kilobytes. This can be very hard for humans to read and understand quickly.
+To solve this problem, you can use these helpful options:
+
+* `free -h` (Human Readable): This option automatically changes the numbers into Megabytes (**M**) and Gigabytes (**G**). It makes the data very easy and clean to read.
+* `free -th` (Total Values): This option does two things at once. It shows the memory in a human readable format and adds a **Total row** at the very bottom. This row combines your total **RAM** and total Swap memory together so you can see your complete system capacity.
 
 ```bash
 free
@@ -2397,7 +2421,6 @@ free -th
 **EXPECTED OUTPUT:**
 
 * **`free` command:**
-
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/cc50f8fb-dcb1-4293-a577-dc39d29d80b8" />
 
 * You can see the server info like cache available, used memory, total memory, swap memory etc, but in no readable number format.
@@ -2405,7 +2428,6 @@ free -th
 ---
 
 * **`free -h` command:**
-
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/cf21d89a-96ba-4da0-8069-27d5cccd0535" />
 
 * You can see that, the number format has changed to readable format as Gi, Mi as human readable.
@@ -2413,7 +2435,6 @@ free -th
 ---
 
 * **`free -th` command:**
-
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/c2eb63c9-a312-4f46-8b1b-7a616bdae572" />
 
 * You can clearly see in the screenshot that, there is total amount in human readable format of the information.
@@ -2479,7 +2500,6 @@ du --max-depth=1 --exclude={snap,desktop,.config}
 
 
 * **`du -h` command:**
-
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/d44c4d43-9e4a-4000-bdd9-2336575cb77f" />
 
 * The white highlighted column is the disk usage amount.
@@ -2487,29 +2507,50 @@ du --max-depth=1 --exclude={snap,desktop,.config}
 ---
 
 * **`du --max-depth=1` command:**
-  
-<img width="400" alt="Screenshot 2026-11-04 122632" src="https://github.com/user-attachments/assets/00ffdea6-fd71-47f6-ab80-620487e8f008" />
+  <img width="400" alt="Screenshot 2026-11-04 122632" src="https://github.com/user-attachments/assets/00ffdea6-fd71-47f6-ab80-620487e8f008" />
 
 * You can see, that all the rush has gone. But, the number of files and folders are very less. Because, i used the depth 1, so it did not went too deep to give me output. If you use depth 2 here, then the number of folders and files will increase.
 
 ---
 
 * **`du --max-depth=1 --exclude={snap,desktop,.config}` command:**
-
 <img width="400" alt="Screenshot 2026-11-04 123047" src="https://github.com/user-attachments/assets/77e45dbf-d043-472a-8523-fb66a60651c4" />
 
 * As you can see that, the folders of snap, .config have been removed successfully.
 
 ---
   
-* `df` -is command ka use disk space ke saath saath kuch alag information jaise , kitni used hai, avail kitni hai, use% etc.. df -h use kar sakte hain for better reading in (gb,mb,k)
-Filesystem: Yeh batata hai ki disk ka kaun sa hissa hai. cloud server par aapko /dev/sda1 ya /dev/nvme0n1p1 jaisa naam sabse upar dikhega (yahi aapki main hard disk hoti hai).
-size hota hai
-used kitni hai
-avail kitni hai
-use % kitna hai
-mounted on hota hai, linux mein folders ko kahin na kahin jidne ko mounting kehte hain, ismein root / directory hoti hai, jismein sab kuch bhara hota hai jo bhi sofware, command s etc..
-ek tmpfs filesystem hota hai jismein saara kachra jaata hai, usmein asli / root hard disk ka kuch nhi hota usmein temporary cheezein hi jaati hain..
+* **`df`** - This command is used to display disk space information, such as the amount of space used, the amount available, the percentage used, etc. df -h can be used for better readability in Gb, Mb, or K.
+
+```bash
+df
+```
+```bash
+df -h
+```
+
+**EXPECTED OUTPUT:**
+
+* **`df` command:**
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/2fd203bb-4532-4bc8-a826-29d58afaa656" />
+
+* **`df -h` command:**
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/814013ab-7ef2-4ae8-b0d1-3ec45a5088bc" />
+
+---
+
+**`df` command INFO BREAKDOWN:**
+* **Filesystem:** This indicates which part of the disk it is. On a cloud server, you will see a name like `/dev/sda1` or `/dev/nvme0n1p1` at the very top (this is your main hard disk).
+* **Size:** It shows the total amount of size the file can hold.
+* **Used:** It shows how much of the total size is occupied by data or used.
+* **Avail:** It shows the available storage of the file.
+* **Use%:** It shows the total amount of file size occupied in percentage.
+* **Mounted on:** In Linux, attaching folders to a specific location is called "mounting." There is a root (/) directory that contains everything—software, commands, and so on.
+There is also a `tmpfs` filesystem where all the **junk** goes; it contains nothing from the actual root (/) directory on the hard disk, only temporary items are stored there.
+
+**NOTE:**
+* root directory is single **`/`** as you can see in the screenshot.
+
 
 system info -linux mein system info aapke system ka identity card ya info card hota hai, heakth card, jo batata hai ki os kaisa, appka system kis hardware par chal raha hai etc. ye hardware details, cpu, ram , ssd, architecture jaise Batata hai ki system 64-bit (x86_64) hai ya ARM (aarch64).
 software and os details, os distribution and releases, kernel hostname, ruuning and performance state, uptime , load average/cpu average , running time
