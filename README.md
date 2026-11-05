@@ -2423,34 +2423,43 @@ free -th
 * **`free` command:**
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/cc50f8fb-dcb1-4293-a577-dc39d29d80b8" />
 
-* You can see the server info like cache available, used memory, total memory, swap memory etc, but in no readable number format.
+* Shows memory data in **Kilobytes**. It is hard for humans to read quickly.
 
 ---
 
 * **`free -h` command:**
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/cf21d89a-96ba-4da0-8069-27d5cccd0535" />
 
-* You can see that, the number format has changed to readable format as Gi, Mi as human readable.
+* You can see that, it converted numbers into `Gi` (Gigabytes) and `Mi` (Megabytes). It is very easy to read.
 
 ---
 
 * **`free -th` command:**
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/c2eb63c9-a312-4f46-8b1b-7a616bdae572" />
 
-* You can clearly see in the screenshot that, there is total amount in human readable format of the information.
+* Shows data in easy format and adds a `Total` line combining **RAM** and Swap space at the bottom.
 
 ---
 
-* **`top`** - This command is used to view information such as **memory usage**, **CPU statistics**, and various other details. Press 'q' to exit.
+* **`top`** - The top command is used in Linux to **view live server information**. It shows real-time (live) memory usage, **CPU stats**, and a list of running processes. Press `q` to exit it.
 
 **IMPORTANT INFO:**
 
-* Under the '%CPU' column, you can see the current CPU utilization, the value following 'id' (e.g., 97.5) represents the percentage of CPU that is currently not in use.
-* You can subtract this from 100 to determine the actual CPU usage.
-* The 'MiB Mem' section indicates the server's memory status, showing how much is free, how much is in use, and the total capacity.
-* 'MiB Swap' provides information about swap memory, if the value is zero, it means no swap space (allocated on the SSD) is currently being used.
-* First row (PID ...): This process is consuming a certain percentage of your total CPU (%CPU) and occupying a portion of your total RAM (%MEM).
-* Second row (PID ...): This process is utilizing a specific amount of CPU and RAM.
+* **CPU Usage:** Look at the `%Cpu(s)` line. The number before `id` shows the idle CPU (CPU not in use). Subtract this number from `100` to get your actual active **CPU usage**.
+* **RAM Status:** The `MiB Mem` line shows your total server RAM, how much is free, and how much is currently used.
+* **Swap Status:** The `MiB Swap` line shows your virtual memory status. If the used value is zero, it means no swap space is active.
+* **Process List:** The table at the bottom shows active processes. Each row displays how much CPU (`%CPU`) and RAM (`%MEM`) a specific process ID (`PID`) is using.
+
+**OTHER INFO:**
+
+* **`PID` (Process ID):** Every running task gets a unique identification number. You can use this number to stop or kill a specific process.
+* **`USER`:** This shows the name of the Linux user who started or owns this specific task (example: `harsh` or `root`).
+* **`PR` (Priority):** This is the internal priority given by the **Linux kernel** to this task. Lower numbers mean higher priority.
+* **`NI` (Nice Value):** A value that lets you manually **change a task's priority**. Negative numbers make it faster, positive numbers make it slower.
+* **`VIRT` (Virtual Memory):** The total amount of memory that the process has asked for. It includes RAM, Swap, and shared files.
+* **`RES` (Resident Memory):** The actual amount of physical **RAM** that the process is currently using right now.
+* **`SHR` (Shared Memory):** The amount of memory that this task is sharing with other processes on the system.
+* **`S` (Process Status):** The current state of the task. For example, `R` means Running, `S` means Sleeping, and `I` means Idle (not in use).
 
 ```bash
 top
@@ -2459,6 +2468,8 @@ top
 **EXPECTED OUTPUT:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/3c617838-ae44-4466-9de0-b3b557e3c1f4" />
+
+* This table gives you deep inside data about every **active application** so you can find out which user or program is causing **system load**.
 
 ---
 
