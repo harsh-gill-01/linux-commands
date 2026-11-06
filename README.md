@@ -2405,8 +2405,8 @@ It tells you how much **RAM** and **Swap memory** is currently used, how much is
 When you run the `free` command alone, it shows all the numbers in kilobytes. This can be very hard for humans to read and understand quickly.
 To solve this problem, you can use these helpful options:
 
-* `free -h` (Human Readable): This option automatically changes the numbers into Megabytes (**M**) and Gigabytes (**G**). It makes the data very easy and clean to read.
-* `free -th` (Total Values): This option does two things at once. It shows the memory in a human readable format and adds a **Total row** at the very bottom. This row combines your total **RAM** and total Swap memory together so you can see your complete system capacity.
+* **`free -h` (Human Readable):** This option automatically changes the numbers into Megabytes (**M**) and Gigabytes (**G**). It makes the data very easy and clean to read.
+* **`free -th` (Total Values):** This option does two things at once. It shows the memory in a human readable format and adds a **Total row** at the very bottom. This row combines your total **RAM** and total Swap memory together so you can see your complete system capacity.
 
 ```bash
 free
@@ -2562,22 +2562,129 @@ There is also a `tmpfs` filesystem where all the **junk** goes; it contains noth
 **NOTE:**
 * root directory is single **`/`** as you can see in the screenshot.
 
+----
 
-system info -linux mein system info aapke system ka identity card ya info card hota hai, heakth card, jo batata hai ki os kaisa, appka system kis hardware par chal raha hai etc. ye hardware details, cpu, ram , ssd, architecture jaise Batata hai ki system 64-bit (x86_64) hai ya ARM (aarch64).
-software and os details, os distribution and releases, kernel hostname, ruuning and performance state, uptime , load average/cpu average , running time
-* `hostname` -to check hostname of your linux server, menas the name of your vm (virtual machine), and it also sees only our terminal.
-* `lscpu` -is command ka use cpu/core/thread info check karne ke liye use hoti hai.
-* `arch` -is command ka use system ka archotecture check karne ke liye kiya jaata hai.
-* `lsblk` - yaani list block is command ka use storage devices, disk partition, ki list dekhne ke liye kiya jaata hai.
-* `uname -a` -is command ks use os ke mame ko jaan ne ke liye hota hai linux mein , ki hum kis naam ke os ka use kar rahe hain, hostname se pata chal jaata hai ki konsa os hai, par hostname hum chnage bhi kar sakte hain, toh thoda detail mein jaane ke liye hum uname -a ka use kar sakte hain, iske ilava hum cat /etc/os-release karke bhi info le sakte hain, farq itna hai ki ye humare os ditribution ki details deta hai, aur uname -a humare kernel ki
-Linux mein /etc folder wo jagah hai jahan system ki saari configuration files aur metadata hota hai. /etc/os-release file mein OS ki identity key-value pairs mein save hoti hai.
+## SYSTEM INFO ##
 
+**WHAT is System Info?**
 
-PROCESS -linux meinprocess ka matlab hai koi chalta hua program, jab aap koi program ya command chlate ho toh process us code ko harddisk se uthakar ram mein load karta hai aur cpu ko deta hai isse hi process kehte hain, program- hard disk par rakhi hhui koi file ya code, ye tabb takk cpu par nhi jaata jab takk usse execute na kiya jaaye 
-Process (Active): Jab aap us program ko open ya run karte ho, toh woh RAM mein load hokar Process ban jata hai. Ek hi program ke multiple processes bhi ho sakte hain (jaise Firefox ke 5 alag-alag tabs kholne par 5 processes ban sakte hain). ismein pid, ppid, s, owner, resouce allocatio, states check hoti hain, jaise running r , slleping s/d , zombie z , stopped , pid yaani processs id har process ko linux process id eta hai 2233, parent process id, yaani har processs ko ksis dusre process ne stsrt kiya hota hota hai , usse ppid kehate hain, owner ye batana hai ki process kis user scoount ki perm se chal raha hai
-Resource Allocation: Process ko chalne ke liye RAM memory aur CPU cycles allocate hote hain.
+In Linux, 'system info' acts as an identity or information card and a 'health card' that provides information about the state of your operating system and the hardware on which your system is running on. It covers hardware specifications, including details about the CPU, RAM, SSD, and system architecture (e.g., whether the system is 64-bit (x86_64) or ARM (aarch64)).
 
-tra Flags (Symbols):
+It also includes information regarding software and the operating system, such as the OS distribution and release version, kernel, hostname, current operational and performance status, system uptime, load average (CPU load), and total running time.
+
+**IMPORTANT COMMANDS:**
+
+* **`hostname`** - to check hostname of your linux server, means the name of your vm (virtual machiine).
+
+```bash
+hostname
+```
+
+**EXAMPLE OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/1697e2a0-3c2e-4859-b6b3-67dc73619a5c" />
+
+---
+
+* **`lscpu`** - This command is used to check CPU/core/thread info.
+
+```bash
+lscpu
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/2fb0ec0f-e6e1-429f-ae74-c3127fafa071" />
+
+---
+
+* **`arch`** - This command is used to check the system's architecture.
+
+```bash
+arch
+```
+
+**EXAMPLE OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/8286c55e-6a3b-4f11-9797-b628cc95d0ba" />
+
+---
+
+* **`lsblk`** - This command is used to view a list of storage devices and disk partitions.
+
+```bash
+lsblk
+```
+
+**EXAMPLE OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/945b4fab-319e-44b5-8310-8f772792eed7" />
+
+---
+
+* **`uname -a`** - This command is used to check your Linux Kernel details. It tells you the exact kernel version and hardware type of the machine. The normal machine name (hostname) can be changed easily by anyone. If you want to know the true, hidden details of the inner system, you use uname -a.
+
+```bash
+uname -a
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/a220c67b-a410-487d-8b3e-93e405420b4b" />
+
+---
+
+* **`cat /etc/os-release`** - This command is used to check your OS Distribution (like Ubuntu, Mint, or CentOS). In Linux, the /etc folder is the main box where all system settings files are kept. It is a file that saves your OS name and version in simple key-value pairs (like NAME="Ubuntu").
+
+**SYNTAX:**
+
+* `cat /etc/<file_name>` - (*To find other system files.*)
+
+```bash
+cat /etc/os-release
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/02757bc3-39de-4f52-9dcd-9dd109d915d1" />
+
+---
+
+**MAIN DIFFERENCE:**
+* uname -a tells you about the internal Linux Kernel (the engine).
+* cat /etc/os-release tells you about the external OS Brand (the car model, like Ubuntu).
+
+---
+
+**UNDERSTANDING LINUX PROCESSES:**
+
+**PROGRAM & PROCESS:**
+To understand them easily, think of your favorite Video Game.
+
+**What is a Program?**
+
+* A program is like a Game CD sitting inside its box on the shelf.
+* Like Game CD, it is just code resting quietly on your hard disk or SSD (storage).
+* It does not use any RAM or CPU because it is doing nothing.
+
+**What is a Process?**
+
+* A process is like actually playing the game on your computer.
+* Like playing game on computer, When you click or run a program, Linux wakes it up (linux wakes the program to make it a process !!).
+* It moves the code into the RAM and starts using the CPU. Now it is alive and running!
+
+**UNDERSTANDING INFO:**
+* **PID (Process ID):** A unique number assigned to every running process (like a roll number).
+* **PPID (Parent Process ID):** The ID of the main program that started this current process.
+* **Owner:** The user account whose permissions are being used to run this process.
+* **Resource Allocation:** The exact amount of RAM and CPU cycles given to the process to do its work.
+* **State:** The current mood or status of the process. For example:
+R = Running actively.
+S or D = Sleeping (waiting for data).
+Z = Zombie (a dead process waiting to be cleaned up).
+T (Stopped): Paused by the user or system (example: using Ctrl + Z).
+
+Extra Flags (Symbols):
 +: Process foreground mein chal raha hai (aapke active terminal session par).
 
 <: High priority process.
