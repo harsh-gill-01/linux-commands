@@ -2679,26 +2679,141 @@ To understand them easily, think of your favorite Video Game.
 * **Owner:** The user account whose permissions are being used to run this process.
 * **Resource Allocation:** The exact amount of RAM and CPU cycles given to the process to do its work.
 * **State:** The current mood or status of the process. For example:
-R = Running actively.
-S or D = Sleeping (waiting for data).
-Z = Zombie (a dead process waiting to be cleaned up).
-T (Stopped): Paused by the user or system (example: using Ctrl + Z).
+**R** = Running actively.
+**S** or **D** = Sleeping (waiting for data).
+**Z** = Zombie (a dead process waiting to be cleaned up).
+**T (Stopped):** Paused by the user or system (example: using Ctrl + Z).
+**Extra Flags (Symbols) `info`:**
+`+:` Process foreground mein chal raha hai (aapke active terminal session par).
+`<:` High priority process.
+`N:` Low priority process.
 
-Extra Flags (Symbols):
-+: Process foreground mein chal raha hai (aapke active terminal session par).
+***IMPORTANT COMMANDS:**
 
-<: High priority process.
+* **`ps -ef`** - This command is Useful for quick `PID` lookups and **scripting**. It Provides a static (frozen) snapshot list of all system processes. When you need to find the PID (Process ID) or PPID (Parent Process ID) of a specific application. You can also use pipe (|) and grep to see only a specific application's PID OR other info.
 
-N: Low priority process.
+```bash
+ps -ef
+```
 
-* `ps -ef` -  1. ps -ef — Quick PID Lookup Aur Scripts Ke LiyeKaam: System ke saare processes ki ek static (ruki hui) snapshot list deta hai.Kab Use Karein: Jab aapko kisi specific app ka PID (Process ID) ya PPID (Parent Process ID) dhoondhna ho.Best Combination: Pipe grep ke sath test karna.Example: ps -ef | grep nginx (dekhne ke liye ki Nginx server chal raha hai ya nahi).
-* 2. ps aux — Memory, CPU % Aur Process States Dekhne Ke LiyeKaam: Yeh bhi static list deta hai, lekin isme CPU%, MEM%, aur STAT (Process State: R, S, Z, T) jaisi detailed information hoti hai.Kab Use Karein: Jab check karna ho ki kaunsa process kitni RAM/CPU kha raha hai ya process Zombie (Z) state mein toh nahi hai.Example: ps aux | grep python3.
-3.  top — Basic Live Monitoring (Har Server Par Available)Kaam: System resources (CPU, RAM, Load Average) aur processes ki real-time / live summary dikhata hai.Kab Use Karein: Jab aap kisi remote server par ho jahan koi extra tool install karne ki permission nahi hai.Khas Baat: Har Linux distribution mein pehle se inbuilt aata hai
-4. htop — Best Interactive Task Manager (Daily Use)Kaam: Visual, colorful, aur interactive live monitoring tool.Kab Use Karein: Daily system monitoring, individual CPU cores ki health dekhne, aur frozen apps ko bina PID type kiye directly terminate karne ke liye.Khas Baat: Isme shortcuts hain — F3 (Search), F5 (Tree View), F9 (Kill).
+**EXPECTED OUTPUT:**
 
-* `pgrep` -is command ka use pid yaani sirf process id pata karne ke liye kiya jaata hai, yeh tabb takk apko pid nhi dikhayegi jabb takk vo proces ram mein run nhi hota . pgrep -l <name> likhne se pid ke saath process name bhi aa jaata hai, kyunki kai baar ek naam se dusre process bhi hote hai, ye keval 'active running' process id hi dikhata hai, ye background services jaise cron (automation tool in linux), sshd (remote server ke liye),systemd (लिनक्स का मेन मैनेजर जो सबसे पहले चलता है)networkd / NetworkManager (इंटरनेट और वाईफाई संभालने वाला)2. यूज़र ऐप्स और सॉफ्टवेयर (User Application) यूज़र ऐप्स और सॉफ्टवेयर (User Applications)कोई भी सॉफ्टवेयर जो आपने खुद स्क्रीन पर खोल रखा है।chrome या firefox (ब्राउज़र)vlc (मीडिया प्लेयर)code (VS Code एडिटर)
-3. एक्टिव प्रोग्रामिंग स्क्रिप्ट्स (Running Scripts)अगर आप कोई कोड रन कर रहे हैं और वो जब तक चल रहा है।python3 (जब कोई पाइथन स्क्रिप्ट रन हो रही हो)bash या sh (टर्मिनल का अपना प्रोसेस)node (जावास्क्रिप्ट का बैकग्राउंड प्रोसेस)❌ pgrep किन चीज़ों का PID कभी नहीं दिखा सकता?बंद पड़े ऐप्स (Closed Apps): जो आपके कंप्यूटर में इंस्टॉल तो हैं (जैसे VLC), लेकिन अभी आपने उन्हें ओपन नहीं किया है।फाइलें और फोल्डर (Files/Folders): आपकी कोई मूवी, गाना या PDF फाइल (movie.mp4 या notes.txt) कोई प्रोसेस नहीं होती, इसलिए इनका PID नहीं होता।कन्फिगरेशन टूल्स (जैसे ufw): जैसा हमने पहले बात की, जो टूल्स सिर्फ सेटिंग बदलकर तुरंत बंद हो जाते हैं और बैकग्राउंड में लगातार नहीं चलते, उनका PID यह नहीं दिखा सकता।
-  
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/6972a044-667c-4476-8c16-f36b6b6678f4" />
+
+**SYNTAX:**
+
+* `ps -ef | grep <application_name>` (*For only a specific application.*)
+
+**EXAMPLE:** 
+
+* `ps -ef | grep ssh`
+
+```bash
+ps -ef | grep ssh
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/261c8c14-3400-4104-b51b-5180735d2235" />
+
+* ssh is the secure shell for accessing remote servers.
+Even, it looks like a lot of data, Linux filtered out hundreds of other processes and only showed these 4 lines because they contain the word ssh:
+* **Line 1 (`sshd`):** This is the main background master service running under the root user (PID 1252) that lets people connect to this server.
+* **Line 2 & 3 (`ssh-agent`):** These are small helper tools running under my user account (harsh) to manage my security keys.
+* **Line 4 (`grep --color=auto ssh`):** This is actually my own searched command that I typed! Linux is so fast that it catches our search activity as a process too.
+
+**NOTE:**
+
+* The above explanation of the output is according to my searched application ssh, if you search other application then output might be different. I just explained you above, as the above thing can also occur to you, so it's for knowledge and not confuse.
+
+---
+
+* **`ps aux`** — This command is used to view memory, CPU percentage, and process states like sleeping, running etc. This also provides a static list, but it includes detailed information such as CPU%, MEM%, and STAT (process state: R, S, Z, T). When you need to check how much RAM or CPU a specific process is consuming, or to determine process state, usually Z (zombie) state of any process could be a problem. You can use pipe and grep for specific single search for this command also.
+
+```bash
+ps aux
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="Screenshot 2026-11-07 151043" src="https://github.com/user-attachments/assets/a5fe77e3-2741-4ef2-927e-32cdae633eb5" />
+
+**EXAMPLE:** (With pipe and grep)
+
+* `ps aux | grep ssh`
+
+```bash
+ps aux | grep ssh
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="Screenshot 2026-11-07 151523" src="https://github.com/user-attachments/assets/319c38ad-fc5c-4a25-8a76-dfd819d8d6e7" />
+
+---
+
+* **`top`** — This is used for basic live monitoring (available on every server). It displays a real-time/live summary of system resources (CPU, RAM, load average) and processes. When you are on a remote server where you do not have permission to install additional tools, you can use this command. It comes pre-installed on every Linux distribution.
+
+```bash
+top
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/76c84d6f-d8b4-4aa2-9a7b-f440668464d8" />
+
+---
+
+* **`htop`** — This is used as an interactive task manager (for daily use). It is used for daily system monitoring, checking the health of individual CPU cores, and terminating frozen apps directly—without needing to enter a PID. It is a visual, colorful, and interactive live monitoring tool. It Includes shortcuts like, F3 (Search), F5 (Tree View), and F9 (Kill) etc.
+
+```bash
+htop
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/cabb77c4-6c23-4136-bb20-7dc63341ecf7" />
+
+---
+
+* **`pgrep`** - This command is used to find the PID (Process ID). It will not display a PID unless the process is actively running in the RAM. This command only displays the IDs of 'actively running' processes, including background services such as `cron` (an automation tool in Linux), `sshd` (for remote server access), `systemd` (the primary Linux manager that starts first), and `networkd`/`NetworkManager` (which handles internet and Wi-Fi connections). It covers user applications, software, running scripts etc.. If you run firefox  from your vm terminal, then it will also become a process.
+
+
+**SYNTAX:**
+
+* `pgrep <process_name>` (*To see only PID of a process.*)
+* `pgrep -l <process_name>` (*To see name of the process with PID.*)
+
+**NOTE:**
+As you can see above in the example of ps -ef command (ps -ef ssh), there were 3 different processes from one name ssh, so in case, we want to know if there are other related processes from the same name, we can use pgrep -l <process_name> command.
+
+**EXAMPLE:**
+
+* `pgrep ssh`
+* `pgrep -l ssh`
+
+```bash
+pgrep ssh
+```
+```bash
+pgrep -l ssh
+```
+
+**EXPECTED OUTPUT:**
+
+* **`pgrep ssh` command:**
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/b1c1d8d1-e821-428a-adad-8edc7995462d" />
+
+* **`pgrep -l ssh` command:**
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/5e7847fc-1435-48a3-9eef-c9cf4bafdb70" />
+
+---
+
+**For which items can `pgrep` never show a PID?**
+* Closed apps, Applications that are installed on your computer (such as VLC) but have not been opened. Files and folders, Items like a movie, a song, or a PDF file (e.g., `movie.mp4` or `notes.txt`) are not processes, therefore, they do not have a PID. Configuration tools (such as `ufw`), As mentioned earlier, tools simply modify settings and then immediately exit, they don't run continuously in the background. So, they do not have a PID that `pgrep` can display.
+
+---
+
 * `kill`  2. pgrep कमांड (जासूस कमांड)यह कमांड रैम (RAM) के अंदर झाँक कर देखती है कि कौन सा प्रोग्राम इस समय एक्टिव यानी रनिंग कंडीशन में है।नियम: इस कमांड को एक बार में सिर्फ एक ही शब्द (पैटर्न) खोजने के लिए दिया जा सकता है। अगर आप स्पेस देकर दो शब्द लिखेंगे (जैसे: pgrep google chrome), तो एरर आ जाएगा।शर्त: यह बंद पड़े ऐप्स या नॉर्मल फाइलों (जैसे इमेज, वीडियो या पीडीएफ) की आईडी नहीं दिखा सकता।उपयोगी फ्लैग (-l): कमांड के साथ स्मॉल एल (-l) लगाने से केवल नंबर नहीं, बल्कि प्रोसेस का नाम भी लिस्ट के रूप में साफ़-साफ़ दिखाई देता है।3. प्रोग्राम को बंद करना: kill बनाम systemctlअक्सर लोग इन दोनों में कन्फ्यूज हो जाते हैं, लेकिन दोनों का काम बिल्कुल अलग है:सिस्टमctl (systemctl stop)यह केवल उन बैकग्राउंड सर्विसेस (जैसे Nginx सर्वर, SSH या फ़ायरवॉल) को रोकने के लिए है जो सिस्टम के साथ रजिस्टर होती हैं। यह नॉर्मल ऐप्स (जैसे Chrome या आपकी Python स्क्रिप्ट) को बंद नहीं कर सकता।किल कमांड (kill)यह सिस्टम में चल रहे किसी भी छोटे-बड़े प्रोसेस को उसकी PID नंबर के जरिए अस्थायी रूप से (Temporarily) बंद कर देता है। यह प्रोग्राम को कंप्यूटर से डिलीट नहीं करता, सिर्फ रैम से हटा देता है।इसके दो मुख्य तरीके हैं:केवल kill [PID]: यह सबसे सुरक्षित और समझदार तरीका है। यह प्रोग्राम को तमीज से अपनी फाइलें सेव करके बंद होने का सिग्नल देता है। हमेशा पहले इसी का इस्तेमाल करना चाहिए।kill -9 [PID]: यह ज़बरदस्ती बंद करने का तरीका है। जब कोई प्रोग्राम या स्क्रिप्ट बुरी तरह हैंग (Freeze) हो जाए और बात न सुने, तब इसका इस्तेमाल आखिरी रास्ते के रूप में किया जाता है।नाम से बंद करना (pkill)अगर आपको किसी प्रोसेस का PID नंबर नहीं पता और आप सीधे नाम से उसे बंद करना चाहते हैं, तो kill की जगह pkill कमांड का इस्तेमाल किया जाता है (जैसे: pkill chrome)।भाई, यह ड्राफ्ट एकदम तैयार है! क्या इसमें Nginx, Java या Chrome का कोई और उदाहरण जोड़ना है, या तुम इसे अब इंग्लिश में ट्रांसलेट करने की तैयारी करना चाहते हो? मुझे बताओ भाई!
 pkill -9 bhi kar sakte hain, jab name se toh band karna hi ho, par jab forcefully ban karna ho atbb jaise kill ke saath kiya tha, sirf pause karna ho toh kill -stop pid, aur cont ya resume karna ho toh, kill -cont pid. pkill ya kill command se tempo cheez sirf pc ke on rehne takk hi off hoti hai, dubara on karne par automatic backend mein chalu ho jayegi. ye cheez sirf services par laagu hoti hai, jaise nginx, java etc.
 
