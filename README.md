@@ -2830,10 +2830,15 @@ Many beginners get confused between `kill` and `systemctl`, but they do complete
 Linux gives you different ways to stop, force-close, or pause a process depending on the situation:
 
 * `kill <PID>` **(The Safest Way):** This sends a gentle signal to the program to close nicely. It gives the app time to save its **files and data** before shutting down. Always use this as your first choice.
+  
 * `kill -9 <PID>` **(Force-Close):** Use this only when a program freezes or becomes **completely unresponsive**. It instantly **kills** the process from the `RAM` without saving any **files**. This should be used as a last option.
-* `pkill <Process_Name>` **(Kill by Name):** If you do not know or want to check the `PID` number first, you can close the program directly by using its name (**Example:** `pkill firefox`). 
+  
+* `pkill <Process_Name>` **(Kill by Name):** If you do not know or want to check the `PID` number first, you can close the program directly by using its name (**Example:** `pkill firefox`).
+
 * `pkill -9 <Process_Name>` **(Force Kill by Name):** This force closes a **frozen application** instantly by typing its name instead of its `PID`.
+
 * `kill -STOP <PID>` **(Pause Process):** This does not close the process. It simply pauses or **freezes** it in time so it stops using the CPU.
+
 * `kill -CONT <PID>` **(Resume Process):** This **unpauses** and **resumes** a process that you previously stopped with the `-STOP` signal.
 
 **Use `sleep` command for testing:**
@@ -2847,7 +2852,7 @@ To show examples of `kill` and `pkill` without stopping important system tasks, 
 * `kill -STOP 17231`
 * `kill -CONT 17231`
 
-* Since `PID` numbers change every time on every system, we have listed only the base commands here. You can easily copy the exact command name from below (or can write by yourself), paste it into your terminal, and type your own system's PID number or name right after it.
+* Since `PID` numbers change every time on every system, I have listed only the **base commands** here. You can easily copy the exact **command name** from below (or can write by yourself), paste it into your terminal, and type your own **system's `PID` number** or name right after it.
 
 ```bash
 kill
@@ -2868,7 +2873,7 @@ kill -STOP
 kill -CONT
 ```
 
-* We did not provide exact `PID` numbers because your system will show different numbers. Do not try to copy any specific numbers from the examples. Just type `sleep <seconds>s &` to create your own safe background task, copy the base command from the list above, add your own `PID`, and start practicing!
+* I did not provide exact **`PID` numbers** because your system will show different numbers. Do not try to **copy** any specific numbers from the examples. Just type **`sleep <seconds>s &`** to create your own safe background task, copy the base command from the **list** above, add your own `PID`, and start practicing!
 
 **EXPECTED OUTPUTS:**
 
@@ -2895,7 +2900,9 @@ kill -CONT
 **IMPORTANT NOTE:**
 
 * **Temporary Fix for Services:** When you use `kill` or `pkill` on system services (like `nginx` or a `java` application), it completely terminates the active running process right now. However, this is only true as long as the **PC stays on**.
+
 * **The Restart Behavior:** Once you reboot or **restart** the system, Linux will automatically start these background services again.
+
 * **How to stop them forever?** If you want to stop a background service permanently so that it never auto-starts after a reboot, you must use the `systemctl disable <service_name>` command instead.
 
 ----
