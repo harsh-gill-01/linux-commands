@@ -2818,13 +2818,12 @@ pgrep -l ssh
 It removes the active process directly from the `RAM` using its `PID` **(Process ID)** number. It does **not delete** the actual program **file** from your hard drive or SSD.
 
 **COMMON CONFUSION: `kill` VS `systemctl`**
+
 Many beginners get confused between `kill` and `systemctl`, but they do completely different things:
 
 * **`systemctl`** **(For Background Services):** This is used only for official background tools managed by the system (like an **Nginx web server**, **SSH**, or a **firewall**). You use commands like `systemctl stop <service>` to turn them off nicely. It cannot be used to close standard daily apps.
+
 * **`kill` (For Everyday Applications):** This is used to close regular **programs**, **scripts**, or **apps (like Google Chrome, a Python code running** in the terminal, or any app that freezes) forcefully or normally. You just find its `PID` number and pass it to `kill`.
-
-* People often get confused between `kill` and `systemctl`, but they do entirely different purposes. `systemctl` (e.g., `systemctl stop or disable <application_name>`) is used exclusively for stopping background services, such as an Nginx server, SSH, or a firewall, that are registered with the system. It cannot be used to terminate standard applications (like Chrome or your Python scripts). On the other hand, 'kill' command allows you to terminate any process, without caring about it's size, currently running on the system by using its PID (Process ID) number.
-
 
 **Options & Conditions to Stop a Process:**
 
@@ -2891,15 +2890,15 @@ kill -CONT
 
 * **`kill -STOP 17231` & `kill -CONT 17231` commands:**
 
-* <img width="400" alt="Screenshot 2026-11-08 142252" src="https://github.com/user-attachments/assets/52c9f3d2-a28b-47c5-abf7-7592a0ef8d7c" />
+<img width="400" alt="Screenshot 2026-11-08 142252" src="https://github.com/user-attachments/assets/52c9f3d2-a28b-47c5-abf7-7592a0ef8d7c" />
  
- **IMPORTANT NOTE:**
+**IMPORTANT NOTE:**
 
 * **Temporary Fix for Services:** When you use `kill` or `pkill` on system services (like `nginx` or a `java` application), it completely terminates the active running process right now. However, this is only true as long as the **PC stays on**.
 * **The Restart Behavior:** Once you reboot or **restart** the system, Linux will automatically start these background services again.
 * **How to stop them forever?** If you want to stop a background service permanently so that it never auto-starts after a reboot, you must use the `systemctl disable <service_name>` command instead.
 
-
+----
 
 **JOBS:**
 terminal mein hum jo bhi command ya program chalate hain, usi ko hum jobs kehte hain, jab aap ek taraf gaana vagaira download kar rahe hote hain aur dusri taraf coding karni hoti hai tab jobs play mein aati hain
