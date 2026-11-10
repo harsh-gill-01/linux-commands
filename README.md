@@ -2907,27 +2907,131 @@ kill -CONT
 
 ----
 
-**JOBS:**
-terminal mein hum jo bhi command ya program chalate hain, usi ko hum jobs kehte hain, jab aap ek taraf gaana vagaira download kar rahe hote hain aur dusri taraf coding karni hoti hai tab jobs play mein aati hain
-* fg foreground- jab aap koi command chalate hain aur terminal ki screen block ho jaati hai, aap agli command tabb takk nhi chala sakte, jab takk vo kaam pura nhi ho jaata.
-* bg backgroung- isme aap apne ek kaam ya job ko background mein bhej dete ho, taaki vo background mein complete ho jaye, aur aapka terminal bhi free rahe jis par aap apna dusra kaam kar sakte ho, vo bacground wala kaam kahtam ho jayega.
+## JOBS ## 
 
-**commands** 
--jobs - is command ka use background mein chal rahi saari jobs aur paused jobs ko dikhati hai, jo bg mein active hoti hain `jobs`
--ctrl + z - iska use kisi shuru kiye kaam ko pause karne ke liye hota hai, bg mein kaam pause ho jaata.
--bg -is command ka use bg mein kisi kaam ko chlau karne ke liye kiya jaata hai, taaki terminal free rahe, aur bg mein vo kaam pura bhi ho jaaye, 
-syntax bg <%job_id> same aise hi fg yaani foreground ka hi hai.
-1- =current job ko darsaati hai, 1- ka matlab hai pichli job, 2 ka matlab hai current job, 2- ka matlab hai pichli job.
- * `nohup ./script >dev/null &` -is command ka use kisi script ya program ko bg mein run karne ke liye liya jaata.
+**What are jobs in Linux?**
+
+In simple words, any command or program that we run in the terminal is referred to as a 'job.' Jobs come into play, for instance, when you are downloading a file while simultaneously working on coding. In other words, when we are multitasking, these jobs become significant, as they help us manage our multitasking activities.
+
+**There are two kinds of jobs in linux:**
+* **`fg` (foreground)** - When you run a command in the terminal and the terminal screen becomes blocked, you cannot execute the next command until that task is complete.
+
+* **`bg` (background)** - In this, you can send a task or job to the background so that it completes there, while your terminal remains free for you to work on other tasks; the background task will eventually finish on its own.
+
+**IMPORTANT COMMANDS:**
+
+* `jobs` - The `jobs` command displays all jobs running in the background, as well as any paused jobs that are currently active.
+  
+* `CTRL + z` - This is used to pause a task that has been started; the task is then put into a 'paused' state.
+
+* `bg` - This command is used to run a task in the background, allowing the terminal to remain free while the task continues to completion.
+  
+**SYNTAX:**
+* `bg <%job_id>`
+
+**EXAMPLE:**
+* `bg `
+
+```bash
+
+```
+
+**EXPECTED OUTPUT:**
 
 
-* `ip a` -is command ka use ip address check karne ke liye kiya jaata hai, ye aapke linux server ka ip batata hai, jo public hota hai.
+* `fg` - This command is used to run a task in the foreground means, it will lock the terminal until the task completes.
 
-* HOW TO CHECK IF A WEBSITE IS ACCESSIBLE OR NOT
-* 
-* curl -I https://google.com command ka use hota hai, http status check karne ke liye, ki website sahi work kar rahi hai ya nhi, agar kar rahi hai toh http/2 301/302 ayega.. agar 500/404 aata hai toh connection timeout ho jata hai , matlab gadbad hai koi toh.
-* ping -c 4 google.com -is command ka use ye dekhne ke liye hota hai ki server jinda hai ya nhi, ye packets bhejta hai chote chote, -c 4 humnein isiliye use kiya ki bas 4 packets hi bhejo, aisa isliye kiya kyunki zyada likhne ya normal chlane se commnd, kaafi packets bhejkar check karti hai, agar 0 packets lost aaye aur ms mein answer aaye toh badhiya hai
-* wget --spider https://google.com, ka use bina kuch download kiye sirf check karne ke liye kiya jaata hai, agar neeche remote file exists aa gaya toh matlab sab set hai, iska use basically automation running scripts ka quick check karne ke liye hota hai.
+**SYNTAX:**
+* `fg &<job_id>`
+
+**EXAMPLE:**
+* `fg`
+
+```bash
+
+```
+
+**EXPECTED OUTPUT:**
+
+
+**IMPORTANT INFO:**
+
+* [1]- = It depicts the first or previous job that we ran. In case, we ran two jobs one after the other in the bg and now when we will check by using jobs command, the job that we ran first will have the job id [1]-. This thing is same for all numbers. First, when we run a single job and check then there will be + sign after the job number[1]+, this is because this is our first job and now when we add one another job with the previous job, then output will come of two jobs like this- [1]- and [2]+. it will become - sign for the first one, thus depicting that it was our previous job and the second job will be depicted by + sign as it will be our current job and so on with other numbers like3,4,5,... according to our jobs.
+
+
+ * `nohup ./script >dev/null &` - This command is used to run a script or program in the background. But, there is not written `bg` so, how it will run in the background? The ampersand sign (&) at the end of the command will run it in the background.
+
+* `ip a` - This command is used to check the IP address; it reveals the IP address of your Linux server, which is a public IP.
+
+```bash
+ip a
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/29b9e312-6cfb-4033-998b-b6c3dc15f6d5" />
+
+
+## HOW TO CHECK IF A WEBSITE IS ACCESSIBLE OR NOT ## **(Dealing with different websites from the terminal)**
+
+ 
+* **`curl -I https://<website_name>`** - This command is used to check the HTTP status and determine whether a website is functioning correctly. If it is working properly, you will see an HTTP 200, 301, or 302 status code. If you get a 500 or 404 error, or a connection timeout, it means something is wrong.
+
+**SYNTAX:**
+
+* `curl -I https://<website_name>`
+
+**EXAMPLE:**
+
+* `curl -I https://google.com`
+
+```bash
+curl -I https://google.com
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/d39b07f5-008e-450b-b1ef-14c1dd03e3b6" />
+
+---
+
+* **`ping -c 4 <website_name>`** - This command is used to check whether a server is up or not; it sends small packets. We used `-c 4` to restrict it to sending only 4 packets—this is because, by default (or if run without this flag), the command would send a large number of packets. If the result shows 0 packets lost and provides a response time in milliseconds (ms), then everything is working as expected.
+
+**SYNTAX:**
+
+* `ping -c <packet_number> <website_name>`
+
+**EXAMPLE:**
+
+* `ping -c 4 google.com`
+
+```bash
+ping -c 4 google.com
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/d9c868e4-ef0d-467c-9cd9-e8ea52e10256" />
+
+---
+
+* **`wget --spider https://<website_name>`** - This command is used solely for verification purposes, without downloading anything; if the message "remote file exists" appears, it means everything is set. Essentially, it serves as a quick check for automated scripts.
+
+**SYNTAX:**
+* `wget --spider https://<website_name>`
+
+**EXAMPLE:**
+* `wget --spider https://google.com`
+
+```bash
+wget --spider https://google.com
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/d306e19f-27e6-46f8-8ae7-a6ad5ff06bc7" />
+
+---
 
  नेटवर्किंग इन्फो में मुख्य रूप से 3 चीज़ें देखी जाती हैं:
 1. IP Address (आईपी एड्रेस): आपके कंप्यूटर का डिजिटल घर का पता। (जैसे आपके घर का एड्रेस होता है, वैसे ही इंटरनेट पर कंप्यूटर का पता होता है)।
