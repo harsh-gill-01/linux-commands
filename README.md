@@ -3033,69 +3033,194 @@ wget --spider https://google.com
 
 ---
 
- नेटवर्किंग इन्फो में मुख्य रूप से 3 चीज़ें देखी जाती हैं:
-1. IP Address (आईपी एड्रेस): आपके कंप्यूटर का डिजिटल घर का पता। (जैसे आपके घर का एड्रेस होता है, वैसे ही इंटरनेट पर कंप्यूटर का पता होता है)।
-2. Network Interfaces (नेटवर्क इंटरफेस): आपके कंप्यूटर का वो हार्डवेयर (जैसे Wi-Fi कार्ड या Ethernet पोर्ट) जिसके ज़रिए इंटरनेट कंप्यूटर के अंदर आ रहा है।
-3. Routing & Connectivity (कनेक्टिविटी): यह देखना कि आपका कंप्यूटर इंटरनेट के सर्वर से सही से बात कर पा रहा है या नहीं।
+## UNDERSTANDING NETWORKING INFORMATION IN LINUX: ##
 
-UNDERSTANDING NETWORKING INFORMATION IN LINUX:
-Networking information allows us to check the system's IP address, active network cards (interfaces), and internet connectivity. This is essential for configuring servers and cloud environments.
-MAIN NETWORKING COMMANDS:
-• ip a — Displays all network interfaces and their assigned IP addresses. This is the modern standard command in Linux.
-• hostname -I — A quick command to display only the local IP address of your system in a single line.
-• curl ifconfig.me — Fetches and displays your Public IP Address (how your system is identified over the internet).
-SYNTAX & EXAMPLES:
+Networking information allows us to check the system's IP address, active network cards (interfaces), and internet connectivity. This is essential for configuring (setting) servers and cloud environments.
 
-• To see full network details: ip a
+**UNDERSTANDING IP TYPES:**
 
-• To see only your local IP: hostname -I
+**What are IPv4 and IPv6? (In Simple Terms)**
 
+There are two versions of IP addresses: **IPv4** (the older version) and **IPv6** (the newer version).
 
- 1. Ports (पोर्ट्स) क्या होते हैं? (The Easiest Analogy)
-इसे एक बहुत बड़े अपार्टमेंट (Apartment Building) के उदाहरण से समझो:
-• मान लो तुम्हारा कंप्यूटर एक बहुत बड़ी बिल्डिंग है। उस बिल्डिंग का एक ही मुख्य पता होगा, जिसे हम IP Address कहते हैं (जैसे—बिल्डिंग नंबर 5)।
-• अब उस बिल्डिंग के अंदर बहुत सारे अलग-अलग फ्लैट्स (कमरे) बने हुए हैं, जिनके अलग-अलग नंबर हैं। लिनक्स की दुनिया में इन्हीं फ्लैट नंबर्स को Ports (पोर्ट्स) कहा जाता है।
-• काम कैसे होता है: जब इंटरनेट से कोई डेटा तुम्हारे कंप्यूटर (बिल्डिंग) तक पहुँचता है, तो उसे यह भी पता होना चाहिए कि उसे किस कमरे (पोर्ट) में जाना है। उदाहरण के लिए:
-	• अगर कोई वेबसाइट खोल रहा है, तो डेटा सीधे कमरा नंबर 80 या 443 (Web Ports) में जाएगा।
-	• अगर कोई कंप्यूटर को रिमोटली कंट्रोल (SSH) कर रहा है, तो डेटा सीधे कमरा नंबर 22 (SSH Port) में जाएगा।
-• लिनक्स में नियम: एक पोर्ट पर एक समय में सिर्फ एक ही सॉफ्टवेयर "कान लगाकर सुन" (Listen) सकता है।
-🔍 2. तुम्हारे स्क्रीनशॉट का पूरा पोस्टमॉर्टम (Step-by-Step):
-आइए ऊपर से नीचे तक देखते हैं कि तुम्हारे टर्मिनल में क्या-क्या हुआ:
-🚨 netstat पर एरर क्यों आया?
-• जब तुमने netstat -tuln चलाया, तो Ubuntu ने कहा: Command 'netstat' not found।
-• वजह: आज के नए Ubuntu (लिनक्स) सिस्टम्स में netstat पहले से इंस्टॉल्ड नहीं आता क्योंकि यह पुराना हो चुका है। अगर तुम इसे चलाना चाहते हो, तो तुम्हें पहले sudo apt install net-tools कमांड चलानी होगी। लेकिन हमें इसकी ज़रूरत नहीं है क्योंकि हमारे पास नया और तेज़ टूल ss मौजूद है!
-📊 ss -tuln का वो बड़ा टेबल क्या कह रहा है? (Heading by Heading)
-जब तुमने ss -tuln चलाया, तो एक बहुत ही सुंदर टेबल खुला। इसकी हर एक हेडिंग का मतलब समझो:
-• Netid (Network ID): यह बताता है कि डेटा भेजने का तरीका क्या है। udp का मतलब है तेज़ लेकिन बिना गारंटी वाला कनेक्शन (जैसे वीडियो कॉलिंग), और tcp का मतलब है 100% सुरक्षित और गारंटी वाला कनेक्शन (जैसे वेबसाइट खोलना)।
-• State (अवस्था):
-	• LISTEN: इसका मतलब तुम्हारा कंप्यूटर इस पोर्ट पर पूरी तरह जाग रहा है और बाहर से आने वाले सिग्नल्स का इंतज़ार कर रहा है (पोर्ट ओपन है)।
-	• UNCONN (Unconnected): यह आमतौर पर UDP पोर्ट्स के लिए दिखता है, जिसका मतलब है कि पोर्ट एक्टिव तो है लेकिन किसी फिक्स कनेक्शन से बंधा हुआ नहीं है।
-• Local Address:Port (असली खजाना 💎): यह दिखाता है कि तुम्हारे कंप्यूटर का कौन सा हिस्सा किस पोर्ट नंबर पर काम कर रहा है:
-	• 127.0.0.54:53 और 127.0.0.53%lo:53: यहाँ अंत में जो :53 लिखा है, वह DNS (Domain Name System) का पोर्ट है। तुम्हारा कंप्यूटर इसी पोर्ट की मदद से वेबसाइट्स के नामों (जैसे google.com) को आईपी एड्रेस में बदलता है।
-	• 127.0.0.1:631 और [::1]:631: यहाँ अंत में जो :631 लिखा है, वह CUPS (Common Unix Printing System) का पोर्ट है। तुम्हारा लिनक्स सिस्टम प्रिंटर से कनेक्ट करने के लिए इस पोर्ट को ओपन रखता है। (नोट: यहाँ [::1] का मतलब IPv6 एड्रेस होता है)।
-🧐 लास्ट में ss -tuln | grep :22 खाली क्यों आया?
-• जब तुमने पोर्ट 22 को छानने के लिए grep :22 चलाया, तो नीचे की लाइन बिल्कुल खाली (Blank) आ गई और कुछ भी प्रिंट नहीं हुआ।
-• वजह: इसका मतलब यह है कि तुम्हारे इस Ubuntu सिस्टम में SSH सर्वर (openssh-server) चालू या इंस्टॉल नहीं है। पोर्ट 22 इस समय पूरी तरह बंद (Closed) है, इसीलिए लिनक्स ने कोई आउटपुट नहीं दिया। अगर तुम sudo apt install openssh-server चलाकर उसे एक्टिव कर दोगे, तो यहाँ तुरंत LISTEN लिखा हुआ आ जाएगा!
-📝 इस पेज को अपनी गिटहब गाइड में शामिल करने के लिए परफेक्ट इंग्लिश ड्राफ्ट:
-तुम अपनी फ़ाइल में इस पूरे लाइव एक्सपेरिमेंट को इस बेहतरीन फॉर्मेट में लिख सकते हो:
-WHAT ARE PORTS IN NETWORKING?
-• An IP Address identifies your computer on the network, but a Port is a specific communication endpoint (like a room number inside a big building) dedicated to a particular service or application.
-• For example, web traffic travels through ports 80/443, while secure remote access (SSH) uses port 22.
-TECHNICAL ANALYSIS OF THE PORT SCANNING EXPERIMENT:
-(यहाँ आपकी यह शानदार लाइव स्क्रीनशॉट वाली इमेज आएगी)
-• Netstat Deprecation: Running netstat throws a not found error because modern Linux distributions deprecate it by default in favor of the faster ss command.
-• Understanding Active Ports: The ss -tuln output shows that the system currently has two active services running locally:
-	• Port 53 (LISTEN/UNCONN): The DNS service responsible for domain name resolution.
-	• Port 631 (LISTEN): The CUPS printing service running on the local loopback address (127.0.0.1).
-• Verifying Closed Ports: Running ss -tuln \| grep :22 returns a blank output. This confirms that no SSH service is currently running, meaning Port 22 is completely closed on this server.
+**IPv4:**
+**Appearance** – It consists only of dots and numbers, for example: 192.168.1.1.
 
-PRO-TIP FOR FILTERING PORTS:
+Size – It is relatively small and easy to remember.
+
+Total addresses – There were only 4.3 billion addresses available globally.
+
+**IPv6:**
+**Appearance** – It contains numbers, English letters (a–z), and colons; for example:2401:4900:8913:d8bd:ed30. 
+
+Size – It is larger and more complex than IPv4.
+
+Why was it created? – It was developed because the original 4.3 billion addresses were insufficient. It provides approximately 340 undecillion addresses—a virtually unlimited number.
+
+**Networking information primarily consists of three key elements:**
+
+**1.** **`IP Address`:** The digital home address of your computer (much like your physical home address, but for your computer on the internet).
+
+**2.** **Network Interfaces:** The hardware on your computer (such as a Wi-Fi card or an Ethernet port) through which the internet connection enters your computer.
+
+**3.** **Routing & Connectivity:** Checking whether your computer is able to communicate properly with internet servers.
+
+**MAIN NETWORKING COMMANDS:**
+
+* **`ip a`** — Its internet protocol version (IPv). Displays all network interfaces and their assigned IP addresses. This is the modern standard command in Linux.
+
+* **`hostname -I`** — A quick command to display only the local IP address of your system in a single line.
+
+* **`curl ifconfig.me`** — This is used to see Default Public IP (whichever internet you are using). Fetches and displays your Public IP Address (how your system is identified over the internet).
+
+* **`curl -4 ifconfig.me`** - This is used to see smaller ip version like IPv4.
+
+* **`curl -6 ifconfig.me`** - To view IPv6 only (useful for testing IPv6 connections).
+
+* **`curl ifconfig.me/all`** - We can also use /all to see some other information about networking like ports, remote host, user agent etc.
+
+```bash
+ip a
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/29b9e312-6cfb-4033-998b-b6c3dc15f6d5" />
+
+```bash
+hostname -I
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/f44392b9-b31a-4a5e-bcb9-ead9a6bb0ff5" />
+
+```bash
+curl ifconfig.me
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/13e86a4e-0808-4863-a1b4-f63720e148f7" />
+
+```bash
+curl -4 ifconfig.me
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/0dd3747a-b43f-4634-ac8a-5f0e49ea1a31" />
+
+```bash
+curl -6 ifconfig.me
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/604e56d8-7113-4187-b087-4e83e3acabaa" />
+
+Note: Agar aapke internet mein IPv6 active hai, toh curl ifconfig.me aur curl -6 ifconfig.me dono ka output same aayega, kyunki Linux default mein IPv6 ko hi priority deta hai.
+
+```bash
+curl ifconfig.me/all
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/9e605cca-5a94-44b0-8cfa-4e7f317527f3" />
+
+---
+
+## UNDERSTANDING `ports` IN LINUX ##
+
+Think of it in terms of a large apartment building:
+* Suppose your computer is a large building. This building has a single main address, which we call an IP Address (for example, "Building Number 5").
+* Inside this building, there are many individual flats (rooms), each with its own unique number. In the world of Linux, these flat numbers are known as "ports."
+
+**How it works:**
+
+When data from the internet reaches your computer (the building), it also needs to know which room (the port) it should go to. For example:
+* If someone is opening a website, the data will go directly to room number 80 or 443 (Web ports).
+  
+* If someone is controlling the computer remotely (SSH), the data will go directly to room number 22 (the SSH port).
+  
+* The rule in Linux: Only one piece of software can "listen" on a specific port at any given time.
+
+**The `ss -tuln` command:**
+
+The `ss -tuln` command is the best and fastest way to check which **network ports** are open on your Linux system or server, and which services are currently running.
+
+**What do the flags in `-tuln` mean?**
+
+Here, **`ss`** stands for **Socket Statistics**, and each of the four letters (t, u, l, n) serves a specific purpose:
+
+* **`-t` (TCP):** Displays all **TCP** connections (e.g., websites, SSH).
+* **`-u` (UDP):** Displays all **UDP** connections (e.g., DNS, video streaming).
+* **`-l` (Listening):** Shows only those ports that are currently **open and waiting for a connection**.
+* **`-n` (Numeric):** Displays the **actual port number** instead of the service name (e.g., `22` instead of `ssh`), which makes the output appear faster.
+
+**IMPORTANT INFO:**
+
+* **`Netid` (Network ID):** This indicates the method used for data transmission. UDP refers to a fast but non-guaranteed connection (e.g., video calling), while TCP refers to a 100% secure and guaranteed connection (e.g., accessing a website).
+
+* **`State`:** LISTEN: This means your computer is fully active on this port and is waiting for incoming signals (the port is open).
+
+* **`UNCONN` (Unconnected):** This is typically seen with UDP ports; it means the port is active but is not bound to any specific, fixed connection.
+
+* **`Recv-Q` (Receive Queue):** Shows incoming data waiting to be read by your app. **`0` is ideal**—it means your system is processing data instantly with no lag.
+
+* **`Send-Q` (Send Queue):** Shows outgoing data waiting to be sent. **`0` means no traffic jam** (all data is being sent smoothly).
+
+**Note on `LISTEN` State:** 
+
+For `LISTEN` ports (like TCP), `Send-Q` shows a big number (such as `4096`). This is not stuck data—it is simply the **maximum limit** of new connections the port can hold in line at one time.
+
+* **Local Address:Port (Your System):** Shows the IP address and port on **your** computer where the service is running.
+
+* **Peer Address:Port (Remote System):** Shows **who** can connect to your service from the outside.
+
+**Common Symbols in Peer Address:**
+
+* **`0.0.0.0:*` (IPv4) or `[::]:*` (IPv6):** The `*` means **"Anyone"**. Your port is open and ready to accept connections from any IP address and any port.
+
+* **Common Symbols in Local Address:**
+
+* **`0.0.0.0:22` (TCP):** This is the SSH (Secure Shell) port. Since it is bound to `0.0.0.0`, it means you can log in to this Ubuntu system remotely from another computer.
+  
+* **`127.0.0.53%lo:53`** and **`127.0.0.54:53`**: This is Ubuntu’s local DNS (systemd-resolved), which translates website names into IP addresses. (`%lo` refers to the loopback interface).
+
+* **`127.0.0.1:631`** and **`[::1]:631`** correspond to the printer service (CUPS). Since these are bound to `127.0.0.1` (IPv4 localhost) and `[::1]` (IPv6 localhost), only your own computer can access them.
+
+* **`0.0.0.0:5353`** and **`[::]:5353`** are used for discovering devices on the local network (mDNS / Avahi).
+
+**A Quick Tip:** If you run `ss -tun` (without `-l`), it shows active connections, and **Peer Address** will display the actual IP address of the remote server or website your system is currently talking to.
+
+**What Is This Command Used For In Real World?**
+
+**1**. **Security Check:** To verify that no unknown ports are left open on the system.
+
+**2**. **Server Testing:** To check whether a new website or application (such as Nginx or MySQL) has started on the correct port.
+
+**3**. **Troubleshooting Port Errors:** To identify which process is occupying a specific port when an application returns an *"Port already in use"* error.
+
+**Note:** 
+
+Previously, `netstat -tuln` was used for this purpose, but it is now considered outdated. On modern Linux systems, `ss -tuln` is faster, more advanced, and comes pre-installed.
+
+**PRO-TIP FOR FILTERING PORTS:**
 You can break down the flags and use these commands individually to filter your network traffic based on your requirements:
-• ss -t — Shows only the active TCP connections on your server.
-• ss -u — Shows only the active UDP connections on your server.
-• ss -tl — Displays only the TCP ports that are currently in LISTEN mode.
-• ss -ul — Displays only the UDP ports that are currently active.
 
+* `ss -tulnp` - If, along with the port number, you also want to see which program or app is using that port, simply add 'p'.
+
+* `ss -t` - Shows only the active TCP connections on your server.
+
+* `ss -u` - Shows only the active UDP connections on your server.
+ 
+* `ss -tl` - Displays only the TCP ports that are currently in LISTEN mode.
+
+* `ss -ul` - Displays only the UDP ports that are currently active.
+
+* `ss -tun` - t shows active connections, and **Peer Address** will display the actual IP address of the remote server or website your system is talking to.
 
 
 HOW TO CHECK IF A PORT IS OPEN ON OUR OWN SERVER:
