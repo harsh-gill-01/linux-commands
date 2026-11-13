@@ -3137,18 +3137,25 @@ Think of it in terms of a large apartment building:
 * Suppose your computer is a large building. This building has a single main address, which we call an IP Address (for example, "Building Number 5").
 * Inside this building, there are many individual flats (rooms), each with its own unique number. In the world of Linux, these flat numbers are known as "ports."
 
+---
+
 **How it works:**
 
-When data from the internet reaches your computer (the building), it also needs to know which room (the port) it should go to. For example:
+When data from the internet reaches your computer (the building), it also needs to know which room (the port) it should go to. **For example:**
+
 * If someone is opening a website, the data will go directly to room number 80 or 443 (Web ports).
   
 * If someone is controlling the computer remotely (SSH), the data will go directly to room number 22 (the SSH port).
   
 * The rule in Linux: Only one piece of software can "listen" on a specific port at any given time.
 
+---
+
 **The `ss -tuln` command:**
 
-The `ss -tuln` command is the best and fastest way to check which **network ports** are open on your Linux system or server, and which services are currently running.
+The **`ss -tuln`** command is the best and fastest way to check which **network ports** are open on your Linux system or server, and which services are currently running.
+
+---
 
 **What do the flags in `-tuln` mean?**
 
@@ -3158,6 +3165,8 @@ Here, **`ss`** stands for **Socket Statistics**, and each of the four letters (t
 * **`-u` (UDP):** Displays all **UDP** connections (e.g., DNS, video streaming).
 * **`-l` (Listening):** Shows only those ports that are currently **open and waiting for a connection**.
 * **`-n` (Numeric):** Displays the **actual port number** instead of the service name (e.g., `22` instead of `ssh`), which makes the output appear faster.
+
+---
 
 **IMPORTANT INFO:**
 
@@ -3179,6 +3188,8 @@ For `LISTEN` ports (like TCP), `Send-Q` shows a big number (such as `4096`). Thi
 
 * **Peer Address:Port (Remote System):** Shows **who** can connect to your service from the outside.
 
+---
+
 **Common Symbols in Peer Address:**
 
 * **`0.0.0.0:*` (IPv4) or `[::]:*` (IPv6):** The `*` means **"Anyone"**. Your port is open and ready to accept connections from any IP address and any port.
@@ -3195,6 +3206,128 @@ For `LISTEN` ports (like TCP), `Send-Q` shows a big number (such as `4096`). Thi
 
 **A Quick Tip:** If you run `ss -tun` (without `-l`), it shows active connections, and **Peer Address** will display the actual IP address of the remote server or website your system is currently talking to.
 
+---
+
+**COMMANDS & OPTIONS:**
+
+* **`ss -tuln`** - To see all open ports.
+
+```bash
+ss -tuln
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/b323d006-d053-45b0-bf85-13505204f3c4" />
+
+* This is the half image of the terminal, this is just for checking or observing for you. Do check in your own terminals.
+
+---
+
+* **`ss -t`** - Shows only the active TCP connections on your server.
+
+```bash
+ss -t
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/3c2095f6-fd01-462b-adb6-c3de59847299" />
+
+The output is not showing any tcp connections, because i have no active tcp connections, so it is empty. Do check in your systems.
+
+---
+
+* **`ss -u`** - Shows only the active UDP connections on your server.
+
+```bash
+ss -u
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/99c1e7c9-c119-4a78-8793-fea10430d85f" />
+
+* Unlike TCP, this output clearly shows an active background UDP connection (`bootpc` to `bootps`) used by my system to get an `IP` address automatically from the network.
+
+---
+
+* **`ss -tl`** - Displays only the TCP ports that are currently in `LISTEN` mode.
+
+```bash
+ss -tl
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/1212b6a9-97f6-4db1-bfa6-7bfc6fd5c5f1" />
+
+You can see that it is showing all the active ready to listen ports.
+
+---
+
+* **`ss -ul`** - Displays only the UDP ports that are currently active.
+
+```bash
+ss -ul
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="Screenshot 2026-11-13 154810" src="https://github.com/user-attachments/assets/98a00454-d01d-448c-855c-2cf86e23b0ed" />
+
+**Why does it say `UNCONN` instead of `LISTEN`?**
+
+**Connectionless Protocol:** Unlike `TCP`, `UDP` does not make a formal connection before sending data. Because it is connectionless, Linux shows open `UDP` ports as `UNCONN` (Unconnected) instead of `LISTEN`.
+
+* **How to verify they are listening:** Look at the `Peer Address:Port` column on the right. Seeing `0.0.0.0:*` or `[::]:*` means the port is completely open and actively listening for incoming packets (data) from anywhere.
+
+---
+
+* **`ss -tun`** - It shows active connections, and **Peer Address** will display the actual `IP` address of the remote server or website your system is talking to.
+
+```bash
+ss -tun
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/e8864ca7-6aba-46a3-84a5-060db67de631" />
+
+---
+
+* **`sudo ss -tulpn`** - The sudo ss -tulpn command is the ultimate networking command. It acts like an X-ray machine to show all open ports, their exact port numbers, and which program is running behind them.
+
+```bash
+sudo ss -tulpn
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/fc755d2d-edaa-482d-a7c5-77188eaa999d" />
+
+---
+
+**Why do we need `sudo` with `ss -tulpn`?**
+
+* **The -p Flag Restriction:** The `-t`, `-u`, `-l`, and `-n` flags work fine for a normal user. Linux hides **process names** from standard users for security reasons.
+
+* **Full Visibility:** Adding `sudo` gives you admin permission. So, the `-p` flag can reveal the exact program name and `PID` running behind every single port.
+
+* We can also use grep and pipe (|) with this command, if we want to check and see if a specific port is open or not.
+
+```bash
+ss -tuln | grep :22
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/56c7637f-9dbb-4a1d-be53-4a4f7a53fb64" />
+
+* The system hides all other ports (like `53` or `631`) and highlights only port `:22` in **red**. You see two lines because `port 22` is open for both **IPv4** (`0.0.0.0:22`) and **IPv6** (`[::]:22`).
+
+---
+
 **What Is This Command Used For In Real World?**
 
 **1**. **Security Check:** To verify that no unknown ports are left open on the system.
@@ -3205,40 +3338,55 @@ For `LISTEN` ports (like TCP), `Send-Q` shows a big number (such as `4096`). Thi
 
 **Note:** 
 
-Previously, `netstat -tuln` was used for this purpose, but it is now considered outdated. On modern Linux systems, `ss -tuln` is faster, more advanced, and comes pre-installed.
+Previously, **`netstat -tuln`** was used for this purpose, but it is now considered outdated. On modern Linux systems, **`ss -tuln`** is faster, more advanced, and comes pre-installed.
 
-**PRO-TIP FOR FILTERING PORTS:**
-You can break down the flags and use these commands individually to filter your network traffic based on your requirements:
+---
 
-* `ss -tulnp` - If, along with the port number, you also want to see which program or app is using that port, simply add 'p'.
+## HOW TO CHECK IF A IP: PORT IS ACCESSIBLE OR NOT ##
 
-* `ss -t` - Shows only the active TCP connections on your server.
+* `nc` - The Netcat (nc) command (the best and most modern method) is often called the "Swiss Army knife" of Linux. It determines very quickly whether a port is open or closed.
 
-* `ss -u` - Shows only the active UDP connections on your server.
- 
-* `ss -tl` - Displays only the TCP ports that are currently in LISTEN mode.
+**SYNTAX:**
 
-* `ss -ul` - Displays only the UDP ports that are currently active.
+* `nc -zv <IP_or_Domain> <Port_number>`
 
-* `ss -tun` - t shows active connections, and **Peer Address** will display the actual IP address of the remote server or website your system is talking to.
+**EXAMPLE:**
 
+* `nc -zv 8.8.8.8 53`
 
-HOW TO CHECK IF A PORT IS OPEN ON OUR OWN SERVER:
-To verify if a specific port is open and actively listening on your local server, you should check the internal socket statistics rather than scanning from the outside.
-COMMANDS & SYNTAX:
-• ss -tuln — This is the modern and fastest standard command to list all active TCP (-t) and UDP (-u) ports that are currently in Listening (-l) mode, displayed in Numerical (-n) format.
-• Filtering a Specific Port: To check a single port (e.g., Port 22 for SSH), combine it with the grep command.
-EXAMPLES:
-• To see all open ports: ss -tuln
-• To check if Port 22 is open: ss -tuln | grep :22
-EXPECTED OUTPUT:
-If the port is active, you will see a line containing LISTEN in the output. If the terminal returns blank, the port is closed.
+```bash
+nc -zv 8.8.8.8 53
+```
 
-* HOW TO CHECK IF A IP: PORT IS ACCESSIBLE OR NOT
+**EXPECTED OUTPUT:**
 
-* 1. nc (Netcat) कमांड (सबसे बेस्ट और आधुनिक तरीका)इसे लिनक्स का स्विस-आर्मी नाइफ कहा जाता है। यह बहुत तेज़ी से बताता है कि पोर्ट खुला है या बंद।सिंटैक्स: nc -zv <IP> <PORT>-z: इसका मतलब है सिर्फ स्कैन करो, कोई डेटा मत भेजो (Zero-I/O mode).-v: इसका मतलब है वर्बोस (Verbose), यानी साफ़-साफ़ लिख कर बताओ कि क्या हुआ।उदाहरण:bashnc -zv 8.8.8.8 53
-Use code with caution.आउटपुट कैसे समझें:अगर Connection to 8.8.8.8 53 port [tcp/domain] succeeded! लिखा आता है, तो पोर्ट पूरी तरह चालू (Open) है।अगर Connection refused या Timed out आता है, तो पोर्ट बंद है या फ़ायरवॉल उसे रोक रहा है।2. telnet कमांड (सदाबहार और पुराना तरीका)यह हर डेवलपर का सबसे भरोसेमंद और पुराना टूल है।सिंटैक्स: telnet <IP> <PORT>उदाहरण:bashtelnet 8.8.8.8 53
-Use code with caution.आउटपुट कैसे समझें:अगर स्क्रीन पर Connected to 8.8.8.8 लिखा आ जाता है, तो पोर्ट चालू है। (इससे बाहर निकलने के लिए कीबोर्ड पर Ctrl + ] दबाकर quit टाइप करना पड़ता है)।अगर Unable to connect आता है, तो पोर्ट बंद है।3. curl कमांड (केवल वेब पोर्ट्स जैसे 80 या 443 के लिए)अगर आप किसी IP का सिर्फ वेब पोर्ट (HTTP/HTTPS) चेक करना चाहते हैं, तो आप curl का भी इस्तेमाल कर सकते हैं।सिंटैक्स: curl -I http://<IP>:<PORT>उदाहरण:bashcurl -I http://142.250.183.46:80
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/bc9c5228-3ecb-4b2f-8df9-2549acded068" />
+
+* You can see that it says "Connection to `8.8.8.8 53` port [`tcp`/`domain`] succeeded!", which means the port is fully open. If you get "Connection refused" or "Timed out", then the `port` is either closed or being blocked by a **firewall**
+
+---
+
+* **`telnet`** - This command (a classic, time-tested method) is the most reliable and long-standing tool for any developer. To exit, you need to press `Ctrl + ]` on your keyboard and type 'quit'. If "Unable to connect" appears, the port is closed.
+
+**SYNTAX:**
+
+* `telnet <IP_Address_or_Domain> <Port_Number>`
+
+**EXAMPLE:**
+
+* `telnet 8.8.8.8 53`
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/c0cce518-8414-4d0d-92eb-d4e851478478" />
+
+**Understanding the Output Lines:**
+
+**Escape character is '^]' (Just a Safety Warning):** Think of this as an emergency exit sign. Linux shows this message just in case you get stuck inside a server. If a connection stays open and freezes, you can press `Ctrl + ]` and type quit to **force-exit**.
+
+**Connection closed by foreign host (Auto-Exit):** "foreign host" means Google's remote server (`8.8.8.8`). Since port `53` is only for quick **DNS** checks and we did not send any data, **Google's server** automatically closed the connection for us. Because the remote server closed it on its own, you were safely returned to your terminal without needing to press `Ctrl + ]` at all.
+
+3. curl कमांड (केवल वेब पोर्ट्स जैसे 80 या 443 के लिए)अगर आप किसी IP का सिर्फ वेब पोर्ट (HTTP/HTTPS) चेक करना चाहते हैं, तो आप curl का भी इस्तेमाल कर सकते हैं।सिंटैक्स: curl -I http://<IP>:<PORT>उदाहरण:bashcurl -I http://142.250.183.46:80
 Use code with caution.आउटपुट कैसे समझें: अगर आपको HTTP रिस्पॉन्स कोड (जैसे 200 OK) दिखता है, तो पोर्ट चालू है।
 
 HOW TO TRACE ALL HUBS (HOPS) IN A NETWORK PATH TO REACH A WEBSITE:
