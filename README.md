@@ -3376,6 +3376,10 @@ nc -zv 8.8.8.8 53
 
 * `telnet 8.8.8.8 53`
 
+```bash
+telnet 8.8.8.8 53
+```
+
 **EXPECTED OUTPUT:**
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/c0cce518-8414-4d0d-92eb-d4e851478478" />
@@ -3386,13 +3390,169 @@ nc -zv 8.8.8.8 53
 
 **Connection closed by foreign host (Auto-Exit):** "foreign host" means Google's remote server (`8.8.8.8`). Since port `53` is only for quick **DNS** checks and we did not send any data, **Google's server** automatically closed the connection for us. Because the remote server closed it on its own, you were safely returned to your terminal without needing to press `Ctrl + ]` at all.
 
-3. curl कमांड (केवल वेब पोर्ट्स जैसे 80 या 443 के लिए)अगर आप किसी IP का सिर्फ वेब पोर्ट (HTTP/HTTPS) चेक करना चाहते हैं, तो आप curl का भी इस्तेमाल कर सकते हैं।सिंटैक्स: curl -I http://<IP>:<PORT>उदाहरण:bashcurl -I http://142.250.183.46:80
-Use code with caution.आउटपुट कैसे समझें: अगर आपको HTTP रिस्पॉन्स कोड (जैसे 200 OK) दिखता है, तो पोर्ट चालू है।
+---
 
-HOW TO TRACE ALL HUBS (HOPS) IN A NETWORK PATH TO REACH A WEBSITE:
-When you access a website, your network packets pass through multiple intermediate routers and gateways (known as Hubs or Hops) before reaching the destination server. Tracking this path is crucial for debugging network latency and routing issues.
-COMMANDS & SYNTAX:
-• traceroute — This command maps the entire journey of your network packet, displaying the IP address of each router (hop) and the time taken (in milliseconds) to reach it.
+* **`curl`** - This command is used for **web ports** only, such as `80` or `443`. It checks if a website's door (port) is **open or closed**, and confirms if the **web page** is working fine without opening a web browser.
+
+**SYNTAX:**
+
+* `curl -I http://<IP_Address>:<Port>`
+
+**EXAMPLE:**
+
+* `curl -I http://142.250.183.46:80`
+
+```bash
+curl -I http://142.250.183.46:80
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/06b27b1f-ed94-4625-bf61-de248da3a1d3" />
+
+* `HTTP/1.1 301 Moved Permanently`: This code shows that the server is alive and sending your request to the main website address.
+
+* `Location: http://google.com`: This shows the new web address where the server is sending you.
+
+* `Server`: `gws`: This shows the name of the server software working in the background (here, gws means Google Web Server).
+
+---
+
+**Important Note:**
+
+**Automatic Moving:** Today, websites do not allow direct IP addresses or `http` links. They automatically send you to the safe `https://www` link. This automatic move gives a `301` code.
+  
+**Both Are Good:** Seeing either `200` or `301` means the server is active and working fine. If you want to see `200`, you can add -L which is **follow location** flag and run it like `curl -IL http://142.250.183.46:80` to follow the move.
+
+```bash
+curl -IL http://142.250.183.46:80
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/822db64d-ed51-4d69-b808-126e027ea136" />
+
+**Why `301` comes first and `200 OK` comes second with `-IL`?**
+
+When you add -L (Follow Location) like curl -IL, it tracks and shows you the complete two-step journey:
+
+**Step 1 (`301` Moved Permanently at the top):** First, curl visits your given IP address (`http://142.250.183.46:80`). Google's server replies with `301`, which means **Please go to our main secure address (`https://google.com`).**
+
+**Step 2 (`HTTP/1.1 200 OK` at the bottom):** Because I used `-L`, curl does not stop there. It automatically follows that **new address**, reaches the final Google homepage, and shows you `200 OK`, which means it is open and responding properly. You have reached the final page.
+
+---
+
+**Real World Uses of `curl`**
+
+In real-world IT jobs (like DevOps and Cloud Engineering), servers do not have browsers like Chrome or Firefox. Engineers use curl every day for these main tasks:
+
+**Website Health Check:** Quickly checking if a company website is live (`200 OK`) or crashed (`500 Error`) from the terminal.
+
+**Firewall & Port Testing:** Confirming if web ports (`80` and `443`) are open and allowing outside traffic after setting up a new cloud server.
+
+**Testing `APIs`:** Developers use `curl` to send test data and check if login or payment `APIs` are working properly.
+
+**Downloading Files:** Downloading installation scripts, software packages, or files directly from the internet onto a Linux server.
+
+---
+
+## How to Trace All Hops (Hubs) in a Network Path
+
+When you open a website, your internet data does not jump straight to that website in one step. Instead, it travels through many different routers and gateways (called **Hops**) on the way before reaching the final server.
+Tracking this full path helps you easily find where the internet is getting **slow** or where the connection is breaking.
+
+**COMMANDS:**
+
+**`traceroute`** & **`mtr`**
+
+* **`traceroute`** — This command maps the entire journey of your **network packet**, displaying the **`IP` address** of each router (hop) and the time taken (in **milliseconds**) to reach it.
+
+**SYNTAX:**
+
+* `traceroute <website_name>`
+
+**EXAMPLE:**
+
+* `traceroute google.com`
+
+```bash
+traceroute google.com
+```
+
+---
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/4ee9c7eb-4c41-49a7-9852-3c43a91e7eca" />
+
+**Why do we see `* * *` in the output?**
+
+**Hop 1 (_gateway):** This is your local VirtualBox router (`10.0.2.2`), which replies immediately.
+
+**The Stars (`* * *`):** By default, traceroute sends UDP packets. Many routers and **VirtualBox NAT networks** block these packets for security reasons. When a router does not reply, Linux shows `* * *`.
+
+---
+
+**Different Modes of traceroute & (Why `-T` works better)**
+
+Firewalls often block normal network tests, which is why traceroute gives you three different ways to send data:
+
+* **Default Mode (`UDP`):** Sends standard `UDP` packets. Because firewalls easily block `UDP`, this often shows stars (`* * *`).
+
+* **`-I` Flag (`ICMP` Mode):** Sends ping style packets (`sudo traceroute -I`). It works great on some networks, sometimes strict firewalls still block it.
+
+```bash
+sudo traceroute -I google.com
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/bb2f1019-274c-44c7-89d7-6bc4f5a20ca6" />
+
+**Simple Breakdown of the Output:**
+
+**`1e100.net` (`192.178.134.138`):** This is Google's official server domain name. **Fact:** `1e100` is a mathematical term for **Googol**.
+
+**`19.204 ms`:** This shows the exact time (in **milliseconds**) it took for your data to reach Google's server.
+
+**Why only `1 Hop`?** Because **VirtualBox's NAT network** handles the middle routing behind the scenes, it connects directly to the destination in a single visible step.
+
+---
+
+* **`-T` Flag (`TCP` Mode - Best Option):** Sends real web traffic packets (`sudo traceroute -T`). Since websites must keep their `TCP` web ports open for visitors, firewalls cannot block it, and your trace gets done easily.
+
+```bash
+sudo traceroute -T google.com
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/d824f969-d8f0-4674-acfd-088d215fa4f5" />
+
+* As, you can see, the -T flag with the command also shows the required output and information.
+
+---
+
+**Did you notice the difference in `ip` addresses of `-I` & `-T` flags output?** 
+
+Big companies like **Google** run thousands of **servers** at the same time. Their system automatically sends your request to whichever server is **free** at that exact second (this is called **Load Balancing**), so seeing slightly different **`IP` addresses** is 100% normal.
+
+**Why `-T` is Evergreen & Best:** While `-I` **(ICMP)** works easily on most systems, strict firewalls can sometimes block it. On the other hand, `-T` **(TCP)** is evergreen and works almost everywhere because websites must keep `TCP` web ports open.
+
+---
+
+**Real World Uses of traceroute:**
+
+In real-world IT jobs, engineers use traceroute like a traffic detective to check if there is any problem while connecting to a website or server:
+
+**Finding Where the Connection Breaks:** If your website is down, traceroute shows the exact router (Hop) where the data stops moving. This tells you if the fault is in your server or in the internet provider's network.
+
+* **Fixing Slow Websites (Latency):** It shows the exact time (ms) taken at each step. If one specific router shows a huge delay, you know where the internet traffic jam is happening.
+
+* **Checking Firewall Blocks:** Engineers run sudo traceroute `-T` to make sure no firewall is blocking visitors from reaching their website.
+
+---
+
 	• SYNTAX: traceroute <website_name>
 	• EXAMPLE: traceroute google.com
 • mtr (My Traceroute) — A powerful, modern tool that combines ping and traceroute. It opens a live, real-time diagnostic screen to monitor packet loss and latency across all hubs.
