@@ -3529,7 +3529,7 @@ sudo traceroute -T google.com
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/d824f969-d8f0-4674-acfd-088d215fa4f5" />
 
-* As, you can see, the -T flag with the command also shows the required output and information.
+* As, you can see, the `-T` flag with the command also shows the required output and information.
 
 ---
 
@@ -3553,10 +3553,147 @@ In real-world IT jobs, engineers use traceroute like a traffic detective to chec
 
 ---
 
-	• SYNTAX: traceroute <website_name>
-	• EXAMPLE: traceroute google.com
-• mtr (My Traceroute) — A powerful, modern tool that combines ping and traceroute. It opens a live, real-time diagnostic screen to monitor packet loss and latency across all hubs.
-	• SYNTAX: mtr <website_name>
+**The `mtr` command:**
+
+* **`mtr`** — `mtr` stands for **My Traceroute**. It is a smart, modern tool that combines both `ping` and `traceroute` in one place. It opens a live screen to show internet speed, delays, and data loss across every router (`hops`) on the path. (Press `q` to exit).
+
+**SYNTAX:**
+
+* `mtr <website_name>`
+
+**EXAMPLE:** 
+
+* `mtr google.com`
+
+```bash
+mtr google.com
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/82c987ac-72df-480f-98e3-5cbe75d7d910" />
+
+**Simple Breakdown of the Columns:**
+
+* **`Host`:** Shows the name or `IP` address of each router (`Hop`) on the path to the website.
+
+* **`Loss%` (Packet Loss):** Shows the percentage of **data packets** that got lost on the way. `0.0%` means your connection is `100%` healthy with zero data drop.
+
+* **`Snt` (Sent):** Shows the total number of **test packets** sent so far (here, `11` packets were sent).
+
+* **`Last`:** The response time (in **milliseconds**) of the very last packet sent.
+
+* **`Avg` (Average):** The average **internet speed/time** across all sent packets (`18.7 ms` in my case is very fast).
+
+* **`Best`:** The **fastest** response time recorded during the test (`17.5 ms`).
+
+* **`Wrst` (Worst):** The **slowest** response time recorded during the test (`20.8 ms`).
+
+* **`StDev` (Standard Deviation):** Shows how **stable** the connection is. A low number (like `1.0`) means the internet speed is super steady and not jumping up and down.
+
+
+**Interactive Key: Pressing D (Display Mode)**
+
+When mtr is running, pressing the `D` key on your keyboard changes the numbers into a live visual ping graph.
+
+**Expected Output:**
+
+<img width="400" alt="Screenshot 2026-11-17 161706" src="https://github.com/user-attachments/assets/09cdd65d-f657-4f45-be03-02caf0af0083" />
+
+**Simple Breakdown of this Graph View:**
+
+* **Live Ping Dots (`.....`):** Each dot (`.`) represents one recent ping packet sent to the server (here, it shows the last `37 pings`).
+  
+* **Speed Scale at the Bottom:** Look at the `Scale:` line at the bottom. A simple dot (`.`) means the speed is super fast (`17 ms`). If the connection gets slow, the dots turn into **colored numbers or letters** (`1`, `2`, `3`, `a`, `b`, `c`).
+
+* If the ping speed is `17 ms`, it prints a dot (`.`) as seen before the `17 ms`. If the speed jumps to `18 ms`, it prints a green `1`, and at `23 ms`, it prints a yellow `3` right inside that moving line. Observe the scale: point carefully, you will see that speed was 17 ms in my case and it printed ... dots in the pings section above. If there is 23 ms, then, it shall give me 3's on the ping line.
+
+* **Packet Loss (`>` or `?`):** If a data packet gets **lost** on the way, you will see a **red** `>` or `?` symbol instead of a **dot**. Since all symbols here are dots (`.`), it proves the connection is **super fast** and `100%` stable.
+
+* If a data packet gets lost on the way, a white > symbol pops up right inside that moving line of dots (like >.........>.........). Even though it is shown in red at the bottom Scale: just to highlight it, it appears as a normal white > in the live graph.
+ 
+* **Tip:** - mtr has 3 different display views. Press D twice (2 times) to cycle through the modes and return back to the normal numbers table. Following are the modes:
+
+* **Pressing D (1st Time):** Opens the plain black-and-white graph view (no colors).
+
+* **Pressing D (2nd Time):** Opens the Color Graph Mode, where numbers and letters light up in green, yellow, and pink so you can spot speed changes easily.
+  
+* **Pressing D (3rd Time):** Returns back to the normal numbers table.
+When you will press the D second time, it may show you coloured pings of data as below:
+
+<img width="400" alt="Screenshot 2026-11-17 163844" src="https://github.com/user-attachments/assets/965224ee-ddd5-4a36-b0bf-bd63796ca619" />
+
+**Why did colors appear?** 
+
+The 2nd D press enables full color mode, and since the ping speed slightly fluctuated between 18 ms and 30 ms, mtr used colors so you can spot slow spikes easily without reading every number.
+
+**Interactive Key: Pressing O (Order of Fields)**
+
+When mtr is running, pressing the O key lets you customize which columns appear on the main table and in what order.
+
+**Expected Output:**
+
+<img width="400" alt="Screenshot 2026-11-17 164618" src="https://github.com/user-attachments/assets/e1d1c805-5565-4d7d-948f-b48daaec067f" />
+
+**Simple Breakdown of This Menu:**
+
+* **`Fields`:** `LS NABWV`: This line shows the exact columns currently visible on my (may be on your also) main screen (`L = Loss%`, `S = Sent`, `N = Newest/Last`, `A = Avg`, `B = Best`, `W = Worst`, `V = StDev`).
+  
+* **`Adding or Removing Columns`:** You can type the letter codes listed below (such as `D` for **Dropped Packets** or `J` for **Jitter**) to add new data columns, or use Backspace to remove the ones you do not need.
+
+* **How to Save:** Once you type your desired field letters, simply press Enter to return to the main screen with your new custom table.
+
+---
+
+**Quick Guide to All mtr Columns (1-Line Meanings)**
+
+* **`<sp>` (Space):** Adds an empty gap between columns to make the table easy to read.
+ 
+* **`L` (Loss Ratio):** Shows the percentage (%) of data packets that got lost on the way.
+
+* **`D` (Dropped Packets):** Shows the exact count of packets that failed to reach the destination.
+
+* **`R` (Received Packets):** Shows the exact count of packets that came back safely.
+
+* **`S` (Sent Packets):** Shows the total number of test packets sent out so far.
+
+* **`N` (Newest RTT):** Shows the speed (in ms) of the very last packet sent.
+
+* **`B` (Min/Best RTT):** Shows the fastest response time recorded during the test.
+
+* **`A` (Average RTT):** Shows the average speed across all sent packets.
+
+* **`W` (Max/Worst RTT):** Shows the slowest response time recorded during the test.
+
+* **`V` (Standard Deviation):** Shows how steady the internet speed is (a lower number means a more stable connection).
+
+* **`G` (Geometric Mean):** Another type of average speed calculation that ignores sudden extreme spikes.
+
+* **`J` (Current Jitter):** Shows the live, sudden jump or delay change between two back-to-back packets.
+
+* **`M` (Jitter Mean/Avg):** Shows the average jump/fluctuation in ping speed over time.
+
+* **`X` (Worst Jitter):** Shows the biggest sudden spike or delay jump recorded during the test.
+
+* **`I` (Interarrival Jitter):** Shows the exact gap difference in arrival times between packets (useful for checking video call or gaming lag).😁
+
+---
+
+**How to Edit `Fields:`** 
+
+Press `O` top open order of fields, type your desired column letters (such as `LS J`), use the Spacebar to overwrite (delete) any extra old letters. It goes to the left while deleting letters. So, use it carefully. Press Enter to apply. When you will open the open order of fields, then the first letter will be blinking, now if you want to change every field then do SHIFT + <letter> directly on blinking first letter. Now if you want to add only 2-3 fields delete others one by pressing spacebar. If you want to add space between them like as after LS of LS NABWV field or like L S N A B W V, then, when you will start writing from the very first letter, give space after writing letters.
+
+* **Quick Reset Tip:** If you accidentally type too many letters, simply press `Enter`, press `Q` to quit, and restart `mtr <wesite_name> again to get the default (previous) table back.
+  
+* **Spacing Tip:** You can either type all letters together (like LSXJVW) for a compact table, or press the Spacebar once between letters (like LS XJVW) to add a clean empty gap between columns.
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/c1b03b5e-de08-4e09-8b11-b174541859e8" />
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/ff6f6483-5c64-4707-b35f-e0d195ecb95c" />
+
+* I created `DJ NABWV` my new custom field set adding two new things like dropped packets and current jitter as compared to previous one `LS NABWV`. In this way, you can customize them as per your requirement.
+
+---
 
  README के लिए एक सुंदर और वीआईपी समरी टेबल:
 कमांड	यह क्या करती है?	कब इस्तेमाल करें?
