@@ -3693,6 +3693,14 @@ Press `O` top open order of fields, type your desired column letters (such as `L
 
 * I created `DJ NABWV` my new custom field set adding two new things like dropped packets and current jitter as compared to previous one `LS NABWV`. In this way, you can customize them as per your requirement.
 
+
+Real-World Uses of mtr
+
+In real-world IT and Cloud jobs, engineers use mtr whenever users complain about slow apps or unstable connections:
+• Finding Who is at Fault: It clearly shows whether the connection drop is happening inside your own server or in the Internet Service Provider's (ISP) network.
+• Fixing Call & Gaming Lag: By adding columns like Jitter (J) and Dropped (D), engineers can spot unstable internet lines that cause video calls to freeze.
+• Sending Proof to Internet Providers: Engineers run mtr to collect live data and send the report as proof to the ISP to fix broken network routes.
+
 ---
 
  README के लिए एक सुंदर और वीआईपी समरी टेबल:
