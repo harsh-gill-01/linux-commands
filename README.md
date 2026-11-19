@@ -3611,7 +3611,9 @@ When mtr is running, pressing the `D` key on your keyboard changes the numbers i
 * **Packet Loss (`>` or `?`):** If a data packet gets **lost** on the way, you will see a **red** `>` or `?` symbol instead of a **dot**. Since all symbols here are dots (`.`), it proves the connection is **super fast** and `100%` stable.
 
 * If a data packet gets lost on the way, a white > symbol pops up right inside that moving line of dots (like >.........>.........). Even though it is shown in red at the bottom Scale: just to highlight it, it appears as a normal white > in the live graph.
- 
+
+* The other keys like H- help describes the help section in which there are other flags for usage. R- Restart Statistics helps to restart or refresh the mtr window as it gives live data. q- quit helps us to quit mtr window.
+  
 * **Tip:** - mtr has 3 different display views. Press D twice (2 times) to cycle through the modes and return back to the normal numbers table. Following are the modes:
 
 * **Pressing D (1st Time):** Opens the plain black-and-white graph view (no colors).
@@ -3693,49 +3695,150 @@ Press `O` top open order of fields, type your desired column letters (such as `L
 
 * I created `DJ NABWV` my new custom field set adding two new things like dropped packets and current jitter as compared to previous one `LS NABWV`. In this way, you can customize them as per your requirement.
 
+---
 
-Real-World Uses of mtr
+**Real-World Uses of `mtr`:**
 
 In real-world IT and Cloud jobs, engineers use mtr whenever users complain about slow apps or unstable connections:
-• Finding Who is at Fault: It clearly shows whether the connection drop is happening inside your own server or in the Internet Service Provider's (ISP) network.
-• Fixing Call & Gaming Lag: By adding columns like Jitter (J) and Dropped (D), engineers can spot unstable internet lines that cause video calls to freeze.
-• Sending Proof to Internet Providers: Engineers run mtr to collect live data and send the report as proof to the ISP to fix broken network routes.
+
+* **Finding Who is at Fault:** It clearly shows whether the connection drop is happening inside your own server or in the Internet Service Provider's (ISP) network.
+
+* **Fixing Call & Gaming Lag:** By adding columns like Jitter (J) and Dropped (D), engineers can spot unstable internet lines that cause video calls to freeze.
+
+* **Sending Proof to Internet Providers:** Engineers run mtr to collect live data and send the report as proof to the ISP to fix broken network routes.
 
 ---
 
- README के लिए एक सुंदर और वीआईपी समरी टेबल:
-कमांड	यह क्या करती है?	कब इस्तेमाल करें?
-sudo reboot	सिस्टम को तुरंत रीस्टार्ट करती है।	अपडेट्स लागू करने या टर्मिनल हैंग होने पर।
-sudo shutdown now	सिस्टम को तुरंत पूरी तरह बंद करती है।	काम खत्म होने पर सर्वर ऑफ करने के लिए।
-sudo shutdown +10	10 मिनट का टाइमर लगाकर बंद करती है।	जब कोई बैकग्राउंड टास्क खत्म होने का इंतज़ार करना हो।
-sudo shutdown -c	लगे हुए शटडाउन टाइमर को कैंसिल करती है।	गलती से लगे टाइमर को रोकने के लिए।
-📝 इस टॉपिक को अपनी गिटहब गाइड में शामिल करने के लिए परफेक्ट इंग्लिश ड्राफ्ट (बोल्ड **** के साथ):
-तुम अपनी फ़ाइल में यह टेक्स्ट सीधे जोड़ सकते हो, यह बहुत ही प्रोफेशनल लगेगा:
-SYSTEM CONTROL COMMANDS (REBOOT & SHUTDOWN):
-These commands are used to safely restart or power off a Linux system. They are crucial when managing headless remote servers or cloud environments where no physical buttons or graphical menus are available.
-COMMANDS & SYNTAX:
-• sudo reboot — Instantly reboots the system safely.
-• sudo shutdown now — Power off the system immediately without any delay.
-• sudo shutdown +<minutes> — Schedules a system shutdown after the specified number of minutes.
-• sudo shutdown -c — Cancels a previously scheduled shutdown.
-EXAMPLES:
-• To restart right now: sudo reboot
-• To power off in 5 minutes: sudo shutdown +5
+# SYSTEM CONTROL COMMANDS (`REBOOT` & `SHUTDOWN`):
 
-कमांड	यह क्या करती है?	कब इस्तेमाल करें?
-sudo adduser <name>	होम फोल्डर और पासवर्ड के साथ नया यूज़र आसानी से बनाती है।	हमेशा इसी का इस्तेमाल करें—यह सबसे सुरक्षित और बेस्ट है।
-sudo useradd -m <name>	केवल एक बुनियादी यूज़र अकाउंट बनाती है।	जब ऑटोमेशन स्क्रिप्ट्स के अंदर बिना किसी सवाल-जवाब के यूज़र बनाना हो।
-sudo usermod -aG sudo <name>	साधारण यूज़र को Admin (Sudo privileges) की ताकत देती है।	जब किसी नए डेवलपर को सिस्टम में फुल एक्सेस देना हो।
-sudo deluser <name>	किसी बने हुए यूज़र को सिस्टम से डिलीट करती है।	जब कोई कर्मचारी प्रोजेक्ट छोड़ कर चला जाए।
-📝 इस नए टॉपिक को README गाइड में शामिल करने के लिए परफेक्ट इंग्लिश ड्राफ्ट:
-तुम अपने प्रोसेस वाले सेक्शन में इस पॉइंट को बहुत ही शानदार तरीके से जोड़ सकते हो, क्लाइंट को तुम्हारी लिनक्स एडमिनिस्ट्रेशन की समझ देखकर बहुत खुशी होगी:
-USER MANAGEMENT IN LINUX (USER CREATION):
+These commands are used to safely restart or power off a Linux system. They are crucial when managing headless remote servers or cloud environments where no physical buttons or graphical menus are available. 
+
+**COMMANDS:**
+
+* **`sudo reboot`** - This command is used to Restart the system immediately. When we have to apply updates or in the event that the terminal hangs.
+
+```bash
+sudo reboot
+```
+
+* As, i am not going to reboot or restart my own system, so i cannot provide an example. Use this when you needed.
+
+---
+
+* **`sudo shutdown now`** - This command shuts down the system completely and immediately. It is Used for turning off the server once work is finished.
+
+```bash
+sudo shutdown now
+```
+---
+
+* **`sudo shutdown +5`** -	You can set a 5-minute timer before shutting down—useful when you’re waiting for a background task to finish. For instance, if a task is running in the background and you know it will be complete in 5 or more minutes, you can run a command so that the system shuts down after those 5 minutes.
+
+**SYNTAX:**
+
+* `sudo shutdown +<minutes>`
+
+```bash
+sudo shutdown +5
+```
+
+---
+
+* **`sudo shutdown -c`** - It cancels a previously scheduled shutdown. If you have accidentally set a shutdown timer, you can use this command to turn it off.
+
+```bash
+sudo shutdown -c
+```
+---
+
+# USER MANAGEMENT IN LINUX (USER CREATION):
+
 Linux is a multi-user system, meaning multiple users can log in and interact with the system simultaneously. Managing users efficiently is critical for system security and access control.
-COMMANDS & SYNTAX:
-• sudo adduser <username> — The recommended interactive command to create a new user. It automatically sets up the home directory, prompts for a password, and configures user details.
-	• EXAMPLE: sudo adduser harsh
-• sudo usermod -aG sudo <username> — Adds the newly created user to the sudo group, granting them administrative (root) privileges.
-• sudo deluser <username> — Safely removes a user account from the system when it is no longer required.
+
+**COMMANDS:**
+
+* **`sudo adduser`** - It easily creates a new user with a home folder and a password. Always use this method—it is the most secure and the best option.
+
+**SYNTAX:**
+
+* `sudo adduser <name>`
+
+**EXAMPLE:**
+
+* `sudo adduser alice`
+
+```bash
+sudo adduser alice
+```
+
+**EXPECTED OUTPUT:**
+
+
+
+---
+
+* **`sudo useradd`** - It creates only a basic user account. Useful when users need to be created within automation scripts without any interactive prompts.
+
+**SYNTAX:**
+
+* `sudo useradd -m <name>`
+
+**EXAMPLE:**
+
+* `sudo useradd -m alice`
+
+```bash
+sudo useradd -m alice
+```
+
+**EXPECTED OUTPUT:**
+
+
+---
+
+* **`sudo usermod -aG <name>`** - Used to add the newly created user to the sudo group, granting them administrative (root) privileges.
+
+***SYNTAX:**
+
+* `sudo usermod -aG sudo <name>`
+
+**EXAMPLE:**
+
+* `sudo usermod -aG alice`
+
+```bash
+sudo usermod -aG alice
+```
+
+**EXPECTED OUTPUT:**
+
+
+---
+
+* **`sudo deluser`** - It deletes an existing user from the system. Safely removes a user account from the system when it is no longer required.
+
+**SYNTAX:**
+
+* `sudo deluser <name>`
+
+**EXAMPLE:**
+
+* `sudo deluser alice`
+
+```bash
+sudo deluser alice
+```
+
+**EXPECTED OUTPUT:**
+
+
+---
+
+
+
+
+
+
 
 
 
