@@ -3777,7 +3777,7 @@ sudo adduser alice
 
 ---
 
-* **`sudo useradd`** - It creates only a basic user account. Useful when users need to be created within automation scripts without any interactive prompts.
+* **`sudo adduser`** - It creates only a basic user account. Useful when users need to be created within automation scripts without any interactive prompts.
 
 **SYNTAX:**
 
@@ -3834,50 +3834,132 @@ sudo deluser alice
 
 ---
 
+**IMPORTANT INFO:**
+
+**THE LOW-LEVEL APPROACH:** USING THE `useradd` COMMAND:
+
+While `adduser` is the recommended interactive script for beginners, Linux also provides a low-level, non-interactive binary command called `useradd`.
+
+By default, running just `useradd <user_name>` is very raw, it will not create a **password**, nor will it create a **home directory** for the user in which he will create, modify and manage files etc. 
+
+To make it **functional**, you must **manually pass** specific following flags:
+
+**SYNTAX:**
+
+* `sudo useradd -m -s /bin/bash <user_name>`
+
+**EXAMPLE:**
+
+* `sudo useradd -m -s /bin/bash alice`
+
+```bash
+sudo useradd -m -s /bin/bash alice
+```
+
+**EXAMPLE OUTPUT:**
+
+
+
+---
+
+**UNDERSTANDING THE FLAGS:**
+
+* **`-m` (Create Home Directory):** Forces the system to automatically generate a dedicated home folder for the user at `/home/<user_name>`.
+
+* **`-s /bin/bash` (Set Default Shell):** Explicitly (manually) defines **Bash** as the default command **shell** for the new user, ensuring they get a proper **terminal environment** when they log in.
+
+---
+
+**SETTING THE PASSWORD FOR `useradd`:**
+
+Since `useradd` does not prompt you for a **password** automatically, you must manually set it right after creating the user by running the `passwd` command:
+
+**COMMAND:**
+
+* `sudo passwd <user_name>`
+
+**EXAMPLE:**
+
+* `sudo passwd alice`  (The system will then securely prompt you to type and confirm the new password).
+
+---
+
+**DIRECT COMPARISON: `adduser` vs `useradd`**
+
+To keep it crystal clear for you, here is how they stack up against each other:
+
+**Features `adduser`:**
+
+**Command type** - High level interactive script.
+
+**Home Directory (`/home`)** - Automatically creates without any flags.
+
+**Password Prompt** - It prompts you to set a password instantly.
+
+**Best Use Case** - When creating users manually in the terminal.
+
+---
+
+**Features `useradd`:**
+
+**Command Type** - Low level raw binary (0,1) command. *Note: Binary is the language of computer. It's base is 2 and it uses 0 and 1 digits for working and understanding our inputs or prompts.*
+
+**Home Directory (`/home`)** - Requires the `-m` flag to create it.
+
+**Password Prompts** - Requires a separate sudo passwd command later.
+
+**Best Use Case** - Perfect for automated DevOps / Bash scripts.
+
+---
+
+**MODIFYING EXISTING USERS: THE `usermod` COMMAND** **(other uses)**
+
+The `usermod` command in Linux is used to modify a **user's account** settings after it has been created. Whether you need to change a `username`, update a **home directory**, or lock an account, `usermod` handles it easily.
+
+* **Granting Admin Privileges (`-aG`):** Appends the user to a specific **supplementary group** without removing them from their current groups. This is primarily used to give a user **`sudo` (administrative)** access.
+
+**COMMAND:**
+
+* `sudo usermod -aG sudo username`
+
+**Flags & Syntax:**
+
+* **Changing Login Name (`-l`):** It Changes the **login name** of the user from **old to new**.
+
+**SYNTAX:**
+
+* `sudo usermod -l <new_username> <old_username>`
+
+**EAXMPLE:**
+
+* `sudo usermod -l elis alice`
+
+**EAXMPLE OUTPUT:**
+
+
+**Locking and Unlocking Accounts (`-L` / `-U`):** Temporarily **disables** or **re-enables** a user account for security purposes.
+
+**SYNTAX:**
+
+* `sudo usermod -L <username>` - To lock the account.
+
+* `sudo usermod -U <username>` - to unlock the locked account.
+
+**EXAMPLE:**
+
+* `sudo usermod -L alice`
+
+* `sudo usermod -U alice`
+
+**EXAMPLE OUTPUTS: (for overview)**
 
 
 
 
+# SCHEDULING ONE-TIME TASKS: THE `at` COMMAND
 
-
-
-
-
- THE LOW-LEVEL APPROACH: USING THE useradd COMMAND
-While adduser is the recommended interactive script for beginners, Linux also provides a low-level, non-interactive binary command called useradd.
-By default, running just useradd <username> is very raw—it will not create a password, nor will it create a home directory for the user. To make it functional, you must manually pass specific flags.
-SYNTAX:
-sudo useradd -m -s /bin/bash <username>
-UNDERSTANDING THE FLAGS:
-• -m (Create Home Directory): Forces the system to automatically generate a dedicated home folder for the user at /home/<username>.
-• -s /bin/bash (Set Default Shell): Explicitly defines Bash as the default command shell for the new user, ensuring they get a proper terminal environment when they log in.
-SETTING THE PASSWORD FOR useradd:
-Since useradd does not prompt you for a password automatically, you must manually set it right after creating the user by running the passwd command:
-• COMMAND: sudo passwd <username>
-• EXAMPLE: sudo passwd harsh (The system will then securely prompt you to type and confirm the new password).
-📊 DIRECT COMPARISON: adduser vs useradd
-To keep it crystal clear for your readers or clients, here is how they stack up against each other:
-Feature	adduser	useradd
-Command Type	High-level interactive script.	Low-level raw binary command.
-Home Directory (/home)	Automatically created without any flags.	Requires the -m flag to be created.
-Password Prompt	Prompts you to set a password instantly.	Requires a separate sudo passwd command later.
-Best Use Case	When creating users manually in the terminal.	Perfect for automated DevOps / Bash scripts.
-
-
- MODIFYING EXISTING USERS: THE usermod COMMAND
-The usermod command in Linux is used to modify a user's account settings after it has been created. Whether you need to change a username, update a home directory, or lock an account, usermod handles it seamlessly.
-SYNTAX & POWERFUL FLAGS:
-• Granting Admin Privileges (-aG): Appends the user to a specific supplementary group without removing them from their current groups. This is primarily used to give a user sudo (administrative) access.
-	• COMMAND: sudo usermod -aG sudo <username>
-• Changing Login Name (-l): Changes the login name of the user from old to new.
-	• COMMAND: sudo usermod -l <new_username> <old_username>
-• Locking and Unlocking Accounts (-L / -U): Temporarily disables or re-enables a user account for security purposes.
-	• To Lock: sudo usermod -L <username>
-	• To Unlock: sudo usermod -U <username>
-
-
-SCHEDULING ONE-TIME TASKS: THE at COMMAND
 If you want to execute a script or command automatically at a particular date or time only once in the future, Linux provides a dedicated utility called the at command.
+
 Unlike recurring cron jobs, once the at job runs at its scheduled time, it finishes and removes itself from the queue permanently.
 HOW IT WORKS (THE INTERACTIVE PROMPT):
 When you run the at command with a specified time, it opens a special interactive prompt (at>). You type the commands or scripts you want to run inside this prompt, and then safely save it.
