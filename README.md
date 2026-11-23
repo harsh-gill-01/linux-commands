@@ -3757,25 +3757,28 @@ Linux is a multi-user system, meaning multiple users can log in and interact wit
 
 **COMMANDS:**
 
-* **`sudo adduser`** - It easily creates a new user with a home folder and a password. Always use this method—it is the most secure and the best option.
+* **`sudo useradd`** - It easily creates a new user with a home folder and a password. Always use this method—it is the most secure and the best option.
 
 **SYNTAX:**
 
-* `sudo adduser <name>`
+* `sudo useradd <name>`
 
 **EXAMPLE:**
 
-* `sudo adduser alice`
+* `sudo useradd alice`
 
 ```bash
-sudo adduser alice
+sudo useradd alice
 ```
 
 **EXPECTED OUTPUT:**
 
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/482b24b0-7a52-4ae4-bfac-48437d5a2258" />
 
 
----
+**Breakdown Of Screenshot:**
+
+
 
 * **`sudo adduser`** - It creates only a basic user account. Useful when users need to be created within automation scripts without any interactive prompts.
 
