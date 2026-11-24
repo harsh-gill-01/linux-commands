@@ -3957,21 +3957,252 @@ The `usermod` command in Linux is used to modify a **user's account** settings a
 **EXAMPLE OUTPUTS: (for overview)**
 
 
+# SCHEDULING ONE-TIME TASKS: THE `at` COMMAND
+
+Think of the **`at`** command like an **alarm** on your **phone**. If you want to run a command or script **automatically** at a future date or time only once, Linux gives you the `at` command.
+
+---
+
+**COMMAND:**
+
+* **`at` (One-Time Alarm):** Unlike **cron jobs** (which run repeatedly every day or week), an **`at` job** runs just once at your set time, finishes its work, and removes itself **permanently** from the list (`queue`).
+
+---
+
+**How It Works (The Interactive Prompt)**
+
+When you run the `at` command with a time, your **terminal changes** into a special input box that looks like `at>`. Inside this box, you type the exact command you want **Linux** to run later, and then save it.
+
+---
+
+**SYNTAX:**
+
+* `at <TIME> <DATE>`
+
+**Easy Steps to Schedule a `Job`:**
+
+**1**. **Set the Time:** Type the `at` command with your desired time (**for example:** at `11:30` PM) and press `Enter`.
+
+**2**. **Type Your Command:** The terminal screen will change to an `at>` prompt. Now, type the full path of your script or command (**for example:** `sh /home/harsh/scripts/backup.sh`) and press **Enter**.
+
+**3**. **Save and Exit:** Press `Ctrl + D` on your keyboard to **save and exit**. Linux will confirm your alarm with a message like `job 1` at `Thu Oct 15 23:30:00 2026`.
+
+**Flexible Time Formats (Natural English)**
+
+The `at` command is very smart and understands simple **English time** words. Here are the best ways to set your time:
+
+* **Specific Time Today:** `at 23:30` or `at 11:30 PM` (Runs at exactly `11:30 PM` today).
+ 
+* **Specific Date & Time:** `at 2:00 PM 10/15/2026` or `at 14:00 15.10.2026` (Runs on **October 15th at 2:00 PM**).
+
+* **After Few **Minutes/Hours** (Best for Testing):** `at now + 10 minutes` or `at now + 2 hours` (Runs 10 minutes or 2 hours from right now).
+
+* **Using Simple Words:** `at midnight` (Runs at 12:00 AM tonight) or `at noon tomorrow` (Runs at 12:00 PM tomorrow).
+
+---
+
+**What to Type Inside the `at>` Prompt? (`Syntax` & `Path`)**
+
+Once the `at>` prompt opens, you can type either a direct **Linux command** or the full path of a **script file**.
+
+**1**. Running a Direct Command (Best for Quick Testing)
+
+**SYNTAX:** 
+
+* `<command> <full_file_path>`
+
+**EXAMPLE:** 
+
+* `touch /home/harsh/Desktop/test_done.txt`
+
+(This will automatically create a file named test_done.txt on your Desktop at the set time).
+
+**2**. Running a Script File (**Real-World Use**)
+
+**SYNTAX:**  
+
+* `<tool_name> <full_path_to_script>`
+
+**EXAMPLE:** 
+
+* `bash /home/harsh/scripts/backup.sh`
+or
+* `python3 /home/harsh/app.py`
+
+**Important Rule:** Always Use the Full Path!
+
+**Why Always Full Path?** Because `at` runs quietly in the **background**, it does not know which folder you are looking at. If you do not give the full path (**starting with `/home/...`**), you will not know where your file was created or saved.
+
+**Quick Tip:** To find the exact full path of your current folder, just run the `pwd` command in your terminal.
+
+**EXAMPLE OUTPUT:**
+
+
+
+
+
+**SCHEDULING A SCRIPT FILE (at + Scripts)** (**An overview**)
+
+In real-world IT jobs, engineers use at to run script files (like **`.sh` Bash scripts** or **`.py` Python scripts**) that perform big tasks automatically, such as taking **server backups** or **cleaning old logs** at night.
+
+**SYNTAX:**
+
+* `bash <full_path_to_script>` (for .sh files)
+  
+* `python3 <full_path_to_script>` (for .py files)
+
+**EXAMPLE:** Inside `at>` Prompt
+
+* `bash /home/harsh/scripts/backup.sh`
+
+---
+
+**3 Important Rules (Requirements) for Scripts:**
+
+**1**. **Always Give the Full Path:** Never type just `backup.sh`. Always write the complete path starting from `/home/...` (**example:** `/home/harsh/scripts/backup.sh`).
+
+**2**. **Mention the Runner Tool:** Always write bash (or `sh`) before a **shell script**, and **python3** before a Python script so Linux knows how to run it. 
+
+(**Tip:** If you already gave execute permission using `chmod +x`, you can type the path directly without bash).
+
+**3**. **No User Input Prompts:** Since at runs quietly in the **background**, make sure your script does not pause to ask **"Are you sure? (Y/N)"** on the screen, or it will get stuck.
+
+---
+
+**Live Practice Example: Scheduling a Script with `at`**
+
+Let's create a small sample script and schedule it to run automatically after **`1 minute`**:
+
+**Step 1 (Create a Test Script):** Run **`echo 'echo "Backup done at $(date)" >> /home/harsh/backup_log.txt' > /home/harsh/backup.sh`** in your terminal.
+
+**Step 2 (Schedule the Script):** Type **`at now + 1 minute`** and press **`Enter`**. Inside the **`at> prompt`**, type **`bash /home/harsh/backup.sh`**, press **`Enter`**, and press **`Ctrl + D`** to save.
+
+**Step 3 (Verify the Result):** Wait for `1 minute`, then run **`cat /home/harsh/backup_log.txt`**. You will see the **success message with the exact date and time!**
+
+**SYNTAX:**
+
+* `echo `echo "Backup done at $(date)" >> /home/<your_loggedin_name>/backup_log.txt > /home/<your_loggedin_name>/backup.sh`
+
+* `at now + <minute>`
+
+* `bash /home/<your_loggedin_name>/backup.sh`
+
+* `cat /home/<your_loggedin_name>/backup_log.txt`
+
+**EXAMPLE:**
+
+* `echo 'echo "Backup done at $(date)" >> /home/harsh/backup_log.txt' > /home/harsh/backup.sh`
+
+* `at now + 1 minute`
+
+* `bash /home/harsh/backup.sh`
+
+* `cat /home/harsh/backup_log.txt`
+
+```bash
+echo 'echo "Backup done at $(date)" >> /home/harsh/backup_log.txt' > /home/harsh/backup.sh
+```
+```bash
+at now + 1 minute
+```
+```bash
+bash /home/harsh/backup.sh
+```
+```bash
+cat /home/harsh/backup_log.txt
+```
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/158ccfd0-9f77-4a44-a07c-d84265511242" />
+
+**Step-by-Step Explanation of What Happened:**
+
+**Creating the Script:** First, we created a small script file (`backup.sh`) that writes a **success message** along with the current date and time into `backup_log.txt`.
+
+**Setting the Timer (at now + 1 minute):** Next, we told Linux to run this task `1 minute` later. Linux showed a standard note (**warning: commands will be executed using `/bin/sh`**) which is completely normal, and opened the `at>` prompt.
+
+**Adding the Script & Saving (<EOT>):** Inside the `at>` prompt, I typed `bash /home/harsh/backup.sh` and pressed `Ctrl + D`. The `<EOT>` (**End of Transmission**) symbol means our **input** was saved, and Linux confirmed it as `job 3` scheduled for `05:34:00`.
+
+**Checking the Result:** After waiting for `1 minute`, we ran `cat /home/harsh/backup_log.txt`. The message **Backup done at `Tue Nov 24 05:34:00 AM UTC 2026`** appeared on the screen, proving that Linux ran our script automatically right on time!
+
+**Note on Job Numbers (`job 3`):** 
+
+Linux gives a **unique serial number** to every `at` task. Even if **old jobs** are finished or deleted, the counter keeps moving forward (like `job 1`, `job 2`, `job 3`), which is completely normal.
+
+**What did the script actually do?**
+
+At the exact scheduled time (`05:34:00`), the script checked the **system clock**, automatically created a **new file** named `backup_log.txt`, and saved a time stamped confirmation message inside it.
+
+**Note:** 
+
+Since this is just a **practice demo**, the script did not perform a real **heavy backup**—it simply created a **log file** and wrote a confirmation message with the exact time to prove that the `at` scheduler worked!
+
+**Verifying the Script & Log Files (`ls` & `cat`)**
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/4648ce5a-7afa-4ce8-b2d7-a4c1d6195158" />
+
+**Checking the Files (`ls`):** Running `ls` shows that both files (`backup.sh` and `backup_log.txt`) are now present in our **home folder**. Note that `backup_log.txt` was created automatically by our **script** when the timer went off.
+
+**Reading the Script (`cat backup.sh`):** This shows the exact **instruction** we gave to the `at` command to run:
+
+`echo "Backup done at $(date)" >> /home/harsh/backup_log.txt`
+
+**echo:** Prints the text message `"Backup done at..."`.
+
+**$(date):** Automatically fetches the exact **live date and time** from the system clock at that moment.
+
+**`>>` (Redirect):** This simply means **redirect**. Instead of printing the **`echo` message** on the terminal screen, we are telling Linux to redirect and print it directly **inside `backup_log.txt`**.
+
+**Checking the Final Output (cat backup_log.txt):** Reading the **log file** reveals the saved message **Backup done at Tue Nov 24 05:34:00 AM UTC 2026** which we redirected to the system, proving that the `at` command ran our script right on schedule!
+
+---
+
+# Managing Scheduled Jobs (atq & atrm)
+
+Once you set an at job, you can easily view or cancel it before it runs:
+• atq (At Queue): Shows a list of all pending jobs waiting to run, along with their Job ID numbers.
+• atrm <Job_ID> (At Remove): Deletes a scheduled job if you change your mind (Example: atrm 1 or sudo atrm 1).
+
+⚙️ Important Check: The atd Background Service
+
+For your at jobs to work, the background scheduler service (called atd) must be running. If your scheduled tasks are not running on time, use these commands:
+• Check if it is running: sudo systemctl status atd
+• Start the service (if stopped): sudo systemctl start atd
+• Auto-start on system boot: sudo systemctl enable atd
+
+⚠️ Troubleshooting: Avoiding the "Garbled time" Error
+
+• The Problem: If you add seconds to your time (like at 07:08:00), Linux shows an error: syntax error. Last token seen: : Garbled time.
+• The Reason: The at command only reads hours and minutes (HH:MM). It does not understand seconds.
+• The Easy Fix: Never add seconds at the end. Always write at 07:08 or at 07:08 AM.
+
+---
+
+
+
 
 
 # SCHEDULING ONE-TIME TASKS: THE `at` COMMAND
 
 If you want to execute a script or command automatically at a particular date or time only once in the future, Linux provides a dedicated utility called the at command.
 
-Unlike recurring cron jobs, once the at job runs at its scheduled time, it finishes and removes itself from the queue permanently.
-HOW IT WORKS (THE INTERACTIVE PROMPT):
-When you run the at command with a specified time, it opens a special interactive prompt (at>). You type the commands or scripts you want to run inside this prompt, and then safely save it.
-SYNTAX:
-at <TIME> <DATE>
+Unlike recurring **`cron jobs**, once the at job runs at its scheduled time, it finishes and removes itself from the **queue** permanently.
+
+**HOW IT WORKS (THE INTERACTIVE PROMPT):**
+
+When you run the `at` command with a specified **time**, it opens a special interactive prompt **(at>)**. You type the commands or scripts you want to run inside this prompt, and then safely save it.
+
+**SYNTAX:**
+
+* `at <TIME> <DATE>`
 
 STEPS TO SCHEDULE A JOB:
 
 1. Enter the at command with your desired time (e.g., at 11:30 PM).
+
 2. The terminal will switch to an at> prompt. Type the full path of your script or command:
 
 	• sh /home/harsh/secretkey/python/folder/script.sh
