@@ -4319,15 +4319,19 @@ hostname >> myinfo.txt
 
 **Quick Tip to Remember:**
 
-* **`>` (Single Arrow): Replaces everything (Old text is deleted).
-• >> (Double Arrow): Adds below (Old text stays safe).
+* **`>`** **(Single Arrow):** Creates new file and used to add our first output. Replaces everything (Old text is deleted) if your file already contains outputs of some commands.
+ 
+* **`>>`** **(Double Arrow):** Adds below (Old text stays safe).
 
+---
 
-
-**Real-World Use:** **Saving Environment Variables (`.env` File) using redirection signs**
+## Real-World Use:** **Saving Environment Variables (`.env` File) using redirection signs**
 
 In real-world projects, developers use `>` and `>>` to quickly create and **update `.env`** (Environment Variables) files that store app settings like **database names**, **ports**, or **API** keys.
 
+**What are `env` variables?**
+
+Environment variables are those variables which carry information about our system executables packed in variables, basically it's like a Diary in which all the information about our system executables is written, whenever we execute a command or perform an operation, our system checks if the executed command is saved or not, if it is written in the variables, the system finds it out and give you the output, otherwise it will throw a command error or simply fail to execute the command.
 You can check a lot of `env` variables using command `printenv`.
 
 ```bash
