@@ -4422,45 +4422,75 @@ As you can see that, the value of `env` variable, **`USER`** has been printed su
 ---
 
 
-📥 Understanding Input Redirection (<)
+# Understanding Input Redirection (`<`)
 
-While > sends output out into a file, the less-than sign (<) feeds data into a command from a file instead of you typing it on the keyboard.
-• Example: sort < names.txt
+While `>` sends output out into a **file**, the less-than sign (`<`) feeds data into a **command** from a **file** instead of you typing it on the keyboard.
+
+**SYNTAX:**
+
+* `cat < my_file`
+
+**EXAMPLE:** 
+
+* `cat < my_file`
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/cbc4cd6e-0769-4bda-8e94-88bb179891fc" />
+
+---
+
+* We can also use sort which is used to arrange the data of a file alphabetically with the input redirection.
+
+**SYNTAX:**
+
+* `sort < <file_name>`
+
+**EXAMPLE:**
+
+* `sort < my_file`
+
+**EXPECTED OUTPUT:**
+
+
+****
 (This tells the sort command to read all names from names.txt and sort them alphabetically).
 
-💡 Quick Summary of All 3 Redirections:
 
-• > / >> (Output): Sends normal results into a file.
-• 2> / 2>> (Error): Sends error messages into a file (or hides them with 2>/dev/null).
-• < (Input): Feeds file data into a command.
+## Understanding Error Redirection (`2>` and `2>>`): Explanation with A Simple Story
 
+Imagine Linux is like a **water tank** with two different **taps**:
 
+* **Tap 1 (`>`):** Only clean water (**good results**) comes out of this tap.
+* **Tap 2 (`2>`):** Only dirty water (**error messages**) comes out of this tap.
 
+**Scene 1:** **When Normal `>` Fails**
 
-🚨 Understanding Error Redirection (2> and 2>>): A Simple Story
+Suppose you try to **open** a folder that does not **exist**, and you connect a **bottle** (output.txt file) to **Tap 1** (`>`):
 
-Imagine Linux is like a water tank with two different taps:
-• Tap 1 (>): Only clean water (good results) comes out of this tap.
-• Tap 2 (2>): Only dirty water (error messages) comes out of this tap.
+`ls /fakefolder > output.txt`
 
-Scene 1: When Normal > Fails
+Since `/fakefolder` is missing, Linux produces an **error**! That error comes out of **Tap 2**, not Tap 1 as I told you above. Because Tap 2 has no **bottle (file)** attached, the error spills **straight** onto your terminal screen, and `output.txt` stays empty.
 
-Suppose you try to open a folder that does not exist, and you connect a bottle (output.txt) to Tap 1 (>):
-ls /fakefolder > output.txt
-Since /fakefolder is missing, Linux produces an error! That error comes out of Tap 2, not Tap 1. Because Tap 2 has no bottle attached, the error spills straight onto your terminal screen, and output.txt stays empty.
+**Scene 2:** **Catching the Error (`2>` and `2>>`)**
 
-Scene 2: Catching the Error (2> and 2>>)
+Now you connect a **bottle (`error.txt`)** directly to **Tap 2 (`2>`):**
 
-Now you connect a bottle (error.txt) directly to Tap 2 (2>):
-ls /fakefolder 2> error.txt
-This time, when Linux shouts "No such file or directory", the error flows quietly straight into error.txt. Your terminal screen stays 100% clean! (Tip: Use 2>> to add new errors at the bottom of error.txt without erasing old ones).
+`ls /fakefolder 2> error.txt`
 
-Scene 3: The Magic Drain (2>/dev/null)
+This time, when Linux shouts **No such file or directory**, the error flows quietly straight into `error.txt`. Your terminal screen stays **100% clean!** 
 
-One day, you search the whole computer using find / -name "notes.txt". Linux hits 500 locked folders and shouts "Permission denied" 500 times on your screen!
-To stop this mess, you connect Tap 2 directly to Linux's magic drain (/dev/null — a black hole where anything sent disappears forever):
-find / -name "notes.txt" 2>/dev/null
-Now, all 500 annoying errors go straight down the drain, and only your real notes.txt file shows up cleanly on the screen!
+(**Tip:** Use `2>>` to add **new errors** at the bottom of `error.txt` without erasing **old ones**).
+
+**Scene 3:** **The Magic Drain (`2>/dev/null`)**
+
+One day, you search the **whole computer** using `find / -name notes.txt`. Linux hits **500 locked folders** and shouts **Permission denied** 500 times on your screen!
+
+To stop this **mess**, you connect **Tap 2** directly to Linux's **magic drain** (`/dev/null` — a **black hole** where anything sent **disappears** forever):
+
+`find / -name notes.txt 2>/dev/null`
+
+Now, all **500 annoying errors** go straight down the drain, and only your real **notes.txt file** shows up cleanly on the screen!
 
 
 🤔 Why Redirect Errors Instead of Showing Them on Screen?
@@ -4470,13 +4500,11 @@ When you are sitting in front of your computer, seeing errors on the screen is t
 • Hiding Thousands of Useless Errors: When you search the entire system, Linux prints thousands of "Permission denied" lines that hide your real answer. Sending errors to the magic dustbin (2>/dev/null) keeps your screen clean so you only see useful results.
 • Separating Good and Bad Data: When processing big tasks, engineers send successful results to success.txt (>) and failed tasks to failed.txt (2>), making it super easy to fix only the failed items later.
 
+💡 Quick Summary of All 3 Redirections:
 
-
-
-
-
-
-
+• > / >> (Output): Sends normal results into a file.
+• 2> / 2>> (Error): Sends error messages into a file (or hides them with 2>/dev/null).
+• < (Input): Feeds file data into a command.
 
 
 
