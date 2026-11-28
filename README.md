@@ -4462,22 +4462,47 @@ Normally, a single `>` only saves **successful outputs** into a file. If a comma
 
 * **`2>` (Overwrite Errors):** Saves the error message into a **file**. If the file already has **old errors**, `2>` deletes them and writes only the **new error** as discussed before.
 
+* So, let's practice this with two scenarios:
+
+**If you are using with a file that exists**
+
 **SYNTAX:**
 
 * `ls <real_file_name> 2> <error_file_name>`
   
 **EXAMPLE:**
 
-* `ls fakefile.txt 2> error.txt`
+* `ls my_file 2> error.txt`
 
 **EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/64af2b7e-aef7-46ea-b16c-0b55be30c385" />
+
+
+* You can see that I used this with a file that exists in my directory. That's why, it printed the file name on my screen and when I checked the errors.txt file, then it was empty. As, no error was there.
+
+**If you are using with a file that does not exist**
+
+**SYNTAX:**
+
+* `ls <fake_file_name>` 2> <error_file_name>`
+
+**EXAMPLE:**
+
+* `ls new_file 2> error.file`
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/9622b8aa-000a-4968-b717-abe5454a5408" />
+
+* You can see that, it did not displayed the file name on the screen and put the error in the file error.file without printing on the screen.
 
 
 * **`2>>` (Append Errors):** Safely adds the **new error** message at the bottom of the file without deleting any **old errors**.
 
 **SYNTAX:**
 
-* `ls new_fake_file 2>> errors.txt`
+* `ls <new_fake_file> 2>> errors.txt`
 
 **EXAMPLE:** 
 
@@ -4485,12 +4510,73 @@ Normally, a single `>` only saves **successful outputs** into a file. If a comma
  
 **EXPECTED OUTPUT:**
 
-• 
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/16c164df-c0b1-4c6a-838e-f762e4c30123" />
+
+You can see that it has redirected the error message safely in the error.file file without deleting the previous error message.
+
+**What Happens When You Run `2>`?**
+
+* **If the File Exists (No Error):** The command works fine, the result prints normally on your screen, and error.txt stays empty.
+
+* **If the File Does NOT Exist (Error Happens):** The error does not show on your screen; instead, it gets saved inside error.txt.
+
+---
+
 * **`2>/dev/null` (Hide Errors):** `/dev/null` is a **digital black hole** in Linux. Anything sent there **disappears** forever, which helps keep your screen clean from annoying **Permission denied** errors.
 
-Example: find / -name "notes.txt" 2>/dev/null
+**When & Where to Use `2>/dev/null`? (Simple Examples)**
 
-⚖️ What Happens When You Run 2>?
+You only need to use `2>/dev/null` when a command shows too many annoying **Permission denied** or **No such file** errors on your screen, and you want to **hide** them.
+
+Here are the 2 **easiest** examples to remember: **(Beginner Level)**
+
+**1**. With `find` command (**Searching** for a File):
+
+**SYNTAX:**
+
+* `find / -name "<file_name>" 2>/dev/null`
+
+**EXAMPLE:**
+
+* `find / -name "file.txt" 2>/dev/null`
+
+(When searching the whole computer, Linux shows many **Permission denied** errors for locked folders. Adding `2>/dev/null` hides all those **errors** and shows only your file).
+
+**EXPECTED OUTPUT:**
+
+* Error without `2>/dev/null`:
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/299bffab-3187-48ed-8111-4f9cd5294efc" />
+
+* Solution with `2>/dev/null`:
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/2cb34f69-3e0e-4b5b-9e94-40c5c08c482e" />
+
+* You can see that it has removed all the errors and gave the path of the file where it is located.
+
+---
+
+**2**. With `ls` command (**Checking** a Missing File):
+
+**SYNTAX:**
+
+* `ls <missing_file_name> 2>/dev/null`
+
+(If the file does not exist, it simply hides the **error** message instead of printing red text on your screen).
+
+**EXAMPLE:**
+
+* `ls FILE 2>/dev/null`
+
+**EXPECTED OUTPUT:**
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/c18b6d75-a3cd-4564-bf4d-5098d4740eb0" />
+
+* You can see that the file named FILE was not there in the directory (it was missing file). So, it directed the error in the /dev/null bin without printing on the screen.
+
+ 
+
+**What Happens When You Run `2>`?**
 
 • If the File Exists (No Error): The command works fine, the result prints normally on your screen, and error.txt stays empty.
 • If the File Does NOT Exist (Error Happens): The error does not show on your screen; instead, it gets saved inside error.txt.
